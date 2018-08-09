@@ -10500,6 +10500,16 @@ ion-item-options:not([icon-start]) .button:not([icon-only]) ion-icon {
   padding-bottom: .3em;
 }
 
+.item.active.item-stable,
+.item.item-stable {
+  padding: 0 15px;
+  border: transparent;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
 ion-item-sliding.active-slide .item,
 ion-item-sliding.active-slide .item.activated {
   position: relative;
@@ -15885,6 +15895,7 @@ other-event-details .other-event-details .main-detail-header .event-title {
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 0;
+  color: white;
 }
 
 other-event-details .other-event-details .main-detail-header i {
@@ -18458,9 +18469,19 @@ ion-nav.landscape .login-page {
   background-position: 0 0 !important;
 }
 
+.login-page .text-input.text-input-md {
+  padding: 9px 11px;
+  margin: 0 0 10px;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  font-size: 12px;
+  background: #fff;
+  color: #000;
+}
+
 .login-page {
-  background: 0 0 !important;
-  background-size: auto !important;
+  // background: 0 0 !important;
+  // background-size: auto !important;
 }
 
 .login-page .form-group {
@@ -18471,7 +18492,7 @@ ion-nav.landscape .login-page {
 }
 
 .login-page .logo {
-  background: url(../assets/img/logo_dark.441e4c5a.svg) center center no-repeat;
+  background: url(https://member.play7s.com/m/assets/img/logo_dark.441e4c5a.svg) center center no-repeat;
   background-size: contain;
   position: relative;
   width: 200px;
@@ -18502,7 +18523,7 @@ ion-nav.landscape .login-page {
   width: 120px;
 }
 
-.ion-page ion-content.login-page .scroll-content {
+.login-page .login-content {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: table;
@@ -19224,3 +19245,15 @@ ion-nav.landscape .racing-page .open-bets-link {
 //     margin-bottom: 10px;
 //   }
 // }
+.item.item-stable {
+  border-color: transparent;
+  background-color: transparent;
+  &:active,
+  &:focus {
+    border-color: transparent;
+  }
+}
+
+.menu-inner {
+  width: 285px;
+}

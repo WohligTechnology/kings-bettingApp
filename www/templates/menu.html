@@ -18,19 +18,140 @@
     </ion-header-bar> -->
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close href="#/login">
           Login
         </ion-item>
         <ion-item menu-close href="#/app/home">
           Home
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+        <ion-item menu-close href="#/app/open-bet">
+          open bet
         </ion-item>
         <ion-item menu-close href="#/app/playlists">
           Playlists
         </ion-item>
       </ion-list>
     </ion-content>
+  </ion-side-menu>
+  <ion-side-menu class="menu-slide menu-enabled show-menu" role="navigation" side="right" type="push">
+    <div class="menu-inner" style="transform: translateX(0px);">
+      <right-menu>
+        <ion-content class="content content-md">
+          <div class="fixed-content"></div>
+          <!-- <div class="scroll-content"> -->
+          <div class="menu-top-wrap">
+            <account-overview>
+              <div class="account-overview">
+                <p class="login-name">nileshw</p>
+
+                <ion-list class="list list-md">
+                  <div class="menu-item">
+                    <p class="label">
+                      <i class="apl-icon-university"></i>
+                      <span>Balance Information</span>
+                    </p>
+                    <div class="content">
+                      <div class="group">
+                        <div>Available Credit:</div>
+                        <span><strong>180.00</strong></span>
+                      </div>
+                      <div class="group">
+                        <div>Credit Limit:</div>
+                        <span>200.00</span>
+                      </div>
+                      <div class="group">
+                        <div>Winnings:</div>
+                        <span class="-positive">0.80</span>
+                      </div>
+                      <div class="group">
+                        <div>Net Exposure:</div>
+                        <span class="-negative">20.80</span>
+                      </div>
+                    </div>
+                  </div>
+                </ion-list>
+              </div>
+            </account-overview>
+            <ion-list no-border="" class="list list-md">
+
+              <div>
+                <div class="menu-lvl-1 ">
+                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-list"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
+                          
+                          Open Bets
+                      </ion-label></div></div><div class="button-effect"></div></button>
+                </div>
+              </div>
+              <div>
+                <div class="menu-lvl-1 ">
+                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-money"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
+                          
+                          Betting P&amp;L
+                      </ion-label></div></div><div class="button-effect"></div></button>
+                </div>
+              </div>
+              <!-- <div>
+                <div class="menu-lvl-1 ">
+                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-book"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
+                          
+                          Transfer Statement
+                      </ion-label></div></div><div class="button-effect"></div></button>
+                </div>
+              </div> -->
+              <!-- <div>
+                <div class="menu-lvl-1 ">
+                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-time"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
+                          
+                          Time Setting
+                      </ion-label></div></div><div class="button-effect"></div></button>
+                </div>
+              </div> -->
+              <!-- <div>
+                <div class="menu-lvl-1 ">
+                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-lock"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
+                          
+                          Change Password
+                      </ion-label></div></div><div class="button-effect"></div></button>
+                </div>
+              </div> -->
+              <div>
+                <div class="menu-lvl-1 ">
+                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-rules-regs"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
+                          
+                          Rules &amp; Regulations
+                      </ion-label></div></div><div class="button-effect"></div></button>
+                </div>
+              </div>
+              <div>
+                <div class="menu-lvl-1 one-click-menu">
+                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-bullseye"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
+                          
+                          1 Click Bet Settings
+                      </ion-label></div></div><div class="button-effect"></div></button>
+                </div>
+              </div>
+            </ion-list>
+          </div>
+
+          <button class="btn-sign-out item item-block item-md" ion-item=""><i class="apl-icon-signout" item-left=""></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
+              
+              Sign Out
+      </ion-label></div></div><div class="button-effect"></div></button>
+          <div class="powered-by item item-block item-md" ion-item="">
+            <div class="item-inner">
+              <div class="input-wrapper">
+
+                <ion-label class="label label-md"></ion-label>
+              </div>
+
+            </div>
+            <div class="button-effect"></div>
+          </div>
+
+          <!-- </div> -->
+        </ion-content>
+      </right-menu>
+    </div>
+
   </ion-side-menu>
 </ion-side-menus>

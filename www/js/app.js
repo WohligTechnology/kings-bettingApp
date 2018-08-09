@@ -60,6 +60,56 @@ var myApp = angular.module('starter', ['ionic', 'starter.controllers'])
           }
         }
       })
+      .state('app.profit-loss', {
+        url: '/profit-loss',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/profile-loss/profile-loss.html',
+            controller: 'ProfitLossCtrl'
+
+          }
+        }
+      })
+      .state('app.profit-loss-inner', {
+        url: '/profit-loss-inner',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/profit-loss-inner/profit-loss-inner.html',
+            controller: 'ProfitLossInnerCtrl'
+
+          }
+        }
+      })
+      .state('app.bet-setting', {
+        url: '/bet-setting',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/bet-setting/bet-setting.html',
+            controller: 'BetsettingCtrl'
+
+          }
+        }
+      })
+      .state('app.rules-regulations', {
+        url: '/rules-regulations',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/rules-regulations/rules-regulations.html',
+            controller: 'RulesRegulationsCtrl'
+
+          }
+        }
+      })
+      .state('app.match-inner', {
+        url: '/match-inner',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/match-inner/match-inner.html',
+            controller: 'MatchinnerCtrl'
+
+          }
+        }
+      })
       .state('app.browse', {
         url: '/browse',
         views: {
@@ -67,6 +117,11 @@ var myApp = angular.module('starter', ['ionic', 'starter.controllers'])
             templateUrl: 'templates/browse.html'
           }
         }
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login/login.html',
+        controller: 'LoginCtrl'
       })
       .state('app.playlists', {
         url: '/playlists',

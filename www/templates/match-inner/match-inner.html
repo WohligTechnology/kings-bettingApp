@@ -1,0 +1,801 @@
+<ion-view view-title="Match Inner">
+  <!-- <ion-content class="header-shrink-container " padding="" style="margin-top:30px;"> -->
+  <shrinkable-page>
+    <div class="header-shrink-container" style="transform: none; margin-top: 43px;">
+      <div class="hide-on-scroll-container">
+        <div class="hide-on-scroll">
+          <ion-header app-header="" class="relative-header header header-md">
+            <div class="header-container">
+              <ion-navbar class="toolbar toolbar-md app-header">
+                <div class="toolbar-background toolbar-background-md"></div><button class="back-button disable-hover bar-button bar-button-md back-button-md bar-button-default bar-button-default-md show-back-button"
+                  ion-button="bar-button"><span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" aria-label="arrow back"></ion-icon><span class="back-button-text back-button-text-md"></span></span><div class="button-effect"></div></button>
+                <ion-buttons left="" class="bar-buttons bar-buttons-md">
+                  <button analytics-on="" ion-button="" menutoggle="left" class="disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+                    hidden=""><span class="button-inner">
+                            <ion-icon name="menu" role="img" class="icon icon-md ion-md-menu" aria-label="menu"></ion-icon>
+                        </span><div class="button-effect"></div></button>
+                </ion-buttons>
+                <ion-buttons end="" class="bar-buttons bar-buttons-md">
+                  <button analytics-on="" class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+                    ion-button=""><span class="button-inner">
+                            <ion-icon name="search" role="img" class="icon icon-md ion-md-search" aria-label="search"></ion-icon>
+                        </span><div class="button-effect"></div></button>
+                  <button analytics-on="" class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+                    ion-button="" menutoggle="right" hidden=""><span class="button-inner">
+                            <balance><div>
+                <i class="apl-icon-user"></i>
+                <span class="balance">180</span>
+            </div>
+            </balance>
+                     </span><div class="button-effect"></div></button>
+                </ion-buttons>
+                <div class="toolbar-content toolbar-content-md">
+
+                  <ion-title class="left-title title title-md">
+                    <div class="toolbar-title toolbar-title-md">
+                      <div analytics-on="" class="logo" tappable=""></div>
+                    </div>
+                  </ion-title>
+                </div>
+              </ion-navbar>
+              <ion-navbar class="search-header toolbar toolbar-md hide-header">
+                <div class="toolbar-background toolbar-background-md"></div><button class="back-button disable-hover bar-button bar-button-md back-button-md bar-button-default bar-button-default-md"
+                  ion-button="bar-button"><span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" aria-label="arrow back"></ion-icon><span class="back-button-text back-button-text-md"></span></span><div class="button-effect"></div></button>
+                <ion-buttons left="" class="bar-buttons bar-buttons-md">
+                  <button class="search-back disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" ion-button=""><span class="button-inner">
+                            <ion-icon name="arrow-back" role="img" class="icon icon-md ion-md-arrow-back" aria-label="arrow back"></ion-icon>
+                        </span><div class="button-effect"></div></button>
+                </ion-buttons>
+                <ion-buttons end="" class="bar-buttons bar-buttons-md">
+                  <button analytics-on="" class="new-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+                    ion-button=""><span class="button-inner">
+                            <ion-icon name="search" role="img" class="icon icon-md ion-md-search" aria-label="search"></ion-icon>
+                        </span><div class="button-effect"></div></button>
+                </ion-buttons>
+                <div class="toolbar-content toolbar-content-md">
+
+
+                  <div class="ng-untouched ng-pristine ng-valid">
+                    <input class="search-term ng-untouched ng-pristine ng-valid" formcontrolname="searchTerm" id="searchTerm" name="searchTerm"
+                      type="text" placeholder="Search Events">
+                  </div>
+
+
+                </div>
+              </ion-navbar>
+
+
+
+
+            </div>
+          </ion-header>
+          <event-details>
+            <div class="event-details">
+              <other-event-details>
+                <div class="other-event-details in-play">
+                  <div class="main-detail-header">
+                    <i class="apl-icon-custom-play"></i>
+                    <h5 class="event-title">Dindigul Dragons v Madurai Panthers</h5>
+                  </div>
+                  <div class="match-stats-info">
+                    <div class="detail">
+                      <p class="team">Dindigul Dragons: 107-1 (10.4 Ovs)</p>
+                      <p class="info"><span></span>Siechem Madurai Panthers opt to bowl</p>
+                    </div>
+                  </div>
+                </div>
+              </other-event-details>
+            </div>
+          </event-details>
+        </div>
+      </div>
+      <div>
+        <tabs class="scroll-to-top">
+          <apl-nav-tabs-group>
+            <div class="nav-tabs-group-container">
+              <div class="nav-tab markets active">
+                Market
+              </div>
+              <div class="nav-tab news">
+                News
+              </div>
+              <div class="nav-tab match-stats">
+                Live
+              </div>
+              <div class="nav-tab bets">
+                Open Bets (0)
+              </div>
+            </div>
+          </apl-nav-tabs-group>
+        </tabs>
+      </div>
+    </div>
+    <div class="shrink-page-content">
+      <ion-content class="event-page scrollable-content content content-md" padding="">
+        <div class="fixed-content"></div>
+        <div class="" style="padding-top: 120px;">
+          <div>
+            <div class="market-list">
+              <markets>
+                <section class="market-list-item">
+                  <div class="heading">
+                    <div class="title">Match Odds</div>
+                    <div class="action">Back</div>
+                    <div class="action">Lay</div>
+                    <div class="empty-action more-odds"></div>
+                    <div class="empty-action more-odds"></div>
+                  </div>
+                  <div class="list-body distinct">
+                    <market>
+                      <div class="market list-item" id="selection-1.146373582-10301">
+                        <div class="runner-details">
+                          <div class="title">
+                            <span>England</span>
+                          </div>
+                          <pnl>
+                            <span></span>
+                          </pnl>
+                        </div>
+                        <div class="odds-container">
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                            <div class="back">
+                              <div class="price">2.56</div>
+
+                              <market-volume>59,822
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                            <div class="back">
+                              <div class="price">2.58</div>
+                              <market-volume>55,834
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                            <div class="back">
+                              <div class="price">2.60</div>
+                              <market-volume>2,402
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                            <div class="lay">
+                              <div class="price">2.64</div>
+                              <market-volume>115,310
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                            <div class="lay -apl-highlighted">
+                              <div class="price">2.66</div>
+                              <market-volume>95,446
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                            <div class="lay">
+                              <div class="price">2.68</div>
+                              <market-volume>15,720
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                        </div>
+                      </div>
+                      <div class="market list-item" id="selection-1.146373582-414464">
+                        <div class="runner-details">
+                          <div class="title">
+                            <span>India</span>
+                          </div>
+                          <pnl>
+                            <span></span>
+                          </pnl>
+                        </div>
+                        <div class="odds-container">
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                            <div class="back">
+                              <div class="price">3.35</div>
+                              <market-volume>71,760
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                            <div class="back">
+                              <div class="price">3.40</div>
+                              <market-volume>136,734
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                            <div class="back -apl-highlighted">
+                              <div class="price">3.45</div>
+                              <market-volume>3,910
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                            <div class="lay">
+                              <div class="price">3.50</div>
+                              <market-volume>20,322
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                            <div class="lay">
+                              <div class="price">3.55</div>
+                              <market-volume>29,922
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                            <div class="lay">
+                              <div class="price">3.60</div>
+                              <market-volume>189,894
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                        </div>
+                      </div>
+                      <div class="market list-item" id="selection-1.146373582-60443">
+                        <div class="runner-details">
+                          <div class="title">
+                            <span>The Draw</span>
+                          </div>
+                          <pnl>
+                            <span></span>
+                          </pnl>
+                        </div>
+                        <div class="odds-container">
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                            <div class="back">
+                              <div class="price">2.96</div>
+                              <market-volume>245,468
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                            <div class="back">
+                              <div class="price">2.98</div>
+                              <market-volume>238,784
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                            <div class="back">
+                              <div class="price">3.00</div>
+                              <market-volume>349,714
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                            <div class="lay -apl-highlighted">
+                              <div class="price">3.05</div>
+                              <market-volume>283,826
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                            <div class="lay">
+                              <div class="price">3.10</div>
+                              <market-volume>214,150
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                            <div class="lay">
+                              <div class="price">3.15</div>
+                              <market-volume>500,000+
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                        </div>
+                      </div>
+                    </market>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <hr class="line-market-separator">
+                  <div class="heading">
+                    <div class="title">Session Runs</div>
+                    <div class="action">No</div>
+                    <div class="action">Yes</div>
+                    <div class="empty-action more-odds"></div>
+                    <div class="empty-action more-odds"></div>
+                  </div>
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">MATCH 1ST OVER RUN (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">1ST DAY 1ST SESSION RUN ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">1ST DAY 2ND SESSION RUN ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">1ST DAY TOTAL RUN ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">FALL OFF 1ST WKT ENG ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">FALL OFF 1ST WKT IND ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">K JENNINGS RUN (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">A COOK RUN (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">M VIJAY RUN (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">S DHAWAN RUN (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">TOTAL MATCH FOUR (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">TOTAL MATCH SIXES (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">TOTAL MATCH WIDE (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">MATCH EXTRA RUN (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">HIGHEST SCORING OVER IN MATCH (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                </section>
+                <section class="market-list-item compact-market-item last">
+                  <div class="list-body distinct join-market-rows">
+                    <market-suspended>
+                      <div class="market-suspended">
+                        <div class="runners">
+                          <div>
+                            <div class="list-item">
+                              <div class="details">
+                                <div class="title">TOP BATSMEN RUN IN MATCH (ENG VS IND)ADV</div>
+                                <i analytics-on="" class="apl-icon-custom-ladder disabled"></i>
+                                <pnl>
+                                  <span></span>
+                                </pnl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="suspended">
+                          <div class="inner">SUSPENDED</div>
+                        </div>
+                      </div>
+                    </market-suspended>
+                  </div>
+                  <hr class="line-market-separator">
+                </section>
+                <section class="market-list-item">
+                  <div class="heading">
+                    <div class="title">Tied Match</div>
+                    <div class="action">Back</div>
+                    <div class="action">Lay</div>
+                    <div class="empty-action more-odds"></div>
+                    <div class="empty-action more-odds"></div>
+                  </div>
+                  <div class="list-body distinct">
+                    <market>
+                      <div class="market list-item" id="selection-1.146373583-37302">
+                        <div class="runner-details">
+                          <div class="title">
+                            <span>Yes</span>
+                          </div>
+                          <pnl>
+                            <span></span>
+                          </pnl>
+                        </div>
+                        <div class="odds-container">
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                            <div class="back">
+                              <div class="price">110</div>
+                              <market-volume>2,000
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                            <div class="back">
+                              <div class="price">120</div>
+                              <market-volume>1,000
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                            <div class="back">
+                              <div class="price">130</div>
+                              <market-volume>2,000
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                            <div class="lay">
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                            <div class="lay">
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                            <div class="lay">
+                            </div>
+                          </bet-button>
+                        </div>
+                      </div>
+                      <div class="market list-item" id="selection-1.146373583-37303">
+                        <div class="runner-details">
+                          <div class="title">
+                            <span>No</span>
+                          </div>
+                          <pnl>
+                            <span></span>
+                          </pnl>
+                        </div>
+                        <div class="odds-container">
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                            <div class="back">
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                            <div class="back">
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                            <div class="back">
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                            <div class="lay">
+                              <div class="price">1.01</div>
+                              <market-volume>500,000+
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                            <div class="lay">
+                              <div class="price">1.02</div>
+                              <market-volume>500,000+
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                          <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                            <div class="lay">
+                              <div class="price">1.03</div>
+                              <market-volume>200,000
+                              </market-volume>
+                            </div>
+                          </bet-button>
+                        </div>
+                      </div>
+                    </market>
+                  </div>
+                </section>
+              </markets>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </shrinkable-page>
+  <!-- <ion-content class="home-page event-page content content-md" padding="" style="margin-top:30px;">
+    </ion-content> -->
+</ion-view>

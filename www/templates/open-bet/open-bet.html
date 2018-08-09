@@ -1,4 +1,4 @@
-<ion-view view-title="home" class="ion-page">
+<ion-view view-title="Open Bets" class="ion-page">
   <ion-content class="my-bets-page content content-md" padding="" style="margin-top:30px;">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div> -->
     <!-- <div class="scroll-content" style="margin-top: 60px;"> -->
@@ -10,7 +10,7 @@
     <my-bets>
       <div class="my-bets-container">
         <ion-list>
-          <div ng-repeat="group in groups">
+          <div ng-repeat="group in groups" class="mb-10">
             <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
               <h3 class="toggle">
 
