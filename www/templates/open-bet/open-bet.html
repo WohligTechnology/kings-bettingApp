@@ -1,0 +1,29 @@
+<ion-view view-title="home" class="ion-page">
+  <ion-content class="my-bets-page content content-md" padding="" style="margin-top:30px;">
+    <!-- <div class="fixed-content" style="margin-top: 60px;"></div> -->
+    <!-- <div class="scroll-content" style="margin-top: 60px;"> -->
+    <h2 class="page-title">
+      Open Bets
+      <!---->
+    </h2>
+
+    <my-bets>
+      <div class="my-bets-container">
+        <ion-list>
+          <div ng-repeat="group in groups">
+            <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+              <h3 class="toggle">
+
+                <span>Unmatched Bets</span> &nbsp;<i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+              </h3>
+
+            </ion-item>
+            <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+              ghguiuik
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+    </my-bets>
+    <!-- </div> -->
+  </ion-content>

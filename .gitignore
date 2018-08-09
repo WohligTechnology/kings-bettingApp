@@ -1,0 +1,7 @@
+node_modules/
+*.lock
+*.bin
+plugins/
+platforms/
+plugins/
+bower_components/

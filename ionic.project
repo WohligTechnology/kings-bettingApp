@@ -1,0 +1,12 @@
+{
+  "name": "kings-bettingApp",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
