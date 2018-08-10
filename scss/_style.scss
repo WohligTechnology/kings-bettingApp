@@ -34,6 +34,12 @@ pnl {
   clear: both;
 }
 
+///class for color
+.color-white {
+  color: white !important;
+}
+
+$gray-dark: #1b2035 !default;
 @font-face {
   font-family: Lato;
   font-style: normal;
@@ -9940,16 +9946,16 @@ ion-textarea {
 }
 
 .text-input::-moz-placeholder {
-  color: #999;
+  color: black;
 }
 
 .text-input:-ms-input-placeholder {
-  color: #999;
+  color: black;
 }
 
 .text-input::-webkit-input-placeholder {
   text-indent: 0;
-  color: #999;
+  color: black;
 }
 
 textarea.text-input {
@@ -10793,8 +10799,7 @@ ion-item-group .item-wrapper:last-child .item-ios .item-inner {
 }
 
 .item-md.item-block .item-inner {
-  padding-right: 8px;
-  border-bottom: 1px solid #dedede;
+  padding-right: 8px; // border-bottom: 1px solid #dedede;
 }
 
 .item-md [item-end],
@@ -11469,7 +11474,7 @@ ion-picker-cmp {
 }
 
 .list-md .item-block .item-inner {
-  border-bottom: 1px solid #dedede;
+  // border-bottom: 1px solid #dedede;
 }
 
 .list-md>.item-block:last-child .item-inner,
@@ -11555,10 +11560,9 @@ ion-picker-cmp {
   background-color: #440a57;
 }
 
-.list-md .item-input:last-child {
-  border-bottom: 1px solid #dedede;
-}
-
+// .list-md .item-input:last-child {
+//   border-bottom: 1px solid #dedede;
+// }
 .list-wp .item-block .item-inner,
 .list-wp>.item-block:last-child,
 .list-wp>.item-wrapper:last-child .item-block {
@@ -14999,8 +15003,8 @@ body .button-md-cta-primary {
 }
 
 .ion-page {
-  background: url("https://member.play7s.com/m/assets/img/main-background.9faced71.jpg");
-  background-size: cover;
+  background: url("https://member.play7s.com/m/assets/img/main-background.9faced71.jpg"); // background: url("../img/bg.png");
+  background-size: cover; // background-position: center center;
   height: 100%
 }
 
@@ -15297,7 +15301,7 @@ ion-item>h3.toggle>span {
 }
 
 ion-item>h3.toggle>i {
-  color: #440a57;
+  color: $gray-dark;
 }
 
 ion-item>section.content-wrapper {
@@ -16062,7 +16066,7 @@ ion-title.left-title .toolbar-title {
 }
 
 .app-header>.toolbar-background {
-  background: #440a57;
+  background: $gray-dark;
 }
 
 .app-header .bar-button-default,
@@ -16070,8 +16074,12 @@ ion-title.left-title .toolbar-title {
   color: #fff;
 }
 
+.font25 {
+  font-size: 25px;
+}
+
 .app-header .back-button-md {
-  margin: 0 0 0 5px;
+  margin: 5px 0 0 5px;
 }
 
 .app-header .toolbar-title {
@@ -16079,9 +16087,12 @@ ion-title.left-title .toolbar-title {
 }
 
 .app-header .logo {
-  background: url(../assets/img/logo.5138e52b.svg) left center no-repeat;
-  width: 135px;
-  height: 29px;
+  // background: url(https://member.play7s.com/m/assets/img/logo.5138e52b.svg) left center no-repeat;
+  // width: 135px;
+  // height: 29px;
+  color: white;
+  font-size: 25px;
+  font-family: CinzelBold;
   vertical-align: middle;
   margin: 15px 0 15px -20px;
   background-size: contain;
@@ -18472,16 +18483,28 @@ ion-nav.landscape .login-page {
 .login-page .text-input.text-input-md {
   padding: 9px 11px;
   margin: 0 0 10px;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #777777;
   border-radius: 2px;
   font-size: 12px;
-  background: #fff;
-  color: #000;
+  background: transparent;
+  color: black;
+}
+
+.login-bg {
+  background: url(../img/bg.png);
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .login-page {
-  // background: 0 0 !important;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+  height: 100vh; // background: 0 0 !important;
   // background-size: auto !important;
+  ion-input input,
+  ion-item {
+    color: white;
+    background: transparent;
+  }
 }
 
 .login-page .form-group {
@@ -18492,12 +18515,18 @@ ion-nav.landscape .login-page {
 }
 
 .login-page .logo {
-  background: url(https://member.play7s.com/m/assets/img/logo_dark.441e4c5a.svg) center center no-repeat;
+  // background: url(https://member.play7s.com/m/assets/img/logo_dark.441e4c5a.svg) center center no-repeat;
+  // background-size: contain;
+  // position: relative;
+  // width: 200px;
+  // height: 100px;
+  // margin: 0 auto;
+  color: #777777;
+  font-size: 35px;
+  font-family: CinzelBold;
+  vertical-align: middle;
+  margin: 25px auto;
   background-size: contain;
-  position: relative;
-  width: 200px;
-  height: 100px;
-  margin: 0 auto;
 }
 
 .login-page .item-md {
@@ -19256,4 +19285,18 @@ ion-nav.landscape .racing-page .open-bets-link {
 
 .menu-inner {
   width: 285px;
+}
+
+.button-clear.button-icon {
+  color: white !important;
+  margin-top: 10px;
+  &:before {
+    font-size: 35px;
+  }
+}
+
+accordion-extended {
+  display: block;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 14px;
 }

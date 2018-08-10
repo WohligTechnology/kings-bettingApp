@@ -1,4 +1,4 @@
-<ion-view view-title="Open Bets" class="ion-page">
+<ion-view view-title="My Markets" class="ion-page">
 
   <div class="header-container">
     <ion-navbar class="toolbar toolbar-md app-header root-page">
@@ -77,27 +77,9 @@
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div> -->
     <!-- <div class="scroll-content" style="margin-top: 60px;"> -->
     <h2 class="page-title">
-      Open Bets
+      My Markets
     </h2>
+    <div>You have no open bets.</div>
 
-    <my-bets>
-      <div class="my-bets-container">
-        <ion-list>
-          <div ng-repeat="group in groups" class="mb-10">
-            <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
-              <h3 class="toggle">
-
-                <span>Unmatched Bets</span> &nbsp;
-                <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
-              </h3>
-
-            </ion-item>
-            <ion-item class="item-accordion" ng-show="isGroupShown(group)">
-              ghguiuik
-            </ion-item>
-          </div>
-        </ion-list>
-      </div>
-    </my-bets>
     <!-- </div> -->
   </ion-content>

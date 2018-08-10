@@ -1,0 +1,383 @@
+<ion-view view-title="home" class="ion-page">
+  <div class="header-container">
+    <ion-navbar class="toolbar toolbar-md app-header root-page">
+      <div class="toolbar-background toolbar-background-md"></div>
+      <ion-buttons left="" class="bar-buttons bar-buttons-md">
+        <button class="button button-icon button-clear ion-navicon font25" menu-toggle="left">
+        </button>
+      </ion-buttons>
+      <ion-buttons class="bar-buttons bar-buttons-md">
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" ion-button="">
+          <i class="icon ion-search placeholder-icon"></i>
+          <div class="button-effect"></div>
+        </button>
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menutoggle="right">
+          <span class="button-inner">
+            <balance>
+              <div>
+                <i class="apl-icon-user"></i>
+                <span class="balance">180</span>
+              </div>
+            </balance>
+          </span>
+          <div class="button-effect"></div>
+        </button>
+      </ion-buttons>
+      <div class="toolbar-content toolbar-content-md">
+        <ion-title class="left-title title title-md">
+          <div class="toolbar-title toolbar-title-md">
+            <div class="logo">
+              Kings Bet
+            </div>
+          </div>
+        </ion-title>
+      </div>
+    </ion-navbar>
+
+    <ion-navbar class="search-header toolbar toolbar-md hide-header" ng-if="">
+      <div class="toolbar-background toolbar-background-md"></div>
+      <ion-buttons left="" class="bar-buttons bar-buttons-md">
+        <button class="search-back disable-hover bar-button bar-button-md bar-button-default bar-button-default-md">
+          <a class="ion-arrow-left-c color-white"></a>
+        </button>
+      </ion-buttons>
+      <ion-buttons class="bar-buttons bar-buttons-md">
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" ion-button="">
+          <i class="icon ion-search placeholder-icon"></i>
+          <div class="button-effect"></div>
+        </button>
+      </ion-buttons>
+      <div class="toolbar-content toolbar-content-md">
+        <div class="ng-untouched ng-pristine ng-valid">
+          <input class="search-term ng-untouched ng-pristine ng-valid" formcontrolname="searchTerm" id="searchTerm" name="searchTerm"
+            type="text" placeholder="Search Events">
+        </div>
+      </div>
+    </ion-navbar>
+  </div>
+  <ion-content class="racing-page content content-md" padding="" style="margin-top:60px;">
+    <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
+    <div class="scroll-content" style="margin-top: 60px;"> -->
+
+
+    <div>
+      <h2 class="page-title">Horse Racing</h2>
+      <h3 class="page-subtitle">Upcoming Races</h3>
+      <accordion-extended>
+        <h3 class="toggle f32">
+          <div class="title">
+            <div class="flag gb"></div>
+            <div class="venue">Wolverhampton</div>
+            <p class="time">18:50</p>
+          </div>
+          <div class="info-section">
+          </div>
+          <i class="apl-icon-chevron-up"></i>
+        </h3>
+        <section class="content-wrapper">
+          <div class="market-list">
+            <section class="market-list-item">
+              <div class="heading">
+                <div class="runners-num">
+                  Top 3 of 11 runners
+                </div>
+                <div class="empty-action more-odds"></div>
+                <div class="empty-action more-odds"></div>
+              </div>
+              <div class="list-body distinct">
+                <market>
+                  <div class="market list-item" id="selection-1.146526059-11620594">
+                    <div class="runner-details">
+                      <div>
+                        <div class="float-container">
+                          <div class="number-ids">
+                            <span>2</span>
+                            <br>
+                            <span>(6)</span>
+                          </div>
+                        </div>
+                        <div class="float-container">
+                          <race-symbol>
+                            <div class="race-symbol horse-racing">
+                              <img class="symbol-img" src="/api/media/jockeysilk/YzIwMTgwODEwd29sLzAwMDc5MDgyLmpwZw">
+                            </div>
+                          </race-symbol>
+                        </div>
+                        <div class="float-container runner-name">
+                          <div class="title truncate">Ahundrednotout</div>
+
+                          <div class="jockey-name truncate">Stevie Donohoe</div>
+                        </div>
+                      </div>
+                      <pnl class="pnl-racing">
+                        <span></span>
+                      </pnl>
+                    </div>
+                    <div class="odds-container">
+
+
+
+                      <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <div class="back">
+
+
+                          <div class="price">2.64</div>
+
+                          <market-volume>2,392
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <div class="back">
+
+
+                          <div class="price">2.66</div>
+
+                          <market-volume>3,776
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <div class="back">
+
+
+                          <div class="price">2.68</div>
+
+                          <market-volume>8,838
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <div class="lay">
+
+
+                          <div class="price">2.72</div>
+
+                          <market-volume>15,160
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <div class="lay">
+
+
+                          <div class="price">2.74</div>
+
+                          <market-volume>5,092
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <div class="lay">
+
+
+                          <div class="price">2.76</div>
+
+                          <market-volume>6,964
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+
+
+
+                    </div>
+                  </div>
+                  <div class="market list-item" id="selection-1.146526059-8212319">
+                    <div class="runner-details">
+                      <div>
+                        <div class="float-container">
+                          <div class="number-ids">
+                            <span>1</span>
+                            <br>
+                            <span>(5)</span>
+                          </div>
+                        </div>
+                        <div class="float-container">
+                          <race-symbol>
+                            <div class="race-symbol horse-racing">
+                              <img class="symbol-img" src="/api/media/jockeysilk/YzIwMTgwODEwd29sLzAwODQ1NzEzLmpwZw">
+                            </div>
+                          </race-symbol>
+                        </div>
+                        <div class="float-container runner-name">
+                          <div class="title truncate">Passing Star</div>
+                          <div class="jockey-name truncate">Silvestre De Sousa</div>
+                        </div>
+                      </div>
+                      <pnl class="pnl-racing">
+                        <span></span>
+                      </pnl>
+                    </div>
+                    <div class="odds-container">
+                      <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <div class="back">
+                          <div class="price">5.20</div>
+                          <market-volume>36,674
+                          </market-volume>
+                        </div>
+                      </bet-button>
+                      <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <div class="back">
+                          <div class="price">5.30</div>
+                          <market-volume>4,874
+                          </market-volume>
+                        </div>
+                      </bet-button>
+                      <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <div class="back">
+                          <div class="price">5.40</div>
+                          <market-volume>3,774
+                          </market-volume>
+                        </div>
+                      </bet-button>
+                      <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <div class="lay">
+                          <div class="price">5.50</div>
+                          <market-volume>16,830
+                          </market-volume>
+                        </div>
+                      </bet-button>
+                      <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <div class="lay">
+                          <div class="price">5.60</div>
+                          <market-volume>15,828
+                          </market-volume>
+                        </div>
+                      </bet-button>
+                      <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <div class="lay">
+                          <div class="price">5.70</div>
+                          <market-volume>11,484
+                          </market-volume>
+                        </div>
+                      </bet-button>
+                    </div>
+                  </div>
+                  <div class="market list-item" id="selection-1.146526059-16240841">
+                    <div class="runner-details">
+                      <div>
+                        <div class="float-container">
+                          <div class="number-ids">
+                            <span>9</span>
+                            <br>
+                            <span>(10)</span>
+                          </div>
+                        </div>
+                        <div class="float-container">
+                          <race-symbol>
+                            <div class="race-symbol horse-racing">
+                              <img class="symbol-img" src="/api/media/jockeysilk/YzIwMTgwODEwd29sLzAwODM1NTY2Qi5qcGc">
+                            </div>
+                          </race-symbol>
+                        </div>
+                        <div class="float-container runner-name">
+                          <div class="title truncate">Ingleby Molly</div>
+                          <div class="jockey-name truncate">C. J. McGovern</div>
+                        </div>
+                      </div>
+                      <pnl class="pnl-racing">
+                        <span></span>
+                      </pnl>
+                    </div>
+                    <div class="odds-container">
+                      <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <div class="back">
+                          <div class="price">6.20</div>
+                          <market-volume>13,796
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <div class="back">
+                          <div class="price">6.40</div>
+                          <market-volume>25,902
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <div class="back">
+
+
+                          <div class="price">6.60</div>
+
+                          <market-volume>16,012
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <div class="lay">
+
+
+                          <div class="price">7.00</div>
+
+                          <market-volume>5,180
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <div class="lay">
+
+
+                          <div class="price">7.20</div>
+
+                          <market-volume>8,930
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+                      <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <div class="lay">
+
+
+                          <div class="price">7.40</div>
+
+                          <market-volume>4,262
+                          </market-volume>
+                        </div>
+                      </bet-button>
+
+
+
+
+                    </div>
+                  </div>
+                </market>
+              </div>
+            </section>
+          </div>
+        </section>
+      </accordion-extended>
+      <my-bets>
+        <div class="my-bets-container">
+          <ion-list>
+            <div ng-repeat="group in groups" class="mb-10">
+              <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+                <h3 class="toggle">
+
+                  <span>Unmatched Bets</span> &nbsp;
+                  <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+                </h3>
+
+              </ion-item>
+              <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+                ghguiuik
+              </ion-item>
+            </div>
+          </ion-list>
+        </div>
+      </my-bets>
+    </div>
+    <!-- </div> -->
+  </ion-content>
+</ion-view>

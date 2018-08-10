@@ -16,6 +16,11 @@ $dark:                            #444 !default;
 */
 
 // The path for our ionicons font files, relative to the built CSS in www/css
+@font-face {
+  src: url("../fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+  font-family: 'CinzelBold';
+}
+
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";

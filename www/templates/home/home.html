@@ -1,5 +1,62 @@
 <ion-view view-title="home" class="ion-page">
-  <ion-content class="home-page event-page content content-md" padding="" style="margin-top:30px;">
+  <div class="header-container">
+    <ion-navbar class="toolbar toolbar-md app-header root-page">
+      <div class="toolbar-background toolbar-background-md"></div>
+      <ion-buttons left="" class="bar-buttons bar-buttons-md">
+        <button class="button button-icon button-clear ion-navicon font25" menu-toggle="left">
+        </button>
+      </ion-buttons>
+      <ion-buttons class="bar-buttons bar-buttons-md">
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" ion-button="">
+          <i class="icon ion-search placeholder-icon"></i>
+          <div class="button-effect"></div>
+        </button>
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menutoggle="right">
+          <span class="button-inner">
+            <balance>
+              <div>
+                <i class="apl-icon-user"></i>
+                <span class="balance">180</span>
+              </div>
+            </balance>
+          </span>
+          <div class="button-effect"></div>
+        </button>
+      </ion-buttons>
+      <div class="toolbar-content toolbar-content-md">
+        <ion-title class="left-title title title-md">
+          <div class="toolbar-title toolbar-title-md">
+            <div class="logo">
+              Kings Bet
+            </div>
+          </div>
+        </ion-title>
+      </div>
+    </ion-navbar>
+
+    <ion-navbar class="search-header toolbar toolbar-md hide-header" ng-if="">
+      <div class="toolbar-background toolbar-background-md"></div>
+      <ion-buttons left="" class="bar-buttons bar-buttons-md">
+        <button class="search-back disable-hover bar-button bar-button-md bar-button-default bar-button-default-md">
+          <a class="ion-arrow-left-c color-white"></a>
+        </button>
+      </ion-buttons>
+      <ion-buttons class="bar-buttons bar-buttons-md">
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" ion-button="">
+          <i class="icon ion-search placeholder-icon"></i>
+          <div class="button-effect"></div>
+        </button>
+      </ion-buttons>
+      <div class="toolbar-content toolbar-content-md">
+        <div class="ng-untouched ng-pristine ng-valid">
+          <input class="search-term ng-untouched ng-pristine ng-valid" formcontrolname="searchTerm" id="searchTerm" name="searchTerm"
+            type="text" placeholder="Search Events">
+        </div>
+      </div>
+    </ion-navbar>
+  </div>
+  <ion-content class="home-page event-page content content-md" padding="" style="margin-top:60px;">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
     <div class="scroll-content" style="margin-top: 60px; overflow:visible"> -->
 
@@ -8,7 +65,7 @@
         <i class="apl-icon-custom-play"></i>
         <span class="label">In Play</span>
       </div>
-      <span analytics-on="" class="open-bets-link">Open Bets (1)</span>
+      <span class="open-bets-link" ui-sref="app.open-bet">Open Bets (1)</span>
 
       <ion-list class="distinct market-list list list-md">
 
@@ -58,7 +115,7 @@
 
 
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="back">
                           <div class="back">
 
 
@@ -69,7 +126,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="back">
                           <div class="back">
 
 
@@ -80,7 +137,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <bet-button index="0" tappable="" type="back" class="not-selected">
                           <div class="back">
 
 
@@ -91,7 +148,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <bet-button index="0" tappable="" type="lay" class="not-selected">
                           <div class="lay">
 
 
@@ -102,7 +159,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -113,7 +170,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -135,21 +192,21 @@
                         </pnl>
                       </div>
                       <div class="odds-container">
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="back">
                           <div class="back">
                             <div class="price">2.30</div>
                             <market-volume>102,984
                             </market-volume>
                           </div>
                         </bet-button>
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="back">
                           <div class="back">
                             <div class="price">2.32</div>
                             <market-volume>3,262
                             </market-volume>
                           </div>
                         </bet-button>
-                        <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <bet-button index="0" tappable="" type="back" class="not-selected">
                           <div class="back">
 
                             <div class="price">2.34</div>
@@ -159,7 +216,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <bet-button index="0" tappable="" type="lay" class="not-selected">
                           <div class="lay">
 
 
@@ -170,7 +227,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="lay">
                           <div class="lay">
 
                             <div class="price">2.40</div>
@@ -180,7 +237,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -253,7 +310,7 @@
 
 
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="back">
                           <div class="back">
 
 
@@ -264,7 +321,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="back">
                           <div class="back">
 
 
@@ -275,7 +332,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <bet-button index="0" tappable="" type="back" class="not-selected">
                           <div class="back">
 
 
@@ -286,7 +343,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <bet-button index="0" tappable="" type="lay" class="not-selected">
                           <div class="lay">
 
 
@@ -297,7 +354,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -308,7 +365,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -349,7 +406,7 @@
 
 
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="back">
                           <div class="back">
 
 
@@ -360,7 +417,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="back">
                           <div class="back">
 
 
@@ -371,7 +428,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <bet-button index="0" tappable="" type="back" class="not-selected">
                           <div class="back">
 
 
@@ -382,7 +439,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <bet-button index="0" tappable="" type="lay" class="not-selected">
                           <div class="lay">
 
 
@@ -393,7 +450,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -404,7 +461,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -496,7 +553,7 @@
             <div class="input-wrapper">
 
               <ion-label class="label label-md">
-                <div analytics-on="" class="popular-event" tappable="">
+                <div class="popular-event" tappable="">
 
                   <div class="event-details">
                     <i class="apl-icon-sport-football"></i>
@@ -521,7 +578,7 @@
             <div class="input-wrapper">
 
               <ion-label class="label label-md">
-                <div analytics-on="" class="popular-event" tappable="">
+                <div class="popular-event" tappable="">
 
                   <div class="event-details">
                     <i class="apl-icon-sport-cricket"></i>
@@ -529,8 +586,8 @@
                     <p class="date-info">
                       <span>Tomorrow 15:30</span>
                       <span>
-                                            (Opens in 23hrs 5mins)
-                                        </span>
+                        (Opens in 23hrs 5mins)
+                      </span>
                     </p>
                   </div>
 
@@ -564,7 +621,7 @@
 
 
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="back">
                           <div class="back">
 
 
@@ -575,7 +632,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="back">
                           <div class="back">
 
 
@@ -586,7 +643,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <bet-button index="0" tappable="" type="back" class="not-selected">
                           <div class="back">
 
 
@@ -597,7 +654,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <bet-button index="0" tappable="" type="lay" class="not-selected">
                           <div class="lay">
 
 
@@ -608,7 +665,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -619,7 +676,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -660,7 +717,7 @@
 
 
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="back">
                           <div class="back">
 
 
@@ -671,7 +728,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="back">
                           <div class="back">
 
 
@@ -682,7 +739,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <bet-button index="0" tappable="" type="back" class="not-selected">
                           <div class="back">
 
 
@@ -693,7 +750,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <bet-button index="0" tappable="" type="lay" class="not-selected">
                           <div class="lay">
 
 
@@ -704,7 +761,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -715,7 +772,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -756,7 +813,7 @@
 
 
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="back">
                           <div class="back">
 
 
@@ -767,7 +824,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="back">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="back">
                           <div class="back">
 
 
@@ -778,7 +835,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="back" class="not-selected">
+                        <bet-button index="0" tappable="" type="back" class="not-selected">
                           <div class="back">
 
 
@@ -789,7 +846,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" index="0" tappable="" type="lay" class="not-selected">
+                        <bet-button index="0" tappable="" type="lay" class="not-selected">
                           <div class="lay">
 
 
@@ -800,7 +857,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="1" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="1" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -811,7 +868,7 @@
                           </div>
                         </bet-button>
 
-                        <bet-button analytics-on="" class="more-odds not-selected" index="2" tappable="" type="lay">
+                        <bet-button class="more-odds not-selected" index="2" tappable="" type="lay">
                           <div class="lay">
 
 
@@ -843,7 +900,7 @@
             <div class="input-wrapper">
 
               <ion-label class="label label-md">
-                <div analytics-on="" class="popular-event" tappable="">
+                <div class="popular-event" tappable="">
 
                   <div class="event-details">
                     <i class="apl-icon-sport-football"></i>
@@ -868,7 +925,7 @@
             <div class="input-wrapper">
 
               <ion-label class="label label-md">
-                <div analytics-on="" class="popular-event" tappable="">
+                <div class="popular-event" tappable="">
 
                   <div class="event-details">
                     <i class="apl-icon-sport-cricket"></i>
@@ -940,7 +997,7 @@
             <div class="input-wrapper">
 
               <ion-label class="label label-md">
-                <div analytics-on="" class="popular-event" tappable="">
+                <div class="popular-event" tappable="">
 
                   <div class="event-details">
                     <i class="apl-icon-sport-football"></i>
@@ -965,7 +1022,7 @@
             <div class="input-wrapper">
 
               <ion-label class="label label-md">
-                <div analytics-on="" class="popular-event" tappable="">
+                <div class="popular-event" tappable="">
 
                   <div class="event-details">
                     <i class="apl-icon-sport-football"></i>
@@ -990,7 +1047,7 @@
             <div class="input-wrapper">
 
               <ion-label class="label label-md">
-                <div analytics-on="" class="popular-event" tappable="">
+                <div class="popular-event" tappable="">
 
                   <div class="event-details">
                     <i class="apl-icon-sport-football"></i>

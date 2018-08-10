@@ -60,6 +60,42 @@ var myApp = angular.module('starter', ['ionic', 'starter.controllers'])
           }
         }
       })
+      .state('app.my-market', {
+        url: '/my-market',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/my-market/my-market.html',
+            controller: 'MymarketCtrl'
+          }
+        }
+      })
+      .state('app.sport', {
+        url: '/sport',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/sport/sport.html',
+            controller: 'SportCtrl'
+          }
+        }
+      })
+      .state('app.competition', {
+        url: '/competition',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/competition/competition.html',
+            controller: 'CompetitionCtrl'
+          }
+        }
+      })
+      .state('app.racing-page', {
+        url: '/racing-page',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/racing-page/racing-page.html',
+            controller: 'RacingPageCtrl'
+          }
+        }
+      })
       .state('app.profit-loss', {
         url: '/profit-loss',
         views: {

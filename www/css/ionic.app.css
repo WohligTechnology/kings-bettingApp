@@ -15,6 +15,10 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+@font-face {
+  src: url("../fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+  font-family: 'CinzelBold'; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -9903,6 +9907,9 @@ ion-fab-list {
 pnl {
   clear: both; }
 
+.color-white {
+  color: white !important; }
+
 @font-face {
   font-family: Lato;
   font-style: normal;
@@ -18598,14 +18605,14 @@ ion-textarea {
   background: 0 0; }
 
 .text-input::-moz-placeholder {
-  color: #999; }
+  color: black; }
 
 .text-input:-ms-input-placeholder {
-  color: #999; }
+  color: black; }
 
 .text-input::-webkit-input-placeholder {
   text-indent: 0;
-  color: #999; }
+  color: black; }
 
 textarea.text-input {
   display: block; }
@@ -19330,8 +19337,7 @@ ion-item-group .item-wrapper:last-child .item-ios .item-inner {
   color: #666; }
 
 .item-md.item-block .item-inner {
-  padding-right: 8px;
-  border-bottom: 1px solid #dedede; }
+  padding-right: 8px; }
 
 .item-md [item-end],
 .item-md [item-left],
@@ -19902,9 +19908,6 @@ ion-picker-cmp {
 .list-md {
   margin: -1px 0 16px; }
 
-.list-md .item-block .item-inner {
-  border-bottom: 1px solid #dedede; }
-
 .list-md > .item-block:last-child .item-inner,
 .list-md > .item-block:last-child ion-label,
 .list-md > .item-wrapper:last-child .item-inner,
@@ -19974,9 +19977,6 @@ ion-picker-cmp {
 .list-header-md-primary {
   color: #fff;
   background-color: #440a57; }
-
-.list-md .item-input:last-child {
-  border-bottom: 1px solid #dedede; }
 
 .list-wp .item-block .item-inner,
 .list-wp > .item-block:last-child,
@@ -23115,7 +23115,7 @@ ion-item > h3.toggle > span {
   flex: 1; }
 
 ion-item > h3.toggle > i {
-  color: #440a57; }
+  color: #1b2035; }
 
 ion-item > section.content-wrapper {
   overflow: hidden;
@@ -23751,22 +23751,25 @@ ion-title.left-title .toolbar-title {
   visibility: visible; }
 
 .app-header > .toolbar-background {
-  background: #440a57; }
+  background: #1b2035; }
 
 .app-header .bar-button-default,
 .app-header .bar-button-default:hover {
   color: #fff; }
 
+.font25 {
+  font-size: 25px; }
+
 .app-header .back-button-md {
-  margin: 0 0 0 5px; }
+  margin: 5px 0 0 5px; }
 
 .app-header .toolbar-title {
   overflow: visible; }
 
 .app-header .logo {
-  background: url(../assets/img/logo.5138e52b.svg) left center no-repeat;
-  width: 135px;
-  height: 29px;
+  color: white;
+  font-size: 25px;
+  font-family: CinzelBold;
   vertical-align: middle;
   margin: 15px 0 15px -20px;
   background-size: contain; }
@@ -25717,11 +25720,24 @@ ion-nav.landscape .login-page {
 .login-page .text-input.text-input-md {
   padding: 9px 11px;
   margin: 0 0 10px;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #777777;
   border-radius: 2px;
   font-size: 12px;
-  background: #fff;
-  color: #000; }
+  background: transparent;
+  color: black; }
+
+.login-bg {
+  background: url(../img/bg.png);
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+.login-page {
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+  height: 100vh; }
+  .login-page ion-input input,
+  .login-page ion-item {
+    color: white;
+    background: transparent; }
 
 .login-page .form-group {
   width: 100%;
@@ -25730,12 +25746,12 @@ ion-nav.landscape .login-page {
   vertical-align: middle; }
 
 .login-page .logo {
-  background: url(https://member.play7s.com/m/assets/img/logo_dark.441e4c5a.svg) center center no-repeat;
-  background-size: contain;
-  position: relative;
-  width: 200px;
-  height: 100px;
-  margin: 0 auto; }
+  color: #777777;
+  font-size: 35px;
+  font-family: CinzelBold;
+  vertical-align: middle;
+  margin: 25px auto;
+  background-size: contain; }
 
 .login-page .item-md {
   padding-left: 0; }
@@ -26338,3 +26354,14 @@ ion-nav.landscape .racing-page .open-bets-link {
 
 .menu-inner {
   width: 285px; }
+
+.button-clear.button-icon {
+  color: white !important;
+  margin-top: 10px; }
+  .button-clear.button-icon:before {
+    font-size: 35px; }
+
+accordion-extended {
+  display: block;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 14px; }
