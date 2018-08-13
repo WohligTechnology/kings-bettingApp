@@ -15929,9 +15929,9 @@ other-event-details .other-event-details .match-stats-info .detail>p:first-child
 }
 
 tennis-event-details .tennis-event-details {
-  background: #560d6e;
+  background: $gray-light;
   color: #fff;
-  padding: 3px 12px 7px 22px;
+  padding: 7px 12px 7px 22px;
 }
 
 tennis-event-details .tennis-event-details .main-detail-header {
@@ -15944,6 +15944,7 @@ tennis-event-details .tennis-event-details .main-detail-header .event-title {
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 0;
+  color: white !important;
 }
 
 tennis-event-details .tennis-event-details .main-detail-header i {
@@ -15996,7 +15997,7 @@ tennis-event-details .tennis-event-details .main-detail-header .match-stats-info
 }
 
 tennis-event-details .tennis-event-details .main-detail-header .match-stats-info .selections-container .selection-container .current-score-container {
-  background: #440a57;
+  background: $gray-light;
   position: relative;
   padding: 0 8px;
   min-width: 33px;
