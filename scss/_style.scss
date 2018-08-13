@@ -40,6 +40,8 @@ pnl {
 }
 
 $gray-dark: #1b2035 !default;
+$gray-light: rgba(37, 43, 72, 0.73) !default;
+$yellow:#fab841;
 @font-face {
   font-family: Lato;
   font-style: normal;
@@ -15368,15 +15370,15 @@ ion-item-extended>h3.toggle .title {
   flex: 1;
 }
 
-ion-item-extended>h3.toggle .title .venue {
+h3.toggle .title .venue {
   margin-top: 5px;
 }
 
-ion-item-extended>h3.toggle .info-section {
+h3.toggle .info-section {
   min-width: 30px;
 }
 
-ion-item-extended>h3.toggle .time {
+h3.toggle .time {
   font-size: 14px;
   color: #666;
   margin: 0;
@@ -15883,9 +15885,9 @@ football-event-details .football-event-details .main-detail-additional-info {
 }
 
 other-event-details .other-event-details {
-  background: #560d6e;
+  background: $gray-light;
   color: #fff;
-  padding: 3px 0 7px;
+  padding: 7px 0 7px;
 }
 
 other-event-details .other-event-details .main-detail-header {
@@ -17467,19 +17469,19 @@ apl-nav-tabs-group .nav-tabs-group-container {
 }
 
 apl-nav-tabs-group .nav-tab {
-  background: #440a57;
+  background: $gray-light;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  border-bottom: 3px solid #440a57;
+  border-bottom: 3px solid $gray-light;
   padding: 15px 22px 13px;
   text-align: center;
-  color: #c85aec;
+  color: $yellow;
   font-size: 10px;
   white-space: nowrap;
 }
 
 apl-nav-tabs-group .nav-tab.active {
-  border-bottom-color: #fab841;
+  border-bottom-color: $yellow;
   color: #fff;
 }
 
@@ -19299,4 +19301,13 @@ accordion-extended {
   display: block;
   border-bottom: 1px solid #eee;
   margin-bottom: 14px;
+}
+
+.title {
+  font-size: 16px;
+  padding-top: 6px;
+  color: #000;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
