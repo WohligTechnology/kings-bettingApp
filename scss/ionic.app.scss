@@ -21,7 +21,23 @@ $dark:                            #444 !default;
   font-family: 'CinzelBold';
 }
 
+@font-face {
+  src: url("../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
+  font-family: 'Roboto-Condensed-Regular';
+}
+
+@font-face {
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
+  font-family: 'Roboto-Regular';
+}
+
+@font-face {
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
+  font-family: 'Roboto-Medium';
+}
+
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "style";
+@import "flaticon";

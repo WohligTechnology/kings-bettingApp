@@ -1,5 +1,42 @@
 <ion-view view-title="Profit Loss" class="ion-page">
-  <ion-content class="betting-pnl-page content content-md" padding="" style="margin-top:30px;">
+  <div class="header-container">
+    <ion-navbar class="toolbar toolbar-md app-header root-page">
+      <div class="toolbar-background toolbar-background-md"></div>
+      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
+        <a class="ion-arrow-left-c color-white"></a>
+      </button>
+      <ion-buttons class="bar-buttons bar-buttons-md">
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" ion-button="">
+          <i class="icon ion-search placeholder-icon"></i>
+          <div class="button-effect"></div>
+        </button>
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
+          <span class="button-inner">
+            <balance>
+              <div>
+                <i class="apl-icon-user"></i>
+                <span class="balance">180</span>
+              </div>
+            </balance>
+          </span>
+          <div class="button-effect"></div>
+        </button>
+      </ion-buttons>
+      <div class="toolbar-content toolbar-content-md" ui-sref="app.home">
+        <ion-title class="left-title title title-md">
+          <div class="toolbar-title toolbar-title-md">
+            <div class="logo">
+              Kings Bet
+            </div>
+          </div>
+        </ion-title>
+      </div>
+    </ion-navbar>
+
+    <!-- ngIf:  -->
+  </div>
+  <ion-content class="betting-pnl-page content content-md" padding="" style="margin-top:40px;">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
   <div class="scroll-content" style="margin-top: 60px;"> -->
     <div>
@@ -9,60 +46,96 @@
           <div class="date">
             <time>2nd August 2018</time>
             <span class="total">P&amp;L:
-                        <span class="value -negative">
-                            -56.95
-                      </span>
+              <span class="value -negative">
+                -56.95
+              </span>
             </span>
           </div>
           <div class="wrapper">
             <div class="info">
               <div class="truncate">
-                <a analytics-on=""><strong>Michalski v Gimeno-Traver - Match Odds</strong></a>
+                <a analytics-on="">
+                  <strong>Michalski v Gimeno-Traver - Match Odds</strong>
+                </a>
               </div>
-              <div class="market-info"><strong>Start time:</strong> 02/8/2018 17:48:00 </div>
-              <div class="market-info"><strong>Settled Time:</strong> 02/8/2018 19:09:15</div>
+              <div class="market-info">
+                <strong>Start time:</strong> 02/8/2018 17:48:00 </div>
+              <div class="market-info">
+                <strong>Settled Time:</strong> 02/8/2018 19:09:15</div>
             </div>
             <div class="pnl-titles">
-              <div><strong>Comm:</strong></div>
-              <div><strong>Net Win:</strong></div>
+              <div>
+                <strong>Comm:</strong>
+              </div>
+              <div>
+                <strong>Net Win:</strong>
+              </div>
             </div>
             <div class="pnl-numbers">
-              <div><span>0.00</span></div>
-              <div><span class="-negative">-4.95</span></div>
+              <div>
+                <span>0.00</span>
+              </div>
+              <div>
+                <span class="-negative">-4.95</span>
+              </div>
             </div>
           </div>
           <div class="wrapper">
             <div class="info">
               <div class="truncate">
-                <a analytics-on=""><strong>Marterer v Istomin - Match Odds</strong></a>
+                <a analytics-on="">
+                  <strong>Marterer v Istomin - Match Odds</strong>
+                </a>
               </div>
-              <div class="market-info"><strong>Start time:</strong> 02/8/2018 16:15:00 </div>
-              <div class="market-info"><strong>Settled Time:</strong> 02/8/2018 17:47:07</div>
+              <div class="market-info">
+                <strong>Start time:</strong> 02/8/2018 16:15:00 </div>
+              <div class="market-info">
+                <strong>Settled Time:</strong> 02/8/2018 17:47:07</div>
             </div>
             <div class="pnl-titles">
-              <div><strong>Comm:</strong></div>
-              <div><strong>Net Win:</strong></div>
+              <div>
+                <strong>Comm:</strong>
+              </div>
+              <div>
+                <strong>Net Win:</strong>
+              </div>
             </div>
             <div class="pnl-numbers">
-              <div><span>0.00</span></div>
-              <div><span class="-negative">-6.00</span></div>
+              <div>
+                <span>0.00</span>
+              </div>
+              <div>
+                <span class="-negative">-6.00</span>
+              </div>
             </div>
           </div>
           <div class="wrapper">
             <div class="info">
               <div class="truncate">
-                <a analytics-on=""><strong>Vatutin v Kolar - Match Odds</strong></a>
+                <a analytics-on="">
+                  <strong>Vatutin v Kolar - Match Odds</strong>
+                </a>
               </div>
-              <div class="market-info"><strong>Start time:</strong> 02/8/2018 15:56:00 </div>
-              <div class="market-info"><strong>Settled Time:</strong> 02/8/2018 17:45:48</div>
+              <div class="market-info">
+                <strong>Start time:</strong> 02/8/2018 15:56:00 </div>
+              <div class="market-info">
+                <strong>Settled Time:</strong> 02/8/2018 17:45:48</div>
             </div>
             <div class="pnl-titles">
-              <div><strong>Comm:</strong></div>
-              <div><strong>Net Win:</strong></div>
+              <div>
+                <strong>Comm:</strong>
+              </div>
+              <div>
+                <strong>Net Win:</strong>
+              </div>
             </div>
             <div class="pnl-numbers">
-              <div><span>0.00</span></div>
-              <div><span class="-negative">-2.00</span></div>
+              <div>
+                <span>0.00</span>
+              </div>
+              <div>
+                <span class="-negative">-2.00</span>
+              </div>
             </div>
           </div>
         </div>
@@ -70,27 +143,39 @@
           <div class="date">
             <time>1st August 2018</time>
             <span class="total">P&amp;L:
-                        <span class="value">
-                            0.00
-                        </span>
+              <span class="value">
+                0.00
+              </span>
             </span>
           </div>
           <div class="wrapper">
             <div class="info">
               <div class="truncate">
-                <a analytics-on=""><strong>A Zverev v Jaziri - Match Odds</strong></a>
+                <a analytics-on="">
+                  <strong>A Zverev v Jaziri - Match Odds</strong>
+                </a>
               </div>
-              <div class="market-info"><strong>Start time:</strong> 01/8/2018 09:58:00 </div>
-              <div class="market-info"><strong>Settled Time:</strong> 02/8/2018 05:40:02</div>
+              <div class="market-info">
+                <strong>Start time:</strong> 01/8/2018 09:58:00 </div>
+              <div class="market-info">
+                <strong>Settled Time:</strong> 02/8/2018 05:40:02</div>
             </div>
 
             <div class="pnl-titles">
-              <div><strong>Comm:</strong></div>
-              <div><strong>Net Win:</strong></div>
+              <div>
+                <strong>Comm:</strong>
+              </div>
+              <div>
+                <strong>Net Win:</strong>
+              </div>
             </div>
             <div class="pnl-numbers">
-              <div><span>0.00</span></div>
-              <div><span>0.00</span></div>
+              <div>
+                <span>0.00</span>
+              </div>
+              <div>
+                <span>0.00</span>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,42 @@
 <ion-view view-title="Rules And Regulations" class="ion-page">
-  <ion-content class="rules-regs content content-md" padding="" style="margin-top:30px;">
+  <div class="header-container">
+    <ion-navbar class="toolbar toolbar-md app-header root-page">
+      <div class="toolbar-background toolbar-background-md"></div>
+      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
+        <a class="ion-arrow-left-c color-white"></a>
+      </button>
+      <ion-buttons class="bar-buttons bar-buttons-md">
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" ion-button="">
+          <i class="icon ion-search placeholder-icon"></i>
+          <div class="button-effect"></div>
+        </button>
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
+          <span class="button-inner">
+            <balance>
+              <div>
+                <i class="apl-icon-user"></i>
+                <span class="balance">180</span>
+              </div>
+            </balance>
+          </span>
+          <div class="button-effect"></div>
+        </button>
+      </ion-buttons>
+      <div class="toolbar-content toolbar-content-md" ui-sref="app.home">
+        <ion-title class="left-title title title-md">
+          <div class="toolbar-title toolbar-title-md">
+            <div class="logo">
+              Kings Bet
+            </div>
+          </div>
+        </ion-title>
+      </div>
+    </ion-navbar>
+
+    <!-- ngIf:  -->
+  </div>
+  <ion-content class="rules-regs content content-md" padding="" style="margin-top:60px;">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
     <div class="scroll-content" style="margin-top: 60px;"> -->
     <h2 class="page-title">Rules &amp; Regulations</h2>
@@ -7,8 +44,11 @@
     <div class="intro">
       <h3>PART A - INTRODUCTION</h3>
       <h4>Use and interpretation</h4>
-      <p>These Rules and Regulations ("<b>Rules</b>") are part of the Site's <span></span>terms and conditions.</p>
-      <p>The Rules apply to all bets placed on this online betting platform ("<b>Site</b>"). The Rules consist of the following:</p>
+      <p>These Rules and Regulations ("
+        <b>Rules</b>") are part of the Site's
+        <span></span>terms and conditions.</p>
+      <p>The Rules apply to all bets placed on this online betting platform ("
+        <b>Site</b>"). The Rules consist of the following:</p>
       <ul>
         <li>This INTRODUCTION section (Part A);</li>
         <li>The GENERAL RULES (set out in Part B below); and</li>
@@ -327,13 +367,14 @@
         <li>Over Total Runs – Bets will be settled on the total number of runs scored during the 1st over of the match. Extras
           and penalty runs will be included. The over must be completed for bets to stand unless settlement is already determined.
         </li>
-        <li>Limited Overs Matches - <b>(Player Meter)</b>, Individual Batsmen Runs or Partnerships - In a limited overs match
-          where bets may be made on an individual batsman or partnership runs in-play and the innings is curtailed or subject
-          to any reduction in overs, then these markets will be settled at the midpoint of the last available quote before
-          the overs were reduced. If the innings resumes at a later time, a new market may be formed. If a customer wants
-          a position in the new market they are required to place a new bet. If there are any subsequent reductions in overs,
-          exactly the same rules will continue to apply i.e. the market is settled at the midpoint of the last available
-          quote before the overs were reduced and a new market may be formed.</li>
+        <li>Limited Overs Matches -
+          <b>(Player Meter)</b>, Individual Batsmen Runs or Partnerships - In a limited overs match where bets may be made on
+          an individual batsman or partnership runs in-play and the innings is curtailed or subject to any reduction in overs,
+          then these markets will be settled at the midpoint of the last available quote before the overs were reduced. If
+          the innings resumes at a later time, a new market may be formed. If a customer wants a position in the new market
+          they are required to place a new bet. If there are any subsequent reductions in overs, exactly the same rules will
+          continue to apply i.e. the market is settled at the midpoint of the last available quote before the overs were
+          reduced and a new market may be formed.</li>
         <li>Test Matches (Meter Paari) - All bets, open or closed, on a team’s innings runs shall be void if 50 full overs are
           not bowled unless one team has won, is dismissed or declares prior to that point.</li>
         <li>Test Matches - (PLAYERS METER) Individual Batsmen Runs / Partnerships - All bets, open or closed, on an individual

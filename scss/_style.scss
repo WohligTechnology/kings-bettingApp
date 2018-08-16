@@ -42,27 +42,24 @@ pnl {
 $gray-dark: #1b2035 !default;
 $gray-light: rgba(37, 43, 72, 0.73) !default;
 $yellow:#fab841;
-@font-face {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: 300;
-  src: local("Lato Light"), local("Lato-Light"), url(../assets/fonts/lato-light.0647bce9.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: 400;
-  src: local("Lato"), local("Lato-Regular"), url(../assets/fonts/lato-regular.a1aceab3.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: 700;
-  src: local("Lato Bold"), local("Lato-Bold"), url(../assets/fonts/lato-bold.1a4d8042.ttf) format("truetype");
-}
-
+// @font-face {
+//   font-family: Lato;
+//   font-style: normal;
+//   font-weight: 300;
+//   src: local("Lato Light"), local("Lato-Light"), url(../assets/fonts/lato-light.0647bce9.ttf) format("truetype");
+// }
+// @font-face {
+//   font-family: Lato;
+//   font-style: normal;
+//   font-weight: 400;
+//   src: local("Lato"), local("Lato-Regular"), url(../assets/fonts/lato-regular.a1aceab3.ttf) format("truetype");
+// }
+// @font-face {
+//   font-family: Lato;
+//   font-style: normal;
+//   font-weight: 700;
+//   src: local("Lato Bold"), local("Lato-Bold"), url(../assets/fonts/lato-bold.1a4d8042.ttf) format("truetype");
+// }
 .apl-icon-custom-clock:before {
   content: "ꀔ"
 }
@@ -563,14 +560,13 @@ $yellow:#fab841;
   content: ""
 }
 
-@font-face {
-  font-family: Apollo;
-  src: url(../assets/fonts/apollo.71565b15.eot);
-  src: url(../assets/fonts/apollo.71565b15.eot?#iefix) format("embedded-opentype"), url(../assets/fonts/apollo.003ac52f.woff) format("woff"), url(../assets/fonts/apollo.0ae958de.ttf) format("truetype"), url(../assets/fonts/apollo.2b2b78f2.svg) format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
-
+// @font-face {
+//   font-family: Apollo;
+//   src: url(../assets/fonts/apollo.71565b15.eot);
+//   src: url(../assets/fonts/apollo.71565b15.eot?#iefix) format("embedded-opentype"), url(../assets/fonts/apollo.003ac52f.woff) format("woff"), url(../assets/fonts/apollo.0ae958de.ttf) format("truetype"), url(../assets/fonts/apollo.2b2b78f2.svg) format("svg");
+//   font-weight: 400;
+//   font-style: normal;
+// }
 [class*=apl-icon-] {
   display: inline-block;
   font: normal normal normal 14px/1 Apollo;
@@ -1613,14 +1609,13 @@ used under CC BY http://creativecommons.org/licenses/by/4.0/
 Modified icons to fit ionicon’s grid from original.
 */
 
-@font-face {
-  font-family: Ionicons;
-  src: url(../assets/fonts/ionicons.ec0c29e3.eot?v=3.0.0-alpha.3);
-  src: url(../assets/fonts/ionicons.ec0c29e3.eot?v=3.0.0-alpha.3#iefix) format("embedded-opentype"), url(../assets/fonts/ionicons.a7f08161.woff2?v=3.0.0-alpha.3) format("woff2"), url(../assets/fonts/ionicons.79ab91c8.woff?v=3.0.0-alpha.3) format("woff"), url(../assets/fonts/ionicons.9ed033be.ttf?v=3.0.0-alpha.3) format("truetype"), url(../assets/fonts/ionicons.d9496a23.svg?v=3.0.0-alpha.3#Ionicons) format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
-
+// @font-face {
+//   font-family: Ionicons;
+//   src: url(../assets/fonts/ionicons.ec0c29e3.eot?v=3.0.0-alpha.3);
+//   src: url(../assets/fonts/ionicons.ec0c29e3.eot?v=3.0.0-alpha.3#iefix) format("embedded-opentype"), url(../assets/fonts/ionicons.a7f08161.woff2?v=3.0.0-alpha.3) format("woff2"), url(../assets/fonts/ionicons.79ab91c8.woff?v=3.0.0-alpha.3) format("woff"), url(../assets/fonts/ionicons.9ed033be.ttf?v=3.0.0-alpha.3) format("truetype"), url(../assets/fonts/ionicons.d9496a23.svg?v=3.0.0-alpha.3#Ionicons) format("svg");
+//   font-weight: 400;
+//   font-style: normal;
+// }
 .ion,
 .ion-ios-add-circle-outline:before,
 .ion-ios-add-circle:before,
@@ -6256,6 +6251,7 @@ body,
 td,
 th {
   padding: 0;
+  font-family: 'Roboto-Regular' !important;
 }
 
 .toggle-md .toggle-icon {
@@ -6364,7 +6360,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Roboto-Regular';
   font-size: 1em;
 }
 
@@ -6372,7 +6368,7 @@ input,
 label,
 select,
 textarea {
-  font-family: inherit;
+  font-family: 'Roboto-Regular';
   line-height: normal;
 }
 
@@ -6452,7 +6448,7 @@ button ion-label {
 
 button {
   border: 0;
-  font-family: inherit;
+  font-family: 'Roboto-Regular';
   font-style: inherit;
   font-variant: inherit;
   line-height: 1;
@@ -6602,6 +6598,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: 'Roboto-Medium';
   margin-top: 1.6rem;
   margin-bottom: 1rem;
   font-weight: 500;
@@ -6971,12 +6968,12 @@ ion-label {
 }
 
 ion-nav-view.ios {
-  font-family: -apple-system, "Helvetica Neue", Roboto, sans-serif;
+  font-family: 'Roboto-Regular';
   background-color: #fff;
 }
 
 ion-nav-view.wp {
-  font-family: "Segoe UI", "Noto Sans", sans-serif;
+  font-family: 'Roboto-Regular';
   background-color: #fff;
 }
 
@@ -15030,7 +15027,7 @@ body .button-md-cta-primary {
 }
 
 ion-nav-view.md {
-  font-family: Lato, sans-serif;
+  font-family: 'Roboto-Regular';
   background-color: transparent;
   color: #000;
 }
@@ -16097,7 +16094,7 @@ ion-title.left-title .toolbar-title {
   font-size: 25px;
   font-family: CinzelBold;
   vertical-align: middle;
-  margin: 15px 0 15px -20px;
+  margin: 15px 0 15px 0px;
   background-size: contain;
 }
 
@@ -16331,6 +16328,7 @@ main-menu {
 main-menu .content-md,
 main-menu .item-md {
   background-color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 
 .market.list-item {
@@ -17473,8 +17471,7 @@ apl-nav-tabs-group .nav-tab {
   background: $gray-light;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  border-bottom: 3px solid $gray-light;
-  padding: 15px 22px 13px;
+  border-bottom: 3px solid $gray-light; // padding: 15px 22px 13px;
   text-align: center;
   color: $yellow;
   font-size: 10px;
@@ -19311,4 +19308,116 @@ accordion-extended {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+
+//////
+.tab-item.tab-item-active,
+.tab-item.active,
+.tab-item.activated {
+  // opacity: 1;
+  border-bottom: 3px solid #fab841;
+  color: white
+}
+
+;
+.glyph {
+  display: inline-block;
+  width: 9em;
+  margin: 1em;
+  text-align: center;
+  vertical-align: top;
+  background: #FFF;
+}
+
+.glyph .glyph-icon {
+  padding: 10px;
+  display: block;
+  font-family: "Flaticon";
+  font-size: 64px;
+  line-height: 1;
+}
+
+.glyph .glyph-icon:before {
+  font-size: 64px;
+  color: #222;
+  margin-left: 0;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+i,
+u,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+fieldset,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-family: 'Roboto-Regular';
 }
