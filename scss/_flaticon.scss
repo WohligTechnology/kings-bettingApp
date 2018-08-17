@@ -1,12 +1,12 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 16/08/2018 08:44
+    Creation date: 17/08/2018 10:22
     */
 
     @font-face {
       font-family: "Flaticon";
-      src: url("..fonts/flaticon/font/Flaticon.eot");
-      src: url("..fonts/flaticon/font/Flaticon.eot?#iefix") format("embedded-opentype"), url("..fonts/flaticon/font/Flaticon.woff") format("woff"), url("..fonts/flaticon/font/Flaticon.ttf") format("truetype"), url("..fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg");
+      src: url("../fonts/flaticon/font/Flaticon.eot");
+      src: url("../fonts/flaticon/font/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/flaticon/font/Flaticon.woff") format("woff"), url("../fonts/flaticon/font/Flaticon.ttf") format("truetype"), url("../fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg");
       font-weight: normal;
       font-style: normal;
     }
@@ -14,7 +14,7 @@
     @media screen and (-webkit-min-device-pixel-ratio:0) {
       @font-face {
         font-family: "Flaticon";
-        src: url("..fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg");
+        src: url("../fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg");
       }
     }
 
@@ -41,65 +41,85 @@
       content: "\f101";
     }
 
-    .flaticon-equestrian-race:before {
+    .flaticon-greyhound:before {
       content: "\f102";
     }
 
-    .flaticon-greyhound:before {
+    .flaticon-user:before {
       content: "\f103";
     }
 
-    .flaticon-user:before {
+    .flaticon-play-button:before {
       content: "\f104";
     }
 
-    .flaticon-play-button:before {
+    .flaticon-listing-option:before {
       content: "\f105";
     }
 
-    .flaticon-listing-option:before {
+    .flaticon-loss:before {
       content: "\f106";
     }
 
-    .flaticon-loss:before {
+    .flaticon-clock-circular-outline:before {
       content: "\f107";
     }
 
-    .flaticon-loss-1:before {
+    .flaticon-notebook:before {
       content: "\f108";
     }
 
-    .flaticon-book:before {
+    .flaticon-bullseye:before {
       content: "\f109";
     }
 
-    .flaticon-clock-circular-outline:before {
+    .flaticon-school-building:before {
       content: "\f10a";
     }
 
-    .flaticon-padlock:before {
+    .flaticon-logout:before {
       content: "\f10b";
     }
 
-    .flaticon-notebook:before {
+    .flaticon-cricket:before {
       content: "\f10c";
     }
 
-    .flaticon-bullseye:before {
+    .flaticon-tennis-ball:before {
       content: "\f10d";
+    }
+
+    .flaticon-information:before {
+      content: "\f10e";
+    }
+
+    .flaticon-number-zero:before {
+      content: "\f10f";
+    }
+
+    .flaticon-number-one:before {
+      content: "\f110";
+    }
+
+    .flaticon-horse-head-side-view-to-the-right-silhouette:before {
+      content: "\f111";
     }
 
     $font-Flaticon-football-ball: "\f100";
     $font-Flaticon-eye: "\f101";
-    $font-Flaticon-equestrian-race: "\f102";
-    $font-Flaticon-greyhound: "\f103";
-    $font-Flaticon-user: "\f104";
-    $font-Flaticon-play-button: "\f105";
-    $font-Flaticon-listing-option: "\f106";
-    $font-Flaticon-loss: "\f107";
-    $font-Flaticon-loss-1: "\f108";
-    $font-Flaticon-book: "\f109";
-    $font-Flaticon-clock-circular-outline: "\f10a";
-    $font-Flaticon-padlock: "\f10b";
-    $font-Flaticon-notebook: "\f10c";
-    $font-Flaticon-bullseye: "\f10d";
+    $font-Flaticon-greyhound: "\f102";
+    $font-Flaticon-user: "\f103";
+    $font-Flaticon-play-button: "\f104";
+    $font-Flaticon-listing-option: "\f105";
+    $font-Flaticon-loss: "\f106";
+    $font-Flaticon-clock-circular-outline: "\f107";
+    $font-Flaticon-notebook: "\f108";
+    $font-Flaticon-bullseye: "\f109";
+    $font-Flaticon-school-building: "\f10a";
+    $font-Flaticon-logout: "\f10b";
+    $font-Flaticon-cricket: "\f10c";
+    $font-Flaticon-tennis-ball: "\f10d";
+    $font-Flaticon-information: "\f10e";
+    $font-Flaticon-number-zero: "\f10f";
+    $font-Flaticon-number-one: "\f110";
+    $font-Flaticon-horse-head-side-view-to-the-right-silhouette: "\f111";

@@ -15446,7 +15446,7 @@ Modified icons to fit ionicon’s grid from original.
 .ion-md-woman:before {
   content: "\f3aa"; }
 
-ion-nav-view.md ng-component .text-input.text-input-md {
+.text-input.text-input-md {
   padding: 9px 11px;
   margin: 0 0 10px;
   border: 1px solid #f2f2f2;
@@ -15455,22 +15455,22 @@ ion-nav-view.md ng-component .text-input.text-input-md {
   background: #fff;
   color: #000; }
 
-ion-nav-view.md ng-component .text-input.text-input-md:active,
-ion-nav-view.md ng-component .text-input.text-input-md:focus {
+.text-input.text-input-md:active,
+.text-input.text-input-md:focus {
   color: #000;
   border: 1px solid #440a57; }
 
-ion-nav-view.md ng-component .text-input.text-input-md.ng-touched.ng-invalid {
+.text-input.text-input-md.ng-touched.ng-invalid {
   border: 1px solid #f53d3d; }
 
-ion-nav-view.md ng-component .item-md.item-input,
-ion-nav-view.md ng-component .item-md.item-input .item-inner,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.item-md.input-has-value,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.item-md.input-has-value .item-inner,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.item-md.ng-touched,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.item-md.ng-touched .item-inner,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.ng-valid.input-has-value:not(.input-has-focus),
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+.item-md.item-input,
+.item-md.item-input .item-inner,
+ion-list.list-md ion-item.item-input.item-md.input-has-value,
+ion-list.list-md ion-item.item-input.item-md.input-has-value .item-inner,
+ion-list.list-md ion-item.item-input.item-md.ng-touched,
+ion-list.list-md ion-item.item-input.item-md.ng-touched .item-inner,
+ion-list.list-md ion-item.item-input.ng-valid.input-has-value:not(.input-has-focus),
+ion-list.list-md ion-item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
   border-bottom: 0;
   -webkit-box-shadow: none;
   box-shadow: none; }
@@ -23248,7 +23248,7 @@ balance i {
 
 bet-button {
   width: 66px;
-  height: 41px;
+  height: 50px;
   margin: 0 0 0 2px; }
 
 bet-button > div {
@@ -25618,9 +25618,11 @@ ion-nav.landscape .home-page .open-bets-link {
   margin: -6px 0 0; }
 
 .home-page .popular-event .match-stats-info-icon .apl-icon-custom-match-stats {
-  margin-right: 5px !important;
   font-size: 12px;
   color: #2aa033; }
+
+.home-page .popular-event .match-stats-info-icon .apl-icon-custom-match-stats:last-child {
+  margin-right: 5px !important; }
 
 .home-page .popular-event .in-play-icon {
   margin: -6px 0 0; }
@@ -26461,21 +26463,36 @@ audio,
 video {
   font-family: 'Roboto-Regular'; }
 
+.match-inner .item {
+  border-color: transparent; }
+
+.match-inner .item-toggle {
+  padding-right: 180px; }
+
+.match-inner .item-toggle .toggle {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 3; }
+
+.match-inner .line-h0 {
+  line-height: 1; }
+
 /*
     Flaticon icon font: Flaticon
-    Creation date: 16/08/2018 08:44
+    Creation date: 17/08/2018 10:22
     */
 @font-face {
   font-family: "Flaticon";
-  src: url("..fonts/flaticon/font/Flaticon.eot");
-  src: url("..fonts/flaticon/font/Flaticon.eot?#iefix") format("embedded-opentype"), url("..fonts/flaticon/font/Flaticon.woff") format("woff"), url("..fonts/flaticon/font/Flaticon.ttf") format("truetype"), url("..fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg");
+  src: url("../fonts/flaticon/font/Flaticon.eot");
+  src: url("../fonts/flaticon/font/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/flaticon/font/Flaticon.woff") format("woff"), url("../fonts/flaticon/font/Flaticon.ttf") format("truetype"), url("../fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: "Flaticon";
-    src: url("..fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg"); } }
+    src: url("../fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg"); } }
 
 .fi:before {
   display: inline-block;
@@ -26497,38 +26514,50 @@ video {
 .flaticon-eye:before {
   content: "\f101"; }
 
-.flaticon-equestrian-race:before {
+.flaticon-greyhound:before {
   content: "\f102"; }
 
-.flaticon-greyhound:before {
+.flaticon-user:before {
   content: "\f103"; }
 
-.flaticon-user:before {
+.flaticon-play-button:before {
   content: "\f104"; }
 
-.flaticon-play-button:before {
+.flaticon-listing-option:before {
   content: "\f105"; }
 
-.flaticon-listing-option:before {
+.flaticon-loss:before {
   content: "\f106"; }
 
-.flaticon-loss:before {
+.flaticon-clock-circular-outline:before {
   content: "\f107"; }
 
-.flaticon-loss-1:before {
+.flaticon-notebook:before {
   content: "\f108"; }
 
-.flaticon-book:before {
+.flaticon-bullseye:before {
   content: "\f109"; }
 
-.flaticon-clock-circular-outline:before {
+.flaticon-school-building:before {
   content: "\f10a"; }
 
-.flaticon-padlock:before {
+.flaticon-logout:before {
   content: "\f10b"; }
 
-.flaticon-notebook:before {
+.flaticon-cricket:before {
   content: "\f10c"; }
 
-.flaticon-bullseye:before {
+.flaticon-tennis-ball:before {
   content: "\f10d"; }
+
+.flaticon-information:before {
+  content: "\f10e"; }
+
+.flaticon-number-zero:before {
+  content: "\f10f"; }
+
+.flaticon-number-one:before {
+  content: "\f110"; }
+
+.flaticon-horse-head-side-view-to-the-right-silhouette:before {
+  content: "\f111"; }

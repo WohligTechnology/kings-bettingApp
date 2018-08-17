@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 16/08/2018 08:44
+  	Creation date: 17/08/2018 10:22
   	*/
 
 @font-face {
@@ -31,15 +31,19 @@ margin-left: 20px;
 
 .flaticon-football-ball:before { content: "\f100"; }
 .flaticon-eye:before { content: "\f101"; }
-.flaticon-equestrian-race:before { content: "\f102"; }
-.flaticon-greyhound:before { content: "\f103"; }
-.flaticon-user:before { content: "\f104"; }
-.flaticon-play-button:before { content: "\f105"; }
-.flaticon-listing-option:before { content: "\f106"; }
-.flaticon-loss:before { content: "\f107"; }
-.flaticon-loss-1:before { content: "\f108"; }
-.flaticon-book:before { content: "\f109"; }
-.flaticon-clock-circular-outline:before { content: "\f10a"; }
-.flaticon-padlock:before { content: "\f10b"; }
-.flaticon-notebook:before { content: "\f10c"; }
-.flaticon-bullseye:before { content: "\f10d"; }
+.flaticon-greyhound:before { content: "\f102"; }
+.flaticon-user:before { content: "\f103"; }
+.flaticon-play-button:before { content: "\f104"; }
+.flaticon-listing-option:before { content: "\f105"; }
+.flaticon-loss:before { content: "\f106"; }
+.flaticon-clock-circular-outline:before { content: "\f107"; }
+.flaticon-notebook:before { content: "\f108"; }
+.flaticon-bullseye:before { content: "\f109"; }
+.flaticon-school-building:before { content: "\f10a"; }
+.flaticon-logout:before { content: "\f10b"; }
+.flaticon-cricket:before { content: "\f10c"; }
+.flaticon-tennis-ball:before { content: "\f10d"; }
+.flaticon-information:before { content: "\f10e"; }
+.flaticon-number-zero:before { content: "\f10f"; }
+.flaticon-number-one:before { content: "\f110"; }
+.flaticon-horse-head-side-view-to-the-right-silhouette:before { content: "\f111"; }

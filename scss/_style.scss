@@ -6115,7 +6115,7 @@ Modified icons to fit ionicon’s grid from original.
   content: "\f3aa"
 }
 
-ion-nav-view.md ng-component .text-input.text-input-md {
+.text-input.text-input-md {
   padding: 9px 11px;
   margin: 0 0 10px;
   border: 1px solid #f2f2f2;
@@ -6125,24 +6125,24 @@ ion-nav-view.md ng-component .text-input.text-input-md {
   color: #000;
 }
 
-ion-nav-view.md ng-component .text-input.text-input-md:active,
-ion-nav-view.md ng-component .text-input.text-input-md:focus {
+.text-input.text-input-md:active,
+.text-input.text-input-md:focus {
   color: #000;
   border: 1px solid #440a57;
 }
 
-ion-nav-view.md ng-component .text-input.text-input-md.ng-touched.ng-invalid {
+.text-input.text-input-md.ng-touched.ng-invalid {
   border: 1px solid #f53d3d;
 }
 
-ion-nav-view.md ng-component .item-md.item-input,
-ion-nav-view.md ng-component .item-md.item-input .item-inner,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.item-md.input-has-value,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.item-md.input-has-value .item-inner,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.item-md.ng-touched,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.item-md.ng-touched .item-inner,
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.ng-valid.input-has-value:not(.input-has-focus),
-ion-nav-view.md ng-component ion-list.list-md ion-item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+.item-md.item-input,
+.item-md.item-input .item-inner,
+ion-list.list-md ion-item.item-input.item-md.input-has-value,
+ion-list.list-md ion-item.item-input.item-md.input-has-value .item-inner,
+ion-list.list-md ion-item.item-input.item-md.ng-touched,
+ion-list.list-md ion-item.item-input.item-md.ng-touched .item-inner,
+ion-list.list-md ion-item.item-input.ng-valid.input-has-value:not(.input-has-focus),
+ion-list.list-md ion-item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
   border-bottom: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -15481,7 +15481,7 @@ balance i {
 
 bet-button {
   width: 66px;
-  height: 41px;
+  height: 50px;
   margin: 0 0 0 2px;
 }
 
@@ -18381,11 +18381,13 @@ ion-nav.landscape .home-page .open-bets-link {
 }
 
 .home-page .popular-event .match-stats-info-icon .apl-icon-custom-match-stats {
-  margin-right: 5px !important;
+ 
   font-size: 12px;
   color: #2aa033;
 }
-
+.home-page .popular-event .match-stats-info-icon .apl-icon-custom-match-stats:last-child {
+   margin-right: 5px !important;
+}
 .home-page .popular-event .in-play-icon {
   margin: -6px 0 0;
 }
@@ -19420,4 +19422,21 @@ mark,
 audio,
 video {
   font-family: 'Roboto-Regular';
+}
+.match-inner{
+  .item{
+    border-color:transparent;
+  }
+  .item-toggle{
+    padding-right:180px;
+  }
+  .item-toggle .toggle {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 3;
+}
+.line-h0{
+  line-height:1;
+}
 }
