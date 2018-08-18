@@ -53,10 +53,12 @@
                     <div class="venue">Ayr</div>
                     <p class="time">18:05</p>
                   </div>
-                  <div class="info-section">
+                  <div class="info-section padd-top15">
                     <i class="icon ion-clock"></i>
                   </div>
-                  <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+                  <div class="item-icon-right">
+                    <i class="icon font15" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+                  </div>
                 </h3>
               </ion-item>
               <ion-item class="item-accordion" ng-show="isGroupShown(group)">

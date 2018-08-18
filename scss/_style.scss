@@ -7973,7 +7973,7 @@ ion-fab[right] {
 }
 
 ion-fab[bottom] {
-  bottom: 10px;
+  bottom: 50px;
 }
 
 ion-fab[left],
@@ -15208,7 +15208,7 @@ ion-toast.toast-md.partially-matched .toast-wrapper {
 }
 
 .btn-go-to-my-markets .fab {
-  background: #440a57;
+  background: $gray-dark;
   right: 20px;
   bottom: 10px;
   width: 60px;
@@ -16961,7 +16961,7 @@ apl-tennis-match-stats-events {
 }
 
 .tennis__stage,
-modal-dialog {
+ion-modal-view {
   display: -webkit-box;
   display: -ms-flexbox;
 }
@@ -17319,7 +17319,7 @@ apl-nav-tabs-group .nav-tab {
   }
 }
 
-modal-dialog {
+ion-modal-view {
   color: #000;
   position: fixed;
   left: 0;
@@ -17340,7 +17340,7 @@ modal-dialog {
   align-items: center;
 }
 
-modal-dialog>.dialog-content {
+ion-modal-view>.dialog-content {
   background: #fff;
   width: calc(100% - 4px);
   border: 1px solid #601c78;
@@ -17349,14 +17349,14 @@ modal-dialog>.dialog-content {
   padding: 11px;
 }
 
-modal-dialog>.dialog-content>h1 {
+ion-modal-view>.dialog-content>h1 {
   margin-top: 4px;
   font-size: 18px;
   font-weight: 400;
   padding: 4px 0;
 }
 
-modal-dialog>.dialog-content>.content-container {
+ion-modal-view>.dialog-content>.content-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17366,21 +17366,21 @@ modal-dialog>.dialog-content>.content-container {
   flex-direction: column;
 }
 
-modal-dialog>.dialog-content h2 {
+ion-modal-view>.dialog-content h2 {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
 }
 
-modal-dialog.modal-confirm>.dialog-content {
+ion-modal-view.modal-confirm>.dialog-content {
   text-align: center;
 }
 
-modal-dialog.modal-confirm>.dialog-content h1 {
+ion-modal-view.modal-confirm>.dialog-content h1 {
   display: none;
 }
 
-modal-dialog.modal-confirm>.dialog-content h2 {
+ion-modal-view.modal-confirm>.dialog-content h2 {
   font-weight: 700;
   padding: 16px 26px 0;
   line-height: 24px;
@@ -17571,17 +17571,17 @@ odds-stepper .stepper-input input.text-input.text-input-md {
   text-decoration: none !important;
 }
 
-modal-dialog.loader {
+ion-modal-view.loader {
   text-align: center;
 }
 
-modal-dialog.loader p {
+ion-modal-view.loader p {
   margin-top: 18px;
   margin-bottom: 37px;
   font-weight: 700;
 }
 
-modal-dialog.loader ion-spinner {
+ion-modal-view.loader ion-spinner {
   margin: 0 auto;
   position: relative;
   top: -39px;
@@ -17589,16 +17589,16 @@ modal-dialog.loader ion-spinner {
   height: 56px;
 }
 
-modal-dialog.loader .countdown {
+ion-modal-view.loader .countdown {
   font-size: 1.5em;
 }
 
-modal-dialog.loader.lay>.dialog-content {
+ion-modal-view.loader.lay>.dialog-content {
   border-color: #f9c9d4;
   border-bottom-width: 7px;
 }
 
-modal-dialog.loader.back>.dialog-content {
+ion-modal-view.loader.back>.dialog-content {
   border-color: #a7d8fd;
   border-bottom-width: 7px;
 }
@@ -18381,13 +18381,14 @@ ion-nav.landscape .home-page .open-bets-link {
 }
 
 .home-page .popular-event .match-stats-info-icon .apl-icon-custom-match-stats {
- 
   font-size: 12px;
   color: #2aa033;
 }
+
 .home-page .popular-event .match-stats-info-icon .apl-icon-custom-match-stats:last-child {
-   margin-right: 5px !important;
+  margin-right: 5px !important;
 }
+
 .home-page .popular-event .in-play-icon {
   margin: -6px 0 0;
 }
@@ -19423,20 +19424,49 @@ audio,
 video {
   font-family: 'Roboto-Regular';
 }
-.match-inner{
-  .item{
-    border-color:transparent;
+
+.match-inner {
+  .item {
+    border-color: transparent;
   }
-  .item-toggle{
-    padding-right:180px;
+  .item-toggle {
+    padding-right: 180px;
   }
   .item-toggle .toggle {
     position: absolute;
     top: 0px;
     right: 0px;
     z-index: 3;
+  }
 }
-.line-h0{
-  line-height:1;
+
+.line-h0 {
+  line-height: 1;
 }
+
+.font15 {
+  font-size: 15px !important;
+}
+
+.item-icon-right {
+  padding-right: 20px;
+}
+
+.padd-top15 {
+  padding-top: 15px;
+}
+
+.input-label {
+  display: block;
+  padding: 7px 10px 7px 0px;
+  max-width: 100%;
+  width: 100%;
+  color: #444;
+  font-size: 16px;
+}
+
+.home-page {
+  .match-inner .item-toggle {
+    padding-right: 125px;
+  }
 }
