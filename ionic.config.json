@@ -1,10 +1,9 @@
 {
   "name": "ionic-app-base",
-  "app_id": "",
-  "type": "ionic1",
   "integrations": {
     "gulp": {}
   },
+  "type": "ionic1",
   "watchPatterns": [
     "scss/**/*",
     "www/**/*",
