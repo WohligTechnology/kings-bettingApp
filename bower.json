@@ -3,5 +3,11 @@
   "private": "true",
   "devDependencies": {
     "ionic": "ionic-team/ionic-bower#1.3.4"
+  },
+  "dependencies": {
+    "jStorage": "https://github.com/andris9/jStorage.git#0.4.12",
+    "angular-toastr": "^2.1.1",
+    "AngularJS-Toaster": "angularjs-toaster#2.0.0",
+    "lodash": "^4.16.0"
   }
 }

@@ -2,42 +2,32 @@
   <div class="login-page">
     <div class="fixed-content"></div>
     <div class="login-content">
-      <form class="form-group" novalidate="">
+      <form name="loginForm" class="form-group">
         <div class="form-inner">
           <div class="logo">
             Kings Bet
           </div>
-          <ion-list class="list list-md">
-            <ion-item class="item item-block item-md item-input">
+          <div class="list list-md">
+            <div class="item item-block item-md item-input">
               <div class="item-inner">
                 <div class="input-wrapper">
-
-                  <ion-input formcontrolname="username" type="text" class="input input-md">
-                    <input class="text-input text-input-md" type="text" aria-labelledby="lbl-0" autocomplete="off" autocorrect="off" placeholder="Username"
-                      formcontrolname="username">
-                  </ion-input>
+                  <input class="text-input text-input-md" type="text" autocomplete="off" autocorrect="off" placeholder="Username"
+                    formcontrolname="username" ng-model="credentials.username">
                 </div>
               </div>
-              <div class="button-effect"></div>
-            </ion-item>
-            <ion-item class="item item-block item-md item-input">
+            </div>
+            <div class="item item-block item-md item-input">
               <div class="item-inner">
                 <div class="input-wrapper">
-
-                  <ion-input formcontrolname="password" type="password" class="input input-md">
-                    <input class="text-input text-input-md" type="password" aria-labelledby="lbl-1" autocomplete="off" autocorrect="off" placeholder="Password"
-                      formcontrolname="password">
-                  </ion-input>
+                  <input class="text-input text-input-md" type="password" autocomplete="off" autocorrect="off"
+                    placeholder="Password" formcontrolname="password" ng-model="credentials.password">
                 </div>
               </div>
-              <div class="button-effect"></div>
-            </ion-item>
-          </ion-list>
+            </div>
+          </div>
         </div>
-        <button analytics-on="" block="" class="btn-login disable-hover button button-md button-block button-block-md"
-          color="cta-primary" ion-button="" primary="" type="submit" ng-disabled="login.$invalid">
+        <button class="btn-login disable-hover button button-md button-block button-block-md" type="submit" ng-click="userLogin(credentials)">
           <span class="button-inner">Log in</span>
-          <div class="button-effect"></div>
         </button>
       </form>
     </div>
