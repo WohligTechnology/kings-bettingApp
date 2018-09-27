@@ -15282,7 +15282,7 @@ body .button-md-cta-primary {
 }
 
 .ion-page {
-  background: url("https://member.play7s.com/m/assets/img/main-background.9faced71.jpg"); // background: url("../img/bg.png");
+  // background: url("https://member.play7s.com/m/assets/img/main-background.9faced71.jpg"); // background: url("../img/bg.png");
   background-size: cover; // background-position: center center;
   height: 100%
 }
@@ -18819,6 +18819,9 @@ ion-nav.landscape .login-page {
   font-size: 35px;
   font-family: CinzelBold;
   vertical-align: middle;
+  line-height: 35px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin: 25px auto;
   background-size: contain;
 }

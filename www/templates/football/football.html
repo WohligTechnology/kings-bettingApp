@@ -1,0 +1,101 @@
+<div class="">
+    <div class="common-heading">
+        <div class="events header  ">
+            <h1 class="ng-binding ">Football
+            </h1>
+            <div class="events-rows ng-isolate-scope" i>
+                <table class="market-listing-table apl-table -qa-odds-test ">
+                    <thead>
+                        <tr>
+                            <th class="title ng-binding">Match</th>
+                            <th class="col-first-player _align-center" colspan="2">1</th>
+                            <th class="player-draw _align-center " colspan="2">X</th>
+                            <th class="col-second-player _align-center" colspan="2">2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="" ng-repeat="market in marketData">
+                            <td ng-click="getDetailedPage('Soccer',market.parentCategory.name,market.parentCategory._id);">
+                                <i class="far fa-star icon-style"></i>
+                                <a class="event-name ">{{market.parentCategory.name}}</a>
+                                <!-- <small class="in-play-content ">
+                                    <i class="fas fa-play-circle"></i> In-Play
+                                </small> -->
+                            </td>
+                            <td class="back" ng-click="placeBet(market.runners[0].singleBackRate,'BACK',market,market.runners[0])">
+                                <strong class="odds">
+                                    {{market.runners[0].singleBackRate}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{market.runners[0].singleBackSize}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="lay" ng-click="placeBet(market.runners[0].singleLayRate,'LAY',market,market.runners[0])">
+                                <strong class="odds ">
+                                    {{market.runners[0].singleLayRate}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{market.runners[0].singleLaySize}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="back" ng-click="placeBet(market.runners[2].singleBackRate,'BACK',market,market.runners[2])">
+                                <strong class="odds ">
+                                    {{market.runners[2].singleBackRate}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{market.runners[2].singleBackSize}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="lay" ng-click="placeBet(market.runners[2].singleLayRate,'LAY',market,market.runners[2])">
+                                <strong class="odds ">
+                                    {{market.runners[2].singleLayRate}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{market.runners[2].singleLaySize}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="back" ng-click="placeBet(market.runners[1].singleBackRate,'BACK',market,market.runners[1])">
+                                <strong class="odds ">
+                                    {{market.runners[1].singleBackRate}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{market.runners[1].singleBackSize}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="lay" ng-click="placeBet(market.runners[1].singleLayRate,'LAY',market,market.runners[1])">
+                                <strong class="odds ">
+                                    {{market.runners[1].singleLayRate}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{market.runners[1].singleLaySize}}
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- end ngIf: events && events.length > 0 -->
+            </div>
+        </div>
+        <!-- end ngIf: !vm.showMarkets && !vm.isRaceLanding && !vm.isRace -->
+
+        <!-- ngIf: vm.showMarkets && !vm.isRaceLanding -->
+
+        <!-- ngIf: vm.isRaceLanding || vm.isRace -->
+
+        <!-- ngIf: isBfDown || vm.isMenuEmpty -->
+
+    </div>
+
+</div>

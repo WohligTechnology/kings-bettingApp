@@ -1,0 +1,105 @@
+<div class="sport-wrapper common-heading">
+    <div class="events">
+        <h1 class="">{{selectedGame}}
+            <!-- <span class="starts-in-label">Betting from 30mins before start</span> -->
+        </h1>
+        <div class="events-rows">
+            <table class="market-listing-table apl-table">
+                <thead>
+                    <tr>
+                        <th class="title">Match</th>
+                        <th class="col-first-player _align-center" colspan="2">1</th>
+                        <th class="col-first-player _align-center" colspan="2" ng-if="isDraw == true">x</th>
+                        <th class="col-second-player _align-center" colspan="2">2</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="" ng-repeat="market in marketData" ng-class="{'op5' : market.betfairStatus != 'OPEN'}" ng-disabled="market.betfairStatus != 'OPEN'">
+                        <td>
+                            <span ng-click="saveFavourite(market);">
+                                <span ng-if="!market.isFavourite">
+                                    <i class="far fa-star icon-style"></i>
+                                </span>
+                                <span ng-if="market.isFavourite">
+                                    <i class="fas fa-star apl-icon-star-o"></i>
+                                </span>
+                            </span>
+                            <a class="event-name " ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage(selectedGame,market.parentCategory.name,market.parentCategory._id);">{{market.parentCategory.name}}</a>
+                            <small class="in-play-content" ng-if="checkDate(market) == false">
+                                <i class="fas fa-play-circle"></i> In-Play
+                            </small>
+                            <small class="in-time-content" ng-if="checkDate(market) == true">{{market.marketStartTime | formatdate}}
+                            </small>
+                        </td>
+                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-click=" placeBet(market.runners[0].singleBackRate,'BACK',market,market.runners[0])">
+                            <strong class="odds">
+                                {{market.runners[0].singleBackRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[0].singleBackSize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="lay" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-click=" placeBet(market.runners[0].singleLayRate,'LAY',market,market.runners[0])">
+                            <strong class="odds ">
+                                {{market.runners[0].singleLayRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[0].singleLaySize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
+                            ng-click=" placeBet(market.runners[2].singleBackRate,'BACK',market,market.runners[2])">
+                            <strong class="odds ">
+                                {{market.runners[2].singleBackRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[2].singleBackSize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="lay" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
+                            ng-click=" placeBet(market.runners[2].singleLayRate,'LAY',market,market.runners[2])">
+                            <strong class="odds ">
+                                {{market.runners[2].singleLayRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[2].singleLaySize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-click=" placeBet(market.runners[1].singleBackRate,'BACK',market,market.runners[1])">
+                            <strong class="odds ">
+                                {{market.runners[1].singleBackRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[1].singleBackSize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="lay" ng-if="market.betfairStatus == 'OPEN' || market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-click="placeBet(market.runners[1].singleLayRate,'LAY',market,market.runners[1])">
+                            <strong class="odds ">
+                                {{market.runners[1].singleLayRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[1].singleLaySize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td colspan="6" ng-if="market.betfairStatus != 'OPEN' || market.isSuspended == 'Yes'" class="text-center suspend-color">
+                            <span class="event-name">{{market.betfairStatus}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

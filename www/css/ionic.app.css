@@ -23059,7 +23059,6 @@ body .button-md-cta-primary {
   background-color: #00a950; }
 
 .ion-page {
-  background: url("https://member.play7s.com/m/assets/img/main-background.9faced71.jpg");
   background-size: cover;
   height: 100%; }
 
@@ -25935,6 +25934,9 @@ ion-nav.landscape .login-page {
   font-size: 35px;
   font-family: CinzelBold;
   vertical-align: middle;
+  line-height: 35px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin: 25px auto;
   background-size: contain; }
 

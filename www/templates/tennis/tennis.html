@@ -1,0 +1,70 @@
+<div class="sport-wrapper">
+    <div class="events common-heading">
+        <h1 class="header">Tennis
+        </h1>
+        <div class="events-rows">
+
+            <table class="market-listing-table apl-table">
+                <thead>
+                    <tr>
+                        <th class="title ">Match</th>
+                        <th class="col-first-player _align-center" colspan="2">1</th>
+                        <th class="col-second-player _align-center" colspan="2">2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="" ng-repeat="market in marketData">
+                        <td>
+                            <i class="far fa-star icon-style"></i>
+                            <a class="event-name ">{{market.parentCategory.name}}</a>
+                            <!-- <small class="in-play-content ">
+                                <i class="fas fa-play-circle"></i> In-Play
+                            </small> -->
+                        </td>
+                        <td class="back">
+                            <strong class="odds ">
+                                {{market.runners[0].singleBackRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[0].singleBackSize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="lay">
+                            <strong class="odds ">
+                                {{market.runners[0].singleLayRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[0].singleLaySize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="back">
+                            <strong class="odds ">
+                                {{market.runners[1].singleBackRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[1].singleBackSize}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="lay">
+                            <strong class="odds ">
+                                {{market.runners[1].singleLayRate}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{market.runners[1].singleLaySize}}
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

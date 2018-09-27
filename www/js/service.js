@@ -1,10 +1,11 @@
+var myApp = angular.module('starter.services', []);
 // var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
 adminUUU = "https://rates.kingsplay.co/"; //socket betfair
-sportsSocket = "https://sportsbooktest.kingsplay.co/";
+// sportsSocket = "https://sportsbooktest.kingsplay.co/";
 // adminUUU = "http://localhost:1338/"; //socket betfair
 // sportsSocket = "http://localhost:1337/";
-// sportsSocket = "http://192.168.2.30:1337/";
+sportsSocket = "http://192.168.1.121:1337/";
 // sportsSocket = "http://192.168.43.8:1337/";
 adminurl = sportsSocket + "api/"; //sports book
 // mainServer = "http://192.168.1.105:1337/"; //main server
@@ -13,8 +14,9 @@ mainServer = "https://kingplay.online/"; //main server
 // adminurl = "http://192.168.1.107:1337/api/"
 // io.sails.url = adminUUU;
 // io.sails.autoConnect = false;
+
 myApp.factory('Service', function ($http, $q, $log, $timeout) {
-    return {
+    var obj = {
         userLogin: function (url, formData, callback) {
             $http.post(adminurl + url, formData).then(function (data) {
                 data = data.data;
@@ -106,4 +108,5 @@ myApp.factory('Service', function ($http, $q, $log, $timeout) {
             return defer.promise;
         },
     };
+    return obj;
 });
