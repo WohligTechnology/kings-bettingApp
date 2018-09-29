@@ -3,7 +3,7 @@ myApp.directive('balance', function () {
       restrict: 'E',
       replace: false,
       scope: {
-        balance: "=ngBalance",
+        balanceData: "=ngBalance",
       },
       templateUrl: 'templates/directive/balance.html',
       link: function ($scope, element, attr) {
