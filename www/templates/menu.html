@@ -139,7 +139,7 @@
           <div class="menu-top-wrap">
             <account-overview>
               <div class="account-overview">
-                <p class="login-name">nileshw</p>
+                <p class="login-name">{{userInfo.username}}</p>
                 <ion-list class="list list-md">
                   <div class="menu-item">
                     <p class="label">
@@ -150,20 +150,20 @@
                       <div class="group">
                         <div>Available Credit:</div>
                         <span>
-                          <strong>180.00</strong>
+                          <strong>{{(balanceData.balance || 0)| number:2}}</strong>
                         </span>
                       </div>
                       <div class="group">
                         <div>Credit Limit:</div>
-                        <span>200.00</span>
+                        <span>{{balanceData.creditLimit || 0}}</span>
                       </div>
                       <div class="group">
                         <div>Winnings:</div>
-                        <span class="-positive">0.80</span>
+                        <span ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings >= 0}">+ {{(balanceData.winnings || 0)| number:2}}</span>
                       </div>
                       <div class="group">
                         <div>Net Exposure:</div>
-                        <span class="-negative">20.80</span>
+                        <span ng-class="{'positive':netExposureData >= 0 ,'negative':netExposureData<0}">{{netExposureData | number :2}}</span>
                       </div>
                     </div>
                   </div>
@@ -258,8 +258,8 @@
               </div>
             </ion-list>
           </div>
-          <button class="btn-sign-out item item-block item-md" ion-item="">
-            <i class="fi flaticon-logout apl-icon-signout" item-left=""></i>
+          <button class="btn-sign-out item item-block item-md" ng-click="logout()">
+            <i class="fi flaticon-logout apl-icon-signout"></i>
             <div class="item-inner">
               <div class="input-wrapper">
                 <ion-label class="label label-md">

@@ -39,15 +39,15 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, toastr, $h
     if ($scope.currentGame[1] == "home") {
       $scope.selectedGame = "Cricket";
       $scope.page = "views/content/cricket/cricket.html";
-      $scope.getMarketIds({
-        game: "Cricket"
-      });
+      // $scope.getMarketIds({
+      //   game: "Cricket"
+      // });
     } else {
       $scope.selectedGame = $scope.currentGame[1];
-      $scope.getMarketIds({
-        game: $scope.currentGame[1],
-        parentId: $scope.currentGame[2]
-      });
+      // $scope.getMarketIds({
+      //   game: $scope.currentGame[1],
+      //   parentId: $scope.currentGame[2]
+      // });
       $scope.getGamePage($scope.currentGame[1]);
     }
   });
@@ -93,24 +93,24 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, toastr, $h
 
   };
 
-  $scope.getMarketIds = function (value) {
-    Service.apiCallWithData('Category/getMarketIds', value, function (data) {
-      if (data.value) {
-        if (!_.isEmpty(data.data)) {
-          $scope.marketData = data.data;
-          // $scope.marketId = "market_1.144792630";
-          // console.log("$scope.marketData", $scope.marketData);
-          // $scope.setUrl('game', '1');
-          $scope.home = true;
-          establishSocketConnection();
-        } else {
-          $scope.marketData = [];
-        }
-      } else {
-        // alert("Unable get markets");
-      }
-    });
-  };
+  // $scope.getMarketIds = function (value) {
+  //   Service.apiCallWithData('Category/getMarketIds', value, function (data) {
+  //     if (data.value) {
+  //       if (!_.isEmpty(data.data)) {
+  //         $scope.marketData = data.data;
+  //         // $scope.marketId = "market_1.144792630";
+  //         // console.log("$scope.marketData", $scope.marketData);
+  //         // $scope.setUrl('game', '1');
+  //         $scope.home = true;
+  //         establishSocketConnection();
+  //       } else {
+  //         $scope.marketData = [];
+  //       }
+  //     } else {
+  //       // alert("Unable get markets");
+  //     }
+  //   });
+  // };
 
   $scope.getDetailedPage = function (game, event, id) {
     $state.go("detailPage", {
