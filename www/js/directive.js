@@ -11,4 +11,43 @@ myApp.directive('balance', function () {
       }
     };
   })
-  ;
+  .directive('market', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/market.html',
+      link: function ($scope, element, attr) {
+
+      }
+    };
+  })
+  .directive('betForm', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/bet-form.html',
+      link: function ($scope, element, attr) {
+
+      }
+    };
+  })
+  .directive('marketVolume', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/market-volume.html',
+      link: function ($scope, element, attr) {
+
+      }
+    };
+  })
+  .directive('betButton', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/bet-button.html',
+      link: function ($scope, element, attr) {
+
+      }
+    };
+  });
