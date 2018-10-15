@@ -37,6 +37,35 @@ $dark:                            #444 !default;
 }
 
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+
+.ionic_datepicker_popup {
+  .popup-body .selected_date_full {
+    background-color: #1f242b !important;
+  }
+
+  .popup-head {
+    background-color: #364342 !important;
+  }
+
+  .popup-body {
+    background-color: #1a1f25 !important;
+  }
+
+  .popup-buttons button {
+    background-color: #1a1f25 !important;
+  }
+
+  .popup-body .month_select,
+  .popup-body .year_select {
+    border-bottom: 1px solid #0c0c0c !important;
+  }
+}
+
+.ionic_datepicker_popup .month_year_section {
+  padding: 5px 0px;
+  max-width: 100% !important;
+}
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "www/lib/angular-toastr/dist/angular-toastr";
