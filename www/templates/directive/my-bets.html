@@ -1,0 +1,18 @@
+<div class="my-bets-container">
+  <ion-list>
+    <div ng-repeat="group in groups" class="mb-10">
+      <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+        <h3 class="toggle">
+          <span>Unmatched Bets</span> &nbsp;
+          <div class="item-icon-right">
+            <i class="icon font15 ion-chevron-up" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"
+              style=""></i>
+          </div>
+        </h3>
+      </ion-item>
+      <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+        You have no unmatched bets
+      </ion-item>
+    </div>
+  </ion-list>
+</div>

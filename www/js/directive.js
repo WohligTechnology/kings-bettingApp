@@ -50,4 +50,16 @@ myApp.directive('balance', function () {
 
       }
     };
+
+  })
+  .directive('myBets', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/my-bets.html',
+      link: function ($scope, element, attr) {
+
+      }
+    };
+
   });
