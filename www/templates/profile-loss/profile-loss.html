@@ -30,164 +30,79 @@
         </ion-title>
       </div>
     </ion-navbar>
-
-    <!-- ngIf:  -->
   </div>
   <ion-content class="betting-pnl-page content content-md" padding="" style="margin-top:40px;">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
   <div class="scroll-content" style="margin-top: 60px;"> -->
-    <div class="right from-to-date">
+    <div class="right from-to-date d-inline-block">
       <span>To Date</span>
       <input type="text" name="toDate" ng-model="formData.toDate" ng-click="openDatePicker2()" class=" cursor">
 
     </div>
-    <div class="right from-to-date">
+    <div class="right from-to-date d-inline-block">
       <span>From Date:
       </span>
       <input type="text" name="fromDate" ng-model="formData.fromDate" ng-click="openDatePicker()" class="cursor">
     </div>
+    <button class="button button-search button-small button-dark" type="submit" ng-click="bettingPl({})" id="submit">
+      <i class="icon ion-search placeholder-icon"></i> Search
+    </button>
+
     <div>
       <h2 class="page-title">Betting Profit &amp; Loss</h2>
       <div class="pnl-list">
         <div class="date-section">
-          <div class="date">
-            <time>2nd August 2018</time>
-            <span class="total">P&amp;L:
-              <span class="value" ng-class="{'-negative': totalPL < 0, '-positive': totalPL  >= 0}">
-                {{totalPL}}
-                <!-- <displaynumber ng-model="totalPL"></displaynumber> -->
+          <div class="" ng-if="!isDetailedView" ng-repeat="item in bettingPldata">
+            <div class="date">
+              <time>{{item._id}}</time>
+              <span class="total">P&amp;L:
+                <span class="value" ng-class="{'-negative': totalPL < 0, '-positive': totalPL  >= 0}">
+                  {{totalPL}}
+                  <!-- <displaynumber ng-model="totalPL"></displaynumber> -->
+                </span>
               </span>
-            </span>
-          </div>
-          <div class="wrapper">
-            <div class="info">
-              <div class="truncate">
-                <a analytics-on="">
-                  <strong>Michalski v Gimeno-Traver - Match Odds</strong>
-                </a>
-              </div>
-              <div class="market-info">
-                <strong>Start time:</strong> 02/8/2018 17:48:00 </div>
-              <div class="market-info">
-                <strong>Settled Time:</strong> 02/8/2018 19:09:15</div>
-            </div>
-            <div class="pnl-titles">
-              <div>
-                <strong>Comm:</strong>
-              </div>
-              <div>
-                <strong>Net Win:</strong>
-              </div>
-            </div>
-            <div class="pnl-numbers">
-              <div>
-                <span>0.00</span>
-              </div>
-              <div>
-                <span class="-negative">-4.95</span>
-              </div>
-            </div>
-          </div>
-          <div class="wrapper">
-            <div class="info">
-              <div class="truncate">
-                <a analytics-on="">
-                  <strong>Marterer v Istomin - Match Odds</strong>
-                </a>
-              </div>
-              <div class="market-info">
-                <strong>Start time:</strong> 02/8/2018 16:15:00 </div>
-              <div class="market-info">
-                <strong>Settled Time:</strong> 02/8/2018 17:47:07</div>
-            </div>
-            <div class="pnl-titles">
-              <div>
-                <strong>Comm:</strong>
-              </div>
-              <div>
-                <strong>Net Win:</strong>
-              </div>
-            </div>
-            <div class="pnl-numbers">
-              <div>
-                <span>0.00</span>
-              </div>
-              <div>
-                <span class="-negative">-6.00</span>
-              </div>
-            </div>
-          </div>
-          <div class="wrapper">
-            <div class="info">
-              <div class="truncate">
-                <a analytics-on="">
-                  <strong>Vatutin v Kolar - Match Odds</strong>
-                </a>
-              </div>
-              <div class="market-info">
-                <strong>Start time:</strong> 02/8/2018 15:56:00 </div>
-              <div class="market-info">
-                <strong>Settled Time:</strong> 02/8/2018 17:45:48</div>
-            </div>
-            <div class="pnl-titles">
-              <div>
-                <strong>Comm:</strong>
-              </div>
-              <div>
-                <strong>Net Win:</strong>
-              </div>
-            </div>
-            <div class="pnl-numbers">
-              <div>
-                <span>0.00</span>
-              </div>
-              <div>
-                <span class="-negative">-2.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="date-section">
-          <div class="date">
-            <time>1st August 2018</time>
-            <span class="total">P&amp;L:
-              <span class="value">
-                0.00
-              </span>
-            </span>
-          </div>
-          <div class="wrapper">
-            <div class="info">
-              <div class="truncate">
-                <a analytics-on="">
-                  <strong>A Zverev v Jaziri - Match Odds</strong>
-                </a>
-              </div>
-              <div class="market-info">
-                <strong>Start time:</strong> 01/8/2018 09:58:00 </div>
-              <div class="market-info">
-                <strong>Settled Time:</strong> 02/8/2018 05:40:02</div>
             </div>
 
-            <div class="pnl-titles">
-              <div>
-                <strong>Comm:</strong>
+            <div class="wrapper" ng-repeat="n in item.records">
+              <div class="info">
+                <div class="truncate">
+                  <a analytics-on="">
+                    <strong> <span class="">{{n.eventName}}</span> - {{n.matchName}}</strong>
+                  </a>
+                </div>
+                <div class="market-info">
+                  <strong>Start time:</strong> <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class="">{{n.marketStartTime|date:'dd/MM/yyyy
+                    hh:mm:ss'}}
+                  </time> </div>
+                <div class="market-info">
+                  <strong>Settled Time:</strong> <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class="">{{n.settledTime|date:'dd/MM/yyyy
+                    hh:mm:ss'}}
+                  </time></div>
               </div>
-              <div>
-                <strong>Net Win:</strong>
+              <div class="pnl-titles">
+                <div>
+                  <strong>Comm:</strong>
+                </div>
+                <div>
+                  <strong>Net Win:</strong>
+                </div>
               </div>
-            </div>
-            <div class="pnl-numbers">
-              <div>
-                <span>0.00</span>
-              </div>
-              <div>
-                <span>0.00</span>
+              <div class="pnl-numbers">
+                <div>
+                  <span class="numeric " ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
+                    <displaynumber ng-model="n.commissionAmt"></displaynumber>
+                  </span>
+
+                </div>
+                <div>
+                  <span class="numeric " ng-class="{'-negative': order.pnl < 0, '-positive': order.pnl >= 0}">
+                    <displaynumber ng-model="n.netAmount"></displaynumber>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </ion-content>
 </ion-view>

@@ -31,6 +31,29 @@ $dark:                            #444 !default;
   src: url("../fonts/Roboto/Roboto-Medium.ttf");
   font-family: 'Roboto-Medium'; }
 
+.ionic_datepicker_popup .popup-body .selected_date_full {
+  background-color: #1f242b !important; }
+
+.ionic_datepicker_popup .popup-head {
+  background-color: #364342 !important; }
+
+.ionic_datepicker_popup .popup-body {
+  background-color: #1a1f25 !important; }
+
+.ionic_datepicker_popup .popup-buttons button {
+  background-color: #1a1f25 !important; }
+
+.ionic_datepicker_popup .popup-body .month_select,
+.ionic_datepicker_popup .popup-body .year_select {
+  border-bottom: 1px solid #0c0c0c !important; }
+
+.ionic_datepicker_popup .month_year_section {
+  padding: 5px 0px;
+  max-width: 100% !important; }
+
+.d-inline-block {
+  display: inline-block; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -9629,10 +9652,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }

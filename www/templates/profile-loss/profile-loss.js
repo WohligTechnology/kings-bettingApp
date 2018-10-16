@@ -1,5 +1,6 @@
 myApp.controller('ProfitLossCtrl', function ($scope, $ionicModal, $timeout, Service, jStorageService, ionicDatePicker, $filter) {
-  var memberId = jStorageService.getUserId();
+  // var memberId = jStorageService.getUserId();
+  var memberId = "5bac6e0afe33926b6c239d7d";
   $scope.formData = {};
   $scope.eventTypeData = [];
   $scope.isDetailedView = false;
@@ -67,23 +68,23 @@ myApp.controller('ProfitLossCtrl', function ($scope, $ionicModal, $timeout, Serv
       $scope.isDetailedView = false;
       if (data.value) {
         $scope.bettingPldata = data.data.accounts;
-        // _.each(data.data.gameWiseNetProfit, function (n) {
-        //   if (n._id == "Cricket") {
-        //     $scope.eventTypeData[0] = n;
-        //   }
-        //   if (n._id == "Soccer") {
-        //     $scope.eventTypeData[1] = n;
-        //   }
-        //   if (n._id == "Tennis") {
-        //     $scope.eventTypeData[2] = n;
-        //   }
-        //   if (n._id == "Horse Racing") {
-        //     $scope.eventTypeData[3] = n;
-        //   }
-        //   if (n._id == "Greyhound Racing") {
-        //     $scope.eventTypeData[4] = n;
-        //   }
-        // });
+        _.each(data.data.gameWiseNetProfit, function (n) {
+          if (n._id == "Cricket") {
+            $scope.eventTypeData[0] = n;
+          }
+          if (n._id == "Soccer") {
+            $scope.eventTypeData[1] = n;
+          }
+          if (n._id == "Tennis") {
+            $scope.eventTypeData[2] = n;
+          }
+          if (n._id == "Horse Racing") {
+            $scope.eventTypeData[3] = n;
+          }
+          if (n._id == "Greyhound Racing") {
+            $scope.eventTypeData[4] = n;
+          }
+        });
         $scope.totalPL = data.data.netProfit;
       } else {
         $scope.bettingPldata = [];

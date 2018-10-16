@@ -66,6 +66,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   max-width: 100% !important;
 }
 
+.d-inline-block {
+  display: inline-block;
+
+}
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "www/lib/angular-toastr/dist/angular-toastr";

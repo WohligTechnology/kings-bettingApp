@@ -24,7 +24,8 @@
           <ion-list no-border="" class="list list-md">
             <div>
               <div class="menu-lvl-1">
-                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="" ui-sref="app.my-market">
+                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="" ui-sref="app.my-market"
+                  ng-click="favourites();">
                   <i item-left="" class="fi flaticon-eye"></i>
                   <div class="item-inner">
                     <div class="input-wrapper">
@@ -39,14 +40,14 @@
               <div class="menu-lvl-2">
               </div>
             </div>
-            <div>
+            <div ng-repeat="game in gameData">
               <div class="menu-lvl-1">
-                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="">
+                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="" ng-click="getGameName(game.name);getSubCategory(game.children)">
                   <i item-left="" class="fi flaticon-cricket"></i>
                   <div class="item-inner">
                     <div class="input-wrapper">
                       <ion-label class="label label-md">
-                        Cricket
+                        {{game.name}}
                       </ion-label>
                     </div>
                   </div>
@@ -56,8 +57,8 @@
               <div class="menu-lvl-2">
               </div>
             </div>
-            <div>
-              <div class="menu-lvl-1">
+            <!-- <div> -->
+            <!--  <div class="menu-lvl-1">
                 <button menu-close analytics-on="" class="item item-block item-md selected" ion-item="">
                   <i item-left="" class="fi flaticon-football-ball"></i>
                   <div class="item-inner">
@@ -123,7 +124,7 @@
               </div>
               <div class="menu-lvl-2">
               </div>
-            </div>
+            </div> -->
           </ion-list>
           <!-- </div> -->
         </ion-content>
@@ -159,11 +160,13 @@
                       </div>
                       <div class="group">
                         <div>Winnings:</div>
-                        <span ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings >= 0}">+ {{(balanceData.winnings || 0)| number:2}}</span>
+                        <span ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings >= 0}">+
+                          {{(balanceData.winnings || 0)| number:2}}</span>
                       </div>
                       <div class="group">
                         <div>Net Exposure:</div>
-                        <span ng-class="{'positive':netExposureData >= 0 ,'negative':netExposureData<0}">{{netExposureData | number :2}}</span>
+                        <span ng-class="{'positive':netExposureData >= 0 ,'negative':netExposureData<0}">{{netExposureData
+                          | number :2}}</span>
                       </div>
                     </div>
                   </div>

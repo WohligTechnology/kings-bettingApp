@@ -62,4 +62,16 @@ myApp.directive('balance', function () {
       }
     };
 
+  })
+  .directive('displaynumber', function ($http, $filter) {
+    return {
+      templateUrl: 'templates/directive/display-number.html',
+      scope: {
+        model: '=ngModel',
+        // decimal: '=decimal'
+      },
+      link: function ($scope, element, attrs) {
+        // $scope.decimal = $scope.decimal ? $scope.decimal : 2;
+      }
+    };
   });

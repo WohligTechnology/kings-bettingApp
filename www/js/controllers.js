@@ -10,6 +10,7 @@ angular.module('starter.controllers', [])
     //});
 
     // Form data for the login modal
+
     $scope.loginData = {};
 
     $scope.$on('$ionicView.enter', function () {
@@ -107,10 +108,10 @@ angular.module('starter.controllers', [])
 
         $scope.subcategory = value;
       } else {
-        $state.go("detailPage", {
-          game: $scope.game,
-          parentId: $scope.parentId
-        });
+        // $state.go("detailPage", {
+        //   game: $scope.game,
+        //   parentId: $scope.parentId
+        // });
       }
     };
 
@@ -181,12 +182,12 @@ angular.module('starter.controllers', [])
       });
     };
 
-    $scope.getDetailedEvent = function (item) {
-      $state.go("detailPage", {
-        game: item.eventType.name,
-        parentId: item._id
-      });
-    };
+    // $scope.getDetailedEvent = function (item) {
+    //   $state.go("detailPage", {
+    //     game: item.eventType.name,
+    //     parentId: item._id
+    //   });
+    // };
 
     $scope.getAvailableCredit = function () {
       Service.apiCallWithUrl(mainServer + 'api/sportsbook/getCurrentBalance', {
