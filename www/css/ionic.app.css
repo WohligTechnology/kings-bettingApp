@@ -9652,10 +9652,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -26761,7 +26761,7 @@ video {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased; }
 
-.flaticon-football-ball:before {
+.flaticon-Soccer:before {
   content: "\f100"; }
 
 .flaticon-eye:before {
@@ -26797,10 +26797,10 @@ video {
 .flaticon-logout:before {
   content: "\f10b"; }
 
-.flaticon-cricket:before {
+.flaticon-Cricket:before {
   content: "\f10c"; }
 
-.flaticon-tennis-ball:before {
+.flaticon-Tennis:before {
   content: "\f10d"; }
 
 .flaticon-information:before {
