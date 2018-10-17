@@ -1,5 +1,7 @@
-myApp.controller('ProfitLossInnerCtrl', function ($scope, $ionicModal, $timeout) {
-  var memberId = jStorageService.getUserId();
+myApp.controller('ProfitLossInnerCtrl', function ($scope, $ionicModal, $timeout,jStorageService,Service) {
+  // var memberId = jStorageService.getUserId();
+  var memberId = "5bac6e0afe33926b6c239d7d";
+  $scope.formData={};
   $scope.bettingPl = function (value) {
     $scope.formData.memberId = memberId;
     if (!_.isEmpty(value)) {
