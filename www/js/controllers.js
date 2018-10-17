@@ -78,7 +78,6 @@ angular.module('starter.controllers', [])
     // //To get sub Category
     $scope.getSubCategory = function (value) {
 
-
       //get match odds on click
       // $scope.getMatchOdds({
       //     game: $scope.game,

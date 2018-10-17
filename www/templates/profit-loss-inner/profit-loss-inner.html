@@ -34,104 +34,96 @@
   <ion-content class="pnl-breakdown-page content content-md" padding="" style="margin-top:40px;">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
     <div class="scroll-content" style="margin-top: 60px;"> -->
-    <!---->
-    <!---->
-    <div>
+    <div ng-if="isDetailedView">
       <h2 class="page-title">Betting Profit &amp; Loss</h2>
-      <!---->
       <div class="pnl-list">
-        <div class="title">Michalski v Gimeno-Traver - Match Odds</div>
-        <!---->
-        <div>
-          <div class="wrapper">
-            <div class="info">
-              <div class="truncate lay">
-                <!---->
-                <!---->
-                <strong>
-                  Selection: Daniel Gimeno-Traver
-                </strong>
-              </div>
-              <div class="bet-info">
-                <strong>Bet ID:</strong> 1808021252277211</div>
-              <div class="bet-info">
-                <strong>Placed:</strong> 02/8/2018 18:22:28
-              </div>
+        <div class="title"><a href="">{{eventType}}</a> &gt;
+          <span>{{event}}</span>- {{market}}</div>
+        <div ng-repeat="item in eventBetsData" ng-class="{'back-bg' : item.type == 'BACK','lay-bg' : item.type == 'LAY' }"></div>
 
-              <ion-row class="bet-props row">
-                <ion-col class="col" width-30="">
-                  <strong>TYPE</strong>
-                </ion-col>
-                <ion-col class="col" width-30="">
-                  <strong>ODDS</strong>
-                </ion-col>
-                <ion-col class="col" width-30="">
-                  <strong>STAKE</strong>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row">
-                <ion-col class="col" width-30="">Lay</ion-col>
-                <ion-col class="col" width-30="">
-                  1.030
-                  <!---->
-                </ion-col>
-                <ion-col class="col" width-30="">165</ion-col>
-              </ion-row>
-
+        <div class="wrapper">
+          <div class="info">
+            <div class="truncate lay">
+              <strong>
+                Selection: {{item.horseData.name}}
+              </strong>
             </div>
-            <div class="pnl-titles">
-              <div>
-                <strong>Status:</strong>
-              </div>
-              <div>
-                <strong>Profit/Loss:</strong>
-              </div>
+            <div class="bet-info">
+              <strong>Bet ID:</strong> {{item.betfairId}}</div>
+            <div class="bet-info">
+              <strong>Placed:</strong> {{item.placedDate|date:'dd/MM/yyyy hh:mm:ss'}}
             </div>
-            <div class="pnl-numbers">
-              <div>
-                <span class="-negative">LOST</span>
-              </div>
-              <div>
-                <span class="-negative">-4.95</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="summary">
-          <div class="subtotal">
-            <ion-row class="row">
-              <ion-col class="label col" width-70="">
-                Back subtotal:
+            <ion-row class="bet-props row">
+              <ion-col class="col" width-30="">
+                <strong>TYPE</strong>
               </ion-col>
-              <ion-col class="number col" width-70="">0.00</ion-col>
-            </ion-row>
-            <ion-row class="row">
-              <ion-col class="label col" width-70="">
-                Lay subtotal:
+              <ion-col class="col" width-30="">
+                <strong>ODDS</strong>
               </ion-col>
-              <ion-col class="number col" width-70="">-4.95</ion-col>
+              <ion-col class="col" width-30="">
+                <strong>STAKE</strong>
+              </ion-col>
             </ion-row>
             <ion-row class="row">
-              <ion-col class="label col" width-70="">Market subtotal:</ion-col>
-              <ion-col class="number col" width-70="">-4.95</ion-col>
-            </ion-row>
-            <ion-row class="row">
-              <ion-col class="label col" width-70="">Commission:</ion-col>
-              <ion-col class="number col" width-70="">0.00</ion-col>
+              <ion-col class="col" width-30="">{{item.type}}</ion-col>
+              <ion-col class="col" width-30="">
+                {{item.betRate}}
+              </ion-col>
+              <ion-col class="col" width-30="">{{item.stake}} <span>--{{item.amt}}</span></ion-col>
             </ion-row>
           </div>
-          <ion-row class="net-market row">
-            <ion-col class="label col" width-70="">
-              <strong>Net Market Total:</strong>
-            </ion-col>
-            <ion-col class="number col" width-70="">
-              <strong>-4.95</strong>
-            </ion-col>
-          </ion-row>
+          <div class="pnl-titles">
+            <div>
+              <strong>Status:</strong>
+            </div>
+            <div>
+              <strong>Profit/Loss:</strong>
+            </div>
+          </div>
+          <div class="pnl-numbers">
+            <div>
+              <span class="-negative" ng-class="{'-negative': item.betData.betWinStatus == 'LOST', '-positive': item.betData.betWinStatus == 'WON'}">{{item.amt
+                | number:2}}</span>
+            </div>
+            <div>
+              <span class="" ng-class="{'-negative': item.betData.betWinStatus == 'LOST', '-positive': item.betData.betWinStatus == 'WON'}">{{item.betData.betWinStatus}}</span>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!---->
+      <div class="summary">
+        <div class="subtotal">
+          <ion-row class="row">
+            <ion-col class="label col" width-70="">
+              Back subtotal:
+            </ion-col>
+            <ion-col class="number col" width-70="">0.00</ion-col>
+          </ion-row>
+          <ion-row class="row">
+            <ion-col class="label col" width-70="">
+              Lay subtotal:
+            </ion-col>
+            <ion-col class="number col" width-70="">-4.95</ion-col>
+          </ion-row>
+          <ion-row class="row">
+            <ion-col class="label col" width-70="">Market subtotal:</ion-col>
+            <ion-col class="number col" width-70="">-4.95</ion-col>
+          </ion-row>
+          <ion-row class="row">
+            <ion-col class="label col" width-70="">Commission:</ion-col>
+            <ion-col class="number col" width-70="">0.00</ion-col>
+          </ion-row>
+        </div>
+        <ion-row class="net-market row">
+          <ion-col class="label col" width-70="">
+            <strong>Net Market Total:</strong>
+          </ion-col>
+          <ion-col class="number col" width-70="">
+            <strong>-4.95</strong>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
     </div>
     <!-- </div> -->
   </ion-content>
