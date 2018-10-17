@@ -44,7 +44,7 @@
             <div ng-repeat="game in gameData">
               <div class="menu-lvl-1">
                 <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="" ng-click="getGameName(game.name);getSubCategory(game.children)">
-                  <i item-left="" class="fi flaticon-cricket"></i>
+                  <i item-left=""  class="fi flaticon-{{game.name}}"></i>
                   <div class="item-inner">
                     <div class="input-wrapper">
                       <ion-label class="label label-md">
