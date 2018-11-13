@@ -18,22 +18,22 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 @font-face {
   src: url("../fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
-  font-family: 'CinzelBold';
+  font-family: "CinzelBold";
 }
 
 @font-face {
   src: url("../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
-  font-family: 'Roboto-Condensed-Regular';
+  font-family: "Roboto-Condensed-Regular";
 }
 
 @font-face {
   src: url("../fonts/Roboto/Roboto-Regular.ttf");
-  font-family: 'Roboto-Regular';
+  font-family: "Roboto-Regular";
 }
 
 @font-face {
   src: url("../fonts/Roboto/Roboto-Medium.ttf");
-  font-family: 'Roboto-Medium';
+  font-family: "Roboto-Medium";
 }
 
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -68,11 +68,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 .d-inline-block {
   display: inline-block;
-
 }
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "www/lib/angular-toastr/dist/angular-toastr";
 @import "style";
-@import "flaticon"
+@import "flaticon";

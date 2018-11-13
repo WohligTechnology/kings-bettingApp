@@ -17,19 +17,19 @@ $dark:                            #444 !default;
 */
 @font-face {
   src: url("../fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
-  font-family: 'CinzelBold'; }
+  font-family: "CinzelBold"; }
 
 @font-face {
   src: url("../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
-  font-family: 'Roboto-Condensed-Regular'; }
+  font-family: "Roboto-Condensed-Regular"; }
 
 @font-face {
   src: url("../fonts/Roboto/Roboto-Regular.ttf");
-  font-family: 'Roboto-Regular'; }
+  font-family: "Roboto-Regular"; }
 
 @font-face {
   src: url("../fonts/Roboto/Roboto-Medium.ttf");
-  font-family: 'Roboto-Medium'; }
+  font-family: "Roboto-Medium"; }
 
 .ionic_datepicker_popup .popup-body .selected_date_full {
   background-color: #1f242b !important; }
@@ -9652,10 +9652,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -10538,7 +10538,6 @@ pnl {
   float: left;
   margin-right: 4px; }
 
-.col,
 [col-12],
 [col],
 body,
@@ -17241,7 +17240,6 @@ ion-fab-list {
   -webkit-transform: scale(0);
   transform: scale(0); }
 
-.col,
 .grid,
 [col-12] {
   width: 100%; }
@@ -26730,6 +26728,21 @@ video {
 
 .login-content .item-md {
   background: transparent; }
+
+.card.p-0 {
+  margin: 20px 0;
+  padding: 10px; }
+
+.row.weeks_row,
+.date_cell {
+  color: #fff; }
+
+.ionic_datepicker_popup .popup-body .pointer_events_none .date_cell {
+  pointer-events: none;
+  color: #aaaaaa !important; }
+
+.pad-0 {
+  padding: 0; }
 
 /*
     Flaticon icon font: Flaticon

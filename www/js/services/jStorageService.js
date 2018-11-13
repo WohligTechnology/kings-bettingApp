@@ -25,6 +25,6 @@ myApp.service('jStorageService', function ($http) {
         var data = $.jStorage.get("userId");
         console.log("data", data);
         return data;
-    }
+    };
 
 });

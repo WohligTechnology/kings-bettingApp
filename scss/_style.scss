@@ -589,7 +589,7 @@ $yellow:#fab841;
   margin-right: 4px;
 }
 
-.col,
+// .col,
 [col-12],
 [col],
 body,
@@ -8062,7 +8062,7 @@ ion-fab-list {
   transform: scale(0);
 }
 
-.col,
+// .col,
 .grid,
 [col-12] {
   width: 100%
@@ -19780,8 +19780,27 @@ video {
 }
 
 
-.login-content{
-  .item-md{
+.login-content {
+  .item-md {
     background: transparent;
   }
+}
+
+.card.p-0 {
+  margin: 20px 0;
+  padding: 10px;
+}
+
+
+.row.weeks_row,
+.date_cell {
+  color: #fff;
+}
+.ionic_datepicker_popup .popup-body .pointer_events_none .date_cell {
+  pointer-events: none;
+  color: #aaaaaa !important;
+}
+
+.pad-0 {
+  padding: 0;
 }

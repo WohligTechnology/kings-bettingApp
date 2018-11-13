@@ -34,20 +34,28 @@
   <ion-content class="betting-pnl-page content content-md" padding="" style="margin-top:40px;">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
   <div class="scroll-content" style="margin-top: 60px;"> -->
-    <div class="right from-to-date d-inline-block">
-      <span>To Date</span>
-      <input type="text" name="toDate" ng-model="formData.toDate" ng-click="openDatePicker2()" class=" cursor">
-
+    <div class="card p-0">
+      <div class="row pad-0">
+        <div class="right col-50 from-to-date">
+          <div class="item item-divider">
+            From
+          </div>
+          <input type="text" name="fromDate" ng-model="formData.fromDate" ng-click="openDatePicker()" class="cursor">
+        </div>
+        <div class="right col-50 from-to-date">
+            <div class="item item-divider">
+                To
+              </div>
+          <input type="text" name="toDate" ng-model="formData.toDate" ng-click="openDatePicker2()" class=" cursor">
+        </div>
+      </div>
+      <div class="padding-horizontal text-center">
+        <button class="button button-search button-small button-positive" type="submit" ng-click="bettingPl({})" id="submit">
+          <!-- <i class="icon ion-search placeholder-icon"></i>  -->
+          Search
+        </button>
+      </div>
     </div>
-    <div class="right from-to-date d-inline-block">
-      <span>From Date:
-      </span>
-      <input type="text" name="fromDate" ng-model="formData.fromDate" ng-click="openDatePicker()" class="cursor">
-    </div>
-    <button class="button button-search button-small button-dark" type="submit" ng-click="bettingPl({})" id="submit">
-      <i class="icon ion-search placeholder-icon"></i> Search
-    </button>
-
     <div>
       <h2 class="page-title">Betting Profit &amp; Loss</h2>
       <div class="pnl-list">
