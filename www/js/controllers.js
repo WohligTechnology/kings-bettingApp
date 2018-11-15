@@ -9,6 +9,7 @@ angular
     $interval,
     $state,
     Service,
+    $stateParams,
     jStorageService
   ) {
     // Form data for the login modal
@@ -21,9 +22,10 @@ angular
     $scope.$on("$ionicView.leave", function() {
       $ionicSideMenuDelegate.canDragContent(false);
     });
+    $scope.game = $state.params.game;
+    $scope.parentId = $stateParams.parentId;
 
     var user = jStorageService.getUserId();
-    console.log(user);
     var tick = function() {
       $scope.clock = Date.now();
     };
@@ -38,7 +40,6 @@ angular
           _id: $.jStorage.get("userId")
         },
         function(userData) {
-          console.log(userData);
           $scope.userInfo = userData.data;
         }
       );
@@ -49,25 +50,99 @@ angular
       $.jStorage.flush();
       $state.go("login");
     };
-
     $scope.home = true;
-
     // $scope.visitedCategories = [];
-    $scope.previousState = [];
+    $scope.getNavigationDetails = function() {
+      var toState = $state.current;
+      var toParams = $state.params;
+      console.log("toState", toParams);
+      console.log(toState, "toParams");
+
+      if (toState.name == "app.home" && _.isEmpty(toParams.game)) {
+        console.log("toParams.game", toParams.game);
+        $scope.game = toParams.game;
+        $scope.navigationLevel = 0;
+      } else if (
+        toState.name == "app.sport" &&
+        !_.isEmpty(toParams.game) &&
+        _.isEmpty(toParams.parentId)
+      ) {
+        console.log("toParams.game", toParams.game);
+        $scope.game = toParams.game;
+        $scope.navigationLevel = 1;
+        $scope.sideDirect = "sidenav2";
+      } else if (
+        toState.name == "app.sport" &&
+        !_.isEmpty(toParams.game) &&
+        !_.isEmpty(toParams.parentId)
+      ) {
+        $scope.game = toParams.game;
+        $scope.navigationLevel = 2;
+        $scope.sideDirect = "sidenav3";
+      } else if (toState.name == "home.detailPage") {
+        $scope.game = toParams.game;
+        $scope.parentId = toParams.parentId;
+        $scope.navigationLevel = 3;
+        $scope.sideDirect = "sidenav4";
+      } else {
+        $scope.sideDirect = "sidenav1";
+        $scope.navigationLevel = 0;
+      }
+      $scope.showCategoryAccordingly();
+    };
+    $scope.showCategoryAccordingly = function() {
+      if ($scope.navigationLevel == 1) {
+        $scope.subcategory = _.find($scope.gameData, function(game) {
+          return game.name == $scope.game;
+        }).children;
+      } else if ($scope.navigationLevel == 2) {
+        var category = _.find($scope.gameData, function(game) {
+          return game.name == $scope.game;
+        }).children;
+        $scope.subcategory = _.find(category, function(cate) {
+          return cate._id == $scope.parentId;
+        }).children;
+      } else if ($scope.navigationLevel == 3) {
+        var category = _.find($scope.gameData, function(game) {
+          return game.name == $scope.game;
+        }).children;
+        $scope.categoryData = _.find(category, function(cate) {
+          if (cate.children) {
+            var child = _.find(cate.children, function(child) {
+              return child._id == $scope.parentId;
+            });
+            // TemplateService.detailName = child.name;
+            // console.log(child);
+            return child;
+          }
+        });
+        $scope.subcategory = $scope.categoryData.children;
+      } else {
+        $scope.subcategory = [];
+      }
+    };
+    //To get games
     //To get games
     $scope.getGames = function() {
       Service.apiCallWithData(
         "Category/getCategoriesForNavigation",
         {},
         function(data) {
-          console.log("Navigation Data --------------", data);
           if (data.value) {
             if (!_.isEmpty(data.data)) {
               $scope.gameData = data.data;
-              console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
-              // console.log("$scope.gameData", $scope.gameData);
-              // $scope.visitedCategories.push($scope.gameData);
-              // $scope.setUrl('game', '1');
+              $scope.getNavigationDetails();
+              _.each($scope.gameData, function(game) {
+                if (_.isEmpty(game.children)) {
+                  game.hide = true;
+                } else {
+                  _.each(game.children, function(child) {
+                    if (_.isEmpty(child.children)) {
+                      child.hide = true;
+                    }
+                  });
+                }
+              });
               $scope.home = true;
             } else {
               $scope.gameData = [];
@@ -80,17 +155,8 @@ angular
     };
     $scope.getGames();
 
-    //     });
-    // };
-
     // //To get sub Category
     $scope.getSubCategory = function(value) {
-      //get match odds on click
-      // $scope.getMatchOdds({
-      //     game: $scope.game,
-      //     parentId: $scope.parentId
-      // });
-
       if (!_.isEmpty(value)) {
         $state.go(
           "app.sport",
@@ -138,10 +204,6 @@ angular
             notify: false
           }
         );
-        // $scope.getMatchOdds({
-        //     game: $scope.game,
-        //     parentId: $scope.parentId
-        // });
       } else {
         $scope.subcategory = [];
         $scope.previousState = [];
@@ -151,9 +213,6 @@ angular
         $state.go("home", {
           notify: false
         });
-        // $scope.getMatchOdds({
-        //     game: "Cricket"
-        // });
       }
     };
 
@@ -180,13 +239,6 @@ angular
         }
       );
     };
-
-    // $scope.getDetailedEvent = function (item) {
-    //   $state.go("detailPage", {
-    //     game: item.eventType.name,
-    //     parentId: item._id
-    //   });
-    // };
 
     $scope.getAvailableCredit = function() {
       Service.apiCallWithUrl(
@@ -222,8 +274,6 @@ angular
         }
       );
       $scope.mySocket1 = io.sails.connect(mainServer);
-      console.log("getAvailableCredit", user);
-
       $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
         $scope.balanceData = balanceData;
         $scope.$apply();
@@ -234,10 +284,6 @@ angular
         $scope.netExposureData = netExposureData.netExposure
           ? netExposureData.netExposure * -1
           : 0;
-        console.log(
-          "$scope.netExposureData22222222222222222222222",
-          $scope.netExposureData
-        );
         $scope.$apply();
       });
     };

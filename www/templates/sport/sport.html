@@ -2,27 +2,26 @@
   <div class="header-container">
     <ion-navbar class="toolbar toolbar-md app-header root-page">
       <div class="toolbar-background toolbar-background-md"></div>
-      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
+      <button
+        class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md"
+      >
         <a class="ion-arrow-left-c color-white"></a>
       </button>
       <ion-buttons class="bar-buttons bar-buttons-md">
-        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
-          ion-button="">
+        <button
+          class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+          ion-button=""
+        >
           <i class="icon ion-search placeholder-icon"></i>
           <div class="button-effect"></div>
         </button>
-        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button="" menu-toggle="right">
+        <button
+          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button=""
+          menu-toggle="right"
+        >
           <span class="button-inner">
-            <!-- <balance>
-              <div>
-                <i class="fi flaticon-user"></i>
-                <span class="balance">{{(balanceData.balance || 0)| number:2}}</span>
-              </div>
-            </balance> -->
-            <balance ng-balance="balanceData">
-            </balance>
-
+            <balance ng-balance="balanceData"> </balance>
           </span>
           <div class="button-effect"></div>
         </button>
@@ -30,100 +29,44 @@
       <div class="toolbar-content toolbar-content-md" ui-sref="app.home">
         <ion-title class="left-title title title-md">
           <div class="toolbar-title toolbar-title-md">
-            <div class="logo">
-              Kings Bet
-            </div>
+            <div class="logo">Kings Bet</div>
           </div>
         </ion-title>
       </div>
     </ion-navbar>
-
-    <!-- ngIf:  -->
   </div>
-  <ion-content class="sport content content-md" padding="" style="margin-top:40px;">
-    <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
-    <div class="scroll-content" style="margin-top: 60px;"> -->
-
+  <ion-content class="sport content content-md" style="margin-top:59px;">
     <div>
-      <h2 class="page-title">Cricket</h2>
+      <!-- <h2 class="page-title">{{ game.game }}</h2> -->
       <section>
-        <div class="in-play">
-          <i class="fi flaticon-play-button"></i>
-          <span class="label">In Play&nbsp;(1)</span>
+        <div class="list">
+          <div class="item item-divider">
+            <h2>{{ game }}</h2>
+          </div>
+          <a
+            class="item"
+            ng-repeat="category in subcategory"
+            ng-click="getParentId(category._id);getAnimation();getSubCategory(category)"
+          >
+            {{ category.name }}
+          </a>
         </div>
-        <ion-list class="distinct list list-md">
-          <ion-item analytics-on="" class="item item-block item-md" tappable="">
-            <div class="item-inner">
-              <div class="input-wrapper">
-                <ion-label class="label label-md">
-                  <span>England v India (2nd Test)</span>
-                </ion-label>
+        <!--
+          <ion-list class="distinct list list-md">
+            <ion-item
+              class="item item-block item-md"
+              ng-repeat="category in subcategory"
+              ng-click="getGameName(game.name);getSubCategory(game.children)"
+            >
+              <div class="item-inner">
+                <div class="input-wrapper">
+                  <span>{{ category.name }}</span>
+                </div>
               </div>
-              <span class="in-play-icon" item-right="">
-                <i class="fi flaticon-play-button"></i>
-              </span>
-            </div>
-            <div class="button-effect"></div>
-          </ion-item>
-        </ion-list>
-      </section>
-      <section>
-        <h5>Competitions</h5>
-        <ion-list class="distinct list list-md">
-          <ion-item analytics-on="" class="item item-block item-md" tappable="">
-            <div class="item-inner">
-              <div class="input-wrapper">
-
-                <ion-label class="label label-md">
-                  <span>Caribbean Premier League</span>
-                </ion-label>
-              </div>
-            </div>
-            <div class="button-effect"></div>
-          </ion-item>
-          <ion-item analytics-on="" class="item item-block item-md" tappable="">
-            <div class="item-inner">
-              <div class="input-wrapper">
-                <ion-label class="label label-md">
-                  <span>T20 Blast</span>
-                </ion-label>
-              </div>
-            </div>
-            <div class="button-effect"></div>
-          </ion-item>
-          <ion-item analytics-on="" class="item item-block item-md" tappable="">
-            <div class="item-inner">
-              <div class="input-wrapper">
-                <ion-label class="label label-md">
-                  <span>One Day Internationals</span>
-                </ion-label>
-              </div>
-            </div>
-            <div class="button-effect"></div>
-          </ion-item>
-          <ion-item analytics-on="" class="item item-block item-md" tappable="">
-            <div class="item-inner">
-              <div class="input-wrapper">
-                <ion-label class="label label-md">
-                  <span>Tamil Nadu Premier League</span>
-                </ion-label>
-              </div>
-            </div>
-            <div class="button-effect"></div>
-          </ion-item>
-          <ion-item analytics-on="" class="item item-block item-md" tappable="">
-            <div class="item-inner">
-              <div class="input-wrapper">
-                <ion-label class="label label-md">
-                  <span>Test Matches</span>
-                </ion-label>
-              </div>
-            </div>
-            <div class="button-effect"></div>
-          </ion-item>
-        </ion-list>
+            </ion-item>
+          </ion-list>
+        -->
       </section>
     </div>
-    <!-- </div> -->
   </ion-content>
 </ion-view>

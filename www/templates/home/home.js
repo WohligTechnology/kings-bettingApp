@@ -72,47 +72,47 @@ myApp.controller("HomeCtrl", function(
     }
   });
 
-  function establishSocketConnection() {
-    $scope.mySocket = io.sails.connect(adminUUU);
+  // function establishSocketConnection() {
+  //   $scope.mySocket = io.sails.connect(adminUUU);
 
-    _.each($scope.marketData, function(market) {
-      $scope.mySocket.on("market_" + market.betfairId, function onConnect(
-        data
-      ) {
-        // console.log("socket data", data);
-        _.each(market.runners, function(runner) {
-          _.each(data, function(rate) {
-            // console.log(runner.betfairId, "string", (rate.id).toString());
-            if (runner.betfairId == rate.id.toString()) {
-              runner.back = rate.batb;
-              runner.lay = rate.batl;
-              _.each(runner.back, function(backRate) {
-                if (backRate[0] == 0) {
-                  runner.singleBackRate = backRate[1];
-                  runner.singleBackSize = backRate[2];
-                }
-              });
+  //   _.each($scope.marketData, function(market) {
+  //     $scope.mySocket.on("market_" + market.betfairId, function onConnect(
+  //       data
+  //     ) {
+  //       // console.log("socket data", data);
+  //       _.each(market.runners, function(runner) {
+  //         _.each(data, function(rate) {
+  //           // console.log(runner.betfairId, "string", (rate.id).toString());
+  //           if (runner.betfairId == rate.id.toString()) {
+  //             runner.back = rate.batb;
+  //             runner.lay = rate.batl;
+  //             _.each(runner.back, function(backRate) {
+  //               if (backRate[0] == 0) {
+  //                 runner.singleBackRate = backRate[1];
+  //                 runner.singleBackSize = backRate[2];
+  //               }
+  //             });
 
-              _.each(runner.lay, function(layRate) {
-                if (layRate[0] == 0) {
-                  runner.singleLayRate = layRate[1];
-                  runner.singleLaySize = layRate[2];
-                }
-              });
-            }
-          });
-        });
-        var sortedArray = _.sortBy(market.runners, ["sortPriority"]);
-        market.runners = [];
-        _.each(sortedArray, function(n) {
-          market.runners[n.sortPriority - 1] = n;
-        });
-        // console.log("sortedArray", sortedArray);
-        // console.log(market.betfairId + "marketodds", market);
-        $scope.$apply();
-      });
-    });
-  }
+  //             _.each(runner.lay, function(layRate) {
+  //               if (layRate[0] == 0) {
+  //                 runner.singleLayRate = layRate[1];
+  //                 runner.singleLaySize = layRate[2];
+  //               }
+  //             });
+  //           }
+  //         });
+  //       });
+  //       var sortedArray = _.sortBy(market.runners, ["sortPriority"]);
+  //       market.runners = [];
+  //       _.each(sortedArray, function(n) {
+  //         market.runners[n.sortPriority - 1] = n;
+  //       });
+  //       // console.log("sortedArray", sortedArray);
+  //       // console.log(market.betfairId + "marketodds", market);
+  //       $scope.$apply();
+  //     });
+  //   });
+  // }
 
   // $scope.getMarketIds = function (value) {
   //   Service.apiCallWithData('Category/getMarketIds', value, function (data) {

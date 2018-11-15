@@ -1,4 +1,6 @@
-myApp.controller('SportCtrl', function ($scope, $ionicModal, $timeout) {
-
-
-});
+myApp.controller("SportCtrl", function(
+  $scope,
+  $ionicModal,
+  $stateParams,
+  Service
+) {});
