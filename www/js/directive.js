@@ -74,4 +74,15 @@ myApp.directive('balance', function () {
         // $scope.decimal = $scope.decimal ? $scope.decimal : 2;
       }
     };
+  })
+  .directive('searchEvent', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/search.html',
+      link: function ($scope, element, attr) {
+
+      }
+    };
+
   });

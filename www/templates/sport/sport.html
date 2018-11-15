@@ -2,24 +2,18 @@
   <div class="header-container">
     <ion-navbar class="toolbar toolbar-md app-header root-page">
       <div class="toolbar-background toolbar-background-md"></div>
-      <button
-        class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md"
-      >
+      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
         <a class="ion-arrow-left-c color-white"></a>
       </button>
       <ion-buttons class="bar-buttons bar-buttons-md">
-        <button
-          class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
-          ion-button=""
-        >
+        <!-- <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+          ion-button="">
           <i class="icon ion-search placeholder-icon"></i>
           <div class="button-effect"></div>
-        </button>
-        <button
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        </button> -->
+        <search-event></search-event>
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -43,11 +37,7 @@
           <div class="item item-divider">
             <h2>{{ game }}</h2>
           </div>
-          <a
-            class="item"
-            ng-repeat="category in subcategory"
-            ng-click="getParentId(category._id);getAnimation();getSubCategory(category)"
-          >
+          <a class="item" ng-repeat="category in subcategory" ng-click="getParentId(category._id);getAnimation();getSubCategory(category)">
             {{ category.name }}
           </a>
         </div>

@@ -6127,10 +6127,44 @@ Modified icons to fit ionicon’s grid from original.
   color: #000;
 }
 
+.text-input.text-input-md.search-input {
+  padding: 9px 0px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 12px;
+  background: transparent;
+  color: #fff;
+}
+
 .text-input.text-input-md:active,
 .text-input.text-input-md:focus {
   color: #000;
   border: 1px solid #440a57;
+}
+
+.text-input.text-input-md.search-input:active,
+.text-input.text-input-md.search-input:focus {
+  color: #fff;
+  border: 0;
+}
+
+.text-input.text-input-md.search-input::-moz-placeholder {
+  color: #fff;
+}
+
+.text-input.text-input-md.search-input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.text-input.text-input-md.search-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: #fff;
+}
+
+.text-input.text-input-md.search-input::placeholder {
+  text-indent: 0;
+  color: #fff;
 }
 
 .text-input.text-input-md.ng-touched.ng-invalid {
@@ -19796,6 +19830,7 @@ video {
 .date_cell {
   color: #fff;
 }
+
 .ionic_datepicker_popup .popup-body .pointer_events_none .date_cell {
   pointer-events: none;
   color: #aaaaaa !important;
@@ -19803,4 +19838,13 @@ video {
 
 .pad-0 {
   padding: 0;
+}
+
+ion-item.item.item-block.item-md.item-search {
+  border: 1px solid #ddd;
+  padding: 0;
+
+  .item-content {
+    width: 100%;
+  }
 }

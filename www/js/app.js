@@ -13,8 +13,8 @@ var myApp = angular
     "toastr"
   ])
 
-  .run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
+  .run(function ($ionicPlatform) {
+    $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -28,7 +28,7 @@ var myApp = angular
     });
   })
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state("app", {
         url: "/app",
@@ -132,6 +132,15 @@ var myApp = angular
           menuContent: {
             templateUrl: "templates/match-inner/match-inner.html",
             controller: "MatchinnerCtrl"
+          }
+        }
+      })
+      .state("app.search", {
+        url: "/search",
+        views: {
+          menuContent: {
+            templateUrl: "templates/search/search.html",
+            controller: "SearchCtrl"
           }
         }
       })

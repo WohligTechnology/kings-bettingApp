@@ -1,0 +1,36 @@
+<ion-view view-title="Search" class="ion-page">
+  <div class="header-container">
+    <ion-navbar class="toolbar toolbar-md app-header root-page">
+      <div class="toolbar-background toolbar-background-md"></div>
+      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
+        <a class="ion-arrow-left-c color-white"></a>
+      </button>
+      <div class="toolbar-content toolbar-content-md">
+        <div class="">
+          <input class="text-input text-input-md search-input" id="searchTerm" name="searchTerm" type="text"
+            placeholder="Search Events" ng-model="form.searchText" ng-change="searchEvent(form)">
+        </div>
+      </div>
+      <ion-buttons class="bar-buttons bar-buttons-md">
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+          ion-button="">
+          <i class="icon ion-search placeholder-icon"></i>
+          <div class="button-effect"></div>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </div>
+  <ion-content class="betting-pnl-page content content-md" padding="" style="margin-top:60px;" ng-if="searchEventdata.length>0">
+    <ion-list class="distinct list list-md">
+      <ion-item class="item item-block item-md item-search" ng-repeat="searched in searchEventdata" ui-sref="app.sport({
+        'game':searched.eventType.name,'parentId':searched._id
+      })">
+        <div class="item-inner">
+          <div class="input-wrapper">
+            <span>{{ searched.name }}</span>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,4 +1,5 @@
 node_modules/
+oldnode_modules/
 *.lock
 *.bin
 plugins/

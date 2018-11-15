@@ -9652,10 +9652,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -15677,10 +15677,38 @@ Modified icons to fit ionicon’s grid from original.
   background: #fff;
   color: #000; }
 
+.text-input.text-input-md.search-input {
+  padding: 9px 0px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 12px;
+  background: transparent;
+  color: #fff; }
+
 .text-input.text-input-md:active,
 .text-input.text-input-md:focus {
   color: #000;
   border: 1px solid #440a57; }
+
+.text-input.text-input-md.search-input:active,
+.text-input.text-input-md.search-input:focus {
+  color: #fff;
+  border: 0; }
+
+.text-input.text-input-md.search-input::-moz-placeholder {
+  color: #fff; }
+
+.text-input.text-input-md.search-input:-ms-input-placeholder {
+  color: #fff; }
+
+.text-input.text-input-md.search-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: #fff; }
+
+.text-input.text-input-md.search-input::placeholder {
+  text-indent: 0;
+  color: #fff; }
 
 .text-input.text-input-md.ng-touched.ng-invalid {
   border: 1px solid #f53d3d; }
@@ -26743,6 +26771,12 @@ video {
 
 .pad-0 {
   padding: 0; }
+
+ion-item.item.item-block.item-md.item-search {
+  border: 1px solid #ddd;
+  padding: 0; }
+  ion-item.item.item-block.item-md.item-search .item-content {
+    width: 100%; }
 
 /*
     Flaticon icon font: Flaticon

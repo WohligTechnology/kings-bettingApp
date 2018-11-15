@@ -1,4 +1,4 @@
-myApp.controller("ProfitLossCtrl", function(
+myApp.controller("ProfitLossCtrl", function (
   $scope,
   $ionicModal,
   $timeout,
@@ -24,19 +24,19 @@ myApp.controller("ProfitLossCtrl", function(
     $scope.formData.toDateold,
     "MMM d, y"
   );
-  console.log($scope.formData.toDate);
+  console.log($scope.formData.fromDate);
 
   // data selector for account statement
   var ipObj1 = {
-    callback: function(val) {
+    callback: function (val) {
       //Mandatory
       $scope.formData.fromDate = $filter("date")(
         new Date(val),
-        $scope.dateFormat
+        "MMM d, y"
       );
       $scope.formData.dateFormat = $filter("date")(
         $scope.formData.date,
-        $scope.dateFormat
+        "MMM d, y"
       );
       // $scope.accountStatement($scope.accountStatmentFilter, true)
       // console.log('Return value from the datepicker popup is : ' + val, new Date(val));
@@ -48,20 +48,20 @@ myApp.controller("ProfitLossCtrl", function(
     to: new Date()
   };
 
-  $scope.openDatePicker = function() {
+  $scope.openDatePicker = function () {
     ionicDatePicker.openDatePicker(ipObj1);
   };
   // data selector for account statement
   var ipObj2 = {
-    callback: function(val) {
+    callback: function (val) {
       //Mandatory
       $scope.formData.toDate = $filter("date")(
         new Date(val),
-        $scope.dateFormat
+        "MMM d, y"
       );
       $scope.formData.dateFormat = $filter("date")(
         $scope.formData.date,
-        $scope.dateFormat
+        "MMM d, y"
       );
       //   $scope.accountStatement($scope.accountStatmentFilter, true)
       // console.log('Return value from the datepicker popup is : ' + val, new Date(val));
@@ -74,28 +74,39 @@ myApp.controller("ProfitLossCtrl", function(
     to: new Date()
   };
 
-  $scope.openDatePicker2 = function() {
+  $scope.openDatePicker2 = function () {
     ionicDatePicker.openDatePicker(ipObj2);
   };
 
-  $scope.bettingPl = function(value) {
+  $scope.bettingPl = function (value) {
+    console.log('Enter');
     $scope.formData.memberId = memberId;
     if (!_.isEmpty(value)) {
       $scope.formData.subGame = value;
     } else {
       delete $scope.formData.subGame;
     }
-    $scope.formData.fromDate = new Date(
-      new Date($scope.formData.fromDate).setHours(0, 0, 0, 0)
+    //Raj
+    $scope.formData.toDate = $filter("date")(
+      new Date($scope.formData.toDate).setHours(0, 0, 0, 0),
+      "MMM d, y"
     );
-    $scope.formData.toDate = new Date(
-      new Date($scope.formData.toDate).setHours(0, 0, 0, 0)
+    $scope.formData.fromDate = $filter("date")(
+      new Date($scope.formData.fromDate).setHours(0, 0, 0, 0),
+      "MMM d, y"
     );
-    Service.bettingPl($scope.formData, function(data) {
+    //Previous
+    // $scope.formData.fromDate = new Date(
+    //   new Date($scope.formData.fromDate).setHours(0, 0, 0, 0)
+    // );
+    // $scope.formData.toDate = new Date(
+    //   new Date($scope.formData.toDate).setHours(0, 0, 0, 0)
+    // );
+    Service.bettingPl($scope.formData, function (data) {
       $scope.isDetailedView = false;
       if (data.value) {
         $scope.bettingPldata = data.data.accounts;
-        _.each(data.data.gameWiseNetProfit, function(n) {
+        _.each(data.data.gameWiseNetProfit, function (n) {
           if (n._id == "Cricket") {
             $scope.eventTypeData[0] = n;
           }

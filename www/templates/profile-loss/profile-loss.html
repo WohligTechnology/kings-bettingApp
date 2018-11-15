@@ -6,11 +6,12 @@
         <a class="ion-arrow-left-c color-white"></a>
       </button>
       <ion-buttons class="bar-buttons bar-buttons-md">
-        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+        <!-- <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
           ion-button="">
           <i class="icon ion-search placeholder-icon"></i>
           <div class="button-effect"></div>
-        </button>
+        </button> -->
+        <search-event></search-event>
         <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
           ion-button="" menu-toggle="right">
           <span class="button-inner">
@@ -43,9 +44,9 @@
           <input type="text" name="fromDate" ng-model="formData.fromDate" ng-click="openDatePicker()" class="cursor">
         </div>
         <div class="right col-50 from-to-date">
-            <div class="item item-divider">
-                To
-              </div>
+          <div class="item item-divider">
+            To
+          </div>
           <input type="text" name="toDate" ng-model="formData.toDate" ng-click="openDatePicker2()" class=" cursor">
         </div>
       </div>
