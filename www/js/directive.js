@@ -15,6 +15,10 @@ myApp.directive('balance', function () {
     return {
       restrict: 'E',
       replace: false,
+      scope: {
+        runners: "=marketRun",
+        market: "=markets"
+      },
       templateUrl: 'templates/directive/market.html',
       link: function ($scope, element, attr) {
 
@@ -41,11 +45,30 @@ myApp.directive('balance', function () {
       }
     };
   })
-  .directive('betButton', function () {
+  .directive('backButton', function () {
     return {
       restrict: 'E',
       replace: false,
-      templateUrl: 'templates/directive/bet-button.html',
+      scope: {
+        value: "=run",
+        market: "=markets"
+      },
+      templateUrl: 'templates/directive/back-button.html',
+      link: function ($scope, element, attr) {
+
+      }
+    };
+
+  })
+  .directive('layButton', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      scope: {
+        value: "=run",
+        market: "=markets"
+      },
+      templateUrl: 'templates/directive/lay-button.html',
       link: function ($scope, element, attr) {
 
       }

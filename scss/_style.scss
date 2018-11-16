@@ -15767,7 +15767,9 @@ ion-item-extended .ion-item-loader .skeleton {
 }
 
 balance .balance,
-bet-button market-volume {
+back-button market-volume,
+lay-button market-volume,
+  {
   font-size: 10px;
 }
 
@@ -15793,13 +15795,15 @@ balance i {
   display: block !important;
 }
 
-bet-button {
+back-button,
+lay-button {
   width: 66px;
   height: 50px;
   margin: 0 0 0 2px;
 }
 
-bet-button>div {
+back-button>div,
+lay-button>div {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -15808,45 +15812,49 @@ bet-button>div {
   padding: 6px 8px;
 }
 
-bet-button>div .price {
+back-button>div .price,
+lay-button>div .price {
   font-weight: 700;
 }
 
-bet-button>div.back {
+back-button>div.back,
+  {
   background: #a7d8fd;
 }
 
-bet-button>div.lay {
+lay-button>div.lay {
   background: #f9c9d4;
 }
 
-bet-button.more-odds:not(.selected)>div.back {
+back-button.more-odds:not(.selected)>div.back {
   background: #e3f3fe;
 }
 
-bet-button.more-odds:not(.selected)>div.lay {
+lay-button.more-odds:not(.selected)>div.lay {
   background: #fdeef2;
 }
 
-bet-button.selected {
+back-button.selected,
+lay-button.selected {
   position: relative;
   z-index: 2;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
 
-bet-button.selected>div {
+back-button.selected>div,
+lay-button.selected>div {
   background: #fff;
   padding-top: 5px;
 }
 
-bet-button.selected[type=back]>div {
+back-button.selected[type=back]>div {
   border-top: 1px solid #a7d8fd;
   border-left: 1px solid #a7d8fd;
   border-right: 1px solid #a7d8fd;
 }
 
-bet-button.selected[type=lay]>div {
+lay-button.selected[type=lay]>div {
   border-top: 1px solid #f9c9d4;
   border-left: 1px solid #f9c9d4;
   border-right: 1px solid #f9c9d4;
@@ -16421,7 +16429,8 @@ ion-title.left-title .toolbar-title {
   visibility: hidden;
 }
 
-.market.betting-disabled bet-button,
+.market.betting-disabled back-button,
+.market.betting-disabled lay-button,
 .market.faded>* {
   opacity: .5;
 }
@@ -18714,7 +18723,13 @@ ion-nav.landscape .home-page .open-bets-link {
 }
 
 .home-page .popular-event .in-play-icon {
-  margin: -6px 0 0;
+  margin: -11px 42px 0 0;
+  font-size: 100%;
+
+  i {
+    margin: 0;
+    right: 33px;
+  }
 }
 
 .home-page .popular-event .in-play-icon .apl-icon-custom-play {
@@ -18739,6 +18754,13 @@ ion-nav.landscape .home-page .open-bets-link {
 .home-page .popular-event .event-details>i {
   position: absolute;
   margin: 0 5px 3px 0;
+}
+
+.home-page .in-time-content {
+  color: black;
+  font-size: 12px;
+  padding: 0 24px;
+  // font-weight: bold;
 }
 
 .home-page .list-body {

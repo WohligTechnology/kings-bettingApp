@@ -1,24 +1,27 @@
-<div class="market list-item" id="selection-1.146401983-7337">
+<div class="market list-item" ng-repeat="runner in market.runners" id="selection-1.146470978-1144538[$index]">
   <div class="runner-details">
     <div class="title">
-      <span>Sri Lanka</span>
+      <span>{{runner.name}}</span>
     </div>
-    <pnl>
-      <span class="-positive">40.00</span>
-    </pnl>
+    <!-- <pnl>
+      <span></span>
+    </pnl> -->
   </div>
   <div class="odds-container">
-    <bet-button ng-click="showBet()" class="more-odds not-selected" index="2" tappable="" type="back">
-      <div class="back">
-        <div class="price">1.71</div>
-        <market-volume>500,000+
-        </market-volume>
-      </div>
-    </bet-button>
+    <!-- ng-click="showBet()"  index="2" tappable="" type="back"-->
+    <back-button run="runner" markets="market" ng-click="showBet()" type="back" class="more-odds not-selected">
+    </back-button>
+    <lay-button run="runner" markets="market" ng-click="showBet()" type="lay" class="more-odds not-selected">
+    </lay-button>
+    <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
+      ng-hide="market.runners.length==3 || isDraw == false || market.allZero" class="not-selected">
+      <span>-</span>
+    </div>
   </div>
 </div>
-<bet-form id="betForm-1.146820697-2249229" class="match-inner" ng-if="bet">
-  <form class="bet-form back ng-untouched ng-dirty ng-invalid" novalidate="" style="transform: translateY(0px);">
+
+<!-- <bet-form id="betForm-1.146820697-2249229" class="match-inner" ng-if="bet">
+ <form class="bet-form back ng-untouched ng-dirty ng-invalid" novalidate="" style="transform: translateY(0px);">
     <div class="inputs">
       <odds-stepper class="item-block input-group odds-stepper-group">
         <label class="label-md" stacked="">Odds</label>
@@ -48,68 +51,67 @@
       </odds-stepper>
       <div class="input-group input-group-stake">
         <label class="label-md" stacked="">Stake</label>
-        <!---->
-        <ion-item class="item item-block item-md item-input ng-untouched ng-pristine ng-invalid">
-          <div class="item-inner">
-            <div class="input-wrapper">
+     
+  <ion-item class="item item-block item-md item-input ng-untouched ng-pristine ng-invalid">
+    <div class="item-inner">
+      <div class="input-wrapper">
 
-              <ion-input decimalinput="" focusable="" formcontrolname="stake" jumpinginputfix="" type="number" class="input input-md no-liability ng-untouched ng-pristine ng-invalid">
-                <input class="text-input text-input-md" type="number" aria-labelledby="lbl-15" autocomplete="off"
-                  autocorrect="off" placeholder="Max Bet: {{ value }}" decimalinput="" focusable="" formcontrolname="stake"
-                  jumpinginputfix="">
-              </ion-input>
-            </div>
-          </div>
-          <div class="button-effect"></div>
-        </ion-item>
+        <ion-input decimalinput="" focusable="" formcontrolname="stake" jumpinginputfix="" type="number" class="input input-md no-liability ng-untouched ng-pristine ng-invalid">
+          <input class="text-input text-input-md" type="number" aria-labelledby="lbl-15" autocomplete="off" autocorrect="off"
+            placeholder="Max Bet: {{ value }}" decimalinput="" focusable="" formcontrolname="stake" jumpinginputfix="">
+        </ion-input>
       </div>
     </div>
+    <div class="button-effect"></div>
+  </ion-item>
+  </div>
+  </div>
 
-    <div class="input-buttons">
-      <button analytics-on="" color="cta-action" ion-button="" small="" type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
-        <span class="button-inner">+1,000</span>
-        <div class="button-effect"></div>
-      </button>
-      <button analytics-on="" color="cta-action" ion-button="" small="" type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
-        <span class="button-inner">+5,000</span>
-        <div class="button-effect"></div>
-      </button>
-      <button analytics-on="" color="cta-action" ion-button="" small="" type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
-        <span class="button-inner">+10,000</span>
-        <div class="button-effect"></div>
-      </button>
-    </div>
+  <div class="input-buttons">
+    <button analytics-on="" color="cta-action" ion-button="" small="" type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
+      <span class="button-inner">+1,000</span>
+      <div class="button-effect"></div>
+    </button>
+    <button analytics-on="" color="cta-action" ion-button="" small="" type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
+      <span class="button-inner">+5,000</span>
+      <div class="button-effect"></div>
+    </button>
+    <button analytics-on="" color="cta-action" ion-button="" small="" type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
+      <span class="button-inner">+10,000</span>
+      <div class="button-effect"></div>
+    </button>
+  </div>
 
-    <div class="input-buttons confirmation-buttons">
-      <button analytics-on="" class="-large disable-hover button button-md button-default button-default-md button-md-cta-secondary"
-        color="cta-secondary" ion-button="" type="button">
-        <span class="button-inner">Cancel</span>
-        <div class="button-effect"></div>
-      </button>
-      <button analytics-on="" class="line-h0 -large disable-hover button button-md button-default button-default-md button-md-cta-primary"
-        color="cta-primary" ion-button="" type="submit" ng-click="confirmbetShow()">
-        <span class="button-inner">
-          <span class="content action">Place Bet</span>
-          <span class="content info ">Profit: 0.00</span>
-        </span>
-        <div class="button-effect"></div>
-      </button>
-    </div>
-    <div class="confirmation-control off">
-      Confirm bet before placing
-      <!-- 
-                <label class="toggle toggle-assertive pull-right">
-                  <input type="checkbox" value="on">
-                  <div class="track">
-                    <div class="handle"></div>
-                  </div>
-                </label> -->
-      <ion-toggle ion-toggle-text ng-model="simple">
-      </ion-toggle>
-    </div>
+  <div class="input-buttons confirmation-buttons">
+    <button analytics-on="" class="-large disable-hover button button-md button-default button-default-md button-md-cta-secondary"
+      color="cta-secondary" ion-button="" type="button">
+      <span class="button-inner">Cancel</span>
+      <div class="button-effect"></div>
+    </button>
+    <button analytics-on="" class="line-h0 -large disable-hover button button-md button-default button-default-md button-md-cta-primary"
+      color="cta-primary" ion-button="" type="submit" ng-click="confirmbetShow()">
+      <span class="button-inner">
+        <span class="content action">Place Bet</span>
+        <span class="content info ">Profit: 0.00</span>
+      </span>
+      <div class="button-effect"></div>
+    </button>
+  </div>
+  <div class="confirmation-control off">
+    Confirm bet before placing
+
+    <label class="hide toggle toggle-assertive pull-right">
+      <input type="checkbox" value="on">
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+    <ion-toggle ion-toggle-text ng-model="simple">
+    </ion-toggle>
+  </div>
   </form>
-</bet-form>
-<div class="market list-item" id="selection-1.146401983-349">
+</bet-form> -->
+<!-- <div class="market list-item" id="selection-1.146401983-349">
   <div class="runner-details">
     <div class="title">
       <span>South Africa</span>
@@ -161,6 +163,6 @@
     <bet-button ng-click="showBet()" class="more-odds not-selected" index="2" tappable="" type="lay">
     </bet-button>
   </div>
-</div>
-<bet-form id="betForm-1.146820697-2249229" class="match-inner" ng-if="bet">
-</bet-form>
+</div> -->
+<!-- <bet-form id="betForm-1.146820697-2249229" class="match-inner" ng-if="bet">
+</bet-form> -->

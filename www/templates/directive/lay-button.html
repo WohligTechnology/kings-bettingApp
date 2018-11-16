@@ -1,0 +1,11 @@
+<div class="lay">
+  <div class="not-selected" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'"
+    ng-hide="market.allZero" ng-class="{'blink':value.singleLayRateBlink}">
+    <div class="greyed-out" ng-if="market.inPlayStatus == 'Close'"></div>
+    <div class="" ng-click=" placeBet(value.singleLayRate,'LAY',market,value)">
+      <div class="price">{{value.singleLayRate > 0 ?
+        value.singleLayRate:''}}</div>
+      <div>{{value.singleLaySize}}</div>
+    </div>
+  </div>
+</div>
