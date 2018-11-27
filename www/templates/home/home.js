@@ -13,8 +13,8 @@ myApp.controller("HomeCtrl", function (
   TemplateService
 ) {
   $scope.bet = false;
-  $scope.showBet = function () {
-    $scope.bet = !$scope.bet;
+  $scope.showBet = function (runner) {
+    $scope.betSlipRunner = runner;
   };
 
   //home
@@ -53,7 +53,6 @@ myApp.controller("HomeCtrl", function (
       return null;
     }
   };
-
   $scope.$on("$locationChangeSuccess", function () {
     $scope.currentGame = $location.path().split("/");
     console.log("$scope.selectedGame", $scope.currentGame);

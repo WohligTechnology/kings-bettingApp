@@ -20,17 +20,19 @@
       </ion-buttons>
     </ion-navbar>
   </div>
-  <ion-content class="betting-pnl-page content content-md" padding="" style="margin-top:60px;" ng-if="searchEventdata.length>0">
-    <ion-list class="distinct list list-md">
-      <ion-item class="item item-block item-md item-search" ng-repeat="searched in searchEventdata" ui-sref="app.sport({
+  <ion-content class="betting-pnl-page content content-md" padding="" style="margin-top:60px;">
+    <div ng-if="searchEventdata.length>0">
+      <ion-list class="distinct list list-md">
+        <ion-item class="item item-block item-md item-search" ng-repeat="searched in searchEventdata" ui-sref="app.sport({
         'game':searched.eventType.name,'parentId':searched._id
       })">
-        <div class="item-inner">
-          <div class="input-wrapper">
-            <span>{{ searched.name }}</span>
+          <div class="item-inner">
+            <div class="input-wrapper">
+              <span>{{ searched.name }}</span>
+            </div>
           </div>
-        </div>
-      </ion-item>
-    </ion-list>
+        </ion-item>
+      </ion-list>
+    </div>
   </ion-content>
 </ion-view>

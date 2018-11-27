@@ -18,31 +18,32 @@
         }
       </script>
     -->
-  <script>
-    adminUUU = "https://rates.kingsplay.co/"; //socket betfair
-    sportsSocket = "https://sportsbooktest.kingsplay.co/";
-    adminurl = sportsSocket + "api/"; //sports book
-    mainServer = "https://kingplay.online/"; //main server
-    kignsAppUrl = "http://localhost:8100";
-    var isproduction = false;
-
-  </script>
 
   <!-- compiled css output -->
   <link href="css/ionic.app.css" rel="stylesheet" />
+  <script src="js/sails/sails.io.js"></script>
 
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/jquery/dist/jquery.js"></script>
   <script src="lib/jStorage/jstorage.min.js"></script>
   <script src="lib/angular-toastr/dist/angular-toastr.js"></script>
   <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
   <script src="lib/lodash/dist/lodash.min.js"></script>
   <script src="lib/moment/min/moment.min.js"></script>
-  <script src="js/sails/sails.io.js"></script>
 
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
+  <script>
+    adminUUU = "https://rates.kingsplay.co/"; //socket betfair
+    sportsSocket = "https://sportsbooktest.kingsplay.co/";
+    adminurl = sportsSocket + "api/"; //sports book
+    mainServer = "https://kingplay.online/"; //main server
+    // kignsAppUrl = "http://localhost:8100";
+    var isproduction = false;
+    io.sails.autoConnect = false;
 
+  </script>
   <!-- your app's js -->
   <script src="js/app.js"></script>
   <script src="js/service.js"></script>

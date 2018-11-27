@@ -3,21 +3,21 @@
     <ion-navbar class="toolbar toolbar-md app-header root-page">
       <div class="toolbar-background toolbar-background-md"></div>
       <ion-buttons left="" class="bar-buttons bar-buttons-md">
-        <button class="button button-icon button-clear ion-navicon font25" menu-toggle="left">
-        </button>
+        <button class="button button-icon button-clear ion-navicon font25" menu-toggle="left"></button>
       </ion-buttons>
       <ion-buttons class="bar-buttons bar-buttons-md">
-        <!-- <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
           ion-button="">
           <i class="icon ion-search placeholder-icon"></i>
           <div class="button-effect"></div>
-        </button> -->
+        </button>
+
         <search-event></search-event>
         <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
           menu-toggle="right">
           <span class="button-inner">
-            <balance ng-balance="balanceData">
-            </balance>
+            <balance ng-balance="balanceData"> </balance>
           </span>
           <div class="button-effect"></div>
         </button>
@@ -25,9 +25,7 @@
       <div class="toolbar-content toolbar-content-md">
         <ion-title class="left-title title title-md">
           <div class="toolbar-title toolbar-title-md">
-            <div class="logo">
-              Kings Bet
-            </div>
+            <div class="logo">Kings Bet</div>
           </div>
         </ion-title>
       </div>
@@ -41,227 +39,216 @@
         </button>
       </ion-buttons>
       <ion-buttons class="bar-buttons bar-buttons-md">
-        <!-- <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+
+        <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
           ion-button="">
           <i class="icon ion-search placeholder-icon"></i>
           <div class="button-effect"></div>
-        </button> -->
+        </button>
+
         <search-event></search-event>
       </ion-buttons>
       <div class="toolbar-content toolbar-content-md">
         <div class="ng-untouched ng-pristine ng-valid">
           <input class="search-term ng-untouched ng-pristine ng-valid" formcontrolname="searchTerm" id="searchTerm"
-            name="searchTerm" type="text" placeholder="Search Events">
+            name="searchTerm" type="text" placeholder="Search Events" />
         </div>
       </div>
     </ion-navbar>
   </div>
   <ion-content class="home-page event-page content content-md" padding="" style="margin-top:60px;">
-    <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
-    <div class="scroll-content" style="margin-top: 60px; overflow:visible"> -->
-    <div ng-include="page">
-    </div>
-    <section>
-
-      <span class="open-bets-link" ui-sref="app.open-bet">Open Bets (1)</span>
-      <ion-list class="distinct market-list list list-md">
-        <ion-item class="market-list-item item item-block item-md item-toggle" ng-repeat="market in marketData">
-          <div class="item-inner">
-            <div class="input-wrapper">
-              <ion-label class="label label-md">
-                <div class="popular-event" tappable="">
-                  <!-- <span ng-click="saveFavourite(market);">
-                    <span>
-                      <i class="far fa-star icon-style"></i>
-                    </span>
+    <!-- <div ng-include="page"></div> -->
+    <span class="open-bets-link" ui-sref="app.open-bet">Open Bets (1)</span>
+    <div class="distinct market-list list">
+      <div class="market-list-item item " ng-repeat="market in marketData">
+        <div class="item-inner">
+          <div class="input-wrapper">
+            <div>
+              <div class="popular-event">
+                <span ng-click="saveFavourite(market);">
+                  <span>
+                    <i class="far fa-star icon-style"></i>
+                  </span>
                   <span ng-if="market.isFavourite" hidden>
-                            <i class="fas fa-star apl-icon-star-o"></i>
-                        </span>
-                  </span> -->
-                  <div class="event-details" ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage(selectedGame,market.eventName,market.parentCategory);">
-                    <i class="fi flaticon-cricket"></i>
-                    <span class="label">{{market.eventName}}</span>
-                  </div>
-                  <!-- <div class="match-stats-info-icon" item-right="">
+                    <i class="fas fa-star apl-icon-star-o"></i>
+                  </span>
+                </span>
+                <div class="event-details" ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage(selectedGame,market.eventName,market.parentCategory);">
+                  <i class="fi flaticon-cricket"></i>
+                  <span class="label">{{ market.eventName }}</span>
+                </div>
+
+                <!-- <div class="match-stats-info-icon" item-right="">
                     <i class="apl-icon-custom-match-stats fi flaticon-number-zero"></i>
                     <i class="apl-icon-custom-match-stats fi flaticon-number-one"></i>
                   </div> -->
-                  <div class="in-play in-play-icon" ng-if="checkDate(market) == false">
-                    <i class="fi flaticon-play-button"> <span>In Play</span></i>
+
+                <div class="in-play in-play-icon" ng-if="checkDate(market) == false">
+                  <i class="fi flaticon-play-button"> <span>In Play</span></i>
+                </div>
+              </div>
+              <div class="in-time-content" ng-if="checkDate(market) == true">
+                {{ market.marketStartTime | formatdate }}
+              </div>
+              <div class="list-body">
+                <!-- <market marketRun="market.runners" markets="market"> </market> -->
+                <div class="market list-item" ng-repeat="runner in market.runners">
+                  <div class="runner-details">
+                    <div class="title">
+                      <span>{{runner.name}}</span>
+                    </div>
                   </div>
+                  <div class="odds-container" ng-click="showBet(runner)">
+                    <!-- ng-click="showBet()"  index="2" tappable="" type="back"-->
+                    <back-button run="runner" markets="market" type="back" class="more-odds not-selected">
+                    </back-button>
+                    <lay-button run="runner" markets="market" type="lay" class="more-odds not-selected">
+                    </lay-button>
+                    <!-- <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
+                        ng-hide="market.runners.length==3 || isDraw == false || market.allZero" class="not-selected">
+                        <span>-</span>
+                      </div> -->
+                  </div>
+                  <div ng-show="betSlipRunner.betfairId == runner.betfairId">
+                    <bet-form id="betForm-1.151480011-21702345">
+                      <form class="bet-form back ng-untouched ng-dirty ng-invalid" novalidate="" style="transform: translateY(0px);">
+                        <div class="inputs">
+
+                          <odds-stepper class="item-block input-group odds-stepper-group"><label class="label-md"
+                              stacked="">Odds</label>
+                            <div class="stepper-input">
+                              <button class="minus disable-hover button button-md button-default button-default-md button-small button-small-md button-md-light"
+                                color="light" ion-button="" small="" type="button">
+                                <span class="button-inner">-</span>
+                                <div class="button-effect"></div>
+                              </button>
+                              <ion-item class="item item-block item-md item-input input-has-value item-input-has-value">
+                                <div class="item-inner">
+                                  <div class="input-wrapper">
+
+                                    <ion-input decimalinput="" focusable="" jumpinginputfix="" type="number" class="input input-md">
+                                      <input class="text-input text-input-md" type="number" aria-labelledby="lbl-45"
+                                        autocomplete="off" autocorrect="off" placeholder="" decimalinput="" focusable=""
+                                        jumpinginputfix="" />
+
+
+                                    </ion-input>
+                                  </div>
+
+                                </div>
+                                <div class="button-effect"></div>
+                              </ion-item>
+                              <button class="plus disable-hover button button-md button-default button-default-md button-small button-small-md button-md-light"
+                                color="light" ion-button="" small="" type="button">
+                                <span class="button-inner">+</span>
+                                <div class="button-effect"></div>
+                              </button>
+                            </div>
+                          </odds-stepper>
+
+
+                          <div class="input-group input-group-stake">
+                            <label class="label-md" stacked="">Stake</label>
+
+                            <ion-item class="item item-block item-md item-input ng-untouched ng-pristine ng-invalid input-has-value item-input-has-value">
+                              <div class="item-inner">
+                                <div class="input-wrapper">
+
+                                  <ion-input decimalinput="" focusable="" formcontrolname="stake" jumpinginputfix=""
+                                    type="number" class="input input-md no-liability ng-untouched ng-pristine ng-invalid">
+                                    <input class="text-input text-input-md" type="number" aria-labelledby="lbl-44"
+                                      autocomplete="off" autocorrect="off" placeholder="Max Bet: {{ value }}"
+                                      decimalinput="" focusable="" formcontrolname="stake" jumpinginputfix="" />
+
+
+                                  </ion-input>
+                                </div>
+
+                              </div>
+                              <div class="button-effect"></div>
+                            </ion-item>
+                          </div>
+                        </div>
+
+                        <div class="input-buttons">
+
+                          <button analytics-on="" color="cta-action" ion-button="" small="" type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
+                            <span class="button-inner">+1,000</span>
+                            <div class="button-effect"></div>
+                          </button><button analytics-on="" color="cta-action" ion-button="" small="" type="button"
+                            class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
+                            <span class="button-inner">+5,000</span>
+                            <div class="button-effect"></div>
+                          </button><button analytics-on="" color="cta-action" ion-button="" small="" type="button"
+                            class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action">
+                            <span class="button-inner">+10,000</span>
+                            <div class="button-effect"></div>
+                          </button>
+                        </div>
+
+                        <div class="input-buttons confirmation-buttons">
+                          <button analytics-on="" class="-large disable-hover button button-md button-default button-default-md button-md-cta-secondary"
+                            color="cta-secondary" ion-button="" type="button">
+                            <span class="button-inner">Cancel</span>
+                            <div class="button-effect"></div>
+                          </button>
+                          <button analytics-on="" class="-large disable-hover button button-md button-default button-default-md button-md-cta-primary"
+                            color="cta-primary" ion-button="" type="submit" disabled="">
+                            <span class="button-inner">
+                              <span class="content action">Place Bet</span>
+                              <span class="content info">Profit: 0.00</span>
+                            </span>
+                            <div class="button-effect"></div>
+                          </button>
+                        </div>
+                        <div class="confirmation-control off">
+                          Confirm bet before placing
+                          <ion-toggle class="confirmation-toggle toggle toggle-md">
+                            <div class="toggle-icon">
+                              <div class="toggle-inner"></div>
+                            </div>
+                            <button class="item-cover disable-hover item-cover-md item-cover-default item-cover-default-md"
+                              disable-activated="" ion-button="item-cover" role="checkbox" type="button" id="toggle-17-4"
+                              aria-checked="false" aria-labelledby="lbl-17" aria-disabled="false">
+                              <span class="button-inner"></span>
+                              <div class="button-effect"></div>
+                            </button>
+                          </ion-toggle>
+                        </div>
+                      </form>
+                    </bet-form>
+                  </div>
+
                 </div>
-                <div class="in-time-content" ng-if="checkDate(market) == true">{{market.marketStartTime |
-                  formatdate}}
-                </div>
-                <div class="list-body">
-                  <market marketRun="market.runners" markets="market">
-                  </market>
-                  <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
+                <!-- <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
                     ng-hide="market.runners.length==3 || isDraw == false || market.allZero" class="not-selected">
                     <span>-</span>
                   </div>
                   <div class="not-selected" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
                     ng-hide="market.runners.length==3 || isDraw == false || market.allZero">
                     <span>-</span>
-                  </div>
-                  <div ng-if="market.betfairStatus != 'OPEN' || market.isSuspended == 'Yes'" ng-hide="market.allZero">
-                    <span class="event-name">{{market.betfairStatus}}</span>
-                  </div>
-                  <!-- class="text-center suspend-color" -->
-                  <div ng-show="market.allZero">
-                    <span class="event-name">SUSPEND</span>
-                  </div>
+                  </div> -->
+                <div ng-if="market.betfairStatus != 'OPEN' || market.isSuspended == 'Yes'" ng-hide="market.allZero">
+                  <span class="event-name">{{ market.betfairStatus }}</span>
                 </div>
-              </ion-label>
-            </div>
-          </div>
-          <div class="button-effect"></div>
-        </ion-item>
-        <!-- <ion-item class="market-list-item item item-block item-md">
-          <div class="item-inner">
-            <div class="input-wrapper">
 
-              <ion-label class="label label-md">
-                <div class="popular-event" tappable="">
-                  <div class="event-details">
-                    <i class="fi flaticon-cricket"></i>
-                    <span class="label">Southern Vipers v Yorkshire Diamonds</span>
-                  </div>
-                  <div class="match-stats-info-icon" item-right="">
-                    <i class="apl-icon-custom-match-stats fi flaticon-number-zero"></i>
-                    <i class="apl-icon-custom-match-stats fi flaticon-number-one"></i>
-                  </div>
-                  <div class="in-play-icon" item-right="">
-                    <i class="fi flaticon-play-button"></i>
-                  </div>
+                <div ng-show="market.allZero">
+                  <span class="event-name">SUSPEND</span>
                 </div>
-                <div class="list-body">
-                  <market>
-                    <div class="market list-item" id="selection-1.146470978-11445382">
-                      <div class="runner-details">
-                        <div class="title">
-                          <span>Southern Vipers</span>
-                        </div>
-                        <pnl>
-                          <span></span>
-                        </pnl>
-                      </div>
-                      <div class="odds-container">
-                        <bet-button ng-click="showBet()" class="more-odds not-selected" index="2" tappable="" type="back">
-                          <div class="back">
-                            <div class="price">1.45</div>
-                            <market-volume>80,324
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" class="more-odds not-selected" index="1" tappable="" type="back">
-                          <div class="back">
-                            <div class="price">1.48</div>
-                            <market-volume>4,000
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" index="0" tappable="" type="back" class="not-selected">
-                          <div class="back">
-                            <div class="price">1.49</div>
-                            <market-volume>780
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" index="0" tappable="" type="lay" class="not-selected">
-                          <div class="lay">
-                            <div class="price">1.50</div>
-                            <market-volume>51,596
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" class="more-odds not-selected" index="1" tappable="" type="lay">
-                          <div class="lay">
-                            <div class="price">1.52</div>
-                            <market-volume>162,828
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" class="more-odds not-selected" index="2" tappable="" type="lay">
-                          <div class="lay">
-                            <div class="price">1.53</div>
-                            <market-volume>500,000+
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                      </div>
-                    </div>
-                    <div class="market list-item" id="selection-1.146470978-11445380">
-                      <div class="runner-details">
-                        <div class="title">
-                          <span>Yorkshire Diamonds</span>
-                        </div>
-                        <pnl>
-                          <span></span>
-                        </pnl>
-                      </div>
-                      <div class="odds-container">
-                        <bet-button ng-click="showBet()" class="more-odds not-selected" index="2" tappable="" type="back">
-                          <div class="back">
-                            <div class="price">2.88</div>
-                            <market-volume>500,000+
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" class="more-odds not-selected" index="1" tappable="" type="back">
-                          <div class="back">
-                            <div class="price">2.92</div>
-                            <market-volume>84,760
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" index="0" tappable="" type="back" class="not-selected">
-                          <div class="back">
-                            <div class="price">3.00</div>
-                            <market-volume>25,798
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" index="0" tappable="" type="lay" class="not-selected">
-                          <div class="lay">
-                            <div class="price">3.05</div>
-                            <market-volume>380
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" class="more-odds not-selected" index="1" tappable="" type="lay">
-                          <div class="lay">
-                            <div class="price">3.10</div>
-                            <market-volume>1,910
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                        <bet-button ng-click="showBet()" class="more-odds not-selected" index="2" tappable="" type="lay">
-                          <div class="lay">
-                            <div class="price">3.25</div>
-                            <market-volume>35,836
-                            </market-volume>
-                          </div>
-                        </bet-button>
-                      </div>
-                    </div>
-                  </market>
-                </div>
-              </ion-label>
+              </div>
             </div>
           </div>
-          <div class="button-effect"></div>
-        </ion-item> -->
-      </ion-list>
-    </section>
-    <ion-fab bottom="" class="btn-go-to-my-markets" right="" ui-sref="app.match-inner">
-      <button analytics-on="" ion-fab="" class="fab fab-md">
-        <ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close"></ion-icon>
-        <span class="button-inner">
-          <i class="fi flaticon-eye"></i>
-        </span>
-        <div class="button-effect"></div>
-      </button>
-    </ion-fab>
+        </div>
+      </div>
+    </div>
+
+
   </ion-content>
+  <ion-fab bottom="" class="btn-go-to-my-markets" right="" ui-sref="app.match-inner">
+    <button analytics-on="" ion-fab="" class="fab fab-md">
+      <ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close"></ion-icon>
+      <span class="button-inner"> <i class="fi flaticon-eye"></i> </span>
+      <div class="button-effect"></div>
+    </button>
+  </ion-fab>
 </ion-view>
