@@ -36,7 +36,7 @@
   <ul class="list">
     <li class="item item-toggle">
       <label class="toggle toggle-assertive">
-        <input type="checkbox">
+        <input type="checkbox" ng-model="userConfigData.oneClickStatus" ng-click="confirmOneClick()">
         <div class="track">
           <div class="handle"></div>
         </div>
@@ -45,37 +45,60 @@
     </li>
   </ul>
   <ion-content class="one-click-setting content content-md" padding="" style="margin-top:90px;">
-    <!-- <div class="fixed-content" style="margin-top: 105px;"></div>
-    <div class="scroll-content" style="margin-top: 105px;"> -->
-    <div class="title">
-      <h2 class="page-title">1 Click Bet Settings</h2>
-      <i class="apl-icon-info-sign fi flaticon-information"></i>
-    </div>
-    <div class="select-stakes">
-      <span>Select active stake:</span>
-    </div>
-    <div class="stakes-group">
-      <div class="stake readonly active">
-        <div class="wrapper">
-          <p>40</p>
-          <span>Active Stake</span>
+    <div ng-if="userConfigData.oneClickStatus">
+      <div class="title">
+        <h2 class="page-title">1 Click Bet Settings</h2>
+        <i class="apl-icon-info-sign fi flaticon-information"></i>
+      </div>
+      <div class="select-stakes">
+        <span>Select active stake:</span>
+      </div>
+      <div class="stakes-group" ng-if="!onclickEdit">
+        <div class="stake readonly" ng-repeat="stake in userConfigData.oneClickStake" ng-class="{'active' :  userConfigData.oneClickActiveStake == stake}"
+          ng-click="userConfigData.oneClickActiveStake = stake;setUserConfig('')">
+          <div class="wrapper">
+            <p>{{stake}}</p>
+            <span ng-if="userConfigData.oneClickActiveStake == stake">Active Stake</span>
+          </div>
         </div>
       </div>
-      <div class="stake readonly ">
-        <div class="wrapper">
-          <p>16</p>
+      <div class="stakes-group-edit " ng-if="onclickEdit">
+        <div class="stake-input">
+          <div class="stake stake-0">
+            <input type="number" class="text-input text-input-md" ng-model="userConfigData.oneClickStake[0]">
+          </div>
         </div>
-      </div>
-      <div class="stake readonly ">
-        <div class="wrapper">
-          <p>20</p>
+        <div class="stake-input">
+          <div class="stake stake-0">
+            <input type="number" class="text-input text-input-md" ng-model="userConfigData.oneClickStake[1]">
+          </div>
         </div>
+        <div class="stake-input">
+          <div class="stake stake-0">
+            <input type="number" class="text-input text-input-md" ng-model="userConfigData.oneClickStake[2]">
+          </div>
+        </div>
+        <!-- <div class="stake readonly ">
+          <div class="wrapper">
+            <p>16</p>
+          </div>
+        </div>
+        <div class="stake readonly ">
+          <div class="wrapper">
+            <p>20</p>
+          </div>
+        </div> -->
       </div>
+      <button class="disable-hover button button-md button-default button-default-md button-md-cta-primary" ng-click="editOneClickValue()"
+        ng-if="!onclickEdit">
+        <span class="button-inner">Edit</span>
+        <!-- <div class="button-effect"></div> -->
+      </button>
+      <button class="disable-hover button button-md button-default button-default-md button-md-cta-primary" ng-click="setUserConfig('oneClickSave');"
+        ng-if="onclickEdit">
+        <span class="button-inner">Save</span>
+        <!-- <div class="button-effect"></div> -->
+      </button>
     </div>
-    <button analytics-on="" color="cta-primary" ion-button="" class="disable-hover button button-md button-default button-default-md button-md-cta-primary">
-      <span class="button-inner">Edit</span>
-      <div class="button-effect"></div>
-    </button>
-    <!-- </div> -->
   </ion-content>
 </ion-view>
