@@ -16,6 +16,9 @@ myApp.controller('BetsettingCtrl', function ($scope, $ionicModal, $timeout, Serv
   $scope.editOneClickValue = function () {
     $scope.onclickEdit = !$scope.onclickEdit;
   };
+  $scope.editStake = function () {
+    $scope.stakeEdit = !$scope.stakeEdit;
+  }
   $scope.setUserConfig = function (operation) {
     var getIndex = _.findIndex($scope.userConfigData.oneClickStake, function (
       stake
@@ -31,7 +34,7 @@ myApp.controller('BetsettingCtrl', function ($scope, $ionicModal, $timeout, Serv
       $scope.userConfigData,
       function (data) {
         $scope.getUserConfig();
-        operation == "stake" ? $scope.editStakeModal.close() : "";
+        operation == "stake" ? $scope.editStake() : "";
         operation == "oneClickSave" ? $scope.editOneClickValue() : "";
         if (data.value) {
           //   toastr.success("user config changed successfully");
@@ -59,10 +62,10 @@ myApp.controller('BetsettingCtrl', function ($scope, $ionicModal, $timeout, Serv
           if (!_.isEmpty(data.data)) {
             $scope.userConfigData = data.data;
             if (
-              !$scope.userConfigData.stake ||
-              $scope.userConfigData.stake.length == 0
+              !$scope.userConfigData.mobileStake ||
+              $scope.userConfigData.mobileStake.length == 0
             ) {
-              $scope.userConfigData.stake = [25, 50, 100, 150, 200, 250];
+              $scope.userConfigData.mobileStake = [25, 50, 100];
             }
             if (
               !$scope.userConfigData.oneClickStake ||
@@ -75,7 +78,7 @@ myApp.controller('BetsettingCtrl', function ($scope, $ionicModal, $timeout, Serv
             $scope.userConfigData = {
               user: user,
               confirmStatus: true,
-              stake: [25, 50, 100, 150, 200, 250],
+              mobileStake: [25, 50, 100],
               oneClickStake: [40, 50, 100],
               oneClickStatus: false,
               oneClickActiveStake: 40
@@ -85,13 +88,13 @@ myApp.controller('BetsettingCtrl', function ($scope, $ionicModal, $timeout, Serv
           $scope.userConfigData = {
             user: user,
             confirmStatus: true,
-            stake: [25, 50, 100, 150, 200, 250],
+            mobileStake: [25, 50, 100],
             oneClickStake: [40, 50, 100],
             oneClickStatus: false,
             oneClickActiveStake: 40
           };
         }
-        $scope.stakes = _.cloneDeep($scope.userConfigData.stake);
+        $scope.mobileStakes = _.cloneDeep($scope.userConfigData.mobileStake);
         $scope.oneClickStakes = _.cloneDeep(
           $scope.userConfigData.oneClickStake
         );
