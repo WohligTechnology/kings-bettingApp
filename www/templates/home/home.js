@@ -12,10 +12,23 @@ myApp.controller("HomeCtrl", function (
   $rootScope,
   TemplateService
 ) {
+  var user = $.jStorage.get("userId");
+  $scope.liability = 0;
+  Service.apiCallWithUrl(
+    adminurl + "api/member/getOne", {
+      _id: user
+    },
+    function (data) {
+      $scope.memberMinRate = data.data.minRate[0].memberMinRate;
+      $scope.username = data.data.username;
+    }
+  );
   $scope.bet = false;
   var accessToken = $.jStorage.get("accessToken");
   var userid = $.jStorage.get("userId");
   $scope.showBet = function (market, runner, type) {
+    $scope.liability = 0;
+    $scope.minBetError = false;
     // $scope.betSlipRunner = runner;
     $scope.betSlipRunner = {
       odds: type == 'BACK' ? runner.singleBackRate : runner.singleLayRate,
@@ -76,7 +89,7 @@ myApp.controller("HomeCtrl", function (
       num = num - num2;
       num = +(Math.round(num + "e+2") + "e-2");
     }
-    // $scope.calculatePL(type);
+    $scope.calculatePL(type);
     return num;
   };
   //home
@@ -310,23 +323,6 @@ myApp.controller("HomeCtrl", function (
   $scope.format = "yyyy/MM/dd";
   $scope.date = new Date();
 
-  $scope.placeBet = function (price, type, market, selection) {
-    var accessToken = jStorageService.getAccessToken();
-    var userId = jStorageService.getUserId();
-
-    $rootScope.$broadcast("eventBroadcastedName", {
-      odds: price,
-      type: type,
-      eventId: market.parentCategory.betfairId,
-      event: market.parentCategory.name,
-      selectionId: selection.betfairId,
-      selectionName: selection.name,
-      sport: $scope.selectedGame,
-      marketId: market.betfairId,
-      accessToken: accessToken,
-      userId: userId
-    });
-  };
 
   $scope.saveFavourite = function (value, isFavourite) {
     var userId = jStorageService.getUserId();
@@ -361,5 +357,84 @@ myApp.controller("HomeCtrl", function (
     });
   };
   initiateController();
+  $scope.calculatePL = function (type) {
+    // var userInfo = jStorageService.getUserData();
+    // if (userInfo.minRate && userInfo.minRate[0].memberMinRate) {
+    //   $scope.memberMinRate = userInfo.minRate[0].memberMinRate;
+    // }
+    $scope.minBetError = false;
+    // if ($scope.myCurrentBetData && $scope.myCurrentBetData.unMatchedbets) {
+    //   _.each($scope.myCurrentBetData.unMatchedbets, function (unMatchedbets) {
+    //     _.each(unMatchedbets.betData, function (bet) {
+    //       if (bet.type == "BACK") {
+    //         bet.profit =
+    //           bet.betRate && bet.stake ? (bet.betRate - 1) * bet.stake : 0;
+    //       } else {
+    //         bet.liability =
+    //           bet.betRate && bet.stake ? (bet.betRate - 1) * bet.stake : 0;
+    //       }
+    //       bet.updatedodds = bet.betRate - 1;
+    //       if (!bet.stake || bet.stake >= $scope.memberMinRate) {
+    //         bet.error = false;
+    //       } else {
+    //         bet.error = true;
+    //         $scope.minBetError = true;
+    //       }
+    //     });
+    //   });
+    //   $scope.checkChangeInBet();
+    // }
+    if (type == "LAY") {
+      // _.each($scope.layArray, function (n) {
+      //   n.liability = n.odds && n.stake ? (n.odds - 1) * n.stake : 0;
+      //   n.updatedodds = n.odds - 1;
+      //   if (!n.stake || n.stake >= $scope.memberMinRate) {
+      //     n.error = false;
+      //   } else {
+      //     n.error = true;
+      //     $scope.minBetError = true;
+      //   }
+      // });
+      $scope.liability = $scope.betSlipRunner.odds && $scope.betSlipRunner.stake ? ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake : 0;
+      if (!$scope.betSlipRunner.stake || $scope.betSlipRunner.stake >= $scope.memberMinRate) {
+        $scope.betSlipRunner.error = false;
+      } else {
+        $scope.betSlipRunner.error = true;
+        $scope.minBetError = true;
+      }
+      $scope.betSlipRunner.updatedodds = $scope.betSlipRunner.odds - 1;
+    }
 
+    if (type == "BACK") {
+      // _.each($scope.backArray, function (n) {
+      //   n.profit = n.odds && n.stake ? (n.odds - 1) * n.stake : 0;
+      //   n.updatedodds = n.odds - 1;
+      //   if (n.stake >= $scope.memberMinRate) {
+      //     n.error = false;
+      //   } else {
+      //     n.error = true;
+      //     $scope.minBetError = true;
+      //   }
+      // });
+      $scope.liability = $scope.betSlipRunner.odds && $scope.betSlipRunner.stake ? ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake : 0;
+      if (!$scope.betSlipRunner.stake || $scope.betSlipRunner.stake >= $scope.memberMinRate) {
+        $scope.betSlipRunner.error = false;
+      } else {
+        $scope.betSlipRunner.error = true;
+        $scope.minBetError = true;
+      }
+      $scope.betSlipRunner.updatedodds = $scope.betSlipRunner.odds - 1;
+
+    }
+    // $scope.liability =
+    //   _.sumBy($scope.layArray, "liability") +
+    //   _.sumBy($scope.backArray, "stake");
+
+    // if ($state.current.name == "home.detailPage") {
+    //   $rootScope.calculateBook({
+    //     lay: $scope.layArray,
+    //     back: $scope.backArray
+    //   });
+    // }
+  };
 });
