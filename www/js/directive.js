@@ -25,16 +25,16 @@ myApp.directive('balance', function () {
       }
     };
   })
-  .directive('betForm', function () {
-    return {
-      restrict: 'E',
-      replace: false,
-      templateUrl: 'templates/directive/bet-form.html',
-      link: function ($scope, element, attr) {
+  // .directive('betForm', function () {
+  //   return {
+  //     restrict: 'E',
+  //     replace: false,
+  //     templateUrl: 'templates/directive/bet-form.html',
+  //     link: function ($scope, element, attr) {
 
-      }
-    };
-  })
+  //     }
+  //   };
+  // })
   .directive('marketVolume', function () {
     return {
       restrict: 'E',

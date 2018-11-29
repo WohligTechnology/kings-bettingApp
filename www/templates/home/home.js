@@ -13,10 +13,72 @@ myApp.controller("HomeCtrl", function (
   TemplateService
 ) {
   $scope.bet = false;
-  $scope.showBet = function (runner) {
-    $scope.betSlipRunner = runner;
+  var accessToken = $.jStorage.get("accessToken");
+  var userid = $.jStorage.get("userId");
+  $scope.showBet = function (market, runner, type) {
+    // $scope.betSlipRunner = runner;
+    $scope.betSlipRunner = {
+      odds: type == 'BACK' ? runner.singleBackRate : runner.singleLayRate,
+      type: type,
+      eventId: market.parentCategory.betfairId,
+      event: market.eventName,
+      selectionId: runner.betfairId,
+      selectionName: runner.name,
+      sport: 'Cricket',
+      marketId: market.betfairId,
+      accessToken: accessToken,
+      marketName: market.name,
+      userId: userid,
+      handicap: runner.handicap
+    };
+    console.log($scope.betSlipRunner)
   };
+  $scope.cancelBet = function () {
+    $scope.betSlipRunner = {};
+  }
 
+  $scope.incOrDec = function (num, event, type) {
+    var num2 = 0;
+    if ((event.keyCode == 38 || event == "up") && num < 1000) {
+      if (num >= 1.01 && num < 5) {
+        num2 = 0.01;
+      } else if (num >= 5 && num < 10) {
+        num2 = 0.1;
+      } else if (num >= 10 && num < 20) {
+        num2 = 0.5;
+      } else if (num >= 20 && num < 30) {
+        num2 = 1;
+      } else if (num >= 30 && num < 50) {
+        num2 = 2;
+      } else if (num >= 50 && num < 100) {
+        num2 = 5;
+      } else if (num >= 100 && num < 1000) {
+        num2 = 10;
+      }
+      num = num + num2;
+      num = +(Math.round(num + "e+2") + "e-2");
+    } else if ((event.keyCode == 40 || event == "down") && num > 1.01) {
+      if (num > 1.01 && num <= 5) {
+        num2 = 0.01;
+      } else if (num > 5 && num <= 10) {
+        num2 = 0.1;
+      } else if (num > 10 && num <= 20) {
+        num2 = 0.5;
+      } else if (num > 20 && num <= 30) {
+        num2 = 1;
+      } else if (num > 30 && num <= 50) {
+        num2 = 2;
+      } else if (num > 50 && num <= 100) {
+        num2 = 5;
+      } else if (num > 100 && num <= 1000) {
+        num2 = 10;
+      }
+      num = num - num2;
+      num = +(Math.round(num + "e+2") + "e-2");
+    }
+    // $scope.calculatePL(type);
+    return num;
+  };
   //home
   $scope.getGamePage = function (value) {
     switch (value) {
@@ -299,4 +361,5 @@ myApp.controller("HomeCtrl", function (
     });
   };
   initiateController();
+
 });
