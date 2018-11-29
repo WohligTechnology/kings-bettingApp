@@ -1,138 +1,160 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <!-- <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+    <!--
+      <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
 
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
-      </ion-nav-buttons>
+        <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+          </button>
+        </ion-nav-buttons>
 
-    </ion-nav-bar> -->
+      </ion-nav-bar>
+    -->
 
-    <ion-nav-view name="menuContent">
-    </ion-nav-view>
+    <ion-nav-view name="menuContent"> </ion-nav-view>
   </ion-side-menu-content>
 
-
-  <ion-side-menu class="menu-slide menu-enabled show-menu" role="navigation" side="left" type="push">
+  <ion-side-menu
+    class="menu-slide menu-enabled show-menu"
+    role="navigation"
+    side="left"
+    type="push"
+  >
     <div class="menu-inner" style="transform: translateX(0px);">
       <main-menu>
         <ion-content class="content content-md">
-          <!-- <div class="fixed-content"></div>
-          <div class="scroll-content"> -->
+          <!--
+            <div class="fixed-content"></div>
+            <div class="scroll-content">
+          -->
           <ion-list no-border="" class="list list-md">
             <div>
               <div class="menu-lvl-1">
-                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="" ui-sref="app.my-market"
-                  ng-click="favourites();">
+                <button
+                  menu-close
+                  analytics-on=""
+                  class="item item-block item-md not-selected"
+                  ion-item=""
+                  ui-sref="app.my-market"
+                  ng-click="favourites();"
+                >
                   <i item-left="" class="fi flaticon-eye"></i>
                   <div class="item-inner">
                     <div class="input-wrapper">
-                      <ion-label class="label label-md">
-                        My Markets
-                      </ion-label>
+                      <ion-label class="label label-md"> My Markets </ion-label>
                     </div>
                   </div>
                   <div class="button-effect"></div>
                 </button>
               </div>
-              <div class="menu-lvl-2">
-              </div>
+              <div class="menu-lvl-2"></div>
             </div>
             <div ng-repeat="game in gameData">
               <div class="menu-lvl-1">
-                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="" ng-click="getGameName(game.name);getSubCategory(game.children)">
-                  <i item-left=""  class="fi flaticon-{{game.name}}"></i>
+                <button
+                  menu-close
+                  analytics-on=""
+                  class="item item-block item-md not-selected"
+                  ion-item=""
+                  ng-click="getGameName(game.name);getSubCategory(game.children)"
+                >
+                  <i item-left="" class="fi flaticon-{{game.name}}"></i>
                   <div class="item-inner">
                     <div class="input-wrapper">
                       <ion-label class="label label-md">
-                        {{game.name}}
+                        {{ game.name }}
                       </ion-label>
                     </div>
                   </div>
                   <div class="button-effect"></div>
                 </button>
               </div>
-              <div class="menu-lvl-2">
-              </div>
+              <div class="menu-lvl-2"></div>
             </div>
             <!-- <div> -->
-            <!--  <div class="menu-lvl-1">
-                <button menu-close analytics-on="" class="item item-block item-md selected" ion-item="">
-                  <i item-left="" class="fi flaticon-football-ball"></i>
-                  <div class="item-inner">
-                    <div class="input-wrapper">
-                      <ion-label class="label label-md">
-                        Football
-                      </ion-label>
-                    </div>
-                  </div>
-                  <div class="button-effect"></div>
-                </button>
-              </div>
-              <div class="menu-lvl-2">
-              </div>
-            </div>
-            <div>
+            <!--
               <div class="menu-lvl-1">
-                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="">
-                  <i item-left="" class="fi flaticon-tennis-ball"></i>
-                  <div class="item-inner">
-                    <div class="input-wrapper">
-                      <ion-label class="label label-md">
-                        Tennis
-                      </ion-label>
+                  <button menu-close analytics-on="" class="item item-block item-md selected" ion-item="">
+                    <i item-left="" class="fi flaticon-football-ball"></i>
+                    <div class="item-inner">
+                      <div class="input-wrapper">
+                        <ion-label class="label label-md">
+                          Football
+                        </ion-label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="button-effect"></div>
-                </button>
+                    <div class="button-effect"></div>
+                  </button>
+                </div>
+                <div class="menu-lvl-2">
+                </div>
               </div>
-              <div class="menu-lvl-2">
-              </div>
-            </div>
-            <div>
-              <div class="menu-lvl-1" ui-sref="app.racing-page">
-                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="">
-                  <i item-left="" class="fi flaticon-horse-head-side-view-to-the-right-silhouette"></i>
-                  <div class="item-inner">
-                    <div class="input-wrapper">
-                      <ion-label class="label label-md">
-                        Horse Racing
-                      </ion-label>
+              <div>
+                <div class="menu-lvl-1">
+                  <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="">
+                    <i item-left="" class="fi flaticon-tennis-ball"></i>
+                    <div class="item-inner">
+                      <div class="input-wrapper">
+                        <ion-label class="label label-md">
+                          Tennis
+                        </ion-label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="button-effect"></div>
-                </button>
+                    <div class="button-effect"></div>
+                  </button>
+                </div>
+                <div class="menu-lvl-2">
+                </div>
               </div>
-              <div class="menu-lvl-2">
-              </div>
-            </div>
-            <div>
-              <div class="menu-lvl-1">
-                <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="">
-                  <i item-left="" class="fi flaticon-greyhound"></i>
-                  <div class="item-inner">
-                    <div class="input-wrapper">
-                      <ion-label class="label label-md">
-                        Greyhound Racing
-                      </ion-label>
+              <div>
+                <div class="menu-lvl-1" ui-sref="app.racing-page">
+                  <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="">
+                    <i item-left="" class="fi flaticon-horse-head-side-view-to-the-right-silhouette"></i>
+                    <div class="item-inner">
+                      <div class="input-wrapper">
+                        <ion-label class="label label-md">
+                          Horse Racing
+                        </ion-label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="button-effect"></div>
-                </button>
+                    <div class="button-effect"></div>
+                  </button>
+                </div>
+                <div class="menu-lvl-2">
+                </div>
               </div>
-              <div class="menu-lvl-2">
+              <div>
+                <div class="menu-lvl-1">
+                  <button menu-close analytics-on="" class="item item-block item-md not-selected" ion-item="">
+                    <i item-left="" class="fi flaticon-greyhound"></i>
+                    <div class="item-inner">
+                      <div class="input-wrapper">
+                        <ion-label class="label label-md">
+                          Greyhound Racing
+                        </ion-label>
+                      </div>
+                    </div>
+                    <div class="button-effect"></div>
+                  </button>
+                </div>
+                <div class="menu-lvl-2">
+                </div>
               </div>
-            </div> -->
+            -->
           </ion-list>
           <!-- </div> -->
         </ion-content>
       </main-menu>
     </div>
   </ion-side-menu>
-  <ion-side-menu class="menu-slide menu-enabled show-menu" role="navigation" side="right" type="push">
+  <ion-side-menu
+    class="menu-slide menu-enabled show-menu"
+    role="navigation"
+    side="right"
+    type="push"
+  >
     <div class="menu-inner" style="transform:translateX(0px);">
       <right-menu>
         <ion-content class="content content-md">
@@ -141,7 +163,7 @@
           <div class="menu-top-wrap">
             <account-overview>
               <div class="account-overview">
-                <p class="login-name">{{userInfo.username}}</p>
+                <p class="login-name">{{ userInfo.username }}</p>
                 <ion-list class="list list-md">
                   <div class="menu-item">
                     <p class="label">
@@ -152,22 +174,28 @@
                       <div class="group">
                         <div>Available Credit:</div>
                         <span>
-                          <strong>{{(balanceData.balance || 0)| number:2}}</strong>
+                          <strong>{{
+                            balanceData.balance || 0 | number: 2
+                          }}</strong>
                         </span>
                       </div>
                       <div class="group">
                         <div>Credit Limit:</div>
-                        <span>{{balanceData.creditLimit || 0}}</span>
+                        <span>{{ balanceData.creditLimit || 0 }}</span>
                       </div>
                       <div class="group">
                         <div>Winnings:</div>
-                        <span ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings >= 0}">+
-                          {{(balanceData.winnings || 0)| number:2}}</span>
+                        <span
+                          ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings >= 0}"
+                          >+ {{ balanceData.winnings || 0 | number: 2 }}</span
+                        >
                       </div>
                       <div class="group">
                         <div>Net Exposure:</div>
-                        <span ng-class="{'positive':netExposureData >= 0 ,'negative':netExposureData<0}">{{netExposureData
-                          | number :2}}</span>
+                        <span
+                          ng-class="{'positive':netExposureData >= 0 ,'negative':netExposureData<0}"
+                          >{{ netExposureData | number: 2 }}</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -177,7 +205,13 @@
             <ion-list no-border="" class="list list-md">
               <div>
                 <div class="menu-lvl-1 ">
-                  <button analytics-on="" menu-close class="item item-block item-md not-selected" ion-item="" ui-sref="app.open-bet">
+                  <button
+                    analytics-on=""
+                    menu-close
+                    class="item item-block item-md not-selected"
+                    ion-item=""
+                    ui-sref="app.open-bet"
+                  >
                     <i item-left="" class="fi flaticon-listing-option"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
@@ -192,7 +226,13 @@
               </div>
               <div>
                 <div class="menu-lvl-1 ">
-                  <button analytics-on="" menu-close class="item item-block item-md not-selected" ion-item="" ui-sref="app.profit-loss">
+                  <button
+                    analytics-on=""
+                    menu-close
+                    class="item item-block item-md not-selected"
+                    ion-item=""
+                    ui-sref="app.profit-loss"
+                  >
                     <i item-left="" class="fi flaticon-loss"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
@@ -205,33 +245,76 @@
                   </button>
                 </div>
               </div>
-              <!-- <div>
-                <div class="menu-lvl-1 ">
-                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-book"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
-                          
-                          Transfer Statement
-                      </ion-label></div></div><div class="button-effect"></div></button>
-                </div>
-              </div> -->
-              <!-- <div>
-                <div class="menu-lvl-1 ">
-                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-time"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
-                          
-                          Time Setting
-                      </ion-label></div></div><div class="button-effect"></div></button>
-                </div>
-              </div> -->
-              <!-- <div>
-                <div class="menu-lvl-1 ">
-                  <button analytics-on="" class="item item-block item-md not-selected" ion-item=""><i item-left="" class="apl-icon-lock"></i><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md">
-                          
-                          Change Password
-                      </ion-label></div></div><div class="button-effect"></div></button>
-                </div>
-              </div> -->
+
               <div>
                 <div class="menu-lvl-1 ">
-                  <button analytics-on="" menu-close class="item item-block item-md not-selected" ion-item="" ui-sref="app.rules-regulations">
+                  <button
+                    analytics-on=""
+                    class="item item-block item-md not-selected"
+                    ion-item=""
+                  >
+                    <i item-left="" class="fi flaticon-loss"></i>
+                    <div class="item-inner">
+                      <div class="input-wrapper">
+                        <ion-label class="label label-md">
+                          Transfer Statement
+                        </ion-label>
+                      </div>
+                    </div>
+                    <div class="button-effect"></div>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <div class="menu-lvl-1 ">
+                  <button
+                    analytics-on=""
+                    class="item item-block item-md not-selected"
+                    ion-item=""
+                  >
+                    <i item-left="" class="fi flaticon-loss"></i>
+                    <div class="item-inner">
+                      <div class="input-wrapper">
+                        <ion-label class="label label-md">
+                          Time Setting
+                        </ion-label>
+                      </div>
+                    </div>
+                    <div class="button-effect"></div>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <div class="menu-lvl-1 ">
+                  <button
+                    analytics-on=""
+                    class="item item-block item-md not-selected"
+                    ion-item=""
+                  >
+                    <i item-left="" class="apl-icon-lock"></i>
+                    <div class="item-inner">
+                      <div class="input-wrapper">
+                        <ion-label class="label label-md">
+                          Change Password
+                        </ion-label>
+                      </div>
+                    </div>
+                    <div class="button-effect"></div>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <div class="menu-lvl-1 ">
+                  <button
+                    analytics-on=""
+                    menu-close
+                    class="item item-block item-md not-selected"
+                    ion-item=""
+                    ui-sref="app.rules-regulations"
+                  >
                     <i item-left="" class="fi flaticon-notebook"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
@@ -246,14 +329,17 @@
               </div>
               <div>
                 <div class="menu-lvl-1 one-click-menu">
-                  <button analytics-on="" menu-close class="item item-block item-md not-selected" ion-item="" ui-sref="app.bet-setting">
+                  <button
+                    analytics-on=""
+                    menu-close
+                    class="item item-block item-md not-selected"
+                    ion-item=""
+                    ui-sref="app.bet-setting"
+                  >
                     <i item-left="" class="fi flaticon-bullseye"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
-                        <ion-label class="label label-md">
-
-                          1 Click Bet Settings
-                        </ion-label>
+                        <ion-label class="label label-md"> Settings </ion-label>
                       </div>
                     </div>
                     <div class="button-effect"></div>
@@ -262,13 +348,14 @@
               </div>
             </ion-list>
           </div>
-          <button class="btn-sign-out item item-block item-md" ng-click="logout()">
+          <button
+            class="btn-sign-out item item-block item-md"
+            ng-click="logout()"
+          >
             <i class="fi flaticon-logout apl-icon-signout"></i>
             <div class="item-inner">
               <div class="input-wrapper">
-                <ion-label class="label label-md">
-                  Sign Out
-                </ion-label>
+                <ion-label class="label label-md"> Sign Out </ion-label>
               </div>
             </div>
             <div class="button-effect"></div>
@@ -285,7 +372,5 @@
         </ion-content>
       </right-menu>
     </div>
-
   </ion-side-menu>
-
 </ion-side-menus>

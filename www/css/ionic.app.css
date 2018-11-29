@@ -9652,10 +9652,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -16425,8 +16425,6 @@ ion-backdrop.backdrop-no-tappable {
   cursor: pointer;
   vertical-align: top;
   vertical-align: -webkit-baseline-middle;
-  -webkit-transition: background-color, opacity .1s linear;
-  transition: background-color, opacity .1s linear;
   -webkit-font-kerning: none;
   font-kerning: none;
   user-select: none; }
@@ -16605,12 +16603,6 @@ button[disabled] {
   font-weight: 500;
   text-transform: uppercase;
   color: #fff;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin: .4rem .2rem;
   padding: 0 1.1em; }
 
@@ -23474,7 +23466,8 @@ ion-item-extended .ion-item-loader .skeleton {
   margin-right: 12px; }
 
 balance .balance,
-bet-button market-volume {
+back-button market-volume,
+lay-button market-volume {
   font-size: 10px; }
 
 .account-overview .menu-item .content .group {
@@ -23494,12 +23487,14 @@ balance {
 balance i {
   display: block !important; }
 
-bet-button {
+back-button,
+lay-button {
   width: 66px;
   height: 50px;
   margin: 0 0 0 2px; }
 
-bet-button > div {
+back-button > div,
+lay-button > div {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -23507,37 +23502,40 @@ bet-button > div {
   font-size: 12px;
   padding: 6px 8px; }
 
-bet-button > div .price {
+back-button > div .price,
+lay-button > div .price {
   font-weight: 700; }
 
-bet-button > div.back {
+back-button > div.back {
   background: #a7d8fd; }
 
-bet-button > div.lay {
+lay-button > div.lay {
   background: #f9c9d4; }
 
-bet-button.more-odds:not(.selected) > div.back {
+back-button.more-odds:not(.selected) > div.back {
   background: #e3f3fe; }
 
-bet-button.more-odds:not(.selected) > div.lay {
+lay-button.more-odds:not(.selected) > div.lay {
   background: #fdeef2; }
 
-bet-button.selected {
+back-button.selected,
+lay-button.selected {
   position: relative;
   z-index: 2;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px; }
 
-bet-button.selected > div {
+back-button.selected > div,
+lay-button.selected > div {
   background: #fff;
   padding-top: 5px; }
 
-bet-button.selected[type=back] > div {
+back-button.selected[type=back] > div {
   border-top: 1px solid #a7d8fd;
   border-left: 1px solid #a7d8fd;
   border-right: 1px solid #a7d8fd; }
 
-bet-button.selected[type=lay] > div {
+lay-button.selected[type=lay] > div {
   border-top: 1px solid #f9c9d4;
   border-left: 1px solid #f9c9d4;
   border-right: 1px solid #f9c9d4; }
@@ -24012,7 +24010,8 @@ ion-title.left-title .toolbar-title {
   opacity: 0;
   visibility: hidden; }
 
-.market.betting-disabled bet-button,
+.market.betting-disabled back-button,
+.market.betting-disabled lay-button,
 .market.faded > * {
   opacity: .5; }
 
@@ -24022,7 +24021,8 @@ ion-title.left-title .toolbar-title {
   font-size: 20px; }
 
 .one-click-setting {
-  min-height: 45px; }
+  min-height: 45px;
+  padding: 0; }
 
 .search-header {
   height: 60px;
@@ -25198,17 +25198,9 @@ odds-stepper .stepper-input input.text-input.text-input-md {
   padding-left: 11px;
   padding-right: 11px; }
 
-.one-click-switch {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 6px 0;
-  background: #fff; }
-
 .one-click-switch.on {
-  background: #e84c4d; }
+  background: #e84c4d;
+  color: #fff; }
 
 .one-click-switch .current-stake {
   position: relative;
@@ -25873,7 +25865,11 @@ ion-nav.landscape .home-page .open-bets-link {
   margin-right: 5px !important; }
 
 .home-page .popular-event .in-play-icon {
-  margin: -6px 0 0; }
+  margin: -11px 42px 0 0;
+  font-size: 100%; }
+  .home-page .popular-event .in-play-icon i {
+    margin: 0;
+    right: 33px; }
 
 .home-page .popular-event .in-play-icon .apl-icon-custom-play {
   font-size: 13px;
@@ -25894,6 +25890,11 @@ ion-nav.landscape .home-page .open-bets-link {
 .home-page .popular-event .event-details > i {
   position: absolute;
   margin: 0 5px 3px 0; }
+
+.home-page .in-time-content {
+  color: black;
+  font-size: 12px;
+  padding: 0 24px; }
 
 .home-page .list-body {
   margin-bottom: 0 !important;
@@ -26777,6 +26778,37 @@ ion-item.item.item-block.item-md.item-search {
   padding: 0; }
   ion-item.item.item-block.item-md.item-search .item-content {
     width: 100%; }
+
+.toggle .handle {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  left: 7px; }
+
+.toggle .track {
+  width: 52px;
+  height: 24px;
+  border-radius: 20px; }
+  .toggle .track:before {
+    content: 'Off';
+    position: absolute;
+    right: 12px;
+    font-size: 12px;
+    top: 11px;
+    color: #585858; }
+
+.toggle input:checked + .track .handle {
+  transform: translate3d(28px, 0px, 0px); }
+
+.toggle input:checked + .track {
+  border-color: #4cd964 !important;
+  background-color: #4cd964 !important; }
+  .toggle input:checked + .track:before {
+    content: 'On' !important;
+    position: absolute !important;
+    left: 12px !important;
+    top: 11px !important;
+    color: #fff !important; }
 
 /*
     Flaticon icon font: Flaticon
