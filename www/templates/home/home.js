@@ -536,20 +536,22 @@ myApp.controller("HomeCtrl", function (
     }
   };
   $scope.placeBet = function () {
-    // $timeout(function () {
-    //   $scope.showTimer = true;
-    //   $scope.countdown = 5;
-    //   $scope.clickButton();
-    // }, 1000);
-    // toastrConfig = {};
-    // toastrConfig.positionClass = "toast-top-right";
-    // toastr.success("Your Bet will submit in 5 seconds");
     if (
       !$scope.userConfigData.oneClickStatus &&
       $scope.userConfigData.confirmStatus
     ) {
-      $scope.betconfirm.close();
+      $scope.closeConfirmBet();
     }
+    $timeout(function () {
+      $scope.openBetLoader();
+      $scope.showTimer = true;
+      $scope.countdown = 5;
+      $scope.clickButton();
+    }, 1000);
+    // toastrConfig = {};
+    // toastrConfig.positionClass = "toast-top-right";
+    // toastr.success("Your Bet will submit in 5 seconds");
+
     // $scope.promise = NavigationService.success().then(function () {
     // var reqData = _.concat($scope.layArray, $scope.backArray);
     var reqData = [];
@@ -557,10 +559,11 @@ myApp.controller("HomeCtrl", function (
     Service.apiCallWithData("Betfair/placePlayerBetNew", reqData, function (
       data
     ) {
-      // $scope.betPlacing = false;
-      // $timeout(function () {
-      //   $scope.showTimer = false;
-      // }, 500);
+      $scope.betPlacing = false;
+      $timeout(function () {
+        $scope.closeBetLoader()
+        $scope.showTimer = false;
+      }, 500);
 
       if (data.value) {
         // toastr.success("Bet Placed successfully!");
@@ -615,15 +618,27 @@ myApp.controller("HomeCtrl", function (
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function(modal) {
+    .then(function (modal) {
       $scope.BetLoaderModal = modal;
     });
 
-  $scope.openBetLoader = function() {
+  $scope.openBetLoader = function () {
     $scope.BetLoaderModal.show();
   };
-  $scope.closeBetLoader = function() {
+  $scope.closeBetLoader = function () {
     $scope.BetLoaderModal.hide();
+  };
+
+  $scope.clickButton = function () {
+    $timeout(function () {
+      if ($scope.countdown > 0 && $scope.showTimer) {
+        $scope.countdown -= 1;
+        $scope.clickButton();
+        console.log($scope.countdown);
+      } else {
+        delete $scope.countdown;
+      }
+    }, 1000);
   };
   // $scope.openBetLoader();
 });

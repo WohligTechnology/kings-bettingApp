@@ -10,32 +10,26 @@
     </ion-header-bar>
   -->
   <ion-content>
-    <div class="dialog-content">
-        <!-- <div class="betslip-loader" ng-if="betPlacing"> -->
-            <div class="text-center loader-content">
-                    <h2>Your bet is being processed</h2>
-                    <h2>Please Wait...</h2>
-            </div>
-        <div class="betslip-loader">
-            <div class="section-spinner">
-            <!-- <div class="section-spinner" ng-if="showTimer && showTimer > 0"> -->
-                <div class="countdown-number">{{countdown}}</div>
-                <svg class="spinner" width="174px" height="174px"
-                    viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="path" fill="transparent"
-                        stroke-width="3" cx="33" cy="33" r="30" stroke="url(#gradient)" />
-                    <linearGradient id="gradient">
-                        <stop offset="50%" stop-color="#a7d8fd8c"
-                            stop-opacity="1" />
-                        <stop offset="65%" stop-color="#a7d8fd8c"
-                            stop-opacity=".5" />
-                        <stop offset="100%" stop-color="#a7d8fd8c"
-                            stop-opacity="0" />
-                    </linearGradient>
-                    </circle>
-                </svg>
-            </div>
+    <div class="dialog-content" ng-if="betPlacing">
+      <!-- <div class="betslip-loader" ng-if="betPlacing"> -->
+      <div class="text-center loader-content">
+        <h2>Your bet is being processed</h2>
+        <h2>Please Wait...</h2>
+      </div>
+      <div class="betslip-loader">
+        <div class="section-spinner" ng-if="showTimer && showTimer > 0">
+          <div class="countdown-number">{{countdown}}</div>
+          <svg class="spinner" width="174px" height="174px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="transparent" stroke-width="3" cx="33" cy="33" r="30" stroke="url(#gradient)" />
+            <linearGradient id="gradient">
+              <stop offset="50%" stop-color="#a7d8fd8c" stop-opacity="1" />
+              <stop offset="65%" stop-color="#a7d8fd8c" stop-opacity=".5" />
+              <stop offset="100%" stop-color="#a7d8fd8c" stop-opacity="0" />
+            </linearGradient>
+            </circle>
+          </svg>
         </div>
+      </div>
     </div>
   </ion-content>
 </ion-modal-view>
