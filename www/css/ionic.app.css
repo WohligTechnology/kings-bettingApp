@@ -25025,7 +25025,6 @@ ion-modal-view {
 .dialog-content {
   background: #fff;
   width: calc(100% - 1px);
-  border: 1px solid #601c78;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 11px; }
@@ -26813,7 +26812,7 @@ ion-item.item.item-block.item-md.item-search {
 .market-list-item.item.item-block {
   margin-bottom: 2px; }
 
-ion-modal-view.bet-confirm.back.modal {
+ion-modal-view.bet-confirm.modal {
   top: 25%;
   bottom: 25%;
   min-height: 200px;
@@ -26821,6 +26820,66 @@ ion-modal-view.bet-confirm.back.modal {
 
 .modal-backdrop-bg {
   background: rgba(0, 0, 0, 0.7); }
+
+.betslip-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; }
+  .betslip-loader .section-spinner {
+    width: 75px;
+    margin: 0 auto;
+    position: relative;
+    top: 170px; }
+    .betslip-loader .section-spinner .countdown {
+      position: relative;
+      margin: auto;
+      height: 40px;
+      width: 40px;
+      text-align: center; }
+    .betslip-loader .section-spinner .countdown-number {
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: 600;
+      display: inline-block;
+      line-height: 0px;
+      color: #444; }
+    .betslip-loader .section-spinner .spinner {
+      width: 75px;
+      height: 75px;
+      position: relative;
+      animation: rotate 1.4s linear infinite;
+      -webkit-animation: rotate 1.4s linear infinite;
+      -moz-animation: rotate 1.4s linear infinite; }
+    .betslip-loader .section-spinner .spinner-dot {
+      width: 274px;
+      height: 274px;
+      position: relative;
+      top: 0; }
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@-moz-keyframes rotate {
+  to {
+    transform: rotate(360deg); } }
+    .betslip-loader .section-spinner .path {
+      stroke-dasharray: 170;
+      stroke-dashoffset: 20; }
+
+.loader-content {
+  padding-top: 50px; }
 
 /*
     Flaticon icon font: Flaticon
