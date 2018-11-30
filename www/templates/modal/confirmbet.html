@@ -1,47 +1,53 @@
 <ion-modal-view class="bet-confirm back">
-  <ion-header-bar class="bar bar-header bar-positive">
-    <button class="button button-clear button-primary" ng-click="confirmbetHide()">Cancel</button>
-  </ion-header-bar>
-  <ion-content class="padding">
+  <!--
+    <ion-header-bar class="bar bar-header bar-positive">
+      <button
+        class="button button-clear button-primary"
+        ng-click="confirmbetHide()"
+      >
+        Cancel
+      </button>
+    </ion-header-bar>
+  -->
+  <ion-content>
     <div class="dialog-content">
       <h1>Man City v Huddersfield</h1>
       <div class="content-container">
-        <h2>Backing
-          <strong>Man City</strong>
-        </h2>
+        <h2>Backing <strong>Man City</strong></h2>
         <ul>
           <li>
             <p>Odds</p>
-            <p>
-              <em>1.11</em>
-            </p>
+            <p><em>1.11</em></p>
           </li>
           <li>
             <p>Stake</p>
-            <p>
-              <em>20.00</em>
-            </p>
+            <p><em>20.00</em></p>
           </li>
           <li>
             <p>Profit</p>
-            <p>
-              <em>2.20</em>
-            </p>
+            <p><em>2.20</em></p>
           </li>
         </ul>
         <div class="input-buttons">
-          <button analytics-on="" class="-large button button-md button-default button-default-md button-md-cta-secondary" color="cta-secondary"
-            ion-button="" type="button">
+          <button
+            class="-large button button-md button-default button-default-md button-md-cta-secondary"
+            ion-button=""
+            ng-click="closeConfirmBet()"
+            type="button"
+          >
             <span class="button-inner">Cancel</span>
-            <div class="button-effect"></div>
           </button>
-          <button analytics-on="" class="line-h0 -large disable-hover button button-md button-default button-default-md button-md-cta-primary"
-            color="cta-primary" ion-button="" type="submit" ng-click="confirmbetShow()">
+          <button
+            class="line-h0 -large disable-hover button button-md button-default button-default-md button-md-cta-primary"
+            color="cta-primary"
+            ion-button=""
+            type="submit"
+            ng-click="confirmbetShow()"
+          >
             <span class="button-inner">
               <span class="content action">Place Bet</span>
               <span class="content info ">Profit: 0.00</span>
             </span>
-            <div class="button-effect"></div>
           </button>
         </div>
       </div>
