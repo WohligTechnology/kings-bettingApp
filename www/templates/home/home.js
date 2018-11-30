@@ -592,7 +592,7 @@ myApp.controller("HomeCtrl", function (
       // $scope.$apply();
     });
   };
-  //Modal Confirm
+  // Confirm Modal
   $ionicModal
     .fromTemplateUrl("templates/modal/confirmbet.html", {
       scope: $scope,
@@ -608,4 +608,22 @@ myApp.controller("HomeCtrl", function (
   $scope.closeConfirmBet = function () {
     $scope.ConfirmBetModal.hide();
   };
+
+  // Betting Modal
+  $ionicModal
+    .fromTemplateUrl("templates/modal/bet-loader.html", {
+      scope: $scope,
+      animation: "slide-in-up"
+    })
+    .then(function(modal) {
+      $scope.BetLoaderModal = modal;
+    });
+
+  $scope.openBetLoader = function() {
+    $scope.BetLoaderModal.show();
+  };
+  $scope.closeBetLoader = function() {
+    $scope.BetLoaderModal.hide();
+  };
+  // $scope.openBetLoader();
 });
