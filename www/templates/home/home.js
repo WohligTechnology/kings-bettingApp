@@ -14,8 +14,11 @@ myApp.controller("HomeCtrl", function (
 ) {
   var user = $.jStorage.get("userId");
   $scope.liability = 0;
+  $scope.profit = 0;
+  $scope.profits = [];
+
   Service.apiCallWithUrl(
-    adminurl + "api/member/getOne", {
+    mainServer + "api/member/getOne", {
       _id: user
     },
     function (data) {
@@ -395,7 +398,7 @@ myApp.controller("HomeCtrl", function (
       //     $scope.minBetError = true;
       //   }
       // });
-      $scope.liability = $scope.betSlipRunner.odds && $scope.betSlipRunner.stake ? ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake : 0;
+      $scope.betSlipRunner.liability = $scope.betSlipRunner.odds && $scope.betSlipRunner.stake ? ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake : 0;
       if (!$scope.betSlipRunner.stake || $scope.betSlipRunner.stake >= $scope.memberMinRate) {
         $scope.betSlipRunner.error = false;
       } else {
@@ -416,7 +419,7 @@ myApp.controller("HomeCtrl", function (
       //     $scope.minBetError = true;
       //   }
       // });
-      $scope.liability = $scope.betSlipRunner.odds && $scope.betSlipRunner.stake ? ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake : 0;
+      $scope.betSlipRunner.profit = $scope.betSlipRunner.odds && $scope.betSlipRunner.stake ? ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake : 0;
       if (!$scope.betSlipRunner.stake || $scope.betSlipRunner.stake >= $scope.memberMinRate) {
         $scope.betSlipRunner.error = false;
       } else {
@@ -431,10 +434,121 @@ myApp.controller("HomeCtrl", function (
     //   _.sumBy($scope.backArray, "stake");
 
     // if ($state.current.name == "home.detailPage") {
-    //   $rootScope.calculateBook({
-    //     lay: $scope.layArray,
-    //     back: $scope.backArray
-    //   });
+    $rootScope.calculateBook($scope.betSlipRunner);
     // }
+  };
+
+  $rootScope.calculateBook = function (value) {
+    $scope.unexecutedProfit = [];
+    _.forEach($scope.marketData, function (market, marketIndex) {
+      market.book = [];
+      if (value.marketId == market.betfairId) {
+        market.book.push(value);
+      }
+      _.each(market.runners, function (runner) {
+        delete runner.unexecutedProfit;
+        _.each(market.book, function (book) {
+          if (book.type == "LAY") {
+            if (book.selectionId == runner.betfairId) {
+              if (runner.unexecutedProfit) {
+                runner.unexecutedProfit =
+                  runner.unexecutedProfit + book.liability * -1;
+              } else {
+                runner.unexecutedProfit = -1 * book.liability;
+              }
+            } else {
+              if (runner.unexecutedProfit) {
+                runner.unexecutedProfit = runner.unexecutedProfit + book.stake;
+              } else {
+                runner.unexecutedProfit = book.stake;
+              }
+            }
+          } else if (book.type == "BACK") {
+            if (book.selectionId == runner.betfairId) {
+              if (runner.unexecutedProfit) {
+                runner.unexecutedProfit = runner.unexecutedProfit + book.profit;
+              } else {
+                runner.unexecutedProfit = book.profit;
+              }
+            } else {
+              if (runner.unexecutedProfit) {
+                runner.unexecutedProfit =
+                  runner.unexecutedProfit + book.stake * -1;
+              } else {
+                runner.unexecutedProfit = book.stake * -1;
+              }
+            }
+          }
+        });
+        _.each($scope.profits[marketIndex], function (m) {
+          if (
+            m.betfairId == runner.betfairId &&
+            runner.unexecutedProfit &&
+            m.amount
+          ) {
+            runner.unexecutedProfit = m.amount + runner.unexecutedProfit;
+          }
+        });
+      });
+
+      $scope.unexecutedProfit.push(market.runners);
+    });
+  };
+  $scope.betConfirm = function () {
+    // $scope.betPlacing = true;
+    // if ($scope.userConfigData.confirmStatus) {
+    //   $scope.betconfirm = $uibModal.open({
+    //     animation: true,
+    //     templateUrl: "views/modal/betconfirm.html",
+    //     scope: $scope,
+    //     stake: "md"
+    //   });
+    // } else {
+    $scope.placeBet();
+    // }
+  };
+  $scope.placeBet = function () {
+    // $timeout(function () {
+    //   $scope.showTimer = true;
+    //   $scope.countdown = 5;
+    //   $scope.clickButton();
+    // }, 1000);
+    // toastrConfig = {};
+    // toastrConfig.positionClass = "toast-top-right";
+    // toastr.success("Your Bet will submit in 5 seconds");
+    // if (
+    //   !$scope.userConfigData.oneClickStatus &&
+    //   $scope.userConfigData.confirmStatus
+    // ) {
+    //   $scope.betconfirm.close();
+    // }
+    // $scope.promise = NavigationService.success().then(function () {
+    // var reqData = _.concat($scope.layArray, $scope.backArray);
+    var reqData = [];
+    reqData.push($scope.betSlipRunner);
+    Service.apiCallWithData(
+      "Betfair/placePlayerBetNew",
+      reqData,
+      function (data) {
+        // $scope.betPlacing = false;
+        // $timeout(function () {
+        //   $scope.showTimer = false;
+        // }, 500);
+
+        if (data.value) {
+          // toastr.success("Bet Placed successfully!");
+          // $scope.activePill = 1;
+          // $scope.removeAllBets();
+          // $scope.getMyCurrentBetStatus();
+        } else {
+          // if (data.error == "MIN_BET_STAKE_REQUIRED") {
+          //   toastr.error("Please increase stake amount");
+          // } else {
+          //   toastr.error("Error while placing Bet");
+          // }
+        }
+      }
+    );
+    // });
   };
 });
