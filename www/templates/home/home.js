@@ -561,7 +561,7 @@ myApp.controller("HomeCtrl", function (
     ) {
       $scope.betPlacing = false;
       $timeout(function () {
-        $scope.closeBetLoader()
+        $scope.closeBetLoader();
         $scope.showTimer = false;
       }, 500);
 
