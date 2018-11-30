@@ -10,6 +10,7 @@
     "AngularJS-Toaster": "angularjs-toaster#2.0.0",
     "lodash": "^4.16.0",
     "moment": "^2.17.1",
+    "ionic-toast": "^0.4.1",
     "ionic-datepicker": "^1.2.1"
   }
 }
