@@ -15885,17 +15885,6 @@ lay-button.selected[type=lay]>div {
   font-style: normal;
   font-weight: 700;
 }
-
-.bet-confirm.lay>.dialog-content {
-  border-color: #f9c9d4;
-  border-bottom-width: 7px;
-}
-
-.bet-confirm.back>.dialog-content {
-  border-color: #a7d8fd;
-  border-bottom-width: 7px;
-}
-
 body .ion-page bet-form {
   overflow: hidden;
   display: block;
@@ -17664,23 +17653,23 @@ ion-modal-view {
   align-items: center;
 }
 
-ion-modal-view>.dialog-content {
+.dialog-content {
   background: #fff;
-  width: calc(100% - 4px);
+  width: calc(100% - 1px);
   border: 1px solid #601c78;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 11px;
 }
 
-ion-modal-view>.dialog-content>h1 {
+.dialog-content>h1 {
   margin-top: 4px;
   font-size: 18px;
   font-weight: 400;
   padding: 4px 0;
 }
 
-ion-modal-view>.dialog-content>.content-container {
+.dialog-content>.content-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17690,13 +17679,22 @@ ion-modal-view>.dialog-content>.content-container {
   flex-direction: column;
 }
 
-ion-modal-view>.dialog-content h2 {
+.dialog-content h2 {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
 }
+.bet-confirm.lay .dialog-content {
+  border-color: #f9c9d4;
+  border-bottom-width: 7px;
+}
 
-ion-modal-view.modal-confirm>.dialog-content {
+.bet-confirm.back .dialog-content {
+  border-color: #a7d8fd;
+  border-bottom-width: 7px;
+}
+
+.modal-confirm .dialog-content {
   text-align: center;
 }
 
@@ -18717,12 +18715,13 @@ ion-nav.landscape .home-page .open-bets-link {
 }
 
 .home-page .popular-event .in-play-icon {
-  margin: -11px 42px 0 0;
+  margin: 0;
   font-size: 100%;
 
   i {
     margin: 0;
-    right: 33px;
+    right: 10px;
+    top: 14px;
   }
 }
 
@@ -18747,6 +18746,7 @@ ion-nav.landscape .home-page .open-bets-link {
 
 .home-page .popular-event .event-details>i {
   position: absolute;
+  left: 5px;
   margin: 0 5px 3px 0;
 }
 
@@ -18798,12 +18798,15 @@ ion-nav.landscape .home-page .open-bets-link {
 }
 
 .home-page .open-bets-link {
-  position: absolute;
-  top: 0px;
-  right: 11px;
-  font-size: 12px;
-  color: #2587d0;
-  border-bottom: 1px solid #3493db;
+  // position: absolute;
+  // top: 0px;
+  // right: 11px;
+  // font-size: 12px;
+  text-align: right;
+  span{
+    color: #2587d0;
+    border-bottom: 1px solid #3493db;
+  }
 }
 
 .home-page .market-suspended .runners .list-item .details .title {
@@ -19899,4 +19902,19 @@ ion-item.item.item-block.item-md.item-search {
     color: #fff !important;
    }
   }
+}
+
+.market-list-item.item.item-block {
+  margin-bottom: 2px;
+}
+
+ion-modal-view.bet-confirm.back.modal {
+  top: 25%;
+  bottom: 25%;
+  min-height: 200px;
+  height: 265px;
+}
+
+.modal-backdrop-bg {
+  background: rgba(0, 0, 0, 0.7);
 }
