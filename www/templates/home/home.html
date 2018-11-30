@@ -72,7 +72,7 @@
     <!-- <div ng-include="page"></div> -->
     <span class="open-bets-link" ui-sref="app.open-bet">Open Bets (1)</span>
     <div class="distinct market-list list">
-      <div class="market-list-item item item-block" ng-repeat="market in marketData">
+      <div class="market-list-item item item-block" ng-repeat="market in marketData track by $index" ng-init="outerIndex = $index">
         <div class="item-inner">
           <div class="input-wrapper">
             <div class="full-image">
@@ -106,7 +106,7 @@
                 <!--
                   <market marketRun="market.runners" markets="market"> </market>
                 -->
-                <div class="market list-item-custom" ng-repeat="runner in market.runners track by $index" ng-init="outerIndex = $index">
+                <div class="market list-item-custom" ng-repeat="runner in market.runners track by $index">
                   <div class="list-item">
                     <div class="runner-details">
                       <div class="title">
@@ -115,12 +115,12 @@
                       <pnl>
                         <!-- <span class="-positive">» -1.00</span> -->
                         <!-- <span class="-negative">» -1.00</span> -->
-                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}">»
+                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}">
                           {{profits[outerIndex][$index].amount}}</span>
-                        <span ng-class="{'positive':profits[outerIndex][$index].amount >= 0 ,'negative':profits[outerIndex][$index].amount<0}"
-                          ng-if="profits[outerIndex][$index].amount && unexecutedProfit[outerIndex][$index].unexecutedProfit">>></span>
-                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}">»
-                          -1.00</span>
+                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}"
+                          ng-if="profits[outerIndex][$index].amount && unexecutedProfit[outerIndex][$index].unexecutedProfit">»</span>
+                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}">
+                          {{unexecutedProfit[outerIndex][$index].unexecutedProfit}}</span>
                       </pnl>
                     </div>
                     <div class="odds-container">
@@ -193,17 +193,17 @@
 
                         <div class="input-buttons">
                           <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake = mobileStakes[0]">
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[0]">
                             <span class="button-inner">+{{ mobileStakes[0] }}</span>
                             <div class="button-effect"></div>
                           </button>
                           <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake = mobileStakes[1]">
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[1]">
                             <span class="button-inner">+{{ mobileStakes[1] }}</span>
                             <div class="button-effect"></div>
                           </button>
                           <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake = mobileStakes[2]">
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[2]">
                             <span class="button-inner">+{{ mobileStakes[2] }}</span>
                             <div class="button-effect"></div>
                           </button>

@@ -182,6 +182,32 @@ myApp.controller("HomeCtrl", function (
 
   function establishSocketConnection() {
     _.each($scope.marketData, function (market) {
+      Service.apiCallWithData(
+        "Book/getUserBook", {
+          marketId: market.betfairId,
+          user: user
+        },
+        function (bookInfo) {
+          if (bookInfo.value) {
+            market.bookInfo = bookInfo.data.horse;
+            market.userRate = bookInfo.data.userRate;
+            $scope.calculatePlacedBookAmt();
+          }
+        }
+      );
+      // console.log("Book_" + market.betfairId + "_" + user);
+      TemplateService.sportsBookServerSocket.on(
+        "Book_" + market.betfairId + "_" + user,
+        function onConnect(bookData) {
+          console.log(
+            "user book socket data**************** //////////////////////",
+            bookData
+          );
+          market.bookInfo = bookData.horse;
+          market.userRate = bookData.userRate;
+          $scope.calculatePlacedBookAmt();
+        }
+      );
       TemplateService.ratesServerSocket.on(
         "market_" + market.betfairId,
         function onConnect(data) {
@@ -550,5 +576,20 @@ myApp.controller("HomeCtrl", function (
       }
     );
     // });
+  };
+  $scope.calculatePlacedBookAmt = function () {
+    $scope.profits = [];
+    _.each($scope.marketData, function (market) {
+      _.each(market.runners, function (runner) {
+        _.each(market.bookInfo, function (horse) {
+          if (runner.betfairId == horse.horse) {
+            runner.amount = horse.amount / market.userRate;
+          }
+        });
+      });
+      $scope.profits.push(market.runners);
+      // $scope.unexecutedProfit = [];
+      // $scope.$apply();
+    });
   };
 });
