@@ -23570,14 +23570,6 @@ lay-button.selected[type=lay] > div {
   font-style: normal;
   font-weight: 700; }
 
-.bet-confirm.lay > .dialog-content {
-  border-color: #f9c9d4;
-  border-bottom-width: 7px; }
-
-.bet-confirm.back > .dialog-content {
-  border-color: #a7d8fd;
-  border-bottom-width: 7px; }
-
 body .ion-page bet-form {
   overflow: hidden;
   display: block;
@@ -25030,21 +25022,21 @@ ion-modal-view {
   -ms-flex-align: center;
   align-items: center; }
 
-ion-modal-view > .dialog-content {
+.dialog-content {
   background: #fff;
-  width: calc(100% - 4px);
+  width: calc(100% - 1px);
   border: 1px solid #601c78;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 11px; }
 
-ion-modal-view > .dialog-content > h1 {
+.dialog-content > h1 {
   margin-top: 4px;
   font-size: 18px;
   font-weight: 400;
   padding: 4px 0; }
 
-ion-modal-view > .dialog-content > .content-container {
+.dialog-content > .content-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25053,12 +25045,20 @@ ion-modal-view > .dialog-content > .content-container {
   -ms-flex-direction: column;
   flex-direction: column; }
 
-ion-modal-view > .dialog-content h2 {
+.dialog-content h2 {
   margin: 0;
   font-size: 16px;
   font-weight: 400; }
 
-ion-modal-view.modal-confirm > .dialog-content {
+.bet-confirm.lay .dialog-content {
+  border-color: #f9c9d4;
+  border-bottom-width: 7px; }
+
+.bet-confirm.back .dialog-content {
+  border-color: #a7d8fd;
+  border-bottom-width: 7px; }
+
+.modal-confirm .dialog-content {
   text-align: center; }
 
 ion-modal-view.modal-confirm > .dialog-content h1 {
@@ -25865,11 +25865,12 @@ ion-nav.landscape .home-page .open-bets-link {
   margin-right: 5px !important; }
 
 .home-page .popular-event .in-play-icon {
-  margin: -11px 42px 0 0;
+  margin: 0;
   font-size: 100%; }
   .home-page .popular-event .in-play-icon i {
     margin: 0;
-    right: 33px; }
+    right: 10px;
+    top: 14px; }
 
 .home-page .popular-event .in-play-icon .apl-icon-custom-play {
   font-size: 13px;
@@ -25889,6 +25890,7 @@ ion-nav.landscape .home-page .open-bets-link {
 
 .home-page .popular-event .event-details > i {
   position: absolute;
+  left: 5px;
   margin: 0 5px 3px 0; }
 
 .home-page .in-time-content {
@@ -25930,12 +25932,10 @@ ion-nav.landscape .home-page .open-bets-link {
   font-size: 14px; }
 
 .home-page .open-bets-link {
-  position: absolute;
-  top: 0px;
-  right: 11px;
-  font-size: 12px;
-  color: #2587d0;
-  border-bottom: 1px solid #3493db; }
+  text-align: right; }
+  .home-page .open-bets-link span {
+    color: #2587d0;
+    border-bottom: 1px solid #3493db; }
 
 .home-page .market-suspended .runners .list-item .details .title {
   font-weight: 400 !important;
@@ -26759,7 +26759,7 @@ video {
   background: transparent; }
 
 .card.p-0 {
-  margin: 20px 0;
+  margin: 0px;
   padding: 0px; }
 
 .row.weeks_row,
@@ -26809,6 +26809,18 @@ ion-item.item.item-block.item-md.item-search {
     left: 12px !important;
     top: 11px !important;
     color: #fff !important; }
+
+.market-list-item.item.item-block {
+  margin-bottom: 2px; }
+
+ion-modal-view.bet-confirm.back.modal {
+  top: 25%;
+  bottom: 25%;
+  min-height: 200px;
+  height: 265px; }
+
+.modal-backdrop-bg {
+  background: rgba(0, 0, 0, 0.7); }
 
 /*
     Flaticon icon font: Flaticon
