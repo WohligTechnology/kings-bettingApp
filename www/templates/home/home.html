@@ -28,48 +28,50 @@
       </div>
     </ion-navbar>
 
-    <ion-navbar class="search-header toolbar toolbar-md hide-header" ng-if="">
-      <div class="toolbar-background toolbar-background-md"></div>
-      <ion-buttons left="" class="bar-buttons bar-buttons-md">
-        <button
-          class="search-back disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
-        >
-          <a class="ion-arrow-left-c color-white"></a>
-        </button>
-      </ion-buttons>
-      <ion-buttons class="bar-buttons bar-buttons-md">
-        <button
-          class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
-        >
-          <i class="icon ion-search placeholder-icon"></i>
-        </button>
+    <!--
+      <ion-navbar class="search-header toolbar toolbar-md hide-header" ng-if="">
+        <div class="toolbar-background toolbar-background-md"></div>
+        <ion-buttons left="" class="bar-buttons bar-buttons-md">
+          <button
+            class="search-back disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+          >
+            <a class="ion-arrow-left-c color-white"></a>
+          </button>
+        </ion-buttons>
+        <ion-buttons class="bar-buttons bar-buttons-md">
+          <button
+            class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+          >
+            <i class="icon ion-search placeholder-icon"></i>
+          </button>
 
-        <search-event></search-event>
-      </ion-buttons>
-      <div class="toolbar-content toolbar-content-md">
-        <div class="ng-untouched ng-pristine ng-valid">
-          <input
-            class="search-term ng-untouched ng-pristine ng-valid"
-            formcontrolname="searchTerm"
-            id="searchTerm"
-            name="searchTerm"
-            type="text"
-            placeholder="Search Events"
-          />
+          <search-event></search-event>
+        </ion-buttons>
+        <div class="toolbar-content toolbar-content-md">
+          <div class="ng-untouched ng-pristine ng-valid">
+            <input
+              class="search-term ng-untouched ng-pristine ng-valid"
+              formcontrolname="searchTerm"
+              id="searchTerm"
+              name="searchTerm"
+              type="text"
+              placeholder="Search Events"
+            />
+          </div>
         </div>
-      </div>
-    </ion-navbar>
+      </ion-navbar>
+    -->
     <ion-toolbar class="one-click-setting toolbar toolbar-md">
       <div class="toolbar-background toolbar-background-md"></div>
       <div class="toolbar-content toolbar-content-md">
         <one-click-betting>
-          <li class="item item-toggle one-click-switch on">
+          <div class="item item-toggle one-click-switch on">
             1 CLICK BET IS ON - ACTIVE STAKE 10
             <label class="toggle toggle-positive">
               <input type="checkbox" />
               <div class="track"><div class="handle"></div></div>
             </label>
-          </li>
+          </div>
           <!--
             <div class="one-click-switch on">
               <div class="current-stake on underline"></div>
@@ -88,7 +90,11 @@
       <span ui-sref="app.open-bet"> Open Bets (1) </span>
     </div>
     <div class="distinct market-list list">
-      <div class="market-list-item item item-block" ng-repeat="market in marketData track by $index" ng-init="outerIndex = $index">
+      <div
+        class="market-list-item item item-block"
+        ng-repeat="market in marketData track by $index"
+        ng-init="outerIndex = $index"
+      >
         <div class="item-inner">
           <div class="input-wrapper">
             <div class="full-image label-md">
@@ -129,7 +135,10 @@
                 <!--
                   <market marketRun="market.runners" markets="market"> </market>
                 -->
-                <div class="market list-item-custom" ng-repeat="runner in market.runners track by $index">
+                <div
+                  class="market list-item-custom"
+                  ng-repeat="runner in market.runners track by $index"
+                >
                   <div class="list-item">
                     <div class="runner-details">
                       <div class="title">
@@ -138,12 +147,24 @@
                       <pnl>
                         <!-- <span class="-positive">» -1.00</span> -->
                         <!-- <span class="-negative">» -1.00</span> -->
-                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}">
-                          {{profits[outerIndex][$index].amount}}</span>
-                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}"
-                          ng-if="profits[outerIndex][$index].amount && unexecutedProfit[outerIndex][$index].unexecutedProfit">»</span>
-                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}">
-                          {{unexecutedProfit[outerIndex][$index].unexecutedProfit}}</span>
+                        <span
+                          ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}"
+                        >
+                          {{ profits[outerIndex][$index].amount }}</span
+                        >
+                        <span
+                          ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}"
+                          ng-if="profits[outerIndex][$index].amount && unexecutedProfit[outerIndex][$index].unexecutedProfit"
+                          >»</span
+                        >
+                        <span
+                          ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}"
+                        >
+                          {{
+                            unexecutedProfit[outerIndex][$index]
+                              .unexecutedProfit
+                          }}</span
+                        >
                       </pnl>
                     </div>
                     <div class="odds-container">
@@ -177,9 +198,8 @@
                   <div ng-show="betSlipRunner.selectionId == runner.betfairId">
                     <bet-form>
                       <form
-                        class="bet-form back"
-                        novalidate=""
-                        style="transform: translateY(0px);"
+                        class="bet-form"
+                        ng-class="{'lay':betSlipRunner.type=='LAY','back':betSlipRunner.type=='BACK'}"
                       >
                         <div class="inputs">
                           <odds-stepper
@@ -260,19 +280,34 @@
                         </div>
 
                         <div class="input-buttons">
-                          <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[0]">
-                            <span class="button-inner">+{{ mobileStakes[0] }}</span>
+                          <button
+                            type="button"
+                            class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[0]"
+                          >
+                            <span class="button-inner"
+                              >+{{ mobileStakes[0] }}</span
+                            >
                             <div class="button-effect"></div>
                           </button>
-                          <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[1]">
-                            <span class="button-inner">+{{ mobileStakes[1] }}</span>
+                          <button
+                            type="button"
+                            class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[1]"
+                          >
+                            <span class="button-inner"
+                              >+{{ mobileStakes[1] }}</span
+                            >
                             <div class="button-effect"></div>
                           </button>
-                          <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[2]">
-                            <span class="button-inner">+{{ mobileStakes[2] }}</span>
+                          <button
+                            type="button"
+                            class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[2]"
+                          >
+                            <span class="button-inner"
+                              >+{{ mobileStakes[2] }}</span
+                            >
                             <div class="button-effect"></div>
                           </button>
                         </div>
@@ -285,7 +320,9 @@
                           >
                             <span class="button-inner">Cancel</span>
                           </button>
-                          <button ng-click="openConfirmBet();">place bet</button>
+                          <button ng-click="openConfirmBet();">
+                            place bet
+                          </button>
                           <!--
                             <button
                               class="line-h0 -large disable-hover button button-md button-default button-default-md button-md-cta-primary"
