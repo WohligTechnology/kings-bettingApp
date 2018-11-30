@@ -1,4 +1,4 @@
-<ion-modal-view class="bet-confirm back">
+<ion-modal-view class="bet-confirm" ng-class="{'lay':betSlipRunner.type=='LAY','back':betSlipRunner.type=='BACK'}">
   <!--
     <ion-header-bar class="bar bar-header bar-positive">
       <button
@@ -11,42 +11,41 @@
   -->
   <ion-content>
     <div class="dialog-content">
-      <h1>Man City v Huddersfield</h1>
+      <h1>{{betSlipRunner.event}}</h1>
       <div class="content-container">
-        <h2>Backing <strong>Man City</strong></h2>
+        <h2 ng-if="betSlipRunner.type=='BACK'">Backing <strong>{{betSlipRunner.selectionName}}</strong></h2>
+        <h2 ng-if="betSlipRunner.type=='LAY'">Laying <strong>{{betSlipRunner.selectionName}}</strong></h2>
         <ul>
           <li>
             <p>Odds</p>
-            <p><em>1.11</em></p>
+            <p><em>{{betSlipRunner.odds | number :2}}</em></p>
           </li>
           <li>
             <p>Stake</p>
-            <p><em>20.00</em></p>
+            <p><em>{{betSlipRunner.stake | number :2}}</em></p>
           </li>
-          <li>
+          <li ng-if="betSlipRunner.type=='BACK'">
             <p>Profit</p>
-            <p><em>2.20</em></p>
+            <p><em>{{betSlipRunner.profit | number: 2}}</em></p>
+          </li>
+          <li ng-if="betSlipRunner.type=='LAY'">
+            <p>Liability</p>
+            <p><em>{{betSlipRunner.liability | number: 2}}</em></p>
           </li>
         </ul>
         <div class="input-buttons">
-          <button
-            class="-large button button-md button-default button-default-md button-md-cta-secondary"
-            ion-button=""
-            ng-click="closeConfirmBet()"
-            type="button"
-          >
+          <button class="-large button button-md button-default button-default-md button-md-cta-secondary" ion-button=""
+            ng-click="closeConfirmBet()" type="button">
             <span class="button-inner">Cancel</span>
           </button>
-          <button
-            class="line-h0 -large disable-hover button button-md button-default button-default-md button-md-cta-primary"
-            color="cta-primary"
-            ion-button=""
-            type="submit"
-            ng-click="confirmbetShow()"
-          >
+          <button class="line-h0 -large disable-hover button button-md button-default button-default-md button-md-cta-primary"
+            type="submit" ng-click="placeBet()">
             <span class="button-inner">
               <span class="content action">Place Bet</span>
-              <span class="content info ">Profit: 0.00</span>
+              <span class="content info" ng-if="betSlipRunner.type == 'BACK'">Profit:
+                {{ betSlipRunner.profit | number: 2 }}</span>
+              <span class="content info" ng-if="betSlipRunner.type == 'LAY'">Liability:
+                {{ betSlipRunner.liability | number: 2 }}</span>
             </span>
           </button>
         </div>
