@@ -13,8 +13,6 @@ myApp.controller("HomeCtrl", function (
   TemplateService
 ) {
   var user = $.jStorage.get("userId");
-  $scope.liability = 0;
-  $scope.profit = 0;
   $scope.profits = [];
 
   Service.apiCallWithUrl(
@@ -49,8 +47,9 @@ myApp.controller("HomeCtrl", function (
     };
     console.log($scope.betSlipRunner);
   };
-  $scope.cancelBet = function () {
+  $scope.removeBet = function (type) {
     $scope.betSlipRunner = {};
+    $scope.calculatePL(type);
   };
 
   $scope.incOrDec = function (num, event, type) {
