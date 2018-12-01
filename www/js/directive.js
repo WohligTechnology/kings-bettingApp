@@ -1,30 +1,29 @@
-myApp.directive('balance', function () {
+myApp
+  .directive("balance", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
-        balanceData: "=ngBalance",
+        balanceData: "=ngBalance"
       },
-      templateUrl: 'templates/directive/balance.html',
-      link: function ($scope, element, attr) {
-
-      }
+      templateUrl: "templates/directive/balance.html",
+      link: function($scope, element, attr) {}
     };
   })
-  .directive('market', function () {
-    return {
-      restrict: 'E',
-      replace: false,
-      scope: {
-        runners: "=marketRun",
-        market: "=markets"
-      },
-      templateUrl: 'templates/directive/market.html',
-      link: function ($scope, element, attr) {
+  // .directive('market', function () {
+  //   return {
+  //     restrict: 'E',
+  //     replace: false,
+  //     scope: {
+  //       runners: "=marketRun",
+  //       market: "=markets"
+  //     },
+  //     templateUrl: 'templates/directive/market.html',
+  //     link: function ($scope, element, attr) {
 
-      }
-    };
-  })
+  //     }
+  //   };
+  // })
   // .directive('betForm', function () {
   //   return {
   //     restrict: 'E',
@@ -35,77 +34,63 @@ myApp.directive('balance', function () {
   //     }
   //   };
   // })
-  .directive('marketVolume', function () {
+  .directive("marketVolume", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
-      templateUrl: 'templates/directive/market-volume.html',
-      link: function ($scope, element, attr) {
-
-      }
+      templateUrl: "templates/directive/market-volume.html",
+      link: function($scope, element, attr) {}
     };
   })
-  .directive('backButton', function () {
+  .directive("backButton", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
         value: "=run",
         market: "=markets"
       },
-      templateUrl: 'templates/directive/back-button.html',
-      link: function ($scope, element, attr) {
-
-      }
+      templateUrl: "templates/directive/back-button.html",
+      link: function($scope, element, attr) {}
     };
-
   })
-  .directive('layButton', function () {
+  .directive("layButton", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
         value: "=run",
         market: "=markets"
       },
-      templateUrl: 'templates/directive/lay-button.html',
-      link: function ($scope, element, attr) {
-
-      }
+      templateUrl: "templates/directive/lay-button.html",
+      link: function($scope, element, attr) {}
     };
-
   })
-  .directive('myBets', function () {
+  .directive("myBets", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
-      templateUrl: 'templates/directive/my-bets.html',
-      link: function ($scope, element, attr) {
-
-      }
+      templateUrl: "templates/directive/my-bets.html",
+      link: function($scope, element, attr) {}
     };
-
   })
-  .directive('displaynumber', function ($http, $filter) {
+  .directive("displaynumber", function($http, $filter) {
     return {
-      templateUrl: 'templates/directive/display-number.html',
+      templateUrl: "templates/directive/display-number.html",
       scope: {
-        model: '=ngModel',
+        model: "=ngModel"
         // decimal: '=decimal'
       },
-      link: function ($scope, element, attrs) {
+      link: function($scope, element, attrs) {
         // $scope.decimal = $scope.decimal ? $scope.decimal : 2;
       }
     };
   })
-  .directive('searchEvent', function () {
+  .directive("searchEvent", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
-      templateUrl: 'templates/directive/search.html',
-      link: function ($scope, element, attr) {
-
-      }
+      templateUrl: "templates/directive/search.html",
+      link: function($scope, element, attr) {}
     };
-
   });
