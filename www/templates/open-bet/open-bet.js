@@ -202,7 +202,7 @@ myApp.controller('OpenBetCtrl', function ($scope, $ionicModal, $timeout, Templat
           ionicToast.show("Bet cancelled successfully");
         } else {
           // toastr.error("Error while cancelling Bet");
-          ionicToast.show("Logged in successfully!");
+          ionicToast.show("Error while cancelling Bet");
         }
       }
     );
