@@ -401,4 +401,40 @@ angular
       );
     };
     $scope.getUserConfig();
+
+    // $scope.getTimeZone = function() {
+    //   Service.apiCallWithUrl(
+    //     mainServer + "api/member/getTimeZone",
+    //     {
+    //       memberId: user
+    //     },
+    //     function(data) {
+    //       if (data.value) {
+    //         if (data.data.timezone) {
+    //           $.jStorage.set("timezone", data.data.timezone);
+    //         } else {
+    //           $.jStorage.set("timezone", "computer");
+    //         }
+    //       }
+    //     }
+    //   );
+    // };
+    // $scope.getTimeZone();
+    // $scope.setTimeZone = function(value) {
+    //   Service.apiCallWithUrl(
+    //     mainServer + "api/member/setTimeZone",
+    //     {
+    //       memberId: user,
+    //       timezone: value
+    //     },
+    //     function(data) {
+    //       if (data.value) {
+    //         $state.reload();
+    //         toastr.success("timezone updated");
+    //       } else {
+    //         toastr.error("error while saving timezone");
+    //       }
+    //     }
+    //   );
+    // };
   });

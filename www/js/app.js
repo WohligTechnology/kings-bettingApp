@@ -126,6 +126,15 @@ var myApp = angular
           }
         }
       })
+      .state("app.time-setting", {
+        url: "/time-setting",
+        views: {
+          menuContent: {
+            templateUrl: "templates/time-setting/time-setting.html",
+            controller: "timeSettingCtrl"
+          }
+        }
+      })
       .state("app.rules-regulations", {
         url: "/rules-regulations",
         views: {

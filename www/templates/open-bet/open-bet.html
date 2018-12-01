@@ -1,23 +1,29 @@
 <ion-view view-title="Open Bets" class="ion-page">
-
   <div class="header-container">
     <ion-navbar class="toolbar toolbar-md app-header root-page">
       <div class="toolbar-background toolbar-background-md"></div>
-      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
+      <button
+        class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md"
+      >
         <a class="ion-arrow-left-c color-white"></a>
       </button>
       <ion-buttons end="" class="bar-buttons bar-buttons-md">
-        <!-- <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
-          ion-button="">
-          <i class="icon ion-search placeholder-icon"></i>
-          <div class="button-effect"></div>
-        </button> -->
+        <!--
+          <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
+            ion-button="">
+            <i class="icon ion-search placeholder-icon"></i>
+            <div class="button-effect"></div>
+          </button>
+        -->
         <search-event></search-event>
-        <button analytics-on="" class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button="" menu-toggle="right">
+        <button
+          analytics-on=""
+          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button=""
+          menu-toggle="right"
+        >
           <span class="button-inner">
-            <balance ng-balance="balanceData">
-            </balance>
+            <balance ng-balance="balanceData"> </balance>
           </span>
           <div class="button-effect"></div>
         </button>
@@ -25,26 +31,161 @@
       <div class="toolbar-content toolbar-content-md" ui-sref="app.home">
         <ion-title class="left-title title title-md">
           <div class="toolbar-title toolbar-title-md">
-            <div class="logo">
-              Kings Bet
-            </div>
+            <div class="logo">Kings Bet</div>
           </div>
         </ion-title>
       </div>
     </ion-navbar>
 
-
-    <!-- ngIf:  -->
+    <!-- ngIf: -->
   </div>
-  <ion-content class="my-bets-page content content-md" padding="" style="margin-top:60px;">
+  <ion-content
+    class="my-bets-page content content-md"
+    padding=""
+    style="margin-top:60px;"
+  >
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div> -->
     <!-- <div class="scroll-content" style="margin-top: 60px;"> -->
-    <h2 class="page-title">
-      Open Bets
-    </h2>
-    <my-bets>
+    <h2 class="page-title">Open Bets</h2>
+    <div class="my-bets-container">
+      <ion-list>
+        <div ng-repeat="group in groups" class="mb-10">
+          <ion-item
+            class="item-stable"
+            ng-click="toggleGroup(group)"
+            ng-class="{active: isGroupShown(group)}"
+          >
+            <h3 class="toggle">
+              <span>Unmatched Bets</span> &nbsp;
+              <div class="item-icon-right">
+                <i
+                  class="icon font15 ion-chevron-up"
+                  ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"
+                  style=""
+                ></i>
+              </div>
+            </h3>
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+            You have no unmatched bets
 
-    </my-bets>
+            <section class="content-wrapper">
+              <!---->
+              <!---->
+              <div>
+                <open-bets-listing type="matched">
+                  <!---->
+                  <div class="open-bets-listing event">
+                    <!---->
+                    <div class="market">
+                      <!---->
+                      <div class="selection">
+                        <ul>
+                          <!---->
+                          <li tappable="" class="back">
+                            <div class="bet-info matched">
+                              Back Pakistan for 50.00 @ 1.090 to win 4.50.
+                            </div>
+                            <div class="wrapper">
+                              <div class="bet-details">
+                                <!---->
+                                <div><strong>Pakistan v Australia</strong></div>
+                                <div><strong>Match Odds</strong></div>
+                                <div>
+                                  <strong>Placed</strong> : 17/10/2018 13:56:16
+                                </div>
+                              </div>
+                              <!---->
+                              <!---->
+                            </div>
+                          </li>
+                          <li tappable="" class="back">
+                            <div class="bet-info matched">
+                              Back Pakistan for 50.00 @ 1.090 to win 4.50.
+                            </div>
+                            <div class="wrapper">
+                              <div class="bet-details">
+                                <!---->
+                                <div><strong>Pakistan v Australia</strong></div>
+                                <div><strong>Match Odds</strong></div>
+                                <div>
+                                  <strong>Placed</strong> : 17/10/2018 13:55:02
+                                </div>
+                              </div>
+                              <!---->
+                              <!---->
+                            </div>
+                          </li>
+                          <li tappable="" class="lay">
+                            <div class="bet-info matched">
+                              Lay Pakistan for 50.00 @ 1.630 liability 31.50.
+                            </div>
+                            <div class="wrapper">
+                              <div class="bet-details">
+                                <!---->
+                                <div><strong>Pakistan v Australia</strong></div>
+                                <div><strong>Match Odds</strong></div>
+                                <div>
+                                  <strong>Placed</strong> : 16/10/2018 18:59:14
+                                </div>
+                              </div>
+                              <!---->
+                              <!---->
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="selection">
+                        <ul>
+                          <!---->
+                          <li tappable="" class="lay">
+                            <div class="bet-info no-link">
+                              Lay Bangladesh for 50.00 @ 1.01 liability 0.50.
+                            </div>
+                            <div class="wrapper">
+                              <div class="bet-details">
+                                <!---->
+                                <div><strong>Match Odds</strong></div>
+                                <div>
+                                  <strong>Placed</strong> : 01/12/2018 12:23:16
+                                </div>
+                              </div>
+                              <!---->
+                              <!---->
+                              <div class="input-buttons">
+                                <button
+                                  analytics-on=""
+                                  color="cta-secondary"
+                                  ion-button=""
+                                  class="disable-hover button button-md button-default button-default-md button-md-cta-secondary"
+                                >
+                                  <span class="button-inner">Cancel</span>
+                                  <div class="button-effect"></div>
+                                </button>
+                                <button
+                                  analytics-on=""
+                                  color="cta-primary"
+                                  ion-button=""
+                                  class="disable-hover button button-md button-default button-default-md button-md-cta-primary"
+                                >
+                                  <span class="button-inner">Update</span>
+                                  <div class="button-effect"></div>
+                                </button>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </open-bets-listing>
+              </div>
+            </section>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
+
     <!-- </div> -->
   </ion-content>
 </ion-view>
