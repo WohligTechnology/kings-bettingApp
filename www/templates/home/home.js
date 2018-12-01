@@ -21,36 +21,39 @@ myApp.controller("HomeCtrl", function (
       $scope.username = data.data.username;
     }
   );
-  $scope.bet = false;
+  $scope.unmatched = $stateParams.unmatched;
   var accessToken = $.jStorage.get("accessToken");
   var userid = $.jStorage.get("userId");
+  $scope.bet = false;
   $scope.showBet = function (market, runner, type) {
-    $scope.liability = 0;
-    $scope.minBetError = false;
-    // $scope.betSlipRunner = runner;
-    $scope.betSlipRunner = {
-      odds: type == "BACK" ? runner.singleBackRate : runner.singleLayRate,
-      type: type,
-      eventId: market.parentCategory.betfairId,
-      event: market.eventName,
-      selectionId: runner.betfairId,
-      selectionName: runner.name,
-      sport: "Cricket",
-      marketId: market.betfairId,
-      accessToken: accessToken,
-      marketName: market.name,
-      userId: userid,
-      handicap: runner.handicap
-    };
-    console.log($scope.betSlipRunner);
-    if ($scope.userConfigData.oneClickStatus) {
-      $scope.betSlipRunner.stake = $scope.userConfigData.oneClickActiveStake;
-      $scope.calculatePL(type);
-      if ($scope.minBetError) {
-        ionicToast.show("Please increase stake amount");
-      } else {
-        $scope.betPlacing = true;
-        $scope.placeBet();
+    if (!$stateParams.unmatched) {
+      $scope.liability = 0;
+      $scope.minBetError = false;
+      // $scope.betSlipRunner = runner;
+      $scope.betSlipRunner = {
+        odds: type == "BACK" ? runner.singleBackRate : runner.singleLayRate,
+        type: type,
+        eventId: market.parentCategory.betfairId,
+        event: market.eventName,
+        selectionId: runner.betfairId,
+        selectionName: runner.name,
+        sport: "Cricket",
+        marketId: market.betfairId,
+        accessToken: accessToken,
+        marketName: market.name,
+        userId: userid,
+        handicap: runner.handicap
+      };
+      console.log($scope.betSlipRunner);
+      if ($scope.userConfigData.oneClickStatus) {
+        $scope.betSlipRunner.stake = $scope.userConfigData.oneClickActiveStake;
+        $scope.calculatePL(type);
+        if ($scope.minBetError) {
+          ionicToast.show("Please increase stake amount");
+        } else {
+          $scope.betPlacing = true;
+          $scope.placeBet();
+        }
       }
     }
   };
@@ -219,7 +222,7 @@ myApp.controller("HomeCtrl", function (
         if (!_.isEmpty(data.data)) {
           $scope.loadingData = false;
           $scope.marketData = data.data;
-          if ($state.current.name = "app.match-inner") {
+          if ($stateParams.parentId) {
             $scope.singleMarket = _.remove($scope.marketData, function (market) {
               var sortedArray = _.sortBy(market.runners, ["sortPriority"]);
               market.runners = sortedArray;
@@ -252,6 +255,34 @@ myApp.controller("HomeCtrl", function (
             $scope.getMarketIds({
               game: $scope.selectedGame
             });
+          }
+          if ($stateParams.unmatched) {
+            Service.apiCallWithData(
+              "Bet/getOne", {
+                _id: $stateParams.unmatched
+              },
+              function (data) {
+                data = data.data;
+                $scope.betSlipRunner = {
+                  accessToken: accessToken,
+                  sport: data.eventType,
+                  betId: data._id,
+                  marketId: data.marketId,
+                  type: data.type,
+                  userId: userid,
+                  event: data.event,
+                  eventId: $stateParams.eventId,
+                  selectionId: data.horse,
+                  selectionName: data.selectionName,
+                  odds: data.betRate,
+                  marketName: data.marketName,
+                  userName: $scope.username,
+                  stake: data.stake,
+                  oldStake: data.stake,
+                  handicap: data.handicap
+                }
+                $scope.calculatePL(data.type);
+              })
           }
           establishSocketConnection();
           // console.log($scope.marketData);
@@ -501,6 +532,59 @@ myApp.controller("HomeCtrl", function (
         }
       }
     });
+  };
+
+  $scope.updatePlayerBet = function (bet) {
+    $scope.betPlacing = true;
+    ionicToast.show("Your Bet will submit in 5 seconds");
+    var reqData = [];
+    if (bet.oldBetRate !== bet.betRate || bet.oldStake !== bet.stake) {
+      var betData = {
+        accessToken: accessToken,
+        sport: bet.eventType,
+        betId: bet.betId,
+        marketId: bet.marketId,
+        type: bet.type,
+        userId: userid,
+        event: bet.event,
+        eventId: bet.eventId,
+        selectionId: bet.horse,
+        selectionName: bet.selectionName,
+        odds: bet.betRate,
+        marketName: bet.marketName,
+        userName: $scope.username,
+        stake: bet.stake,
+        oldStake: bet.stake,
+        handicap: bet.handicap
+      };
+      betData.type == "BACK" ?
+        (betData.profit = bet.profit) :
+        (betData.liability = bet.liability);
+      reqData.push(betData);
+    }
+    if (reqData.length > 0) {
+      Service.apiCallWithData(
+        "Betfair/updatePlayerBet",
+        reqData,
+        function (data) {
+          $scope.betPlacing = false;
+          if (data.value) {
+            ionicToast.show("Bet Placed successfully!");
+          } else {
+            if (
+              data.error == "Insufficient credit limit" ||
+              data.error == "Exceeded the profit limit"
+            ) {
+              ionicToast.show(data.error);
+            } else {
+              ionicToast.show("Error while placing Bet");
+            }
+          }
+        }
+      );
+    } else {
+      toastr.error("Error while placing Bet");
+    }
   };
   $scope.calculatePlacedBookAmt = function () {
     $scope.profits = [];
