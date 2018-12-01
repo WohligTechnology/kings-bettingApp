@@ -149,7 +149,7 @@ var myApp = angular
       })
       .state("app.match-inner", {
         cache: false,
-        url: "/match-inner/:game/:parentId/:unmatched",
+        url: "/match-inner/:game/:parentId/:unmatched/:eventId",
         views: {
           menuContent: {
             templateUrl: "templates/match-inner/match-inner.html",
