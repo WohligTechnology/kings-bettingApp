@@ -219,7 +219,7 @@ myApp.controller("HomeCtrl", function (
         if (!_.isEmpty(data.data)) {
           $scope.loadingData = false;
           $scope.marketData = data.data;
-          if ($state.current.name = "app.match-inner") {
+          if ($stateParams.parentId) {
             $scope.singleMarket = _.remove($scope.marketData, function (market) {
               var sortedArray = _.sortBy(market.runners, ["sortPriority"]);
               market.runners = sortedArray;
