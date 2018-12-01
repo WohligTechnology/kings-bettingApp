@@ -132,7 +132,7 @@
                           {{ profits[outerIndex][$index].amount }}</span>
                         <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}"
                           ng-if="profits[outerIndex][$index].amount && unexecutedProfit[outerIndex][$index].unexecutedProfit">»</span>
-                        <span ng-class="{'-positive':profits[outerIndex][$index].amount >= 0 ,'-negative':profits[outerIndex][$index].amount<0}">
+                        <span ng-class="{'-positive':unexecutedProfit[outerIndex][$index].unexecutedProfit >= 0 ,'-negative':unexecutedProfit[outerIndex][$index].unexecutedProfit<0}">
                           {{
                           unexecutedProfit[outerIndex][$index]
                           .unexecutedProfit
