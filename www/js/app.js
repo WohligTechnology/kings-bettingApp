@@ -38,6 +38,7 @@ var myApp = angular
         controller: "AppCtrl"
       })
       .state("app.home", {
+        cache: false,
         url: "/home",
         views: {
           menuContent: {

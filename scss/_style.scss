@@ -7626,18 +7626,6 @@ ion-content {
   position: absolute;
 }
 
-.scroll-content {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  will-change: scroll-position;
-  contain: size style layout;
-}
-
 .fab,
 .menu-inner,
 ion-menu {
@@ -15885,6 +15873,7 @@ lay-button.selected[type=lay]>div {
   font-style: normal;
   font-weight: 700;
 }
+
 body .ion-page bet-form {
   overflow: hidden;
   display: block;
@@ -16424,7 +16413,7 @@ ion-title.left-title .toolbar-title {
 
 .one-click-setting {
   min-height: 45px;
-  padding:0;
+  padding: 0;
 }
 
 .search-header {
@@ -17684,6 +17673,7 @@ ion-modal-view {
   font-size: 16px;
   font-weight: 400;
 }
+
 .bet-confirm.lay .dialog-content {
   border-color: #f9c9d4;
   border-bottom-width: 7px;
@@ -17875,7 +17865,7 @@ odds-stepper .stepper-input input.text-input.text-input-md {
 
 .one-click-switch.on {
   background: #e84c4d;
-  color:#fff;
+  color: #fff;
 }
 
 .one-click-switch .current-stake {
@@ -18803,7 +18793,8 @@ ion-nav.landscape .home-page .open-bets-link {
   // right: 11px;
   // font-size: 12px;
   text-align: right;
-  span{
+
+  span {
     color: #2587d0;
     border-bottom: 1px solid #3493db;
   }
@@ -19868,39 +19859,44 @@ ion-item.item.item-block.item-md.item-search {
   }
 }
 
-.toggle { 
+.toggle {
   .handle {
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  left: 7px;
-}
- .track { 
-  width: 52px;
-  height: 24px;
-  border-radius: 20px;
-  &:before{
-    content: 'Off';
-    position: absolute;
-    right: 12px;
-    font-size: 12px;
-    top: 11px;
-    color: #585858;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    left: 7px;
   }
+
+  .track {
+    width: 52px;
+    height: 24px;
+    border-radius: 20px;
+
+    &:before {
+      content: 'Off';
+      position: absolute;
+      right: 12px;
+      font-size: 12px;
+      top: 11px;
+      color: #585858;
+    }
   }
- input:checked + .track .handle {
+
+  input:checked+.track .handle {
     transform: translate3d(28px, 0px, 0px);
-}
-   input:checked + .track{
+  }
+
+  input:checked+.track {
     border-color: #4cd964 !important;
     background-color: #4cd964 !important;
-    &:before{
-    content: 'On' !important;
-    position: absolute !important;
-    left: 12px !important;
-    top: 11px !important;
-    color: #fff !important;
-   }
+
+    &:before {
+      content: 'On' !important;
+      position: absolute !important;
+      left: 12px !important;
+      top: 11px !important;
+      color: #fff !important;
+    }
   }
 }
 
@@ -19927,12 +19923,13 @@ ion-modal-view.bet-confirm.modal {
   width: 100%;
   height: 100%;
   z-index: 9999;
+
   .section-spinner {
     width: 75px;
     margin: 0 auto;
     position: relative;
     top: 170px;
-  
+
     .countdown {
       position: relative;
       margin: auto;
@@ -19940,20 +19937,20 @@ ion-modal-view.bet-confirm.modal {
       width: 40px;
       text-align: center;
     }
-  
+
     .countdown-number {
       font-size: 20px;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%); 
+      transform: translate(-50%, -50%);
       color: white;
       font-weight: 600;
       display: inline-block;
       line-height: 0px;
-      color:#444;
+      color: #444;
     }
-  
+
     .spinner {
       width: 75px;
       height: 75px;
@@ -19962,32 +19959,32 @@ ion-modal-view.bet-confirm.modal {
       -webkit-animation: rotate 1.4s linear infinite;
       -moz-animation: rotate 1.4s linear infinite;
     }
-  
+
     .spinner-dot {
       width: 274px;
       height: 274px;
       position: relative;
       top: 0;
     }
-  
+
     @keyframes rotate {
       to {
         transform: rotate(360deg);
       }
     }
-  
+
     @-webkit-keyframes rotate {
       to {
         -webkit-transform: rotate(360deg);
       }
     }
-  
+
     @-moz-keyframes rotate {
       to {
         transform: rotate(360deg);
       }
     }
-  
+
     .path {
       stroke-dasharray: 170;
       stroke-dashoffset: 20;
@@ -19995,6 +19992,15 @@ ion-modal-view.bet-confirm.modal {
   }
 }
 
-.loader-content{
+.loader-content {
   padding-top: 50px;
+}
+
+
+.oneclick-top {
+  top: 114px !important;
+}
+
+.has-header {
+  top: 59px;
 }

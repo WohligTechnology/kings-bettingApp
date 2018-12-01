@@ -46,6 +46,16 @@ myApp.controller("HomeCtrl", function (
       handicap: runner.handicap
     };
     console.log($scope.betSlipRunner);
+    if ($scope.userConfigData.oneClickStatus) {
+      $scope.betSlipRunner.stake = $scope.userConfigData.oneClickActiveStake;
+      $scope.calculatePL(type);
+      if ($scope.minBetError) {
+        ionicToast.show("Please increase stake amount");
+      } else {
+        $scope.betPlacing = true;
+        $scope.placeBet();
+      }
+    }
   };
   $scope.removeBet = function (type) {
     $scope.betSlipRunner = {};
