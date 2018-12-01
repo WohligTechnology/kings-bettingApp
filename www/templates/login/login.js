@@ -1,4 +1,4 @@
-myApp.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, toastr,Service,$state) {
+myApp.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, toastr, Service, $state) {
   $scope.userLogin = function (value) {
     console.log(value);
     Service.userLogin("BetFair/userLogin", value, function (data) {
@@ -9,11 +9,15 @@ myApp.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, toastr,Se
         console.log($.jStorage.get("accessToken"));
         $.jStorage.set("userId", data.data.userId);
         // toastr.success("Logged in successfully!");
+        ionicToast.show("Logged in successfully!");
+
         console.log("Logged in successfully!");
         $state.go('app.home');
       } else {
-        console.log("Logged in Unsuccessfully!");        
+        console.log("Logged in Unsuccessfully!");
         // toastr.error("Unable to login");
+        ionicToast.show("Unable to login");
+
       }
     });
   };

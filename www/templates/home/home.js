@@ -10,11 +10,11 @@ myApp.controller("HomeCtrl", function (
   $state,
   $stateParams,
   $rootScope,
+  ionicToast,
   TemplateService
 ) {
   var user = $.jStorage.get("userId");
   $scope.profits = [];
-
   Service.apiCallWithUrl(
     mainServer + "api/member/getOne", {
       _id: user
@@ -551,6 +551,7 @@ myApp.controller("HomeCtrl", function (
     // toastrConfig = {};
     // toastrConfig.positionClass = "toast-top-right";
     // toastr.success("Your Bet will submit in 5 seconds");
+    ionicToast.show("Your Bet will submit in 5 seconds");
 
     // $scope.promise = NavigationService.success().then(function () {
     // var reqData = _.concat($scope.layArray, $scope.backArray);
@@ -566,16 +567,19 @@ myApp.controller("HomeCtrl", function (
       }, 500);
 
       if (data.value) {
+        ionicToast.show("Bet Placed successfully!");
         // toastr.success("Bet Placed successfully!");
         // $scope.activePill = 1;
-        // $scope.removeAllBets();
+        $scope.removeBet();
         // $scope.getMyCurrentBetStatus();
       } else {
-        // if (data.error == "MIN_BET_STAKE_REQUIRED") {
-        //   toastr.error("Please increase stake amount");
-        // } else {
-        //   toastr.error("Error while placing Bet");
-        // }
+        if (data.error == "MIN_BET_STAKE_REQUIRED") {
+          // toastr.error("Please increase stake amount");
+          ionicToast.show("Please increase stake amount");
+        } else {
+          // toastr.error("Error while placing Bet");
+          ionicToast.show("Error while placing Bet");
+        }
       }
     });
     // });
