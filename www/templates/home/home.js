@@ -541,16 +541,16 @@ myApp.controller("HomeCtrl", function (
     if (bet.oldBetRate !== bet.betRate || bet.oldStake !== bet.stake) {
       var betData = {
         accessToken: accessToken,
-        sport: bet.eventType,
+        sport: bet.sport,
         betId: bet.betId,
         marketId: bet.marketId,
         type: bet.type,
         userId: userid,
         event: bet.event,
         eventId: bet.eventId,
-        selectionId: bet.horse,
+        selectionId: bet.selectionId,
         selectionName: bet.selectionName,
-        odds: bet.betRate,
+        odds: odds,
         marketName: bet.marketName,
         userName: $scope.username,
         stake: bet.stake,
@@ -570,6 +570,7 @@ myApp.controller("HomeCtrl", function (
           $scope.betPlacing = false;
           if (data.value) {
             ionicToast.show("Bet Placed successfully!");
+            $scope.removeBet();
           } else {
             if (
               data.error == "Insufficient credit limit" ||
