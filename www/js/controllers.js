@@ -162,8 +162,6 @@ angular
           "app.sport", {
             game: $scope.game,
             parentId: $scope.parentId
-          }, {
-            notify: false
           }
         );
         $scope.subcategory = value;
@@ -197,8 +195,6 @@ angular
           "homeInside", {
             game: $scope.game,
             parentId: $scope.parentId
-          }, {
-            notify: false
           }
         );
       } else {
@@ -207,9 +203,7 @@ angular
         $scope.home = true;
         $scope.next = false;
         $scope.previous = false;
-        $state.go("home", {
-          notify: false
-        });
+        $state.go("home");
       }
     };
 
@@ -220,9 +214,7 @@ angular
       $scope.home = true;
       $scope.next = false;
       $scope.previous = false;
-      $state.go("home", {
-        notify: false
-      });
+      $state.go("home");
     };
 
     $scope.searchEvent = function (value) {
