@@ -550,7 +550,7 @@ myApp.controller("HomeCtrl", function (
         eventId: bet.eventId,
         selectionId: bet.selectionId,
         selectionName: bet.selectionName,
-        odds: data.odds,
+        odds: bet.odds,
         marketName: bet.marketName,
         userName: $scope.username,
         stake: bet.stake,
