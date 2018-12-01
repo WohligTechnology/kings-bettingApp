@@ -17759,7 +17759,12 @@ pnl {
   float: left;
 }
 
+.my-bets-container .item-accordion.item {
+  padding: 0;
+}
+
 .my-bets-container ul li .bet-info {
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -20036,4 +20041,7 @@ content:'';
   position: absolute;
   left: 1px;
   top: 1px;
+}
+.intro p {
+  text-align: justify;
 }
