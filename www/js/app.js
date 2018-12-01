@@ -66,6 +66,7 @@ var myApp = angular
         }
       })
       .state("app.sport", {
+        cache: false,
         url: "/sport/:game/:parentId",
         views: {
           menuContent: {

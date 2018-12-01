@@ -2,18 +2,13 @@
   <div class="header-container">
     <ion-navbar class="toolbar toolbar-md app-header root-page">
       <div class="toolbar-background toolbar-background-md"></div>
-      <button
-        class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md"
-      >
+      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
         <a class="ion-arrow-left-c color-white"></a>
       </button>
       <ion-buttons class="bar-buttons bar-buttons-md">
         <search-event></search-event>
-        <button
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -34,21 +29,15 @@
   <ul class="list">
     <li class="item item-toggle">
       <label class="toggle toggle-assertive">
-        <input
-          type="checkbox"
-          ng-model="userConfigData.oneClickStatus"
-          ng-click="confirmOneClick()"
-        />
-        <div class="track"><div class="handle"></div></div>
+        <input type="checkbox" ng-model="userConfigData.oneClickStatus" ng-click="setUserConfig('oneClickToggle')" />
+        <div class="track">
+          <div class="handle"></div>
+        </div>
       </label>
       TAP TO TURN ON 1 CLICK BET
     </li>
   </ul>
-  <ion-content
-    class="one-click-setting content content-md"
-    padding=""
-    style="margin-top:90px;"
-  >
+  <ion-content class="one-click-setting content content-md" padding="" style="margin-top:90px;">
     <div>
       <div class="title">
         <h2 class="page-title">1 Click Bet Settings</h2>
@@ -56,17 +45,11 @@
       </div>
       <div class="select-stakes"><span>Select active stake:</span></div>
       <div class="stakes-group" ng-if="!onclickEdit">
-        <div
-          class="stake readonly"
-          ng-repeat="stake in userConfigData.oneClickStake"
-          ng-class="{'active' :  userConfigData.oneClickActiveStake == stake}"
-          ng-click="userConfigData.oneClickActiveStake = stake;setUserConfig('')"
-        >
+        <div class="stake readonly" ng-repeat="stake in userConfigData.oneClickStake" ng-class="{'active' :  userConfigData.oneClickActiveStake == stake}"
+          ng-click="userConfigData.oneClickActiveStake = stake;setUserConfig('')">
           <div class="wrapper">
             <p>{{ stake }}</p>
-            <span ng-if="userConfigData.oneClickActiveStake == stake"
-              >Active Stake</span
-            >
+            <span ng-if="userConfigData.oneClickActiveStake == stake">Active Stake</span>
           </div>
         </div>
       </div>
@@ -74,33 +57,21 @@
         <div class="stake-input">
           <div class="stake stake-0">
             <ion-input>
-              <input
-                type="number"
-                class="text-input text-input-md"
-                ng-model="userConfigData.oneClickStake[0]"
-              />
+              <input type="number" class="text-input text-input-md" ng-model="userConfigData.oneClickStake[0]" />
             </ion-input>
           </div>
         </div>
         <div class="stake-input">
           <div class="stake stake-0">
             <ion-input>
-              <input
-                type="number"
-                class="text-input text-input-md"
-                ng-model="userConfigData.oneClickStake[1]"
-              />
+              <input type="number" class="text-input text-input-md" ng-model="userConfigData.oneClickStake[1]" />
             </ion-input>
           </div>
         </div>
         <div class="stake-input">
           <div class="stake stake-0">
             <ion-input>
-              <input
-                type="number"
-                class="text-input text-input-md"
-                ng-model="userConfigData.oneClickStake[2]"
-              />
+              <input type="number" class="text-input text-input-md" ng-model="userConfigData.oneClickStake[2]" />
             </ion-input>
           </div>
         </div>
@@ -117,20 +88,13 @@
           </div>
         -->
       </div>
-      <button
-        class="disable-hover button button-md button-default button-default-md button-md-cta-primary"
-        ng-click="editOneClickValue()"
-        ng-if="!onclickEdit"
-        ng-disabled="!userConfigData.oneClickStatus"
-      >
+      <button class="disable-hover button button-md button-default button-default-md button-md-cta-primary" ng-click="editOneClickValue()"
+        ng-if="!onclickEdit" ng-disabled="!userConfigData.oneClickStatus">
         <span class="button-inner">Edit</span>
         <!-- <div class="button-effect"></div> -->
       </button>
-      <button
-        class="disable-hover button button-md button-default button-default-md button-md-cta-primary"
-        ng-click="setUserConfig('oneClickSave');"
-        ng-if="onclickEdit"
-      >
+      <button class="disable-hover button button-md button-default button-default-md button-md-cta-primary" ng-click="setUserConfig('oneClickSave');"
+        ng-if="onclickEdit">
         <span class="button-inner">Save</span>
         <!-- <div class="button-effect"></div> -->
       </button>
@@ -142,10 +106,7 @@
       </div>
 
       <div class="stakes-group" ng-if="!stakeEdit">
-        <div
-          class="stake readonly active"
-          ng-repeat="stake in mobileStakes track by $index"
-        >
+        <div class="stake readonly active" ng-repeat="stake in mobileStakes track by $index">
           <div class="wrapper">
             <p>{{ stake }}</p>
           </div>
@@ -155,33 +116,21 @@
         <div class="stake-input">
           <div class="stake stake-0">
             <ion-input>
-              <input
-                type="number"
-                class="text-input text-input-md"
-                ng-model="userConfigData.mobileStake[0]"
-              />
+              <input type="number" class="text-input text-input-md" ng-model="userConfigData.mobileStake[0]" />
             </ion-input>
           </div>
         </div>
         <div class="stake-input">
           <div class="stake stake-0">
             <ion-input>
-              <input
-                type="number"
-                class="text-input text-input-md"
-                ng-model="userConfigData.mobileStake[1]"
-              />
+              <input type="number" class="text-input text-input-md" ng-model="userConfigData.mobileStake[1]" />
             </ion-input>
           </div>
         </div>
         <div class="stake-input">
           <div class="stake stake-0">
             <ion-input>
-              <input
-                type="number"
-                class="text-input text-input-md"
-                ng-model="userConfigData.mobileStake[2]"
-              />
+              <input type="number" class="text-input text-input-md" ng-model="userConfigData.mobileStake[2]" />
             </ion-input>
           </div>
         </div>
@@ -198,19 +147,13 @@
           </div>
         -->
       </div>
-      <button
-        class="disable-hover button button-md button-default button-default-md button-md-cta-primary"
-        ng-click="editStake()"
-        ng-if="!stakeEdit"
-      >
+      <button class="disable-hover button button-md button-default button-default-md button-md-cta-primary" ng-click="editStake()"
+        ng-if="!stakeEdit">
         <span class="button-inner">Edit</span>
         <!-- <div class="button-effect"></div> -->
       </button>
-      <button
-        class="disable-hover button button-md button-default button-default-md button-md-cta-primary"
-        ng-click="setUserConfig('stake');"
-        ng-if="stakeEdit"
-      >
+      <button class="disable-hover button button-md button-default button-default-md button-md-cta-primary" ng-click="setUserConfig('stake');"
+        ng-if="stakeEdit">
         <span class="button-inner">Save</span>
         <!-- <div class="button-effect"></div> -->
       </button>
