@@ -1,8 +1,8 @@
 myApp.controller("SportCtrl", function (
   $scope,
-  $ionicModal,
   $stateParams,
-  Service
+  Service,
+  $state
 ) {
   $scope.game = $stateParams.game;
   $scope.getGames = function () {
@@ -27,6 +27,11 @@ myApp.controller("SportCtrl", function (
   $scope.getSubCategory = function (value) {
     if (!_.isEmpty(value.children)) {
       $scope.subcategory = value.children;
+    } else {
+      $state.go('app.match-inner', {
+        game: $stateParams.game,
+        parentId: value._id
+      })
     }
   };
 

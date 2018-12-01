@@ -37,7 +37,7 @@
           <div class="item item-divider">
             <h2>{{ game }}</h2>
           </div>
-          <a class="item" ng-repeat="category in subcategory" ng-click="getParentId(category._id);getAnimation();getSubCategory(category)">
+          <a class="item" ng-repeat="category in subcategory" ng-click="getSubCategory(category)">
             {{ category.name }}
           </a>
         </div>

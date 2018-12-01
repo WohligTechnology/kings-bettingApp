@@ -148,11 +148,12 @@ var myApp = angular
         }
       })
       .state("app.match-inner", {
-        url: "/match-inner",
+        cache: false,
+        url: "/match-inner/:game/:parentId/:unmatched",
         views: {
           menuContent: {
             templateUrl: "templates/match-inner/match-inner.html",
-            controller: "MatchinnerCtrl"
+            controller: "HomeCtrl"
           }
         }
       })
