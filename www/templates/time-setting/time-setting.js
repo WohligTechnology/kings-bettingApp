@@ -1,28 +1,43 @@
-myApp.controller("transferStatementCtrl", function(
+myApp.controller("timeSettingCtrl", function(
   $scope,
-  $ionicModal,
-  $timeout,
-  Service
+  ionicToast,
+  Service,
+  $state
 ) {
-  $scope.getPlayerTransaction = function(page) {
-    $scope.userId = $.jStorage.get("userId");
-    $scope.balancePlayerRate = $.jStorage.get("balancePlayerRate");
-    Service.searchPlayerTransactionData(
+  var user = $.jStorage.get("userId");
+  $scope.getTimeZone = function() {
+    Service.apiCallWithUrl(
+      mainServer + "api/member/getTimeZone",
       {
-        _id: $scope.userId,
-        page: page
+        memberId: user
       },
       function(data) {
         if (data.value) {
-          console.log(data.data);
-          $scope.items = data.data.results;
-          $scope.totalItems = data.data.total;
-          $scope.maxRow = data.data.options.count;
-        } else {
-          $scope.playerTransaction = [];
+          if (data.data.timezone) {
+            $.jStorage.set("timezone", data.data.timezone);
+          } else {
+            $.jStorage.set("timezone", "computer");
+          }
         }
       }
     );
   };
-  $scope.getPlayerTransaction(1);
+  $scope.getTimeZone();
+  $scope.setTimeZone = function(value) {
+    Service.apiCallWithUrl(
+      mainServer + "api/member/setTimeZone",
+      {
+        memberId: user,
+        timezone: value
+      },
+      function(data) {
+        if (data.value) {
+          $scope.getTimeZone();
+          ionicToast.show("timezone updated");
+        } else {
+          ionicToast.show("error while saving timezone");
+        }
+      }
+    );
+  };
 });

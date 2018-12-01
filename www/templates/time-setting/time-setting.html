@@ -32,46 +32,50 @@
     <!-- ngIf: -->
   </div>
   <ion-content
-    class="transfer-page content content-md"
+    class="transfer-page content padding content-md"
     padding
     style="margin-top:60px;"
   >
     <div>
-      <h2 class="page-title">Transfer Statement</h2>
+      <h2 class="page-title">Time Setting</h2>
       <div class="content">
-        <div class="clock">
-          <span class="date">December 1st, 2018</span>
-          <span class="time">11:16:40</span>
-        </div>
-        <div class="options">
-          <div class="list">
-            <label class="item item-radio" ng-click="setTimeZone('system')">
-              <input type="radio" name="group" value="go" checked="checked" />
-              <div class="radio-content">
-                <div class="item-content">System time - (GMT +00:00)</div>
-                <i class="radio-icon ion-checkmark"></i>
-              </div>
-            </label>
-
-            <label class="item item-radio" ng-click="setTimeZone('computer')">
-              <input type="radio" name="group" value="python" />
-              <div class="radio-content">
-                <div class="item-content">
-                  Your device time - ({{ gmtComputerTime }})
+        <div class="card">
+          <div class="clock">
+            <span class="date">{{
+              clock | timezoneformate: "MMMM dd,yyyy"
+            }}</span>
+            <span class="time">{{ clock | timezoneformate: "HH:mm:ss" }}</span>
+          </div>
+          <div class="options">
+            <div class="list">
+              <label class="item item-radio" ng-click="setTimeZone('system')">
+                <input type="radio" name="group" value="go" checked="checked" />
+                <div class="radio-content">
+                  <div class="item-content">System time - (GMT +00:00)</div>
+                  <i class="radio-icon ion-checkmark"></i>
                 </div>
-                <i class="radio-icon ion-checkmark"></i>
-              </div>
-            </label>
+              </label>
 
-            <label class="item item-radio" ng-click="setTimeZone('india')">
-              <input type="radio" name="group" value="ruby" />
-              <div class="radio-content">
-                <div class="item-content">
-                  India Standard time - (GMT +05:30)
+              <label class="item item-radio" ng-click="setTimeZone('computer')">
+                <input type="radio" name="group" value="python" />
+                <div class="radio-content">
+                  <div class="item-content">
+                    Your device time - ({{ gmtComputerTime }})
+                  </div>
+                  <i class="radio-icon ion-checkmark"></i>
                 </div>
-                <i class="radio-icon ion-checkmark"></i>
-              </div>
-            </label>
+              </label>
+
+              <label class="item item-radio" ng-click="setTimeZone('india')">
+                <input type="radio" name="group" value="ruby" />
+                <div class="radio-content">
+                  <div class="item-content">
+                    India Standard time - (GMT +05:30)
+                  </div>
+                  <i class="radio-icon ion-checkmark"></i>
+                </div>
+              </label>
+            </div>
           </div>
         </div>
       </div>

@@ -20012,3 +20012,28 @@ ion-modal-view.bet-confirm.modal {
 .tabs-top.tabs-striped .tab-item.tab-item-active, .tabs-top.tabs-striped .tab-item.active, .tabs-top.tabs-striped .tab-item.activated{
     border-bottom: 3px solid #fab841;
 }
+
+.item-radio .radio-icon{
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 3px solid #00a950;
+  border-radius: 50%;
+  padding: 0;
+  right: 25px;
+  top: 15px;
+  visibility: visible;
+}
+.ion-checkmark:before {
+content:'';
+}
+.item-radio input:checked + .radio-content .radio-icon.ion-checkmark:before {
+  content: '';
+  background: #00a950;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+}
