@@ -17277,7 +17277,7 @@ ion-modal-view {
 }
 
 .tennis__item,
-apl-nav-tabs-group .nav-tab {
+ .nav-tab {
   -webkit-box-flex: 1;
   text-transform: uppercase;
 }
@@ -17771,7 +17771,7 @@ pnl {
   margin-top: 14px;
 }
 
-apl-nav-tabs-group .nav-tabs-group-container {
+ .nav-tabs-group-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17779,7 +17779,7 @@ apl-nav-tabs-group .nav-tabs-group-container {
   scroll-behavior: smooth;
 }
 
-apl-nav-tabs-group .nav-tab {
+ .nav-tab {
   background: $gray-light;
   -ms-flex-positive: 1;
   flex-grow: 1;
@@ -17790,7 +17790,7 @@ apl-nav-tabs-group .nav-tab {
   white-space: nowrap;
 }
 
-apl-nav-tabs-group .nav-tab.active {
+ .nav-tab.active {
   border-bottom-color: $yellow;
   color: #fff;
 }
@@ -20003,4 +20003,12 @@ ion-modal-view.bet-confirm.modal {
 
 .has-header {
   top: 59px;
+}
+.tabs-top.tabs-striped .tab-item{
+  background: rgba(37, 43, 72, 0.73);
+  border-bottom: 3px solid rgba(37, 43, 72, 0.73);
+}
+
+.tabs-top.tabs-striped .tab-item.tab-item-active, .tabs-top.tabs-striped .tab-item.active, .tabs-top.tabs-striped .tab-item.activated{
+    border-bottom: 3px solid #fab841;
 }
