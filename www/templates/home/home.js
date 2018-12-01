@@ -219,6 +219,14 @@ myApp.controller("HomeCtrl", function (
         if (!_.isEmpty(data.data)) {
           $scope.loadingData = false;
           $scope.marketData = data.data;
+          if ($state.current.name = "app.match-inner") {
+            $scope.singleMarket = _.remove($scope.marketData, function (market) {
+              var sortedArray = _.sortBy(market.runners, ["sortPriority"]);
+              market.runners = sortedArray;
+              return market.name == "Match Odds";
+            })[0];
+            $scope.marketData.unshift($scope.singleMarket);
+          }
           _.each($scope.marketData, function (market) {
             var sortedArray = _.sortBy(market.runners, ["sortPriority"]);
             market.runners = sortedArray;
@@ -255,6 +263,10 @@ myApp.controller("HomeCtrl", function (
       }
     });
   };
+  $scope.getMarketIds({
+    game: $stateParams.game ? $stateParams.game : 'Cricket',
+    parentId: $stateParams.parentId
+  });
   $scope.updateMatch = [];
   var i = 1;
   TemplateService.sportsBookServerSocket.on(
