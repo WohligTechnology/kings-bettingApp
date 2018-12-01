@@ -546,10 +546,7 @@ myApp.controller("HomeCtrl", function (
     }
   };
   $scope.placeBet = function () {
-    if (
-      !$scope.userConfigData.oneClickStatus &&
-      $scope.userConfigData.confirmStatus
-    ) {
+    if ($scope.ConfirmBetModal) {
       $scope.closeConfirmBet();
     }
     $timeout(function () {

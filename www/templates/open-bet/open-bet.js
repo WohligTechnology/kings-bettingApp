@@ -1,4 +1,4 @@
-myApp.controller('OpenBetCtrl', function ($scope, $ionicModal, $timeout, TemplateService, Service) {
+myApp.controller('OpenBetCtrl', function ($scope, $ionicModal, $timeout, TemplateService, Service, ionicToast) {
   var user = $.jStorage.get("userId");
   //Accordian Code
   $scope.groups = [];
