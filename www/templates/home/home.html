@@ -63,7 +63,7 @@
           <div class="item item-toggle one-click-switch on">
             1 CLICK BET IS ON - ACTIVE STAKE 10
             <label class="toggle toggle-positive">
-              <input type="checkbox" />
+              <input type="checkbox" ng-model="userConfigData.oneClickStatus" ng-click="confirmOneClick()" />
               <div class="track">
                 <div class="handle"></div>
               </div>
@@ -78,7 +78,7 @@
       </div>
     </ion-toolbar>
   </div>
-  <ion-content class="home-page event-page content content-md" style="margin-top:112px;background: #ddd;">
+  <ion-content class="home-page event-page has-header" style="background: #ddd;" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <!-- <div ng-include="page"></div> -->
     <div class="open-bets-link padding">
       <span ui-sref="app.open-bet"> Open Bets (1) </span>
