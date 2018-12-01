@@ -1,7 +1,7 @@
 angular
   .module("starter.controllers", [])
 
-  .controller("AppCtrl", function(
+  .controller("AppCtrl", function (
     $scope,
     $ionicModal,
     $timeout,
@@ -11,23 +11,24 @@ angular
     Service,
     $stateParams,
     jStorageService,
-    TemplateService
+    TemplateService,
+    ionicToast
   ) {
     // Form data for the login modal
 
     $scope.loginData = {};
     TemplateService.connectSocket();
-    $scope.$on("$ionicView.enter", function() {
+    $scope.$on("$ionicView.enter", function () {
       $ionicSideMenuDelegate.canDragContent(false);
     });
-    $scope.$on("$ionicView.leave", function() {
+    $scope.$on("$ionicView.leave", function () {
       $ionicSideMenuDelegate.canDragContent(false);
     });
     $scope.game = $state.params.game;
     $scope.parentId = $stateParams.parentId;
 
     var user = jStorageService.getUserId();
-    var tick = function() {
+    var tick = function () {
       $scope.clock = Date.now();
     };
     tick();
@@ -36,24 +37,23 @@ angular
       $state.go("login");
     }
     if ($.jStorage.get("userId")) {
-      Service.userGetOne(
-        {
+      Service.userGetOne({
           _id: $.jStorage.get("userId")
         },
-        function(userData) {
+        function (userData) {
           $scope.userInfo = userData.data;
         }
       );
     }
 
     //logout
-    $scope.logout = function() {
+    $scope.logout = function () {
       $.jStorage.flush();
       $state.go("login");
     };
     $scope.home = true;
     // $scope.visitedCategories = [];
-    $scope.getNavigationDetails = function() {
+    $scope.getNavigationDetails = function () {
       var toState = $state.current;
       var toParams = $state.params;
       console.log("toState", toParams);
@@ -91,25 +91,25 @@ angular
       }
       $scope.showCategoryAccordingly();
     };
-    $scope.showCategoryAccordingly = function() {
+    $scope.showCategoryAccordingly = function () {
       if ($scope.navigationLevel == 1) {
-        $scope.subcategory = _.find($scope.gameData, function(game) {
+        $scope.subcategory = _.find($scope.gameData, function (game) {
           return game.name == $scope.game;
         }).children;
       } else if ($scope.navigationLevel == 2) {
-        var category = _.find($scope.gameData, function(game) {
+        var category = _.find($scope.gameData, function (game) {
           return game.name == $scope.game;
         }).children;
-        $scope.subcategory = _.find(category, function(cate) {
+        $scope.subcategory = _.find(category, function (cate) {
           return cate._id == $scope.parentId;
         }).children;
       } else if ($scope.navigationLevel == 3) {
-        var category = _.find($scope.gameData, function(game) {
+        var category = _.find($scope.gameData, function (game) {
           return game.name == $scope.game;
         }).children;
-        $scope.categoryData = _.find(category, function(cate) {
+        $scope.categoryData = _.find(category, function (cate) {
           if (cate.children) {
-            var child = _.find(cate.children, function(child) {
+            var child = _.find(cate.children, function (child) {
               return child._id == $scope.parentId;
             });
             // TemplateService.detailName = child.name;
@@ -124,20 +124,19 @@ angular
     };
     //To get games
     //To get games
-    $scope.getGames = function() {
+    $scope.getGames = function () {
       Service.apiCallWithData(
-        "Category/getCategoriesForNavigation",
-        {},
-        function(data) {
+        "Category/getCategoriesForNavigation", {},
+        function (data) {
           if (data.value) {
             if (!_.isEmpty(data.data)) {
               $scope.gameData = data.data;
               $scope.getNavigationDetails();
-              _.each($scope.gameData, function(game) {
+              _.each($scope.gameData, function (game) {
                 if (_.isEmpty(game.children)) {
                   game.hide = true;
                 } else {
-                  _.each(game.children, function(child) {
+                  _.each(game.children, function (child) {
                     if (_.isEmpty(child.children)) {
                       child.hide = true;
                     }
@@ -157,15 +156,13 @@ angular
     $scope.getGames();
 
     // //To get sub Category
-    $scope.getSubCategory = function(value) {
+    $scope.getSubCategory = function (value) {
       if (!_.isEmpty(value)) {
         $state.go(
-          "app.sport",
-          {
+          "app.sport", {
             game: $scope.game,
             parentId: $scope.parentId
-          },
-          {
+          }, {
             notify: false
           }
         );
@@ -173,17 +170,17 @@ angular
       }
     };
 
-    $scope.getGameName = function(value) {
+    $scope.getGameName = function (value) {
       console.log(value);
       $scope.game = value;
     };
 
-    $scope.getParentId = function(value) {
+    $scope.getParentId = function (value) {
       $scope.previousParentId = $scope.parentId;
       $scope.parentId = value;
     };
 
-    $scope.getPreviousCategory = function() {
+    $scope.getPreviousCategory = function () {
       if (!_.isEmpty($scope.previousState)) {
         if (!$scope.next) {
           $scope.next = true;
@@ -197,12 +194,10 @@ angular
         $scope.parentId = $scope.previousParentId;
         $scope.previousState.pop();
         $state.go(
-          "homeInside",
-          {
+          "homeInside", {
             game: $scope.game,
             parentId: $scope.parentId
-          },
-          {
+          }, {
             notify: false
           }
         );
@@ -219,7 +214,7 @@ angular
     };
 
     // //Go to home menu
-    $scope.goTohome = function() {
+    $scope.goTohome = function () {
       $scope.subcategory = [];
       $scope.previousState = [];
       $scope.home = true;
@@ -230,44 +225,41 @@ angular
       });
     };
 
-    $scope.searchEvent = function(value) {
+    $scope.searchEvent = function (value) {
       Service.apiCallWithData(
-        "category/searchEvent",
-        {
+        "category/searchEvent", {
           searchText: value
         },
-        function(data) {
+        function (data) {
           $scope.searchData = data.data;
         }
       );
     };
 
-    $scope.getAvailableCredit = function() {
+    $scope.getAvailableCredit = function () {
       Service.apiCallWithUrl(
-        mainServer + "api/sportsbook/getCurrentBalance",
-        {
+        mainServer + "api/sportsbook/getCurrentBalance", {
           _id: user
         },
-        function(balanceData) {
+        function (balanceData) {
           if (balanceData.value) {
             $scope.balanceData = balanceData.data;
           }
         }
       );
       Service.apiCallWithUrl(
-        mainServer + "api/netExposure/getMemberNetExposure",
-        {
+        mainServer + "api/netExposure/getMemberNetExposure", {
           _id: user
         },
-        function(netExposureData) {
+        function (netExposureData) {
           if (netExposureData.value) {
             console.log(
               "netExposureData!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
               netExposureData
             );
-            $scope.netExposureData = netExposureData.data.netExposure
-              ? netExposureData.data.netExposure * -1
-              : 0;
+            $scope.netExposureData = netExposureData.data.netExposure ?
+              netExposureData.data.netExposure * -1 :
+              0;
             console.log(
               "$scope.netExposureData##########################",
               $scope.netExposureData
@@ -283,16 +275,16 @@ angular
       $scope.mySocket1.on("NetExposure_" + user, function onConnect(
         netExposureData
       ) {
-        $scope.netExposureData = netExposureData.netExposure
-          ? netExposureData.netExposure * -1
-          : 0;
+        $scope.netExposureData = netExposureData.netExposure ?
+          netExposureData.netExposure * -1 :
+          0;
         $scope.$apply();
       });
     };
     $scope.getAvailableCredit();
 
     var user = $.jStorage.get("userId");
-    $scope.confirmOneClick = function() {
+    $scope.confirmOneClick = function () {
       // if ($scope.backArray.length > 0 || $scope.layArray.length > 0) {
       //   $scope.betRemove = $uibModal.open({
       //     animation: true,
@@ -305,14 +297,14 @@ angular
       $scope.setUserConfig("oneClickToggle");
       // }
     };
-    $scope.editOneClickValue = function() {
+    $scope.editOneClickValue = function () {
       $scope.onclickEdit = !$scope.onclickEdit;
     };
-    $scope.editStake = function() {
+    $scope.editStake = function () {
       $scope.stakeEdit = !$scope.stakeEdit;
     };
-    $scope.setUserConfig = function(operation) {
-      var getIndex = _.findIndex($scope.userConfigData.oneClickStake, function(
+    $scope.setUserConfig = function (operation) {
+      var getIndex = _.findIndex($scope.userConfigData.oneClickStake, function (
         stake
       ) {
         return $scope.userConfigData.oneClickActiveStake == stake;
@@ -324,14 +316,17 @@ angular
       Service.apiCallWithData(
         "UserConfig/setUserConfig",
         $scope.userConfigData,
-        function(data) {
+        function (data) {
           $scope.getUserConfig();
           operation == "stake" ? $scope.editStake() : "";
           operation == "oneClickSave" ? $scope.editOneClickValue() : "";
           if (data.value) {
             //   toastr.success("user config changed successfully");
+            ionicToast.show("user config changed successfully");
           } else {
             //   toastr.error("Unable to change user config");
+            ionicToast.show("Unable to change user config");
+
             if (operation == "oneClickToggle") {
               $scope.userConfigData.oneClickStatus = !$scope.userConfigData
                 .oneClickStatus;
@@ -344,13 +339,12 @@ angular
         }
       );
     };
-    $scope.getUserConfig = function() {
+    $scope.getUserConfig = function () {
       Service.apiCallWithData(
-        "UserConfig/getUserConfig",
-        {
+        "UserConfig/getUserConfig", {
           user: user
         },
-        function(data) {
+        function (data) {
           if (data.value) {
             if (!_.isEmpty(data.data)) {
               $scope.userConfigData = data.data;
@@ -393,7 +387,7 @@ angular
           );
           $scope.activeStakeIndex = _.findIndex(
             $scope.userConfigData.oneClickStake,
-            function(stake) {
+            function (stake) {
               return $scope.userConfigData.oneClickActiveStake == stake;
             }
           );

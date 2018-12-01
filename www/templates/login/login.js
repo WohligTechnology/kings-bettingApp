@@ -1,4 +1,4 @@
-myApp.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, toastr, Service, $state) {
+myApp.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, toastr, Service, $state, ionicToast) {
   $scope.userLogin = function (value) {
     console.log(value);
     Service.userLogin("BetFair/userLogin", value, function (data) {
