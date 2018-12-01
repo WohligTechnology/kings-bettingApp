@@ -186,5 +186,25 @@ myApp.controller('OpenBetCtrl', function ($scope, $ionicModal, $timeout, Templat
     }
   );
   $scope.getMyCurrentBetStatus();
-
+  $scope.cancelBet = function (betArray, level) {
+    var reqData = [];
+    reqData.push({
+      playerId: user,
+      betId: betArray.betId
+    });
+    Service.apiCallWithData(
+      "Betfair/cancelPlayerBetNew",
+      reqData,
+      function (data) {
+        if (data.value) {
+          $scope.getMyCurrentBetStatus();
+          // toastr.success("Bet cancelled successfully");
+          ionicToast.show("Bet cancelled successfully");
+        } else {
+          // toastr.error("Error while cancelling Bet");
+          ionicToast.show("Logged in successfully!");
+        }
+      }
+    );
+  };
 })
