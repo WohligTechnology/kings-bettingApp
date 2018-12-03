@@ -79,6 +79,53 @@ myApp
       }
     };
   })
+  .directive("oneClickBetting", function() {
+    return {
+      restrict: "E",
+      replace: false,
+      scope: {},
+      templateUrl: "templates/directive/one-click-betting.html",
+      link: function($scope, element, attr) {
+        $scope.setUserConfig = function(operation) {
+          var getIndex = _.findIndex(
+            $scope.userConfigData.oneClickStake,
+            function(stake) {
+              return $scope.userConfigData.oneClickActiveStake == stake;
+            }
+          );
+          if (getIndex == -1) {
+            $scope.userConfigData.oneClickActiveStake =
+              $scope.userConfigData.oneClickStake[$scope.activeStakeIndex];
+          }
+          Service.apiCallWithData(
+            "UserConfig/setUserConfig",
+            $scope.userConfigData,
+            function(data) {
+              $scope.getUserConfig();
+              operation == "stake" ? $scope.editStake() : "";
+              operation == "oneClickSave" ? $scope.editOneClickValue() : "";
+              if (data.value) {
+                //   toastr.success("user config changed successfully");
+                ionicToast.show("user config changed successfully");
+              } else {
+                //   toastr.error("Unable to change user config");
+                ionicToast.show("Unable to change user config");
+
+                if (operation == "oneClickToggle") {
+                  $scope.userConfigData.oneClickStatus = !$scope.userConfigData
+                    .oneClickStatus;
+                }
+                if (operation == "confirmBet") {
+                  $scope.userConfigData.confirmStatus = !$scope.userConfigData
+                    .confirmStatus;
+                }
+              }
+            }
+          );
+        };
+      }
+    };
+  })
   .directive("myBets", function(
     TemplateService,
     Service,

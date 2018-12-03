@@ -61,10 +61,13 @@
         </div>
       </ion-navbar>
     -->
-    <ion-toolbar class="one-click-setting toolbar toolbar-md">
-      <div class="toolbar-background toolbar-background-md"></div>
+    <ion-toolbar
+      class="one-click-setting toolbar toolbar-md"
+      ng-if="userConfigData.oneClickStatus == true"
+    >
       <div class="toolbar-content toolbar-content-md">
-        <one-click-betting>
+        <!-- <div ng-include="oneClickBetting"></div> -->
+        
           <div class="item item-toggle one-click-switch on">
             1 CLICK BET IS ON - ACTIVE STAKE 10
             <label class="toggle toggle-positive">
@@ -76,12 +79,7 @@
               <div class="track"><div class="handle"></div></div>
             </label>
           </div>
-          <!--
-            <div class="one-click-switch on">
-              <div class="current-stake on underline"></div>
-            </div>
-          -->
-        </one-click-betting>
+       
       </div>
     </ion-toolbar>
   </div>
@@ -103,17 +101,17 @@
         <div class="item-inner">
           <div class="input-wrapper">
             <div class="full-image label-md">
-              <div class="popular-event">
+              <div
+                class="popular-event"
+                ui-sref=" app.match-inner({game:'Cricket',parentId:market.parentCategory})"
+              >
                 <span ng-click="saveFavourite(market);">
                   <span> <i class="far fa-star icon-style"></i> </span>
                   <span ng-if="market.isFavourite" hidden>
                     <i class="fas fa-star apl-icon-star-o"></i>
                   </span>
                 </span>
-                <div
-                  class="event-details"
-                  ui-sref=" app.match-inner({game:'Cricket',parentId:market.parentCategory})"
-                >
+                <div class="event-details">
                   <i class="fi flaticon-Cricket"></i>
                   <span class="label">{{ market.eventName }}</span>
                   <p class="date-info" ng-if="checkDate(market) == true">
@@ -293,7 +291,6 @@
                             <span class="button-inner"
                               >+{{ mobileStakes[0] }}</span
                             >
-                            <div class="button-effect"></div>
                           </button>
                           <button
                             type="button"
@@ -303,7 +300,6 @@
                             <span class="button-inner"
                               >+{{ mobileStakes[1] }}</span
                             >
-                            <div class="button-effect"></div>
                           </button>
                           <button
                             type="button"
@@ -313,7 +309,6 @@
                             <span class="button-inner"
                               >+{{ mobileStakes[2] }}</span
                             >
-                            <div class="button-effect"></div>
                           </button>
                         </div>
 
@@ -395,21 +390,17 @@
         </div>
       </div>
     </div>
+    <ion-fab class="btn-go-to-my-markets" right ui-sref="app.my-market">
+      <button class="fab fab-md">
+        <ion-icon
+          ui-sref="app.my-market"
+          class="fab-close-icon icon icon-md ion-md-close"
+          name="close"
+          role="img"
+          aria-label="close"
+        ></ion-icon>
+        <span class="button-inner"> <i class="fi flaticon-eye"></i> </span>
+      </button>
+    </ion-fab>
   </ion-content>
-  <ion-fab
-    bottom=""
-    class="btn-go-to-my-markets"
-    right=""
-    ui-sref="app.match-inner"
-  >
-    <button ion-fab="" class="fab fab-md">
-      <ion-icon
-        class="fab-close-icon icon icon-md ion-md-close"
-        name="close"
-        role="img"
-        aria-label="close"
-      ></ion-icon>
-      <span class="button-inner"> <i class="fi flaticon-eye"></i> </span>
-    </button>
-  </ion-fab>
 </ion-view>

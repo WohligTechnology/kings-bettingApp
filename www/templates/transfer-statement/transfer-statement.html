@@ -13,7 +13,6 @@
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
-          <div class="button-effect"></div>
         </button>
       </ion-buttons>
       <div class="toolbar-content toolbar-content-md" ui-sref="app.home">
@@ -25,12 +24,19 @@
       </div>
     </ion-navbar>
 
-    <!-- ngIf: -->
+    <ion-toolbar
+      class="one-click-setting toolbar toolbar-md"
+      ng-if="userConfigData.oneClickStatus == true"
+    >
+      <div class="toolbar-content toolbar-content-md">
+        <div ng-include="oneClickBetting"></div>
+      </div>
+    </ion-toolbar>
   </div>
   <ion-content
-    class="transfer-page content content-md"
+    class="transfer-page content content-md has-header"
     padding
-    style="margin-top:60px;"
+    ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}"
   >
     <div>
       <h2 class="page-title">Transfer Statement</h2>

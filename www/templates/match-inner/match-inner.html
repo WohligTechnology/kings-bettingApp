@@ -1,4 +1,4 @@
-<ion-view class="ion-page" view-title="match-inner">
+<ion-view class="ion-page" view-title="match-inner"> 
   <div class="header-container">
     <ion-navbar class="toolbar toolbar-md app-header root-page">
       <div class="toolbar-background toolbar-background-md"></div>
@@ -11,7 +11,6 @@
             <balance ng-balance="balanceData">
             </balance>
           </span>
-          <div class="button-effect"></div>
         </button>
       </ion-buttons>
       <div class="toolbar-content toolbar-content-md" ui-sref="app.home">
@@ -24,6 +23,11 @@
         </ion-title>
       </div>
     </ion-navbar>
+    <ion-toolbar class="one-click-setting toolbar toolbar-md" ng-if="userConfigData.oneClickStatus == true">
+        <div class="toolbar-content toolbar-content-md">
+          <div ng-include="oneClickBetting"></div>
+        </div>
+      </ion-toolbar>
   </div>
   <event-details>
     <div class="event-details">
@@ -45,14 +49,14 @@
   <div>
     <apl-nav-tabs-group>
       <div class="nav-tabs-group-container">
-        <ion-tabs class="tabs-top has-header" ng-class="{'has-header-52' : checkDate(marketData[0]) == false,'has-header-70' : checkDate(marketData[0]) == true}">
+        <ion-tabs class="tabs-top has-header" ng-class="{'has-header-52' : checkDate(marketData[0]) == false,'has-header-72' : checkDate(marketData[0]) == true,'has-header-115':userConfigData.oneClickStatus == true && checkDate(marketData[0]) == true,'has-header-98':userConfigData.oneClickStatus == true && checkDate(marketData[0]) == false}">
           <ion-tab title="Market" class="nav-tab  markets ">
             <ion-content ng-class="{'has-header-80' : checkDate(marketData[0]) == false,'has-header-100' : checkDate(marketData[0]) == true}">
               <section class="market-list-item">
                 <div class="list-body distinct">
                   <div>
                     <div>
-                      <div class="market-list padding">
+                      <div class="market-list mb-200 padding">
                         <markets>
                           <div class="distinct market-list list">
                             <div class="market-list-item item item-block" ng-repeat="market in marketData track by $index"
@@ -174,17 +178,17 @@
                                                 <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
                                                   ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[0]">
                                                   <span class="button-inner">+{{ mobileStakes[0] }}</span>
-                                                  <div class="button-effect"></div>
+                                                  
                                                 </button>
                                                 <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
                                                   ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[1]">
                                                   <span class="button-inner">+{{ mobileStakes[1] }}</span>
-                                                  <div class="button-effect"></div>
+                                                  
                                                 </button>
                                                 <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
                                                   ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[2]">
                                                   <span class="button-inner">+{{ mobileStakes[2] }}</span>
-                                                  <div class="button-effect"></div>
+                                                  
                                                 </button>
                                               </div>
 

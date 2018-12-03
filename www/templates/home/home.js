@@ -1,4 +1,4 @@
-myApp.controller("HomeCtrl", function (
+myApp.controller("HomeCtrl", function(
   $scope,
   $ionicModal,
   $timeout,
@@ -13,10 +13,11 @@ myApp.controller("HomeCtrl", function (
   var user = $.jStorage.get("userId");
   $scope.profits = [];
   Service.apiCallWithUrl(
-    mainServer + "api/member/getOne", {
+    mainServer + "api/member/getOne",
+    {
       _id: user
     },
-    function (data) {
+    function(data) {
       $scope.memberMinRate = data.data.minRate[0].memberMinRate;
       $scope.username = data.data.username;
     }
@@ -25,7 +26,7 @@ myApp.controller("HomeCtrl", function (
   var accessToken = $.jStorage.get("accessToken");
   var userid = $.jStorage.get("userId");
   $scope.bet = false;
-  $scope.showBet = function (market, runner, type) {
+  $scope.showBet = function(market, runner, type) {
     if (!$stateParams.unmatched) {
       $scope.liability = 0;
       $scope.minBetError = false;
@@ -57,12 +58,12 @@ myApp.controller("HomeCtrl", function (
       }
     }
   };
-  $scope.removeBet = function (type) {
+  $scope.removeBet = function(type) {
     $scope.betSlipRunner = {};
     $scope.calculatePL(type);
   };
 
-  $scope.incOrDec = function (num, event, type) {
+  $scope.incOrDec = function(num, event, type) {
     var num2 = 0;
     if ((event.keyCode == 38 || event == "up") && num < 1000) {
       if (num >= 1.01 && num < 5) {
@@ -105,8 +106,7 @@ myApp.controller("HomeCtrl", function (
     return num;
   };
 
-
-  $scope.checkDate = function (data) {
+  $scope.checkDate = function(data) {
     if (
       new Date(data.marketStartTime) > new Date() &&
       (data.betfairStatus == "OPEN" || data.isSuspended == "No")
@@ -124,18 +124,17 @@ myApp.controller("HomeCtrl", function (
     }
   };
 
-
-
   $scope.loadingData = true;
 
   function establishSocketConnection() {
-    _.each($scope.marketData, function (market) {
+    _.each($scope.marketData, function(market) {
       Service.apiCallWithData(
-        "Book/getUserBook", {
+        "Book/getUserBook",
+        {
           marketId: market.betfairId,
           user: user
         },
-        function (bookInfo) {
+        function(bookInfo) {
           if (bookInfo.value) {
             market.bookInfo = bookInfo.data.horse;
             market.userRate = bookInfo.data.userRate;
@@ -160,10 +159,10 @@ myApp.controller("HomeCtrl", function (
         "market_" + market.betfairId,
         function onConnect(data) {
           market.allZero = true;
-          _.each(market.runners, function (runner) {
-            _.each(data.rates, function (rate) {
+          _.each(market.runners, function(runner) {
+            _.each(data.rates, function(rate) {
               if (runner.betfairId == rate.id.toString()) {
-                _.each(rate.batb, function (backRate) {
+                _.each(rate.batb, function(backRate) {
                   if (
                     backRate[0] == 0 &&
                     runner.singleBackRate != backRate[1]
@@ -171,18 +170,18 @@ myApp.controller("HomeCtrl", function (
                     runner.singleBackRate = backRate[1];
                     runner.singleBackSize = backRate[2];
                     runner.singleBackRateBlink = true;
-                    $timeout(function () {
+                    $timeout(function() {
                       runner.singleBackRateBlink = false;
                     }, 1000);
                   }
                 });
 
-                _.each(rate.batl, function (layRate) {
+                _.each(rate.batl, function(layRate) {
                   if (layRate[0] == 0 && runner.singleLayRate != layRate[1]) {
                     runner.singleLayRate = layRate[1];
                     runner.singleLaySize = layRate[2];
                     runner.singleLayRateBlink = true;
-                    $timeout(function () {
+                    $timeout(function() {
                       runner.singleLayRateBlink = false;
                     }, 1000);
                   }
@@ -208,7 +207,7 @@ myApp.controller("HomeCtrl", function (
     });
   }
 
-  $scope.getMarketIds = function (value) {
+  $scope.getMarketIds = function(value) {
     if (value) $scope.loadingData = true;
     if ($state.current.name == "home.inside") {
       if (!_.isEmpty(value.parentId)) {
@@ -216,31 +215,31 @@ myApp.controller("HomeCtrl", function (
       }
       delete value.parentId;
     }
-    Service.apiCallWithData("Category/getMarketIds", value, function (data) {
+    Service.apiCallWithData("Category/getMarketIds", value, function(data) {
       if (data.value) {
         $scope.loadingData = false;
         if (!_.isEmpty(data.data)) {
           $scope.loadingData = false;
           $scope.marketData = data.data;
           if ($stateParams.parentId) {
-            $scope.singleMarket = _.remove($scope.marketData, function (market) {
+            $scope.singleMarket = _.remove($scope.marketData, function(market) {
               var sortedArray = _.sortBy(market.runners, ["sortPriority"]);
               market.runners = sortedArray;
               return market.name == "Match Odds";
             })[0];
             $scope.marketData.unshift($scope.singleMarket);
           }
-          _.each($scope.marketData, function (market) {
+          _.each($scope.marketData, function(market) {
             var sortedArray = _.sortBy(market.runners, ["sortPriority"]);
             market.runners = sortedArray;
-            _.each(market.runners, function (runner) {
-              _.each(runner.back, function (backRate) {
+            _.each(market.runners, function(runner) {
+              _.each(runner.back, function(backRate) {
                 if (backRate[0] == 0) {
                   runner.singleBackRate = backRate[1];
                   runner.singleBackSize = backRate[2];
                 }
               });
-              _.each(runner.lay, function (layRate) {
+              _.each(runner.lay, function(layRate) {
                 if (layRate[0] == 0) {
                   runner.singleLayRate = layRate[1];
                   runner.singleLaySize = layRate[2];
@@ -258,10 +257,11 @@ myApp.controller("HomeCtrl", function (
           }
           if ($stateParams.unmatched) {
             Service.apiCallWithData(
-              "Bet/getOne", {
+              "Bet/getOne",
+              {
                 _id: $stateParams.unmatched
               },
-              function (data) {
+              function(data) {
                 data = data.data;
                 $scope.betSlipRunner = {
                   accessToken: accessToken,
@@ -280,9 +280,10 @@ myApp.controller("HomeCtrl", function (
                   stake: data.stake,
                   oldStake: data.stake,
                   handicap: data.handicap
-                }
+                };
                 $scope.calculatePL(data.type);
-              })
+              }
+            );
           }
           establishSocketConnection();
           // console.log($scope.marketData);
@@ -295,7 +296,7 @@ myApp.controller("HomeCtrl", function (
     });
   };
   $scope.getMarketIds({
-    game: $stateParams.game ? $stateParams.game : 'Cricket',
+    game: $stateParams.game ? $stateParams.game : "Cricket",
     parentId: $stateParams.parentId
   });
   $scope.updateMatch = [];
@@ -328,7 +329,7 @@ myApp.controller("HomeCtrl", function (
     }
   );
 
-  $scope.getDetailedPage = function (game, event, id) {
+  $scope.getDetailedPage = function(game, event, id) {
     $state.go("app.sport", {
       game: game,
       parentId: id
@@ -338,7 +339,7 @@ myApp.controller("HomeCtrl", function (
   $scope.format = "yyyy/MM/dd";
   $scope.date = new Date();
 
-  $scope.saveFavourite = function (value, isFavourite) {
+  $scope.saveFavourite = function(value, isFavourite) {
     var userId = jStorageService.getUserId();
     console.log("favourites clicked", value, isFavourite);
 
@@ -356,12 +357,12 @@ myApp.controller("HomeCtrl", function (
     } else {
       obj.status = "Closed";
     }
-    Service.apiCallWithData("FavouriteMatch/saveUserFavourites", obj, function (
+    Service.apiCallWithData("FavouriteMatch/saveUserFavourites", obj, function(
       data
     ) {
       if (data.value) {
         if (data.data[1]) {
-          _.each($scope.marketData, function (n) {
+          _.each($scope.marketData, function(n) {
             if (n._id == data.data[1]._id) {
               n.isFavourite = data.data[1].isFavourite;
             }
@@ -370,7 +371,7 @@ myApp.controller("HomeCtrl", function (
       }
     });
   };
-  $scope.calculatePL = function (type) {
+  $scope.calculatePL = function(type) {
     // var userInfo = jStorageService.getUserData();
     // if (userInfo.minRate && userInfo.minRate[0].memberMinRate) {
     //   $scope.memberMinRate = userInfo.minRate[0].memberMinRate;
@@ -398,11 +399,10 @@ myApp.controller("HomeCtrl", function (
     //   $scope.checkChangeInBet();
     // }
     if (type == "LAY") {
-
       $scope.betSlipRunner.liability =
-        $scope.betSlipRunner.odds && $scope.betSlipRunner.stake ?
-        ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake :
-        0;
+        $scope.betSlipRunner.odds && $scope.betSlipRunner.stake
+          ? ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake
+          : 0;
       if (
         !$scope.betSlipRunner.stake ||
         $scope.betSlipRunner.stake >= $scope.memberMinRate
@@ -416,11 +416,10 @@ myApp.controller("HomeCtrl", function (
     }
 
     if (type == "BACK") {
-
       $scope.betSlipRunner.profit =
-        $scope.betSlipRunner.odds && $scope.betSlipRunner.stake ?
-        ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake :
-        0;
+        $scope.betSlipRunner.odds && $scope.betSlipRunner.stake
+          ? ($scope.betSlipRunner.odds - 1) * $scope.betSlipRunner.stake
+          : 0;
       if (
         !$scope.betSlipRunner.stake ||
         $scope.betSlipRunner.stake >= $scope.memberMinRate
@@ -435,16 +434,16 @@ myApp.controller("HomeCtrl", function (
     $rootScope.calculateBook($scope.betSlipRunner);
   };
 
-  $rootScope.calculateBook = function (value) {
+  $rootScope.calculateBook = function(value) {
     $scope.unexecutedProfit = [];
-    _.forEach($scope.marketData, function (market, marketIndex) {
+    _.forEach($scope.marketData, function(market, marketIndex) {
       market.book = [];
       if (value.marketId == market.betfairId) {
         market.book.push(value);
       }
-      _.each(market.runners, function (runner) {
+      _.each(market.runners, function(runner) {
         delete runner.unexecutedProfit;
-        _.each(market.book, function (book) {
+        _.each(market.book, function(book) {
           if (book.type == "LAY") {
             if (book.selectionId == runner.betfairId) {
               if (runner.unexecutedProfit) {
@@ -477,7 +476,7 @@ myApp.controller("HomeCtrl", function (
             }
           }
         });
-        _.each($scope.profits[marketIndex], function (m) {
+        _.each($scope.profits[marketIndex], function(m) {
           if (
             m.betfairId == runner.betfairId &&
             runner.unexecutedProfit &&
@@ -491,7 +490,7 @@ myApp.controller("HomeCtrl", function (
       $scope.unexecutedProfit.push(market.runners);
     });
   };
-  $scope.betConfirm = function () {
+  $scope.betConfirm = function() {
     $scope.betPlacing = true;
     if ($scope.userConfigData.confirmStatus) {
       $scope.openConfirmBet();
@@ -499,11 +498,11 @@ myApp.controller("HomeCtrl", function (
       $scope.placeBet();
     }
   };
-  $scope.placeBet = function () {
+  $scope.placeBet = function() {
     if ($scope.ConfirmBetModal) {
       $scope.closeConfirmBet();
     }
-    $timeout(function () {
+    $timeout(function() {
       $scope.openBetLoader();
       $scope.showTimer = true;
       $scope.countdown = 5;
@@ -512,11 +511,11 @@ myApp.controller("HomeCtrl", function (
     ionicToast.show("Your Bet will submit in 5 seconds");
     var reqData = [];
     reqData.push($scope.betSlipRunner);
-    Service.apiCallWithData("Betfair/placePlayerBetNew", reqData, function (
+    Service.apiCallWithData("Betfair/placePlayerBetNew", reqData, function(
       data
     ) {
       $scope.betPlacing = false;
-      $timeout(function () {
+      $timeout(function() {
         $scope.closeBetLoader();
         $scope.showTimer = false;
       }, 500);
@@ -534,7 +533,7 @@ myApp.controller("HomeCtrl", function (
     });
   };
 
-  $scope.updatePlayerBet = function (bet) {
+  $scope.updatePlayerBet = function(bet) {
     $scope.betPlacing = true;
     ionicToast.show("Your Bet will submit in 5 seconds");
     var reqData = [];
@@ -557,41 +556,39 @@ myApp.controller("HomeCtrl", function (
         oldStake: bet.stake,
         handicap: bet.handicap
       };
-      betData.type == "BACK" ?
-        (betData.profit = bet.profit) :
-        (betData.liability = bet.liability);
+      betData.type == "BACK"
+        ? (betData.profit = bet.profit)
+        : (betData.liability = bet.liability);
       reqData.push(betData);
     }
     if (reqData.length > 0) {
-      Service.apiCallWithData(
-        "Betfair/updatePlayerBet",
-        reqData,
-        function (data) {
-          $scope.betPlacing = false;
-          if (data.value) {
-            ionicToast.show("Bet Placed successfully!");
-            $scope.removeBet();
+      Service.apiCallWithData("Betfair/updatePlayerBet", reqData, function(
+        data
+      ) {
+        $scope.betPlacing = false;
+        if (data.value) {
+          ionicToast.show("Bet Placed successfully!");
+          $scope.removeBet();
+        } else {
+          if (
+            data.error == "Insufficient credit limit" ||
+            data.error == "Exceeded the profit limit"
+          ) {
+            ionicToast.show(data.error);
           } else {
-            if (
-              data.error == "Insufficient credit limit" ||
-              data.error == "Exceeded the profit limit"
-            ) {
-              ionicToast.show(data.error);
-            } else {
-              ionicToast.show("Error while placing Bet");
-            }
+            ionicToast.show("Error while placing Bet");
           }
         }
-      );
+      });
     } else {
       toastr.error("Error while placing Bet");
     }
   };
-  $scope.calculatePlacedBookAmt = function () {
+  $scope.calculatePlacedBookAmt = function() {
     $scope.profits = [];
-    _.each($scope.marketData, function (market) {
-      _.each(market.runners, function (runner) {
-        _.each(market.bookInfo, function (horse) {
+    _.each($scope.marketData, function(market) {
+      _.each(market.runners, function(runner) {
+        _.each(market.bookInfo, function(horse) {
           if (runner.betfairId == horse.horse) {
             runner.amount = horse.amount / market.userRate;
           }
@@ -606,14 +603,14 @@ myApp.controller("HomeCtrl", function (
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function (modal) {
+    .then(function(modal) {
       $scope.ConfirmBetModal = modal;
     });
 
-  $scope.openConfirmBet = function () {
+  $scope.openConfirmBet = function() {
     $scope.ConfirmBetModal.show();
   };
-  $scope.closeConfirmBet = function () {
+  $scope.closeConfirmBet = function() {
     $scope.ConfirmBetModal.hide();
   };
 
@@ -623,19 +620,19 @@ myApp.controller("HomeCtrl", function (
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function (modal) {
+    .then(function(modal) {
       $scope.BetLoaderModal = modal;
     });
 
-  $scope.openBetLoader = function () {
+  $scope.openBetLoader = function() {
     $scope.BetLoaderModal.show();
   };
-  $scope.closeBetLoader = function () {
+  $scope.closeBetLoader = function() {
     $scope.BetLoaderModal.hide();
   };
 
-  $scope.clickButton = function () {
-    $timeout(function () {
+  $scope.clickButton = function() {
+    $timeout(function() {
       if ($scope.countdown > 0 && $scope.showTimer) {
         $scope.countdown -= 1;
         $scope.clickButton();
@@ -645,4 +642,98 @@ myApp.controller("HomeCtrl", function (
       }
     }, 1000);
   };
+  $scope.setUserConfig = function(operation) {
+    console.log(operation);
+    var getIndex = _.findIndex($scope.userConfigData.oneClickStake, function(
+      stake
+    ) {
+      return $scope.userConfigData.oneClickActiveStake == stake;
+    });
+    if (getIndex == -1) {
+      $scope.userConfigData.oneClickActiveStake =
+        $scope.userConfigData.oneClickStake[$scope.activeStakeIndex];
+    }
+    Service.apiCallWithData(
+      "UserConfig/setUserConfig",
+      $scope.userConfigData,
+      function(data) {
+        $scope.getUserConfig();
+        operation == "stake" ? $scope.editStake() : "";
+        operation == "oneClickSave" ? $scope.editOneClickValue() : "";
+        if (data.value) {
+          //   toastr.success("user config changed successfully");
+          ionicToast.show("user config changed successfully");
+        } else {
+          //   toastr.error("Unable to change user config");
+          ionicToast.show("Unable to change user config");
+
+          if (operation == "oneClickToggle") {
+            $scope.userConfigData.oneClickStatus = !$scope.userConfigData
+              .oneClickStatus;
+          }
+          if (operation == "confirmBet") {
+            $scope.userConfigData.confirmStatus = !$scope.userConfigData
+              .confirmStatus;
+          }
+        }
+      }
+    );
+  };
+  $scope.getUserConfig = function() {
+    Service.apiCallWithData(
+      "UserConfig/getUserConfig",
+      {
+        user: user
+      },
+      function(data) {
+        if (data.value) {
+          if (!_.isEmpty(data.data)) {
+            $scope.userConfigData = data.data;
+            if (
+              !$scope.userConfigData.mobileStake ||
+              $scope.userConfigData.mobileStake.length == 0
+            ) {
+              $scope.userConfigData.mobileStake = [25, 50, 100];
+            }
+            if (
+              !$scope.userConfigData.oneClickStake ||
+              $scope.userConfigData.oneClickStake.length == 0
+            ) {
+              $scope.userConfigData.oneClickStake = [40, 50, 100];
+              $scope.userConfigData.oneClickActiveStake = 40;
+            }
+          } else {
+            $scope.userConfigData = {
+              user: user,
+              confirmStatus: true,
+              mobileStake: [25, 50, 100],
+              oneClickStake: [40, 50, 100],
+              oneClickStatus: false,
+              oneClickActiveStake: 40
+            };
+          }
+        } else {
+          $scope.userConfigData = {
+            user: user,
+            confirmStatus: true,
+            mobileStake: [25, 50, 100],
+            oneClickStake: [40, 50, 100],
+            oneClickStatus: false,
+            oneClickActiveStake: 40
+          };
+        }
+        $scope.mobileStakes = _.cloneDeep($scope.userConfigData.mobileStake);
+        $scope.oneClickStakes = _.cloneDeep(
+          $scope.userConfigData.oneClickStake
+        );
+        $scope.activeStakeIndex = _.findIndex(
+          $scope.userConfigData.oneClickStake,
+          function(stake) {
+            return $scope.userConfigData.oneClickActiveStake == stake;
+          }
+        );
+      }
+    );
+  };
+  $scope.getUserConfig();
 });

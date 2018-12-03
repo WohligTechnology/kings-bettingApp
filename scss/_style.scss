@@ -20001,13 +20001,15 @@ ion-modal-view.bet-confirm.modal {
   padding-top: 50px;
 }
 
-
-.oneclick-top {
-  top: 114px !important;
-}
-
 .has-header {
   top: 59px;
+}
+
+.oneclick-top {
+  top: 105px;
+}
+.one-click-setting.oneclick-top{
+  top: 50px;
 }
 .tabs-top.tabs-striped .tab-item{
   background: rgba(37, 43, 72, 0.73);
@@ -20050,8 +20052,8 @@ i.fi {
     margin: 0 5px 0 0;
 }
 
-.has-header-70{
-  top:70px;
+.has-header-72{
+  top:72px;
 }
 .has-header-100{
   top:100px;
@@ -20061,6 +20063,24 @@ i.fi {
 }
 .has-header-52{
   top:52px;
+}
+.has-header-98{
+  top:98px;
+}
+.has-header-115{
+  top:115px;
+}
+.market-list.mb-200{
+  margin-bottom: 200px;
+}
+.item.item-toggle.one-click-switch {
+  padding: 12px;
+}
+ion-content.betting-pnl-page.content {
+  top: 188px ;
+}
+ion-content.betting-pnl-page.content.oneclick-top {
+  top: 210px;
 }
 my-bets{
   display: block;

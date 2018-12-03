@@ -11,15 +11,20 @@
       </div>
       <ion-buttons class="bar-buttons bar-buttons-md">
           <i class="icon ion-search placeholder-icon"></i>
-          <div class="button-effect"></div>
+          
         </button>
       </ion-buttons>
     </ion-navbar>
+    <ion-toolbar class="one-click-setting toolbar toolbar-md" ng-if="userConfigData.oneClickStatus == true">
+        <div class="toolbar-content toolbar-content-md">
+          <div ng-include="oneClickBetting"></div>
+        </div>
+      </ion-toolbar>
   </div>
-  <ion-content class="betting-pnl-page content content-md" padding="" style="margin-top:60px;">
+  <ion-content class="betting-pnl-page content content-md has-header" padding=""   ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <div ng-if="searchEventdata.length>0">
       <ion-list class="distinct list list-md">
-        <ion-item class="item item-block item-md item-search" ng-repeat="searched in searchEventdata" ui-sref="app.sport({
+        <ion-item class="item item-block item-md item-search" ng-repeat="searched in searchEventdata" ui-sref="app.match-inner({
         'game':searched.eventType.name,'parentId':searched._id
       })">
           <div class="item-inner">
