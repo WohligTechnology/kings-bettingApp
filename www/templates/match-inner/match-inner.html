@@ -2,9 +2,7 @@
   <div class="header-container">
     <ion-navbar class="toolbar toolbar-md app-header root-page">
       <div class="toolbar-background toolbar-background-md"></div>
-      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
-        <a class="ion-arrow-left-c color-white"></a>
-      </button>
+      <go-back-button></go-back-button>
       <ion-buttons class="bar-buttons bar-buttons-md">
         <!-- <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
           ion-button="">
@@ -57,7 +55,7 @@
         <ion-tabs class="tabs-top has-header" style="top: 70px;">
           <ion-tab title="Market" class="nav-tab  markets ">
             <ion-content style="top: 100px;">
-              <section>
+              <section class="market-list-item">
                 <div class="list-body distinct">
                   <div>
                     <div>
@@ -76,21 +74,17 @@
                                           <i class="fas fa-star apl-icon-star-o"></i>
                                         </span>
                                       </span>
-                                      <div class="event-details">
+                                      <!-- <div class="event-details">
                                         <span class="label">{{ market.name }}</span>
                                       </div>
-
-                                      <!--
-                                            <div class="match-stats-info-icon" item-right="">
-                                              <i class="apl-icon-custom-match-stats fi flaticon-number-zero"></i>
-                                              <i class="apl-icon-custom-match-stats fi flaticon-number-one"></i>
-                                            </div>
-                                          -->
-
                                       <div class="in-play in-play-icon" ng-if="checkDate(market) == false">
                                         <i class="fi flaticon-play-button"></i>
-                                        <!-- <span>In Play</span> -->
-                                      </div>
+                                      </div> -->
+                                      <div class="heading">
+                                        <div class="title">{{ market.name }}</div>
+                                        <div class="action">Back</div>
+                                        <div class="action">Lay</div>
+                                    </div>
                                     </div>
                                     <div class="list-body">
                                       <!--

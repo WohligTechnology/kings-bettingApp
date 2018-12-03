@@ -4,7 +4,7 @@ myApp.controller("SportCtrl", function (
   Service,
   $state
 ) {
-  $scope.game = $stateParams.game;
+$scope.game = $stateParams.game;
   $scope.getGames = function () {
     Service.apiCallWithData(
       "Category/getCategoriesForNavigation", {},

@@ -2,9 +2,7 @@
   <div class="header-container">
     <ion-navbar class="toolbar toolbar-md app-header root-page">
       <div class="toolbar-background toolbar-background-md"></div>
-      <button class="search-back disable-hover font25 bar-button bar-button-md bar-button-default bar-button-default-md">
-        <a class="ion-arrow-left-c color-white"></a>
-      </button>
+      <go-back-button></go-back-button>
       <ion-buttons end="" class="bar-buttons bar-buttons-md">
         <!--
           <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
@@ -14,8 +12,12 @@
           </button>
         -->
         <search-event></search-event>
-        <button analytics-on="" class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button="" menu-toggle="right">
+        <button
+          analytics-on=""
+          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button=""
+          menu-toggle="right"
+        >
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -31,10 +33,12 @@
       </div>
     </ion-navbar>
   </div>
-  <ion-content class="my-bets-page content content-md" padding="" style="margin-top:60px;">
+  <ion-content
+    class="my-bets-page content content-md"
+    padding=""
+    style="margin-top:60px;"
+  >
     <h2 class="page-title">Open Bets</h2>
-    <div class="my-bets-container">
-      <my-bets></my-bets>
-    </div>
+    <div class="my-bets-container"><my-bets></my-bets></div>
   </ion-content>
 </ion-view>

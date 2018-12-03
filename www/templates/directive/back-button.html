@@ -1,12 +1,19 @@
 <div class="back">
-  <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-hide="market.allZero"
-    ng-class="{'blink':value.singleBackRateBlink}" class="more-odds not-selected">
+  <div
+    ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'"
+    ng-hide="market.allZero"
+    ng-class="{'blink':value.singleBackRateBlink}"
+    class="more-odds not-selected"
+  >
     <div class="greyed-out" ng-if="market.inPlayStatus == 'Close'"></div>
-    <div class="" ng-click=" placeBet(value.singleBackRate,'BACK',market,value)">
-      <div class="price">{{value.singleBackRate > 0 ?
-        value.singleBackRate :''}}</div>
-      <div>{{value.singleBackSize}}
+    <div
+      class=""
+      ng-click=" placeBet(value.singleBackRate,'BACK',market,value)"
+    >
+      <div class="price">
+        {{ value.singleBackRate > 0 ? value.singleBackRate : "" }}
       </div>
+      <div>{{ value.singleBackSize }}</div>
     </div>
   </div>
 </div>
