@@ -1,6 +1,6 @@
 myApp
-  .filter("formatdate", function($filter) {
-    return function(timestamp) {
+  .filter("formatdate", function ($filter) {
+    return function (timestamp) {
       var currentDate = new Date();
       var toFormat = new Date(timestamp);
       if (
@@ -8,28 +8,28 @@ myApp
         toFormat.getMonth() == currentDate.getMonth() &&
         toFormat.getFullYear() == currentDate.getFullYear()
       ) {
-        return "Today " + $filter("date")(toFormat.getTime(), "HH:mm");
+        return "Today " + $filter("timezoneformate")(toFormat.getTime(), "HH:mm");
       }
       if (
         toFormat.getDate() == currentDate.getDate() - 1 &&
         toFormat.getMonth() == currentDate.getMonth() &&
         toFormat.getFullYear() == currentDate.getFullYear()
       ) {
-        return "Yesterday " + $filter("date")(toFormat.getTime(), "HH:mm");
+        return "Yesterday " + $filter("timezoneformate")(toFormat.getTime(), "HH:mm");
       }
       if (
         toFormat.getDate() == currentDate.getDate() + 1 &&
         toFormat.getMonth() == currentDate.getMonth() &&
         toFormat.getFullYear() == currentDate.getFullYear()
       ) {
-        return "Tomorrow " + $filter("date")(toFormat.getTime(), "HH:mm");
+        return "Tomorrow " + $filter("timezoneformate")(toFormat.getTime(), "HH:mm");
       }
 
-      return $filter("date")(toFormat.getTime(), "dd/MM/yyyy HH:mm");
+      return $filter("timezoneformate")(toFormat.getTime(), "dd/MM/yyyy HH:mm");
     };
   })
-  .filter("timezoneformate", function($filter, $rootScope, $state) {
-    return function(date, format) {
+  .filter("timezoneformate", function ($filter, $rootScope, $state) {
+    return function (date, format) {
       var currentTimezone = $.jStorage.get("timezone");
       var formattedDate = date;
       if (!format) {
@@ -59,8 +59,8 @@ myApp
       return formattedDate;
     };
   })
-  .filter("gmtfiter", function() {
-    return function(date) {
+  .filter("gmtfiter", function () {
+    return function (date) {
       var timeOffset = new Date(date).getTimezoneOffset() / 60;
       var timeOffsetString = "GMT ";
       var hours = timeOffset / 1 - (timeOffset % 1);
