@@ -4,11 +4,6 @@
       <div class="toolbar-background toolbar-background-md"></div>
       <go-back-button></go-back-button>
       <ion-buttons class="bar-buttons bar-buttons-md">
-        <!-- <button class="old-search search disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"
-          ion-button="">
-          <i class="icon ion-search placeholder-icon"></i>
-          <div class="button-effect"></div>
-        </button> -->
         <search-event></search-event>
         <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
           ion-button="" menu-toggle="right">
@@ -29,19 +24,17 @@
         </ion-title>
       </div>
     </ion-navbar>
-
-    <!-- ngIf:  -->
   </div>
-
   <event-details>
     <div class="event-details">
       <tennis-event-details>
         <div class="tennis-event-details" ng-if="marketData[0]">
           <div class="main-detail-header">
+            <i class="fi flaticon-play-button" ng-if="checkDate(marketData[0]) == false"></i>  
             <h5 class="event-title">{{marketData[0].eventName}}</h5>
           </div>
           <div class="main-detail-additional-info">
-            <div class="date-info">
+            <div class="date-info" ng-if="checkDate(marketData[0]) == true">
               <span>{{ marketData[0].marketStartTime | formatdate}}</span>
             </div>
           </div>
@@ -49,17 +42,17 @@
       </tennis-event-details>
     </div>
   </event-details>
-  <div class="">
+  <div>
     <apl-nav-tabs-group>
       <div class="nav-tabs-group-container">
-        <ion-tabs class="tabs-top has-header" style="top: 70px;">
+        <ion-tabs class="tabs-top has-header" ng-class="{'has-header-52' : checkDate(marketData[0]) == false,'has-header-70' : checkDate(marketData[0]) == true}">
           <ion-tab title="Market" class="nav-tab  markets ">
-            <ion-content style="top: 100px;">
+            <ion-content ng-class="{'has-header-80' : checkDate(marketData[0]) == false,'has-header-100' : checkDate(marketData[0]) == true}">
               <section class="market-list-item">
                 <div class="list-body distinct">
                   <div>
                     <div>
-                      <div class="market-list" style="padding:16px">
+                      <div class="market-list padding">
                         <markets>
                           <div class="distinct market-list list">
                             <div class="market-list-item item item-block" ng-repeat="market in marketData track by $index"
@@ -276,18 +269,21 @@
               </section>
             </ion-content>
           </ion-tab>
-          <!-- <ion-tab title="News" class="nav-tab news">
+          <ion-tab title="News" class="nav-tab news">
             <ion-content style="top: 100px;">
-              gfgffffff
+              <div class="padding">
+                <h4>
+                  Coming soon
+                </h4>
+              </div>
             </ion-content>
-          </ion-tab> -->
+          </ion-tab>
           <ion-tab title=" Open Bets (0)" class="nav-tab bets">
             <ion-content style="top: 100px;">
-              <my-bets></my-bets>
+              <my-bets class="padding"></my-bets>
             </ion-content>
           </ion-tab>
         </ion-tabs>
     </apl-nav-tabs-group>
-  </div>
   </div>
 </ion-view>

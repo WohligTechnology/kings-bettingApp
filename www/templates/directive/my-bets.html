@@ -18,9 +18,9 @@
         </h3>
       </ion-item>
       <ion-item class="item-accordion" ng-show="isGroupShown('unmatched')">
-        <span
-          ng-if="!myCurrentBetData.unMatchedbets || myCurrentBetData.unMatchedbets.length == 0"
-          >You have no unmatched bets</span
+        <div
+          ng-if="!myCurrentBetData.unMatchedbets || myCurrentBetData.unMatchedbets.length == 0" class="padding"
+          >You have no unmatched bets</div
         >
         <section class="content-wrapper">
           <div>
@@ -101,7 +101,7 @@
       <ion-item class="item-accordion" ng-show="isGroupShown('matched')">
         <div
           ng-if="!myCurrentBetData.matchedBets || myCurrentBetData.matchedBets.length == 0"
-          class="padding-horizontal"
+          class="padding"
         >
           You have no matched bets
         </div>

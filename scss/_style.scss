@@ -16125,7 +16125,7 @@ football-event-details .football-event-details .main-detail-header .event-minute
 }
 
 football-event-details .football-event-details .main-detail-header i {
-  margin-top: 3px;
+  margin-top: 0px;
   margin-right: 8px;
 }
 
@@ -16237,7 +16237,7 @@ tennis-event-details .tennis-event-details .main-detail-header .event-title {
 }
 
 tennis-event-details .tennis-event-details .main-detail-header i {
-  margin-top: 3px;
+  margin-top: 0px;
   margin-right: 8px;
 }
 
@@ -20044,4 +20044,24 @@ content:'';
 }
 .intro p {
   text-align: justify;
+}
+
+i.fi {
+    margin: 0 5px 0 0;
+}
+
+.has-header-70{
+  top:70px;
+}
+.has-header-100{
+  top:100px;
+}
+.has-header-80{
+  top: 80px;
+}
+.has-header-52{
+  top:52px;
+}
+my-bets{
+  display: block;
 }

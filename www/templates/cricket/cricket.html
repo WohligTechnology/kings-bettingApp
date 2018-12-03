@@ -25,7 +25,9 @@
                                     <i class="fas fa-star apl-icon-star-o"></i>
                                 </span>
                             </span>
-                            <a class="event-name " ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage(selectedGame,market.parentCategory.name,market.parentCategory._id);">{{market.parentCategory.name}}</a>
+                            <a class="event-name " ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage(selectedGame,market.parentCategory.name,market.parentCategory._id);">
+                                {{market.parentCategory.name}}
+                            </a>
                             <small class="in-play-content" ng-if="checkDate(market) == false">
                                 <i class="fas fa-play-circle"></i> In-Play
                             </small>
