@@ -112,7 +112,8 @@
                 </span>
                 <div
                   class="event-details"
-                  ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage('','Cricket',market.parentCategory);"
+                  ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage('Cricket',market.parentCategory);"
+                  ui-sref=" app.match-inner({game:'Cricket',parentId:market.parentCategory})"
                 >
                   <i class="fi flaticon-Cricket"></i>
                   <span class="label">{{ market.eventName }}</span>
