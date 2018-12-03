@@ -11,11 +11,8 @@
           </button>
         -->
         <search-event></search-event>
-        <button
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -30,19 +27,16 @@
         </ion-title>
       </div>
     </ion-navbar>
-
-    <!-- ngIf: -->
   </div>
-  <ion-content
-    class="my-bets-page content content-md"
-    padding=""
-    style="margin-top:60px;"
-  >
-    <!-- <div class="fixed-content" style="margin-top: 60px;"></div> -->
-    <!-- <div class="scroll-content" style="margin-top: 60px;"> -->
+  <ion-content class="my-bets-page content content-md" padding="" style="margin-top:60px;">
     <h2 class="page-title">My Markets</h2>
-    <div class="padding">You have no open bets.</div>
-
-    <!-- </div> -->
+    <div class="padding" ng-if="!myMarkets || myMarkets.length==0 ">You have no open bets.</div>
+    <section>
+      <div class="list">
+        <a class="item" ng-repeat="market in myMarkets" ui-sref="app.match-inner({game:market.eventType.name,parentId:market.parentCategory._id})">
+          {{ market.parentCategory.name }}
+        </a>
+      </div>
+    </section>
   </ion-content>
 </ion-view>

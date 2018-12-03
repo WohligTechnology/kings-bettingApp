@@ -20,17 +20,11 @@
     <div class="menu-inner" style="transform: translateX(0px);">
       <main-menu>
         <ion-content class="content content-md">
-          <!--
-            <div class="fixed-content"></div>
-            <div class="scroll-content">
-          -->
           <ion-list no-border="" class="list list-md">
             <div>
               <div class="menu-lvl-1">
-                <button menu-clos class="item item-block item-md not-selected
-                  ui-sref="
-                  app.my-market" ng-click="favourites();">
-                  <i item-left="" class="fi flaticon-eye"></i>
+                <button menu-close class="item item-block item-md not-selected" ui-sref="app.my-market">
+                  <i class="fi flaticon-eye"></i>
                   <div class="item-inner">
                     <div class="input-wrapper">
                       <ion-label class="label label-md"> My Markets </ion-label>
@@ -44,7 +38,7 @@
             <div ng-repeat="game in gameData">
               <div class="menu-lvl-1">
                 <button menu-close class="item item-block item-md" ui-sref=" app.sport({game:game.name})">
-                  <i item-left="" class="fi flaticon-{{game.name}}"></i>
+                  <i class="fi flaticon-{{game.name}}"></i>
                   <div class="item-inner">
                     <div class="input-wrapper">
                       <ion-label class="label label-md">
@@ -57,78 +51,7 @@
               </div>
               <div class="menu-lvl-2"></div>
             </div>
-            <!-- <div> -->
-            <!--
-              <div class="menu-lvl-1">
-                  <button  class="item item-block item-md>
-                    <i item-left="" class="fi flaticon-football-ball"></i>
-                    <div class="item-inner">
-                      <div class="input-wrapper">
-                        <ion-label class="label label-md">
-                          Football
-                        </ion-label>
-                      </div>
-                    </div>
-                    <div class="button-effect"></div>
-                  </button>
-                </div>
-                <div class="menu-lvl-2">
-                </div>
-              </div>
-              <div>
-                <div class="menu-lvl-1">
-                  <button  class="item item-block item-md not>
-                    <i item-left="" class="fi flaticon-tennis-ball"></i>
-                    <div class="item-inner">
-                      <div class="input-wrapper">
-                        <ion-label class="label label-md">
-                          Tennis
-                        </ion-label>
-                      </div>
-                    </div>
-                    <div class="button-effect"></div>
-                  </button>
-                </div>
-                <div class="menu-lvl-2">
-                </div>
-              </div>
-              <div>
-                <div class="menu-lvl-1" ui-sref="app.racing-page">
-                  <button  class="item item-block item-md not>
-                    <i item-left="" class="fi flaticon-horse-head-side-view-to-the-right-silhouette"></i>
-                    <div class="item-inner">
-                      <div class="input-wrapper">
-                        <ion-label class="label label-md">
-                          Horse Racing
-                        </ion-label>
-                      </div>
-                    </div>
-                    <div class="button-effect"></div>
-                  </button>
-                </div>
-                <div class="menu-lvl-2">
-                </div>
-              </div>
-              <div>
-                <div class="menu-lvl-1">
-                  <button  class="item item-block item-md not>
-                    <i item-left="" class="fi flaticon-greyhound"></i>
-                    <div class="item-inner">
-                      <div class="input-wrapper">
-                        <ion-label class="label label-md">
-                          Greyhound Racing
-                        </ion-label>
-                      </div>
-                    </div>
-                    <div class="button-effect"></div>
-                  </button>
-                </div>
-                <div class="menu-lvl-2">
-                </div>
-              </div>
-            -->
           </ion-list>
-          <!-- </div> -->
         </ion-content>
       </main-menu>
     </div>
@@ -146,7 +69,7 @@
                 <ion-list class="list list-md">
                   <div class="menu-item">
                     <p class="label">
-                      <i item-left="" class="fi flaticon-school-building"></i>
+                      <i class="fi flaticon-school-building"></i>
                       <span>Balance Information</span>
                     </p>
                     <div class="content">
@@ -181,7 +104,7 @@
               <div>
                 <div class="menu-lvl-1 ">
                   <button menu-close class="item item-block item-md not-selected" ui-sref="app.open-bet">
-                    <i item-left="" class="fi flaticon-listing-option"></i>
+                    <i class="fi flaticon-listing-option"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
                         <ion-label class="label label-md">
@@ -196,7 +119,7 @@
               <div>
                 <div class="menu-lvl-1 ">
                   <button menu-close class="item item-block item-md not-selected" ui-sref="app.profit-loss">
-                    <i item-left="" class="fi flaticon-loss"></i>
+                    <i class="fi flaticon-loss"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
                         <ion-label class="label label-md">
@@ -212,7 +135,7 @@
               <div>
                 <div class="menu-lvl-1 ">
                   <button menu-close class="item item-block item-md not-selected" ui-sref="app.transfer-statement">
-                    <i item-left="" class="ion ion-clipboard"></i>
+                    <i class="ion ion-clipboard"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
                         <ion-label class="label label-md">
@@ -228,7 +151,7 @@
               <div>
                 <div class="menu-lvl-1 ">
                   <button class="item item-block item-md not-selected" ui-sref="app.time-setting">
-                    <i item-left="" class="fi flaticon-loss"></i>
+                    <i class="fi flaticon-loss"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
                         <ion-label class="label label-md">
@@ -244,7 +167,7 @@
               <!-- <div>
                 <div class="menu-lvl-1 ">
                   <button class="item item-block item-md not-selected">
-                    <i item-left="" class="ion ion-locked"></i>
+                    <i  class="ion ion-locked"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
                         <ion-label class="label label-md">
@@ -260,7 +183,7 @@
               <div>
                 <div class="menu-lvl-1 ">
                   <button menu-close class="item item-block item-md not-selected" ui-sref="app.rules-regulations">
-                    <i item-left="" class="fi flaticon-notebook"></i>
+                    <i class="fi flaticon-notebook"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
                         <ion-label class="label label-md">
@@ -275,7 +198,7 @@
               <div>
                 <div class="menu-lvl-1 one-click-menu">
                   <button menu-close class="item item-block item-md not-selected" ui-sref="app.bet-setting">
-                    <i item-left="" class="fi flaticon-bullseye"></i>
+                    <i class="fi flaticon-bullseye"></i>
                     <div class="item-inner">
                       <div class="input-wrapper">
                         <ion-label class="label label-md"> Settings </ion-label>
