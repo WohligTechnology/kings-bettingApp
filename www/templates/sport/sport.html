@@ -44,7 +44,7 @@
             <h2 class="page-title">{{ parent }}</h2>
             <div class="date-section" ng-repeat="category in subcategory | orderBy : 'openDate'" ng-click="getSubCategory(category,$index)">
               <div class="date">
-                <time>{{ category.openDate | date: "dd MMMM yyyy" }}</time>
+                <time>{{ category.openDate | timezoneformate : "dd MMMM yyyy" }}</time>
               </div>
               <ion-list class="distinct list list-md">
                 <ion-item analytics-on="" class="item item-block item-md" tappable="">
