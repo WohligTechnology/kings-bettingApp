@@ -6132,7 +6132,7 @@ Modified icons to fit ionicon’s grid from original.
   margin: 0;
   border: 0;
   border-radius: 0;
-  font-size: 12px;
+  font-size: 16px;
   background: transparent;
   color: #fff;
 }
@@ -11039,8 +11039,6 @@ ion-item-group .item-wrapper:last-child .item-ios .item-inner {
   color: #000;
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: background-color .3s cubic-bezier(.4, 0, .2, 1);
-  transition: background-color .3s cubic-bezier(.4, 0, .2, 1);
 }
 
 .item-md.activated {
@@ -20092,3 +20090,7 @@ button.button.button-icon.button-clear.ion-navicon.hide {
     opacity: 0.8;
     background: white !important;
   }
+  .placeholder-icon:first-child {
+    padding-right: 6px;
+    font-size: 24px;
+}

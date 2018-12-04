@@ -18,7 +18,7 @@
     <div ng-include="oneClickBetting" ng-show="userConfigData.oneClickStatus == true"></div>
 
   </div>
-  <ion-content class="betting-pnl-page content content-md has-header" padding="" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
+  <ion-content class="content content-md has-header" padding="" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <div ng-if="searchEventdata.length>0">
       <ion-list class="distinct list list-md">
         <ion-item class="item item-block item-md item-search" ng-repeat="searched in searchEventdata" ui-sref="app.match-inner({
