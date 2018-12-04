@@ -104,15 +104,15 @@
                                             <!--
                                                   ng-click="showBet()"  index="2" tappable="" type="back"
                                                 -->
-                                            <back-button run="runner" markets="market" type="back" class="more-odds not-selected"
+                                            <back-button run="runner" markets="market" type="back" class="more-odds"
                                               ng-click="showBet(market,runner,'BACK')">
                                             </back-button>
-                                            <lay-button run="runner" markets="market" type="lay" class="more-odds not-selected"
+                                            <lay-button run="runner" markets="market" type="lay" class="more-odds"
                                               ng-click="showBet(market,runner,'LAY')">
                                             </lay-button>
                                             <!--
                                                   <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
-                                                    ng-hide="market.runners.length==3 || isDraw == false || market.allZero" class="not-selected">
+                                                    ng-hide="market.runners.length==3 || isDraw == false || market.allZero" class=">
                                                     <span>-</span>
                                                   </div>
                                                 -->
@@ -239,10 +239,10 @@
                                       </div>
                                       <!--
                                             <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
-                                              ng-hide="market.runners.length==3 || isDraw == false || market.allZero" class="not-selected">
+                                              ng-hide="market.runners.length==3 || isDraw == false || market.allZero" class=">
                                               <span>-</span>
                                             </div>
-                                            <div class="not-selected" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
+                                            <div class=" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
                                               ng-hide="market.runners.length==3 || isDraw == false || market.allZero">
                                               <span>-</span>
                                             </div>
