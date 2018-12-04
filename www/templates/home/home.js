@@ -331,13 +331,6 @@ myApp.controller("HomeCtrl", function (
     }
   );
 
-  $scope.getDetailedPage = function (game, event, id) {
-    $state.go("app.sport", {
-      game: game,
-      parentId: id
-    });
-  };
-
   $scope.format = "yyyy/MM/dd";
   $scope.date = new Date();
 

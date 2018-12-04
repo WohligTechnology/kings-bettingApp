@@ -67,7 +67,7 @@ var myApp = angular
       })
       .state("app.sport", {
         cache: false,
-        url: "/sport/:game/:parentId",
+        url: "/sport/:game/:parentIndex",
         views: {
           menuContent: {
             templateUrl: "templates/sport/sport.html",

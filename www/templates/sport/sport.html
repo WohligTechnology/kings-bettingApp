@@ -12,11 +12,8 @@
           </button>
         -->
         <search-event></search-event>
-        <button
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -30,15 +27,9 @@
         </ion-title>
       </div>
     </ion-navbar>
-    <div
-      ng-include="oneClickBetting"
-      ng-show="userConfigData.oneClickStatus == true"
-    ></div>
+    <div ng-include="oneClickBetting" ng-show="userConfigData.oneClickStatus == true"></div>
   </div>
-  <ion-content
-    class="sport content content-md has-header"
-    ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}"
-  >
+  <ion-content class="sport content content-md has-header" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <div>
       <!-- <h2 class="page-title">{{ game.game }}</h2> -->
       <section>
@@ -46,30 +37,17 @@
           <div class="item item-divider">
             <h2>{{ game }}</h2>
           </div>
-          <a
-            class="item"
-            ng-if="!parent"
-            ng-repeat="category in subcategory"
-            ng-click="getSubCategory(category)"
-          >
+          <a class="item" ng-if="!parent" ng-repeat="category in subcategory" ng-click="getSubCategory(category,$index)">
             <span>{{ category.name }}</span>
           </a>
           <div ng-if="parent" class="padding competition">
             <h2 class="page-title">{{ parent }}</h2>
-            <div
-              class="date-section"
-              ng-repeat="category in subcategory"
-              ng-click="getSubCategory(category)"
-            >
+            <div class="date-section" ng-repeat="category in subcategory | orderBy : 'openDate'" ng-click="getSubCategory(category,$index)">
               <div class="date">
                 <time>{{ category.openDate | date: "dd MMMM yyyy" }}</time>
               </div>
               <ion-list class="distinct list list-md">
-                <ion-item
-                  analytics-on=""
-                  class="item item-block item-md"
-                  tappable=""
-                >
+                <ion-item analytics-on="" class="item item-block item-md" tappable="">
                   <div class="item-inner">
                     <div class="input-wrapper">
                       <ion-label class="label label-md">
