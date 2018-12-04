@@ -5,11 +5,8 @@
       <go-back-button></go-back-button>
       <ion-buttons class="bar-buttons bar-buttons-md">
         <search-event></search-event>
-        <button
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -23,21 +20,10 @@
         </ion-title>
       </div>
     </ion-navbar>
+    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
 
-    <ion-toolbar
-      class="one-click-setting toolbar toolbar-md"
-      ng-if="userConfigData.oneClickStatus == true"
-    >
-      <div class="toolbar-content toolbar-content-md">
-        <div ng-include="oneClickBetting"></div>
-      </div>
-    </ion-toolbar>
   </div>
-  <ion-content
-    class="transfer-page content content-md has-header"
-    padding
-    ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}"
-  >
+  <ion-content class="transfer-page content content-md has-header" padding ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <div>
       <h2 class="page-title">Transfer Statement</h2>
       <div class="report">
@@ -56,17 +42,10 @@
                 {{ transaction.createdAt | timezoneformate: "h:mm:ss" }}
               </div>
               <div class="description">
-                <span ng-if="transaction.fromUser._id === userId"
-                  >Transfer Out</span
-                >
-                <span ng-if="transaction.toUser._id === userId"
-                  >Transfer In</span
-                >
+                <span ng-if="transaction.fromUser._id === userId">Transfer Out</span>
+                <span ng-if="transaction.toUser._id === userId">Transfer In</span>
               </div>
-              <div
-                class="amount"
-                ng-class="{'-negative': transaction.fromUser._id === userId, '-positive': transaction.toUser._id === userId}"
-              >
+              <div class="amount" ng-class="{'-negative': transaction.fromUser._id === userId, '-positive': transaction.toUser._id === userId}">
                 <span ng-if="transaction.fromUser._id === userId">-</span>
                 {{ transaction.amount / balancePlayerRate || 0 | number: 2 }}
               </div>

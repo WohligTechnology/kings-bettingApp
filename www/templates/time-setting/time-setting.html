@@ -5,11 +5,8 @@
       <go-back-button></go-back-button>
       <ion-buttons class="bar-buttons bar-buttons-md">
         <search-event></search-event>
-        <button
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -23,21 +20,10 @@
         </ion-title>
       </div>
     </ion-navbar>
+    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
 
-    <ion-toolbar
-      class="one-click-setting toolbar toolbar-md"
-      ng-if="userConfigData.oneClickStatus == true"
-    >
-      <div class="toolbar-content toolbar-content-md">
-        <div ng-include="oneClickBetting"></div>
-      </div>
-    </ion-toolbar>
   </div>
-  <ion-content
-    class="transfer-page content padding content-md has-header"
-    padding
-    ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}"
-  >
+  <ion-content class="transfer-page content padding content-md has-header" padding ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <div>
       <h2 class="page-title">Time Setting</h2>
       <div class="content">
@@ -45,7 +31,7 @@
           <div class="clock">
             <span class="date">{{
               clock | timezoneformate: "MMMM dd,yyyy"
-            }}</span>
+              }}</span>
             <span class="time">{{ clock | timezoneformate: "HH:mm:ss" }}</span>
           </div>
           <div class="options">

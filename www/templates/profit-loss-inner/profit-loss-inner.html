@@ -16,7 +16,7 @@
             <balance ng-balance="balanceData">
             </balance>
           </span>
-          
+
         </button>
       </ion-buttons>
       <div class="toolbar-content toolbar-content-md" ui-sref="app.home">
@@ -29,13 +29,10 @@
         </ion-title>
       </div>
     </ion-navbar>
-    <ion-toolbar class="one-click-setting toolbar toolbar-md" ng-if="userConfigData.oneClickStatus == true">
-        <div class="toolbar-content toolbar-content-md">
-          <div ng-include="oneClickBetting"></div>
-        </div>
-      </ion-toolbar>
+    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
+
   </div>
-  <ion-content class="pnl-breakdown-page content content-md" padding="" style="margin-top:40px;"  ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
+  <ion-content class="pnl-breakdown-page content content-md" padding="" style="margin-top:40px;" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
     <div class="scroll-content" style="margin-top: 60px;"> -->
     <div ng-if="isDetailedView">

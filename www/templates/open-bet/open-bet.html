@@ -5,12 +5,8 @@
       <go-back-button></go-back-button>
       <ion-buttons end="" class="bar-buttons bar-buttons-md">
         <search-event></search-event>
-        <button
-          analytics-on=""
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        <button analytics-on="" class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -24,21 +20,13 @@
         </ion-title>
       </div>
     </ion-navbar>
-    <ion-toolbar
-      class="one-click-setting toolbar toolbar-md"
-      ng-if="userConfigData.oneClickStatus == true"
-    >
-      <div class="toolbar-content toolbar-content-md">
-        <div ng-include="oneClickBetting"></div>
-      </div>
-    </ion-toolbar>
+    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
+
   </div>
-  <ion-content
-    class="my-bets-page content content-md has-header"
-    padding=""
-    ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}"
-  >
+  <ion-content class="my-bets-page content content-md has-header" padding="" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <h2 class="page-title">Open Bets</h2>
-    <div class="my-bets-container"><my-bets></my-bets></div>
+    <div class="my-bets-container">
+      <my-bets></my-bets>
+    </div>
   </ion-content>
 </ion-view>

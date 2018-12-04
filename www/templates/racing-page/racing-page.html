@@ -12,11 +12,8 @@
           </button>
         -->
         <search-event></search-event>
-        <button
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -30,22 +27,9 @@
         </ion-title>
       </div>
     </ion-navbar>
-
-    <ion-toolbar
-      class="one-click-setting toolbar toolbar-md"
-      ng-if="userConfigData.oneClickStatus == true"
-    >
-      <div class="toolbar-content toolbar-content-md">
-        <div ng-include="oneClickBetting"></div>
-      </div>
-    </ion-toolbar>
+    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
   </div>
-  <ion-content
-    class="racing-page content content-md"
-    padding=""
-    style="margin-top:40px;"
-    ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}"
-  >
+  <ion-content class="racing-page content content-md" padding="" style="margin-top:40px;" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <!--
       <div class="fixed-content" style="margin-top: 60px;"></div>
       <div class="scroll-content" style="margin-top: 60px;">

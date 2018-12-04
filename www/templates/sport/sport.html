@@ -27,11 +27,8 @@
         </ion-title>
       </div>
     </ion-navbar>
-    <ion-toolbar class="one-click-setting toolbar toolbar-md" ng-if="userConfigData.oneClickStatus == true">
-      <div class="toolbar-content toolbar-content-md">
-        <div ng-include="oneClickBetting"></div>
-      </div>
-    </ion-toolbar>
+    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
+
   </div>
   <ion-content class="sport content content-md has-header" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <div>

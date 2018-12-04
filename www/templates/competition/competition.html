@@ -5,11 +5,8 @@
       <go-back-button></go-back-button>
       <ion-buttons class="bar-buttons bar-buttons-md">
         <search-event></search-event>
-        <button
-          class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
-          ion-button=""
-          menu-toggle="right"
-        >
+        <button class="balance-button disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md"
+          ion-button="" menu-toggle="right">
           <span class="button-inner">
             <balance ng-balance="balanceData"> </balance>
           </span>
@@ -24,20 +21,10 @@
       </div>
     </ion-navbar>
 
-    <ion-toolbar
-      class="one-click-setting toolbar toolbar-md"
-      ng-if="userConfigData.oneClickStatus == true"
-    >
-      <div class="toolbar-content toolbar-content-md">
-        <div ng-include="oneClickBetting"></div>
-      </div>
-    </ion-toolbar>
+    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
+
   </div>
-  <ion-content
-    class="competition content content-md"
-    padding=""
-    ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}"
-  >
+  <ion-content class="competition content content-md" padding="" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <!--
       <div class="fixed-content" style="margin-top: 60px;"></div>
       <div class="scroll-content" style="margin-top: 60px;">
@@ -49,11 +36,7 @@
         <div class="date-section">
           <div class="date"><time>11th August 2018</time></div>
           <ion-list class="distinct list list-md">
-            <ion-item
-              analytics-on=""
-              class="item item-block item-md"
-              tappable=""
-            >
+            <ion-item analytics-on="" class="item item-block item-md" tappable="">
               <div class="item-inner">
                 <div class="input-wrapper">
                   <ion-label class="label label-md">
@@ -69,11 +52,7 @@
         <div class="date-section">
           <div class="date"><time>12th August 2018</time></div>
           <ion-list class="distinct list list-md">
-            <ion-item
-              analytics-on=""
-              class="item item-block item-md"
-              tappable=""
-            >
+            <ion-item analytics-on="" class="item item-block item-md" tappable="">
               <div class="item-inner">
                 <div class="input-wrapper">
                   <ion-label class="label label-md">
@@ -84,11 +63,7 @@
                 </div>
               </div>
             </ion-item>
-            <ion-item
-              analytics-on=""
-              class="item item-block item-md"
-              tappable=""
-            >
+            <ion-item analytics-on="" class="item item-block item-md" tappable="">
               <div class="item-inner">
                 <div class="input-wrapper">
                   <ion-label class="label label-md">
@@ -106,11 +81,7 @@
         <div class="date-section">
           <div class="date"><time>13th August 2018</time></div>
           <ion-list class="distinct list list-md">
-            <ion-item
-              analytics-on=""
-              class="item item-block item-md"
-              tappable=""
-            >
+            <ion-item analytics-on="" class="item item-block item-md" tappable="">
               <div class="item-inner">
                 <div class="input-wrapper">
                   <ion-label class="label label-md">

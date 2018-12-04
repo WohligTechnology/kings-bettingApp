@@ -23,41 +23,38 @@
         </ion-title>
       </div>
     </ion-navbar>
-    <ion-toolbar class="one-click-setting toolbar toolbar-md" ng-if="userConfigData.oneClickStatus == true">
-        <div class="toolbar-content toolbar-content-md">
-          <div ng-include="oneClickBetting"></div>
-        </div>
-      </ion-toolbar>
+    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
+
     <div class="card p-0">
-        <div class="row item item-divider">
-          <div class="right col-50 from-to-date">
-            <div class="">
-              From
-            </div>
-          </div>
-          <div class="right col-50 from-to-date">
-            <div>
-              To
-            </div>
+      <div class="row item item-divider">
+        <div class="right col-50 from-to-date">
+          <div class="">
+            From
           </div>
         </div>
-        <div>
-          <div class="row item">
-              <div class="right col-50 from-to-date">
-                  <input type="text" name="fromDate" ng-model="formData.fromDate" ng-click="openDatePicker()" class="cursor">
-                </div>
-                <div class="right col-50 from-to-date">
-                  <input type="text" name="toDate" ng-model="formData.toDate" ng-click="openDatePicker2()" class=" cursor">
-                </div>
+        <div class="right col-50 from-to-date">
+          <div>
+            To
           </div>
-        </div>
-        <div class="padding text-center">
-          <button class="button button-search button-small button-positive" type="submit" ng-click="bettingPl({})" id="submit">
-            <!-- <i class="icon ion-search placeholder-icon"></i>  -->
-            Search
-          </button>
         </div>
       </div>
+      <div>
+        <div class="row item">
+          <div class="right col-50 from-to-date">
+            <input type="text" name="fromDate" ng-model="formData.fromDate" ng-click="openDatePicker()" class="cursor">
+          </div>
+          <div class="right col-50 from-to-date">
+            <input type="text" name="toDate" ng-model="formData.toDate" ng-click="openDatePicker2()" class=" cursor">
+          </div>
+        </div>
+      </div>
+      <div class="padding text-center">
+        <button class="button button-search button-small button-positive" type="submit" ng-click="bettingPl({})" id="submit">
+          <!-- <i class="icon ion-search placeholder-icon"></i>  -->
+          Search
+        </button>
+      </div>
+    </div>
   </div>
   <ion-content class="betting-pnl-page content content-md" padding="" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <!-- <div class="fixed-content" style="margin-top: 60px;"></div>
