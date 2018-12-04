@@ -1,5 +1,5 @@
 myApp
-  .directive("balance", function() {
+  .directive("balance", function () {
     return {
       restrict: "E",
       replace: false,
@@ -7,7 +7,7 @@ myApp
         balanceData: "=ngBalance"
       },
       templateUrl: "templates/directive/balance.html",
-      link: function($scope, element, attr) {}
+      link: function ($scope, element, attr) {}
     };
   })
   // .directive('market', function () {
@@ -34,15 +34,15 @@ myApp
   //     }
   //   };
   // })
-  .directive("marketVolume", function() {
+  .directive("marketVolume", function () {
     return {
       restrict: "E",
       replace: false,
       templateUrl: "templates/directive/market-volume.html",
-      link: function($scope, element, attr) {}
+      link: function ($scope, element, attr) {}
     };
   })
-  .directive("backButton", function() {
+  .directive("backButton", function () {
     return {
       restrict: "E",
       replace: false,
@@ -51,10 +51,10 @@ myApp
         market: "=markets"
       },
       templateUrl: "templates/directive/back-button.html",
-      link: function($scope, element, attr) {}
+      link: function ($scope, element, attr) {}
     };
   })
-  .directive("layButton", function() {
+  .directive("layButton", function () {
     return {
       restrict: "E",
       replace: false,
@@ -63,70 +63,23 @@ myApp
         market: "=markets"
       },
       templateUrl: "templates/directive/lay-button.html",
-      link: function($scope, element, attr) {}
+      link: function ($scope, element, attr) {}
     };
   })
-  .directive("goBackButton", function() {
+  .directive("goBackButton", function () {
     return {
       restrict: "E",
       replace: false,
       scope: {},
       templateUrl: "templates/directive/go-back-button.html",
-      link: function($scope, element, attr) {
-        $scope.goBack = function() {
+      link: function ($scope, element, attr) {
+        $scope.goBack = function () {
           window.history.back();
         };
       }
     };
   })
-  .directive("oneClickBetting", function() {
-    return {
-      restrict: "E",
-      replace: false,
-      scope: {},
-      templateUrl: "templates/directive/one-click-betting.html",
-      link: function($scope, element, attr) {
-        $scope.setUserConfig = function(operation) {
-          var getIndex = _.findIndex(
-            $scope.userConfigData.oneClickStake,
-            function(stake) {
-              return $scope.userConfigData.oneClickActiveStake == stake;
-            }
-          );
-          if (getIndex == -1) {
-            $scope.userConfigData.oneClickActiveStake =
-              $scope.userConfigData.oneClickStake[$scope.activeStakeIndex];
-          }
-          Service.apiCallWithData(
-            "UserConfig/setUserConfig",
-            $scope.userConfigData,
-            function(data) {
-              $scope.getUserConfig();
-              operation == "stake" ? $scope.editStake() : "";
-              operation == "oneClickSave" ? $scope.editOneClickValue() : "";
-              if (data.value) {
-                //   toastr.success("user config changed successfully");
-                ionicToast.show("user config changed successfully");
-              } else {
-                //   toastr.error("Unable to change user config");
-                ionicToast.show("Unable to change user config");
-
-                if (operation == "oneClickToggle") {
-                  $scope.userConfigData.oneClickStatus = !$scope.userConfigData
-                    .oneClickStatus;
-                }
-                if (operation == "confirmBet") {
-                  $scope.userConfigData.confirmStatus = !$scope.userConfigData
-                    .confirmStatus;
-                }
-              }
-            }
-          );
-        };
-      }
-    };
-  })
-  .directive("myBets", function(
+  .directive("myBets", function (
     TemplateService,
     Service,
     ionicToast,
@@ -136,31 +89,30 @@ myApp
       restrict: "E",
       replace: false,
       templateUrl: "templates/directive/my-bets.html",
-      link: function($scope, element, attr) {
+      link: function ($scope, element, attr) {
         var user = $.jStorage.get("userId");
-        $scope.toggleGroup = function(group) {
+        $scope.toggleGroup = function (group) {
           if ($scope.isGroupShown(group)) {
             $scope.shownGroup = null;
           } else {
             $scope.shownGroup = group;
           }
         };
-        $scope.isGroupShown = function(group) {
+        $scope.isGroupShown = function (group) {
           return $scope.shownGroup === group;
         };
 
-        $scope.getMyCurrentBetStatus = function() {
+        $scope.getMyCurrentBetStatus = function () {
           $scope.matchedFilter = "Order By Date";
           Service.apiCallWithData(
-            "bet/getMyCurrentBetStatus",
-            {
+            "bet/getMyCurrentBetStatus", {
               playerId: user
             },
-            function(betData) {
+            function (betData) {
               if (betData.value) {
                 $scope.myCurrentBetData = betData.data;
                 if ($stateParams.parentId) {
-                  _.remove($scope.myCurrentBetData.unMatchedbets, function(
+                  _.remove($scope.myCurrentBetData.unMatchedbets, function (
                     unMatchedbets
                   ) {
                     return (
@@ -168,7 +120,7 @@ myApp
                       $stateParams.parentId
                     );
                   });
-                  _.remove($scope.myCurrentBetData.matchedBets, function(
+                  _.remove($scope.myCurrentBetData.matchedBets, function (
                     matchedBets
                   ) {
                     return (
@@ -207,7 +159,7 @@ myApp
           }
         );
         $scope.getMyCurrentBetStatus();
-        $scope.cancelBet = function(betArray, level) {
+        $scope.cancelBet = function (betArray, level) {
           var reqData = [];
           reqData.push({
             playerId: user,
@@ -216,7 +168,7 @@ myApp
           Service.apiCallWithData(
             "Betfair/cancelPlayerBetNew",
             reqData,
-            function(data) {
+            function (data) {
               if (data.value) {
                 $scope.getMyCurrentBetStatus();
                 // toastr.success("Bet cancelled successfully");
@@ -231,23 +183,23 @@ myApp
       }
     };
   })
-  .directive("displaynumber", function($http, $filter) {
+  .directive("displaynumber", function ($http, $filter) {
     return {
       templateUrl: "templates/directive/display-number.html",
       scope: {
         model: "=ngModel"
         // decimal: '=decimal'
       },
-      link: function($scope, element, attrs) {
+      link: function ($scope, element, attrs) {
         // $scope.decimal = $scope.decimal ? $scope.decimal : 2;
       }
     };
   })
-  .directive("searchEvent", function() {
+  .directive("searchEvent", function () {
     return {
       restrict: "E",
       replace: false,
       templateUrl: "templates/directive/search.html",
-      link: function($scope, element, attr) {}
+      link: function ($scope, element, attr) {}
     };
   });
