@@ -30,7 +30,7 @@
                       <ion-label class="label label-md"> My Markets </ion-label>
                     </div>
                   </div>
-                  
+
                 </button>
               </div>
               <div class="menu-lvl-2"></div>
@@ -46,7 +46,7 @@
                       </ion-label>
                     </div>
                   </div>
-                  
+
                 </button>
               </div>
               <div class="menu-lvl-2"></div>
@@ -77,23 +77,27 @@
                         <div>Available Credit:</div>
                         <span>
                           <strong>{{
-                            balanceData.balance || 0 | number: 2
+                            (balanceData.balance/balancePlayerRate) || 0 | number: 2
                             }}</strong>
                         </span>
                       </div>
                       <div class="group">
                         <div>Credit Limit:</div>
-                        <span>{{ balanceData.creditLimit || 0 }}</span>
+                        <span>{{ (balanceData.creditLimit/balancePlayerRate) || 0 }}</span>
                       </div>
                       <div class="group">
                         <div>Winnings:</div>
-                        <span ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings >= 0}">+
-                          {{ balanceData.winnings || 0 | number: 2 }}</span>
+                        <span ng-class="{'-negative': (balanceData.winnings/balancePlayerRate) < 0, '-positive': (balanceData.winnings/balancePlayerRate) >= 0}">+
+                          {{ (balanceData.winnings/balancePlayerRate) || 0 | number: 2 }}</span>
                       </div>
                       <div class="group">
                         <div>Net Exposure:</div>
                         <span ng-class="{'positive':netExposureData >= 0 ,'negative':netExposureData<0}">{{
                           netExposureData | number: 2 }}</span>
+                      </div>
+                      <div class="group">
+                        <div>Rate:</div>1 point =
+                        {{ balancePlayerRate || 0 | number: 2 }}
                       </div>
                     </div>
                   </div>
@@ -112,7 +116,7 @@
                         </ion-label>
                       </div>
                     </div>
-                    
+
                   </button>
                 </div>
               </div>
@@ -127,7 +131,7 @@
                         </ion-label>
                       </div>
                     </div>
-                    
+
                   </button>
                 </div>
               </div>
@@ -143,7 +147,7 @@
                         </ion-label>
                       </div>
                     </div>
-                    
+
                   </button>
                 </div>
               </div>
@@ -159,7 +163,7 @@
                         </ion-label>
                       </div>
                     </div>
-                    
+
                   </button>
                 </div>
               </div>
@@ -191,7 +195,7 @@
                         </ion-label>
                       </div>
                     </div>
-                    
+
                   </button>
                 </div>
               </div>
@@ -204,7 +208,7 @@
                         <ion-label class="label label-md"> Settings </ion-label>
                       </div>
                     </div>
-                    
+
                   </button>
                 </div>
               </div>
@@ -217,7 +221,7 @@
                 <ion-label class="label label-md"> Sign Out </ion-label>
               </div>
             </div>
-            
+
           </button>
           <div class="powered-by item item-bloc>
             <div class=" item-inner">
@@ -225,7 +229,7 @@
               <ion-label class="label label-md"></ion-label>
             </div>
           </div>
-          
+
     </div>
     <!-- </div> -->
     </ion-content>

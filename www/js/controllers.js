@@ -1,7 +1,7 @@
 angular
   .module("starter.controllers", [])
 
-  .controller("AppCtrl", function(
+  .controller("AppCtrl", function (
     $scope,
     $ionicModal,
     $timeout,
@@ -18,10 +18,10 @@ angular
 
     $scope.loginData = {};
     TemplateService.connectSocket();
-    $scope.$on("$ionicView.enter", function() {
+    $scope.$on("$ionicView.enter", function () {
       $ionicSideMenuDelegate.canDragContent(false);
     });
-    $scope.$on("$ionicView.leave", function() {
+    $scope.$on("$ionicView.leave", function () {
       $ionicSideMenuDelegate.canDragContent(false);
     });
     $scope.game = $state.params.game;
@@ -30,7 +30,7 @@ angular
     $scope.oneClickBetting = "templates/directive/one-click-betting.html";
 
     var user = jStorageService.getUserId();
-    var tick = function() {
+    var tick = function () {
       $scope.clock = Date.now();
     };
     tick();
@@ -39,29 +39,27 @@ angular
       $state.go("login");
     }
     if ($.jStorage.get("userId")) {
-      Service.userGetOne(
-        {
+      Service.userGetOne({
           _id: $.jStorage.get("userId")
         },
-        function(userData) {
+        function (userData) {
           $scope.userInfo = userData.data;
         }
       );
     }
 
-    $scope.getGames = function() {
+    $scope.getGames = function () {
       Service.apiCallWithData(
-        "Category/getCategoriesForNavigation",
-        {},
-        function(data) {
+        "Category/getCategoriesForNavigation", {},
+        function (data) {
           if (data.value) {
             if (!_.isEmpty(data.data)) {
               $scope.gameData = data.data;
-              _.each($scope.gameData, function(game) {
+              _.each($scope.gameData, function (game) {
                 if (_.isEmpty(game.children)) {
                   game.hide = true;
                 } else {
-                  _.each(game.children, function(child) {
+                  _.each(game.children, function (child) {
                     if (_.isEmpty(child.children)) {
                       child.hide = true;
                     }
@@ -79,47 +77,46 @@ angular
       );
     };
     $scope.getGames();
-    $scope.searchEvent = function(value) {
+    $scope.searchEvent = function (value) {
       Service.apiCallWithData(
-        "category/searchEvent",
-        {
+        "category/searchEvent", {
           searchText: value
         },
-        function(data) {
+        function (data) {
           $scope.searchData = data.data;
         }
       );
     };
-    $scope.logout = function() {
+    $scope.logout = function () {
       $.jStorage.flush();
       $state.go("login");
     };
-    $scope.getAvailableCredit = function() {
+    $scope.getAvailableCredit = function () {
       Service.apiCallWithUrl(
-        mainServer + "api/sportsbook/getCurrentBalance",
-        {
+        mainServer + "api/sportsbook/getCurrentBalanceForSportsBook", {
           _id: user
         },
-        function(balanceData) {
+        function (balanceData) {
           if (balanceData.value) {
             $scope.balanceData = balanceData.data;
+            $scope.balancePlayerRate = $scope.balanceData.playerRate;
+            $scope.winningsData = $scope.balanceData.winnings;
           }
         }
       );
       Service.apiCallWithUrl(
-        mainServer + "api/netExposure/getMemberNetExposure",
-        {
+        mainServer + "api/netExposure/getMemberNetExposure", {
           _id: user
         },
-        function(netExposureData) {
+        function (netExposureData) {
           if (netExposureData.value) {
             console.log(
               "netExposureData!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
               netExposureData
             );
-            $scope.netExposureData = netExposureData.data.netExposure
-              ? netExposureData.data.netExposure * -1
-              : 0;
+            $scope.netExposureData = netExposureData.data.netExposure ?
+              netExposureData.data.netExposure * -1 :
+              0;
             console.log(
               "$scope.netExposureData##########################",
               $scope.netExposureData
@@ -135,9 +132,9 @@ angular
       $scope.mySocket1.on("NetExposure_" + user, function onConnect(
         netExposureData
       ) {
-        $scope.netExposureData = netExposureData.netExposure
-          ? netExposureData.netExposure * -1
-          : 0;
+        $scope.netExposureData = netExposureData.netExposure ?
+          netExposureData.netExposure * -1 :
+          0;
         $scope.$apply();
       });
     };
@@ -145,15 +142,15 @@ angular
 
     var user = $.jStorage.get("userId");
 
-    $scope.editOneClickValue = function() {
+    $scope.editOneClickValue = function () {
       $scope.onclickEdit = !$scope.onclickEdit;
     };
-    $scope.editStake = function() {
+    $scope.editStake = function () {
       $scope.stakeEdit = !$scope.stakeEdit;
     };
-    $scope.setUserConfig = function(operation) {
+    $scope.setUserConfig = function (operation) {
       console.log(operation);
-      var getIndex = _.findIndex($scope.userConfigData.oneClickStake, function(
+      var getIndex = _.findIndex($scope.userConfigData.oneClickStake, function (
         stake
       ) {
         return $scope.userConfigData.oneClickActiveStake == stake;
@@ -165,7 +162,7 @@ angular
       Service.apiCallWithData(
         "UserConfig/setUserConfig",
         $scope.userConfigData,
-        function(data) {
+        function (data) {
           $scope.getUserConfig();
           operation == "stake" ? $scope.editStake() : "";
           operation == "oneClickSave" ? $scope.editOneClickValue() : "";
@@ -188,13 +185,12 @@ angular
         }
       );
     };
-    $scope.getUserConfig = function() {
+    $scope.getUserConfig = function () {
       Service.apiCallWithData(
-        "UserConfig/getUserConfig",
-        {
+        "UserConfig/getUserConfig", {
           user: user
         },
-        function(data) {
+        function (data) {
           if (data.value) {
             if (!_.isEmpty(data.data)) {
               $scope.userConfigData = data.data;
@@ -237,7 +233,7 @@ angular
           );
           $scope.activeStakeIndex = _.findIndex(
             $scope.userConfigData.oneClickStake,
-            function(stake) {
+            function (stake) {
               return $scope.userConfigData.oneClickActiveStake == stake;
             }
           );
@@ -246,13 +242,12 @@ angular
     };
     $scope.getUserConfig();
 
-    $scope.getTimeZone = function() {
+    $scope.getTimeZone = function () {
       Service.apiCallWithUrl(
-        mainServer + "api/member/getTimeZone",
-        {
+        mainServer + "api/member/getTimeZone", {
           memberId: user
         },
-        function(data) {
+        function (data) {
           if (data.value) {
             if (data.data.timezone) {
               $.jStorage.set("timezone", data.data.timezone);
@@ -264,14 +259,13 @@ angular
       );
     };
     $scope.getTimeZone();
-    $scope.setTimeZone = function(value) {
+    $scope.setTimeZone = function (value) {
       Service.apiCallWithUrl(
-        mainServer + "api/member/setTimeZone",
-        {
+        mainServer + "api/member/setTimeZone", {
           memberId: user,
           timezone: value
         },
-        function(data) {
+        function (data) {
           if (data.value) {
             $state.reload();
             toastr.success("timezone updated");
