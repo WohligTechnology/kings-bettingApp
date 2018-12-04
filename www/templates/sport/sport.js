@@ -4,7 +4,7 @@ myApp.controller("SportCtrl", function (
   Service,
   $state
 ) {
-$scope.game = $stateParams.game;
+  $scope.game = $stateParams.game;
   $scope.getGames = function () {
     Service.apiCallWithData(
       "Category/getCategoriesForNavigation", {},
@@ -26,6 +26,7 @@ $scope.game = $stateParams.game;
   // //To get sub Category
   $scope.getSubCategory = function (value) {
     if (!_.isEmpty(value.children)) {
+      $scope.parent = value.name;
       $scope.subcategory = value.children;
     } else {
       $state.go('app.match-inner', {
