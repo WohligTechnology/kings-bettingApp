@@ -186,15 +186,15 @@
 
                         <div class="input-buttons">
                           <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[0]">
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[0];calculatePL(betSlipRunner.type)">
                             <span class="button-inner">+{{ mobileStakes[0] }}</span>
                           </button>
                           <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[1]">
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[1];calculatePL(betSlipRunner.type)">
                             <span class="button-inner">+{{ mobileStakes[1] }}</span>
                           </button>
                           <button type="button" class="disable-hover button button-md button-default button-default-md button-small button-small-md button-md-cta-action"
-                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[2]">
+                            ng-click="betSlipRunner.stake =betSlipRunner.stake + mobileStakes[2];calculatePL(betSlipRunner.type)">
                             <span class="button-inner">+{{ mobileStakes[2] }}</span>
                           </button>
                         </div>
