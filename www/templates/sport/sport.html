@@ -27,7 +27,7 @@
         </ion-title>
       </div>
     </ion-navbar>
-    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
+    <div ng-include="oneClickBetting" ng-show="userConfigData.oneClickStatus == true"></div>
 
   </div>
   <ion-content class="sport content content-md has-header" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
@@ -44,7 +44,7 @@
           <div ng-if="parent ">
             <h2 class="page-title">{{parent}}</h2>
             <div class="date-section" ng-repeat="category in subcategory" ng-click="getSubCategory(category)">
-              <div class="date"><time>{{category.openDate | date }}11th August 2018</time></div>
+              <div class="date"><time>{{category.openDate | date:'dd MMMM yyyy' }}</time></div>
               <ion-list class="distinct list list-md">
                 <ion-item analytics-on="" class="item item-block item-md" tappable="">
                   <div class="item-inner">

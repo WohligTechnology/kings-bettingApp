@@ -20,7 +20,7 @@
         </ion-title>
       </div>
     </ion-navbar>
-    <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
+    <div ng-include="oneClickBetting" ng-show="userConfigData.oneClickStatus == true"></div>
 
   </div>
   <ion-content class="my-bets-page content content-md has-header" padding="" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">

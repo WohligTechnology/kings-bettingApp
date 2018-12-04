@@ -57,7 +57,7 @@
       </ion-navbar>
     -->
   </div>
-  <div ng-include="oneClickBetting" ng-if="userConfigData.oneClickStatus == true"></div>
+  <div ng-include="oneClickBetting" ng-show="userConfigData.oneClickStatus == true"></div>
 
   <ion-content class="home-page event-page has-header" style="background: #ddd;" ng-class="{'oneclick-top':userConfigData.oneClickStatus == true}">
     <div class="open-bets-link padding">
