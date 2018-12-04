@@ -19,9 +19,11 @@
       </ion-item>
       <ion-item class="item-accordion" ng-show="isGroupShown('unmatched')">
         <div
-          ng-if="!myCurrentBetData.unMatchedbets || myCurrentBetData.unMatchedbets.length == 0" class="padding"
-          >You have no unmatched bets</div
+          ng-if="!myCurrentBetData.unMatchedbets || myCurrentBetData.unMatchedbets.length == 0"
+          class="padding"
         >
+          You have no unmatched bets
+        </div>
         <section class="content-wrapper">
           <div>
             <open-bets-listing type="matched">
@@ -51,7 +53,10 @@
                             </div>
                             <div>
                               <strong>Placed</strong> :
-                              {{ bet.placedDate | date: "dd/MM/yyyy hh:mm:ss" }}
+                              {{
+                                bet.placedDate
+                                  | timezoneformate: "dd/MM/yyyy hh:mm:ss"
+                              }}
                             </div>
                           </div>
                           <div class="input-buttons">
@@ -61,14 +66,12 @@
                               ng-click="cancelBet(bet,'')"
                             >
                               <span class="button-inner">Cancel</span>
-                              
                             </button>
                             <button
                               class="disable-hover button button-md button-default button-default-md button-md-cta-primary"
                               ui-sref="app.match-inner({game: bet.eventType ,parentId: bet.parentCategory,unmatched:bet.betId,eventId:bet.eventId})"
                             >
                               <span class="button-inner">Update</span>
-                              
                             </button>
                           </div>
                         </div>
@@ -115,6 +118,7 @@
                       <li
                         ng-repeat="bet in matchedBet.betData"
                         ng-class="{'back':bet.type =='BACK','lay':bet.type =='LAY'}"
+                        ui-sref=""
                       >
                         <div class="bet-info matched">
                           {{ bet.type }} {{ bet.horse }} for
@@ -135,7 +139,10 @@
                             </div>
                             <div>
                               <strong>Placed</strong> :
-                              {{ bet.placedDate | date: "dd/MM/yyyy hh:mm:ss" }}
+                              {{
+                                bet.placedDate
+                                  | timezoneformate: "dd/MM/yyyy hh:mm:ss"
+                              }}
                             </div>
                           </div>
                         </div>

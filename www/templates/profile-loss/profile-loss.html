@@ -85,11 +85,11 @@
                   </a>
                 </div>
                 <div class="market-info">
-                  <strong>Start time:</strong> <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class="">{{n.marketStartTime|date:'dd/MM/yyyy
+                  <strong>Start time:</strong> <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class="">{{n.marketStartTime|timezoneformate:'dd/MM/yyyy
                     hh:mm:ss'}}
                   </time> </div>
                 <div class="market-info">
-                  <strong>Settled Time:</strong> <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class="">{{n.settledTime|date:'dd/MM/yyyy
+                  <strong>Settled Time:</strong> <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class="">{{n.settledTime|timezoneformate:'dd/MM/yyyy
                     hh:mm:ss'}}
                   </time></div>
               </div>
