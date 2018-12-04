@@ -1,20 +1,43 @@
-<div class="market list-item" ng-repeat="runner in market.runners" id="selection-1.146470978-1144538[$index]">
+<div
+  class="market list-item"
+  ng-repeat="runner in market.runners"
+  id="selection-1.146470978-1144538[$index]"
+>
   <div class="runner-details">
     <div class="title">
-      <span>{{runner.name}}</span>
+      <span>{{ runner.name }}</span>
     </div>
-    <!-- <pnl>
-      <span></span>
-    </pnl> -->
+    <!--
+      <pnl>
+        <span></span>
+      </pnl>
+    -->
   </div>
   <div class="odds-container">
-    <!-- ng-click="showBet()"  index="2" tappable="" type="back"-->
-    <back-button run="runner" markets="market" ng-click="showBet()" type="back" class="more-odds not-selected">
+    <!-- ng-click="showBet()"  index="2" tappable="" type="back" -->
+    <back-button
+      run="runner"
+      markets="market"
+      ng-click="showBet()"
+      type="back"
+      class="more-odds"
+      ng-class="{'blink':runner.singleBackRateBlink}"
+    >
     </back-button>
-    <lay-button run="runner" markets="market" ng-click="showBet()" type="lay" class="more-odds not-selected">
+    <lay-button
+      run="runner"
+      markets="market"
+      ng-click="showBet()"
+      type="lay"
+      class="more-odds"
+      ng-class="{'blink':runner.singleLayRateBlink}"
+    >
     </lay-button>
-    <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
-      ng-hide="market.runners.length==3 || isDraw == false || market.allZero" class="not-selected">
+    <div
+      ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
+      ng-hide="market.runners.length==3 || isDraw == false || market.allZero"
+      class="
+    >
       <span>-</span>
     </div>
   </div>

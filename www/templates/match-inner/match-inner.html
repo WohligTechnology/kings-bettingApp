@@ -105,10 +105,10 @@
                                                   ng-click="showBet()"  index="2" tappable="" type="back"
                                                 -->
                                             <back-button run="runner" markets="market" type="back" class="more-odds not-selected"
-                                              ng-click="showBet(market,runner,'BACK')">
+                                              ng-click="showBet(market,runner,'BACK')" ng-class="{'blink':runner.singleBackRateBlink}">
                                             </back-button>
                                             <lay-button run="runner" markets="market" type="lay" class="more-odds not-selected"
-                                              ng-click="showBet(market,runner,'LAY')">
+                                              ng-click="showBet(market,runner,'LAY')"  ng-class="{'blink':runner.singleLayRateBlink}">
                                             </lay-button>
                                             <!--
                                                   <div ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
